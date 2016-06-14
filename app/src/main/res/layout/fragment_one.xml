@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.63">
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/copybutton"
+            android:layout_gravity="center"
+            android:layout_weight="0.72"
+            android:longClickable="false"
+            android:src="@mipmap/copybutton_big"
+            android:background="#000000" />
+    </LinearLayout>
+
+
+</LinearLayout>

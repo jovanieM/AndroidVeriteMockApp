@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--status -->
+    <LinearLayout
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/status_2"/>
+    </LinearLayout>
+
+    <!--Content -->
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_below="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Alignment is skipped. You can run Alignment using [Settings > Device Settings > Printer Utitlity > Cartridge Setup] on the top screen."
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <!-- product image -->
+    <LinearLayout
+        android:id="@+id/product_image"
+        android:layout_below="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image9" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/product_image"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal">
+        <Button
+            android:id="@+id/btnOk_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
