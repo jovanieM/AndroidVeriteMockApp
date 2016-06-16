@@ -56,6 +56,28 @@
         <item>4 in 1 Portrait</item>
         <item>4 in 1 Landscape</item>
     </string-array>
+	
+	 <string-array name="routers_printer">
+        <item>Router 1</item>
+        <item>Router 2</item>
+        <item>Router 3</item>
+        <item>Router 4</item>
+        <item>Router 5</item>
+        <item>Router 6</item>
+        <item>Printer 1</item>
+        <item>Printer 2</item>
+        <item>Printer 3</item>
+        <item>Printer 4</item>
+        <item>Printer 5</item>
+        <item>Printer 6</item>
+    </string-array>
+
+    <string-array name="security">
+        <item>Open</item>
+        <item>WEP</item>
+        <item>WPA/WPA2-PSK MIX</item>
+        <item>WPA2-PSK AES</item>
+    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
