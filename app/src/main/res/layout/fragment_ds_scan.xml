@@ -7,10 +7,13 @@
     tools:context="com.cebusqa.kodakverite.DS_scan">
 
 
-    <LinearLayoutcmd
+    <LinearLayout
         android:id="@+id/linearLayout_ecomode"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" >
+        android:layout_alignParentStart="false"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
 
         <ImageButton
             android:layout_width="fill_parent"
@@ -43,7 +46,7 @@
             android:layout_height="25dp"
             android:layout_gravity="center_horizontal" />
 
-    </LinearLayoutcmd>
+    </LinearLayout>
 
 
 

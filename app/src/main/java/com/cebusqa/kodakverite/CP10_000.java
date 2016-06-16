@@ -3,6 +3,7 @@ package com.cebusqa.kodakverite;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,7 +21,7 @@ public class CP10_000 extends AppCompatActivity  {
     public int num = 0;
     public String val;
     boolean flag = true;
-    public Button color_btn;
+    public Button color_btn, back;
     Fragment fr;
     FragmentManager fm;
     FragmentTransaction fragmentTransaction;
@@ -38,6 +39,8 @@ public class CP10_000 extends AppCompatActivity  {
         standardbw = (ImageButton) findViewById(R.id.standardbw);
         custom = (ImageButton) findViewById(R.id.custom);
         color_btn = (Button)findViewById(R.id.color_btn);
+        back = (Button)findViewById(R.id.back);
+
 
         incre.setOnClickListener(new OnClickListener() {
             @Override
@@ -65,6 +68,12 @@ public class CP10_000 extends AppCompatActivity  {
             }
         });
 
+
+        back.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(CP10_000.this, HM10_000.class));
+            }
+        });
 
         standardcolor.setOnClickListener(new OnClickListener(){
 

@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/fragment_place_scan"
-            android:name="com.cebusqa.kodakverite.Fragment_ds_scan" />
+            android:name="com.cebusqa.kodakverite.FragmentScanSettings" />
 
         <Space
             android:layout_width="match_parent"
