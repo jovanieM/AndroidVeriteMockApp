@@ -15,7 +15,9 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/status_2"/>
+            android:src="@drawable/status_2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
     </LinearLayout>
 
     <!--Content -->
@@ -31,7 +33,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Alignment is skipped. You can run Alignment using [Settings > Device Settings > Printer Utitlity > Cartridge Setup] on the top screen."
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
     </LinearLayout>
 
     <!-- product image -->
@@ -46,7 +50,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/image9" />
+            android:src="@drawable/image9"
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -58,9 +63,10 @@
         <Button
             android:id="@+id/btnOk_1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="OK"
-            />
+            android:layout_marginTop="20dp"
+            android:background="@drawable/oval_background" />
     </LinearLayout>
 
 </RelativeLayout>

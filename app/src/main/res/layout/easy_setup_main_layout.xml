@@ -6,7 +6,7 @@
 
     <!-- AppBar -->
     <include
-        layout="@layout/app_bar_back_only"
+        layout="@layout/app_bar"
         android:id="@+id/toolbar" />
 
     <!-- Header -->
@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         android:orientation="horizontal"
-        android:background="#000000">
+        android:background="#000000"
+        android:gravity="center_horizontal">
 
         <TextView
             android:layout_width="match_parent"

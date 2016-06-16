@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
     <!--status -->
     <LinearLayout
@@ -15,7 +16,9 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/status"/>
+            android:src="@drawable/status"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp" />
     </LinearLayout>
 
     <!--Content -->
@@ -25,14 +28,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/status"
         android:orientation="horizontal"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Connect the printer to AC Power, and turn on the printer. Confirm the Power LED is On and Wireless LED is lighting or blinking"
-            android:textSize="12dp" />
+            android:textSize="12sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
     </LinearLayout>
 
     <!-- product image -->
@@ -42,11 +49,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/colorPrimary">
+        android:gravity="center_horizontal"
+        android:background="@color/colorPrimary"
+        android:padding="10dp">
+
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/image2" />
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxWidth="250dp"
+            android:maxHeight="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/image2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
     </LinearLayout>
 
     <!-- buttons -->
@@ -55,21 +72,26 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_below="@+id/product_image"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="20dp">
 
         <Button
             android:id="@+id/btnOk"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/oval_background"
             android:text="OK"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:clickable="false" />
 
         <Button
             android:id="@+id/btnSkip"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:text="Skip"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/oval_background" />
     </LinearLayout>
 
 </RelativeLayout>

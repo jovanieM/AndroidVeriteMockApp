@@ -16,7 +16,9 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/status_2"/>
+            android:src="@drawable/status_2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
     </LinearLayout>
 
     <!--Content -->
@@ -32,7 +34,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="By reading the pattern with the scanner, the printer alignment is optimized and the print quality would be better."
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
     </LinearLayout>
 
     <!-- product image -->
@@ -47,7 +51,8 @@
         <ImageView
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:src="@drawable/image8" />
+            android:src="@drawable/image8"
+            android:adjustViewBounds="true" />
     </LinearLayout>
 
 </RelativeLayout>

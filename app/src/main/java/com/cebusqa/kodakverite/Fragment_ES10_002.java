@@ -7,15 +7,23 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 /**
  * Created by SQA Cebu on 6/9/2016.
  */
 public class Fragment_ES10_002 extends Fragment {
 
+    ProgressBar progressBar;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_es10_002, container, false);
+
+        //Progress bar
+        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -29,6 +37,6 @@ public class Fragment_ES10_002 extends Fragment {
             }
         }, 4000);
 
-        return inflater.inflate(R.layout.fragment_es10_002, container, false);
+        return view;
     }
 }
