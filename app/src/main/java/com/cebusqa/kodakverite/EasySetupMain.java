@@ -5,7 +5,6 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
-//test comment for Git
 
 /**
  * Created by SQA Cebu on 6/8/2016.

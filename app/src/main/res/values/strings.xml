@@ -1,4 +1,63 @@
 <resources>
     <string name="app_name">Kodak Verite</string>
     <string name="easy_setup">EASY SETUP</string>
+
+    <string-array name="Color">
+        <item>Color</item>
+        <item>Black and White</item>
+    </string-array>
+
+    <string-array name="Paper_size">
+        <item>Letter</item>
+        <item>Legal</item>
+        <item>Executive</item>
+        <item>Statement</item>
+        <item>A4</item>
+        <item>JIS B5</item>
+        <item>A5</item>
+        <item>4x6 in.</item>
+        <item>3x5 in.</item>
+        <item>5x7 in.(2L)</item>
+        <item>3.5x5 in.(L)</item>
+        <item>Hagaki</item>
+        <item>10 Envelope</item>
+        <item>DL Envelope</item>
+        <item>C5 Envelope</item>
+    </string-array>
+
+    <string-array name="Paper_type">
+        <item>Plain</item>
+        <item>Labels</item>
+        <item>Envelope</item>
+        <item>Glossy Photo</item>
+        <item>Matte Photo</item>
+    </string-array>
+
+    <string-array name="Quality">
+        <item>Text</item>
+        <item>Text/Graphics</item>
+        <item>Photo</item>
+        <item>Draft</item>
+    </string-array>
+
+    <string-array name="Copy_Resize">
+        <item>100% Default</item>
+        <item>130% Letter->Legal</item>
+        <item>104% Executive->Letter</item>
+        <item>97% Letter->A4</item>
+        <item>85% Letter->Executive</item>
+        <item>Custom</item>
+    </string-array>
+
+    <string-array name="Pages_per_side">
+        <item>One</item>
+        <item>2 in 1 Portrait</item>
+        <item>2 in 1 Landscape</item>
+        <item>4 in 1 Portrait</item>
+        <item>4 in 1 Landscape</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

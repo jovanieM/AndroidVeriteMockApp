@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 
 public class HM10_000 extends AppCompatActivity {
 
-    ImageButton inklevel, copy, scanphoto, scandocument, photoprint, ecomode;
+    ImageButton inklevel, copy, scanphoto, scandocument, photoprint, ecomode, setting_icon;
     private ProgressDialog progressBar;
     private int progressBarStatus = 0;
 
@@ -26,6 +26,7 @@ public class HM10_000 extends AppCompatActivity {
         scanphoto =(ImageButton)findViewById(R.id.scanphoto);
         scandocument =(ImageButton)findViewById(R.id.scandocument);
         photoprint =(ImageButton)findViewById(R.id.photoprint);
+        setting_icon =(ImageButton)findViewById(R.id.setting_icon);
 
         inklevel.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -38,6 +39,16 @@ public class HM10_000 extends AppCompatActivity {
                 startActivity(new Intent(HM10_000.this, CP10_000.class));
             }
         });
+
+        setting_icon.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(HM10_000.this, DS10_000.class));
+            }
+        });
+
+
+
+
 
         ecomode.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){

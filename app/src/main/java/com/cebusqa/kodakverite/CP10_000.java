@@ -7,17 +7,20 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 
-public class CP10_000 extends AppCompatActivity {
+public class CP10_000 extends AppCompatActivity  {
 
     public ImageButton incre, decre, standardcolor, standardbw, custom;
-    public EditText copies;
+    public TextView num_copies, color_txtview;
     public int num = 0;
     public String val;
     boolean flag = true;
+    public Button color_btn;
     Fragment fr;
     FragmentManager fm;
     FragmentTransaction fragmentTransaction;
@@ -28,14 +31,13 @@ public class CP10_000 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cp10_000);
 
-        copies = (EditText) findViewById(R.id.copies);
+        num_copies = (TextView) findViewById(R.id.num_copies);
         incre = (ImageButton) findViewById(R.id.incre);
         decre = (ImageButton) findViewById(R.id.decre);
         standardcolor = (ImageButton) findViewById(R.id.standardcolor);
         standardbw = (ImageButton) findViewById(R.id.standardbw);
         custom = (ImageButton) findViewById(R.id.custom);
-
-
+        color_btn = (Button)findViewById(R.id.color_btn);
 
         incre.setOnClickListener(new OnClickListener() {
             @Override
@@ -44,7 +46,7 @@ public class CP10_000 extends AppCompatActivity {
                 if (num < 101) {
                     num= num+1;
                     val = Integer.toString(num);
-                    copies.setText(val);
+                    num_copies.setText(val);
 
                 }
             }
@@ -54,10 +56,11 @@ public class CP10_000 extends AppCompatActivity {
         decre.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num>0)
+
+                if (num>1)
                 num= num-1;
                 val = Integer.toString(num);
-                copies.setText(val);
+                num_copies.setText(val);
 
             }
         });
@@ -121,9 +124,15 @@ public class CP10_000 extends AppCompatActivity {
                 fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_place, fr);
                 fragmentTransaction.commit();
-               }
+
+
+                }
 
                });
+
+
+
+
 
 
 }

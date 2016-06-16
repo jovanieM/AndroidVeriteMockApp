@@ -9,7 +9,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="1.40">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -26,12 +27,41 @@
             android:src="@mipmap/copy_small"
             android:focusable="false" />
 
-        <EditText
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_weight="0"></LinearLayout>
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/Textview6"
             android:text="Advanced Settings"
             android:textColor="#f4f0f0" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_weight="0"></LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="bottom" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -44,6 +74,7 @@
                 android:layout_width="100dp"
                 android:layout_height="25dp"
                 android:text="Color"
+                android:onClick=""
                 android:id="@+id/textView2"
                 android:layout_gravity="center"
                 android:textColor="#ffffff"
@@ -51,12 +82,15 @@
                 android:layout_weight="0.17"
                 android:paddingTop="3dp" />
 
-            <Spinner
+            <Button
                 android:layout_width="150dp"
                 android:layout_height="25dp"
-                android:id="@+id/color_spinner"
+                android:id="@+id/color_btn"
                 android:layout_gravity="right"
-                android:paddingTop="3dp" />
+                android:paddingTop="3dp"
+                android:text="Color"
+                android:textColor="#ffcf33"
+                android:background="#000000" />
 
 
         </LinearLayout>
@@ -84,15 +118,17 @@
                 android:layout_gravity="center"
                 android:textColor="#ffffff"
                 android:layout_marginLeft="20dp"
-                android:layout_weight="0.17"
                 android:paddingTop="3dp" />
 
-            <Spinner
+            <TextView
                 android:layout_width="150dp"
                 android:layout_height="25dp"
-                android:id="@+id/papersize_spinner"
+                android:id="@+id/papersize_txtview"
                 android:layout_gravity="right"
-                android:paddingTop="3dp" />
+                android:paddingTop="3dp"
+                android:text="Letter"
+                android:textColor="#ffcf33"
+                android:textAlignment="textEnd" />
 
 
         </LinearLayout>
@@ -123,12 +159,15 @@
                 android:layout_weight="0.17"
                 android:paddingTop="3dp" />
 
-            <Spinner
+            <TextView
                 android:layout_width="150dp"
                 android:layout_height="25dp"
-                android:id="@+id/papertype_spinner"
+                android:id="@+id/papertype_txtview"
                 android:layout_gravity="right"
-                android:paddingTop="3dp" />
+                android:paddingTop="3dp"
+                android:textColor="#ffcf33"
+                android:text="Plain"
+                android:textAlignment="textEnd" />
         </LinearLayout>
 
         <View
@@ -156,13 +195,16 @@
                 android:layout_weight="0.17"
                 android:paddingTop="3dp" />
 
-            <Spinner
+            <TextView
                 android:layout_width="150dp"
                 android:layout_height="25dp"
-                android:id="@+id/spinner_quality"
+                android:id="@+id/quality_txtview"
                 android:layout_gravity="right"
                 android:paddingTop="3dp"
-                android:longClickable="true" />
+                android:longClickable="true"
+                android:text="Text/Graphics"
+                android:textColor="#ffcf33"
+                android:textAlignment="textEnd" />
         </LinearLayout>
 
         <View
@@ -173,6 +215,9 @@
             android:layout_marginRight="10dp"
             android:layout_gravity="bottom" />
 
+        </LinearLayout>
+
+        </ScrollView>
 
     </LinearLayout>
 
