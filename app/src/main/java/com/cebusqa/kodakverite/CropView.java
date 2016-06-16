@@ -24,7 +24,7 @@ public class CropView extends View {
     int x, y, right,bottom;
 
     int prevX,prevY,prevR, prevB;
-    int deltaX, deltaY, deltaR, deltaB;
+    //int deltaX, deltaY, deltaR, deltaB;
     int newX, newY, newR, newB;
 
     Paint paint;
