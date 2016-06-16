@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:minHeight="?attr/actionBarSize"
+    android:id="@+id/toolbar"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back"
+            android:background="#000000"
+            android:textColor="#ffcf33" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_weight="0.41" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/kodak_logo" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.38" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/setting_icon"
+            android:layout_weight="0"
+            android:background="#000000"
+            android:layout_gravity="center|right"
+            android:src="@mipmap/setting_icon" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.Toolbar>
