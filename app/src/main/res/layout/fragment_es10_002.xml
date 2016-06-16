@@ -16,7 +16,10 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/status"/>
+            android:src="@drawable/status"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp" />
+
     </LinearLayout>
 
     <!--Content -->
@@ -32,7 +35,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Printer found, checking status..."
-            android:textSize="12dp" />
+            android:textSize="12sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textIsSelectable="false" />
     </LinearLayout>
 
     <!-- product image -->
@@ -45,8 +51,12 @@
         android:background="@color/colorPrimary">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/image3" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/image3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="20dp" />
     </LinearLayout>
 
     <!-- content info -->
@@ -57,14 +67,32 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/colorPrimary">
+        
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:max="4"
+            android:padding="4dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Printer information:"/>
+            android:text="Printer information:"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name-KODAK-VERITE-XXXXXX" />
+            android:text="Name-KODAK-VERITE-XXXXXX"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp" />
     </LinearLayout>
 
 </RelativeLayout>

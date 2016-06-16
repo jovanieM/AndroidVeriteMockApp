@@ -10,13 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/header"
         android:background="@color/colorPrimary">
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/status_2"
+            android:src="@drawable/status_3"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp" />
     </LinearLayout>
@@ -27,16 +25,20 @@
         android:layout_below="@+id/status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="By reading the pattern with the scanner, the printer alignment is optimized and the print quality would be better."
-            android:textSize="15dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:text="
+Initial setup finished. \n
+Your connection will be switched from \n
+Wireless Direct to Router connection."
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp" />
     </LinearLayout>
 
     <!-- product image -->
@@ -45,14 +47,20 @@
         android:layout_below="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:background="@color/colorPrimary"
-        android:gravity="center_horizontal">
+        android:layout_alignParentEnd="false">
         <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:src="@drawable/image8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image12"
+            android:layout_gravity="top|bottom"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:scaleType="fitXY"
+            android:layout_marginTop="20dp"
+            android:minHeight="200dp"
+            android:minWidth="200dp"
             android:adjustViewBounds="true" />
     </LinearLayout>
-
 </RelativeLayout>

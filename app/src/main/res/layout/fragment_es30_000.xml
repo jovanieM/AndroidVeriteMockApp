@@ -15,7 +15,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/status_3"/>
+            android:src="@drawable/status_3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
     </LinearLayout>
 
     <!--Content -->
@@ -31,7 +34,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Searching for routers..."
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
     </LinearLayout>
 
     <!-- product image -->
@@ -46,7 +51,8 @@
         <ImageView
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:src="@drawable/image10" />
+            android:src="@drawable/image10"
+            android:scaleType="center" />
 
     </LinearLayout>
 

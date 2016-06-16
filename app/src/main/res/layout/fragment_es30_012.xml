@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--status -->
+    <LinearLayout
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/status_3"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/status"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/frameLayout"
+        android:layout_margin="10dp"
+        android:background="@color/button_material_dark">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SSID"
+            android:id="@+id/tv_ssid"
+            android:layout_gravity="center_vertical"
+            android:textSize="13sp"
+            android:textIsSelectable="true" />
+
+        <EditText
+            android:layout_width="234dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_gravity="center"
+            android:text="Input SSID name"
+            android:singleLine="false"
+            android:background="@drawable/edit_text_border"
+            android:padding="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_security"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frameLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp"
+        android:background="@color/button_material_dark"
+        android:clickable="true"
+        android:onClick="Security">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Security"
+            android:id="@+id/tvSecurity"
+            android:layout_gravity="left|center_vertical|right"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:id="@+id/tvSecurityName"
+            android:layout_gravity="right|center_vertical"
+            android:singleLine="true"
+            android:layout_margin="5dp"
+            android:padding="3dp"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame_security"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/framePassword"
+        android:layout_margin="10dp"
+        android:background="@color/button_material_dark">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:id="@+id/tv_password"
+            android:layout_gravity="center_vertical"
+            android:textSize="13sp"
+            android:textIsSelectable="true" />
+
+        <EditText
+            android:layout_width="234dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editPassword"
+            android:layout_gravity="center"
+            android:text=""
+            android:singleLine="false"
+            android:background="@drawable/edit_text_border"
+            android:padding="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:inputType="textPassword" />
+    </FrameLayout>
+
+
+</RelativeLayout>
