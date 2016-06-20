@@ -11,14 +11,17 @@
     tools:context="cebusqa.sp_000.SP_000"
     android:background="#010101">
 
+    <include
+        layout="@layout/app_bar_back_only"
+        android:id="@+id/toolbar" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/relativeLayout2" />
+        android:layout_above="@+id/relativeLayout2"
+        android:layout_below="@+id/toolbar" />
 
     <RelativeLayout
         android:orientation="vertical"

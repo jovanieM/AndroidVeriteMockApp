@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
+import java.security.SecurityPermission;
+
 
 public class HM10_000 extends AppCompatActivity {
 
@@ -47,7 +49,11 @@ public class HM10_000 extends AppCompatActivity {
         });
 
 
-
+        scanphoto.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(HM10_000.this, SP_000.class));
+            }
+        });
 
 
         ecomode.setOnClickListener(new View.OnClickListener(){

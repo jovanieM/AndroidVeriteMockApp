@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 
 public class SP_000 extends AppCompatActivity {
 
+    Button back;
     RelativeLayout rl_scan, rl_crop, rl_send;
     Intent intent, chooser;
     Context context;
@@ -38,7 +41,7 @@ public class SP_000 extends AppCompatActivity {
         bundle = savedInstanceState;
         setContentView(R.layout.activity_sp_000);
 
-
+        back = (Button)findViewById(R.id.back);
         rl_scan = (RelativeLayout) findViewById(R.id.scan);
         rl_crop = (RelativeLayout) findViewById(R.id.crop);
         rl_send = (RelativeLayout) findViewById(R.id.send);
@@ -70,6 +73,12 @@ public class SP_000 extends AppCompatActivity {
 
         iv.setImageBitmap(bm);
 
+
+        back.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(SP_000.this, HM10_000.class));
+            }
+        });
 
 
         //Toast.makeText(this, String.valueOf(maxW), Toast.LENGTH_SHORT).show();
