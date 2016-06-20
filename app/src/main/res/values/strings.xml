@@ -79,6 +79,31 @@
         <item>WPA2-PSK AES</item>
     </string-array>
 
+    <string-array name="Quality_scan">
+        <item>Normal</item>
+        <item>Low (Fast)</item>
+        <item>High</item>
+    </string-array>
 
+    <string-array name="Color_scan">
+        <item>Color</item>
+        <item>Gray Scale</item>
+        <item>Black &amp; White</item>
+    </string-array>
+
+
+    <string-array name="Document_scan">
+        <item>Text</item>
+        <item>Text/Graphics</item>
+    </string-array>
+
+    <string-array name="Type_scan">
+        <item>PDF</item>
+        <item>JPG</item>
+    </string-array>
+
+    <string-array name="Photo_scan">
+        <item>Photo</item>
+    </string-array>
 
 </resources>

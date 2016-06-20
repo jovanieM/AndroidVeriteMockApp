@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Splash"
+            android:name=".HM10_000"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".EasySetupMain" />
-        <activity android:name=".HM10_000" />
+<!--        <activity android:name=".HM10_000" />  -->
         <activity android:name=".IL10_000" />
         <activity android:name=".CP10_000" />
         <activity android:name=".DS_print" />
@@ -27,8 +27,9 @@
         <activity android:name=".DS10_000"/>
         <activity android:name=".ImageCropper"/>
         <activity android:name=".SP_000"/>
-      
-
+        <activity android:name=".Scan_Doc_Settings"/>
+        <activity android:name=".Scan_Photo_Settings"/>
+        <activity android:name=".NetworkStatus_details"/>
 
 
     </application>

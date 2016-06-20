@@ -1,6 +1,6 @@
 package com.cebusqa.kodakverite;
 
-import android.app.ProgressDialog;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +33,7 @@ public class DS10_000 extends AppCompatActivity {
         scan_settings.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(DS10_000.this, DS_scan.class));
+
             }
         });
 
@@ -49,7 +50,7 @@ public class DS10_000 extends AppCompatActivity {
         });
 
 
-         }
+        }
 
 
 

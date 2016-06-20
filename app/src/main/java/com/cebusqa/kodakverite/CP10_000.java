@@ -85,7 +85,6 @@ public class CP10_000 extends AppCompatActivity  {
                            custom.setImageResource(R.mipmap.custom_white);
 
                 fr = new FragmentOne();
-
                 fm = getFragmentManager();
                 fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_place, fr);
