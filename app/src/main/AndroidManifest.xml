@@ -27,10 +27,6 @@
         <activity android:name=".DS10_000"/>
         <activity android:name=".ImageCropper"/>
         <activity android:name=".SP_000"/>
-      
-
-
-
     </application>
 
 </manifest>

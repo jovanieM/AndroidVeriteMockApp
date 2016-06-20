@@ -50,17 +50,65 @@ public class Fragment_ES30_001 extends Fragment {
                     case 0:
                         //itemPos = adapterView.getSelectedItemPosition();
                         //itemSSID = adapterView.getSelectedItem().toString();
-
-                        Fragment_ES30_040 frag = new Fragment_ES30_040();
-                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                        fragment_ES30_040();
                         itemSSID = (String) listView.getItemAtPosition(i).toString();
-
-
-                        transaction.replace(R.id.my_layout, frag);
-                        transaction.commit();
                         break;
+
                     case 1:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
                         break;
+
+                    case 2:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
+                        break;
+
+                    case 3:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
+                        break;
+
+                    case 4:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
+                        break;
+
+                    case 5:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
+                        break;
+
+                    case 6:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
+                        break;
+
+                    case 7:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
+                        break;
+
+                    case 8:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
+                        break;
+
+                    case 9:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
+                        break;
+
+                    case 10:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
+                        break;
+
+                    case 11:
+                        fragment_ES30_040();
+                        itemSSID = (String) listView.getItemAtPosition(i).toString();
+                        break;
+
                     default:
                         break;
                 }
@@ -107,5 +155,13 @@ public class Fragment_ES30_001 extends Fragment {
         });
 
         return view;
+    }
+
+    public void fragment_ES30_040(){
+        Fragment_ES30_040 frag = new Fragment_ES30_040();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.my_layout, frag);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

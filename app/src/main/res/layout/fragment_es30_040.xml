@@ -51,10 +51,10 @@
     <!-- Password -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/ll_ssid"
         android:orientation="horizontal"
-        android:id="@+id/ll_password"
+        android:id="@+id/rl_password1"
         android:layout_margin="10dp"
         android:padding="10dp">
 
@@ -65,26 +65,58 @@
             android:id="@+id/tv_password"
             android:layout_gravity="center_vertical"
             android:textSize="13sp"
-            android:textIsSelectable="true"
-            android:layout_marginRight="50dp" />
+            android:layout_marginRight="50dp"
+            android:textIsSelectable="true"/>
 
         <EditText
-            android:id="@+id/et_password_1"
+            android:id="@+id/et_pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_password"
-            android:text="Input Password"
-            android:singleLine="true"
+            android:hint="Input password"
+            android:inputType="text"
             android:background="@drawable/edit_text_border"
-            android:imeOptions="actionGo"/>
+            android:singleLine="true"
+            android:imeOptions="actionDone">
+            <requestFocus />
+        </EditText>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Show password"
-            android:id="@+id/checkBox2"
+            android:id="@+id/checkBox3"
             android:layout_marginRight="10dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/et_password_1" />
+            android:layout_below="@+id/et_pass"
+            android:layout_alignParentRight="true" />
+
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_password1"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <Button
+            android:id="@+id/btn_help1"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="help"
+            android:background="@drawable/oval_background"
+            android:layout_marginRight="10dp" />
+
+        <Button
+            android:id="@+id/btn_other"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="other..."
+            android:background="@drawable/oval_background"
+            android:layout_marginRight="10dp" />
+    </LinearLayout>
+
 </RelativeLayout>
