@@ -6,8 +6,6 @@
     android:background="@color/black"
     tools:context="com.cebusqa.kodakverite.DS_device">
 
-
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"

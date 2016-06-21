@@ -27,6 +27,12 @@
         <activity android:name=".DS10_000"/>
         <activity android:name=".ImageCropper"/>
         <activity android:name=".SP_000"/>
+        <activity android:name=".PU00_0000" />
+        <activity android:name=".CS00_000" />
+        <activity android:name=".CS00_001" />
+        <activity android:name=".CS00_002" />
+        <activity android:name=".CS00_003" />
+        <activity android:name=".CS00_002_Help" />
     </application>
 
 </manifest>
