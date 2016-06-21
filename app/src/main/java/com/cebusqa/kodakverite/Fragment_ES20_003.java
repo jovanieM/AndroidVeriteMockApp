@@ -18,6 +18,9 @@ public class Fragment_ES20_003 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
