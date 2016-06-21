@@ -2,12 +2,12 @@
     <string name="app_name">Kodak Verite</string>
     <string name="easy_setup">EASY SETUP</string>
 
-    <string-array name="Color">
+    <string-array name="Color_copy">
         <item>Color</item>
         <item>Black and White</item>
     </string-array>
 
-    <string-array name="Paper_size">
+    <string-array name="Paper_size_copy">
         <item>Letter</item>
         <item>Legal</item>
         <item>Executive</item>
@@ -33,7 +33,7 @@
         <item>Matte Photo</item>
     </string-array>
 
-    <string-array name="Quality">
+    <string-array name="Quality_copy">
         <item>Text</item>
         <item>Text/Graphics</item>
         <item>Photo</item>
@@ -56,8 +56,8 @@
         <item>4 in 1 Portrait</item>
         <item>4 in 1 Landscape</item>
     </string-array>
-	
-	 <string-array name="routers_printer">
+
+    <string-array name="routers_printer">
         <item>Router 1</item>
         <item>Router 2</item>
         <item>Router 3</item>
@@ -105,5 +105,45 @@
     <string-array name="Photo_scan">
         <item>Photo</item>
     </string-array>
+
+
+    <string-array name="Paper_size_print">
+        <item>Letter</item>
+        <item>Legal</item>
+        <item>Executive</item>
+        <item>Statement</item>
+        <item>A4</item>
+        <item>A4 Borderless</item>
+        <item>JIS B5</item>
+        <item>A5</item>
+        <item>A6</item>
+        <item>A6 Borderless</item>
+        <item>4x6 in.</item>
+        <item>4x6 in. Borderless</item>
+        <item>3x5 in.</item>
+        <item>5x7 in.(2L)</item>
+        <item>5x7 in.(2L) Borderless</item>
+        <item>3.5x5 in.(L)</item>
+        <item>3.5x5 in.(L) Borderless</item>
+        <item>Hagaki</item>
+        <item>Hagaki Borderless</item>
+        <item>10 Envelope</item>
+        <item>DL Envelope</item>
+        <item>C5 Envelope</item>
+    </string-array>
+
+
+    <string-array name="Color_print">
+        <item>Color</item>
+    </string-array>
+
+
+    <string-array name="Print_quality">
+        <item>Automatic</item>
+        <item>Normal</item>
+        <item>Best</item>
+        <item>Draft</item>
+    </string-array>
+
 
 </resources>

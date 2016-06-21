@@ -18,20 +18,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".EasySetupMain" />
-<!--        <activity android:name=".HM10_000" />  -->
+        <!-- <activity android:name=".HM10_000" /> -->
         <activity android:name=".IL10_000" />
         <activity android:name=".CP10_000" />
         <activity android:name=".DS_print" />
         <activity android:name=".DS_device" />
-        <activity android:name=".DS_scan"/>
-        <activity android:name=".DS10_000"/>
-        <activity android:name=".ImageCropper"/>
-        <activity android:name=".SP_000"/>
-        <activity android:name=".Scan_Doc_Settings"/>
-        <activity android:name=".Scan_Photo_Settings"/>
-        <activity android:name=".NetworkStatus_details"/>
-
-
+        <activity android:name=".DS_scan" />
+        <activity android:name=".DS10_000" />
+        <activity android:name=".ImageCropper" />
+        <activity android:name=".SP_000" />
+        <activity android:name=".Scan_Doc_Settings" />
+        <activity android:name=".Scan_Photo_Settings" />
+        <activity android:name=".NetworkStatus_details" />
     </application>
 
 </manifest>

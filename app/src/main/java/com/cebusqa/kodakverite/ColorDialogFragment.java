@@ -31,7 +31,7 @@ public class ColorDialogFragment extends ListFragment {
 
         super.onActivityCreated(savedInstanceState);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Color, android.R.layout.simple_list_item_1);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.Color_copy, android.R.layout.simple_list_item_1);
 
         setListAdapter(adapter);
      //   getListView().setOnItemClickListener());
