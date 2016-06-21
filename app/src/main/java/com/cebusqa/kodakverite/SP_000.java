@@ -24,16 +24,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SP_000 extends AppCompatActivity implements SaveAsDialog.Communicator{
+public class SP_000 extends AppCompatActivity{
 
     Button back;
-    RelativeLayout rl_scan, rl_crop, rl_send;
+    RelativeLayout rl_scan, rl_crop, rl_send, save,email,drive,skyDrive;
     Intent intent, chooser;
     Context context;
     static final int GET_BITMAP_REQUEST = 2;
     ImageView iv;
     Bitmap bm;
     Bundle bundle;
+    boolean visible = false;
     float measuredWidth, measuredHeigtt, width, height;
 
     int finalW, finalH;
@@ -44,10 +45,14 @@ public class SP_000 extends AppCompatActivity implements SaveAsDialog.Communicat
         bundle = savedInstanceState;
         setContentView(R.layout.activity_sp_000);
 
-        back = (Button)findViewById(R.id.back);
-        rl_scan = (RelativeLayout) findViewById(R.id.scan);
-        rl_crop = (RelativeLayout) findViewById(R.id.crop);
-        rl_send = (RelativeLayout) findViewById(R.id.send);
+        this.back = (Button)findViewById(R.id.back);
+        this.rl_scan = (RelativeLayout) findViewById(R.id.scan);
+        this.rl_crop = (RelativeLayout) findViewById(R.id.crop);
+        this.rl_send = (RelativeLayout) findViewById(R.id.send);
+        this.save = (RelativeLayout) findViewById(R.id.save);
+        this.email = (RelativeLayout) findViewById(R.id.email);
+        this.drive = (RelativeLayout) findViewById(R.id.drive);
+        this.skyDrive = (RelativeLayout) findViewById(R.id.one_box);
         iv = (ImageView) findViewById(R.id.imageView);
         context = getApplicationContext();
 
@@ -81,71 +86,69 @@ public class SP_000 extends AppCompatActivity implements SaveAsDialog.Communicat
                 startActivity(new Intent(SP_000.this, HM10_000.class));
             }
         });
-
-        rl_send.setOnClickListener(new View.OnClickListener() {
+        rl_scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ScanPhotoDialog scanPhotoDialog = new ScanPhotoDialog();
+                scanPhotoDialog.show(getFragmentManager(), "My Progress Dialog");
+            }
+        });
 
-                String MEDIA_MOUNTED = "mounted";
-                String diskState = Environment.getExternalStorageState();
-                FragmentManager manager = getFragmentManager();
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 SaveAsDialog saveAs = new SaveAsDialog();
-                saveAs.show(manager, "save");
-                if(diskState.equals(MEDIA_MOUNTED)){
 
-                    File pictureFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-                    File filePicture = new File(pictureFolder, "file_sample.jpg");
-                    FileOutputStream fos = null;
-                    try {
-                        fos = new FileOutputStream(filePicture);
-                        bm.compress(Bitmap.CompressFormat.JPEG, 100 , fos);
+                saveAs.show(getFragmentManager(), "My dialog");
 
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } finally {
-                        try {
-                            fos.close();
-                            Toast.makeText(SP_000.this, "File is save", Toast.LENGTH_SHORT).show();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }else{
-                    Toast.makeText(SP_000.this, "External disk is not mounted", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 
         //Toast.makeText(this, String.valueOf(maxW), Toast.LENGTH_SHORT).show();
         // working code
-//        rl_send.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
-//                intent = ShareCompat.IntentBuilder.from(SP_000.this).setType("image/*").getIntent().setPackage("com.google.android.apps.docs");
-//
-////                intent = new Intent(Intent.ACTION_SEND);
-////                intent.setType("image/*");
-//                intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-//                chooser=Intent.createChooser(intent, "Send Image");
-//                startActivity(chooser);
-//            }
-//        });
+        drive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
+                intent = ShareCompat.IntentBuilder.from(SP_000.this).setType("image/*").getIntent().setPackage("com.google.android.apps.docs");
+
+               // intent = new Intent(Intent.ACTION_SEND);
+                //intent.setType("image/*");
+                intent.putExtra(Intent.EXTRA_STREAM, imageUri);
+                chooser=Intent.createChooser(intent, "Send Image");
+                startActivity(chooser);
+            }
+        });
 
         //working code
-//        rl_send.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
-//                intent = new Intent(Intent.ACTION_SEND);
-//                intent.setType("image/*");
-//                intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-//                chooser=Intent.createChooser(intent, "Send Image");
-//                startActivity(chooser);
-//            }
-//        });
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
+                intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("image/*");
+                intent.putExtra(Intent.EXTRA_STREAM, imageUri);
+                chooser=Intent.createChooser(intent, "Send Image");
+                startActivity(chooser);
+            }
+        });
+
+        skyDrive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
+                intent = ShareCompat.IntentBuilder.from(SP_000.this).setType("image/*").getIntent().setPackage("com.microsoft.skydrive");
+
+                // intent = new Intent(Intent.ACTION_SEND);
+                //intent.setType("image/*");
+                intent.putExtra(Intent.EXTRA_STREAM, imageUri);
+                chooser=Intent.createChooser(intent, "Send Image");
+                startActivity(chooser);
+            }
+        });
 
         rl_crop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,6 +159,26 @@ public class SP_000 extends AppCompatActivity implements SaveAsDialog.Communicat
                 Toast.makeText(getApplicationContext(), String.valueOf(bm.getWidth()), Toast.LENGTH_SHORT).show();
                 startActivityForResult(intent,GET_BITMAP_REQUEST);
                 //startActivity(intent);
+            }
+        });
+
+        rl_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!visible) {
+                    save.setVisibility(View.VISIBLE);
+                    email.setVisibility(View.VISIBLE);
+                    drive.setVisibility(View.VISIBLE);
+                    skyDrive.setVisibility(View.VISIBLE);
+                    visible = true;
+                }else{
+                    save.setVisibility(View.GONE);
+                    email.setVisibility(View.GONE);
+                    drive.setVisibility(View.GONE);
+                    skyDrive.setVisibility(View.GONE);
+                    visible = false;
+                }
+
             }
         });
 /*
@@ -203,8 +226,5 @@ public class SP_000 extends AppCompatActivity implements SaveAsDialog.Communicat
         }
     }
 
-    @Override
-    public void onDialogMessage(String message) {
 
-    }
 }

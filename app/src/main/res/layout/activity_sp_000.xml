@@ -27,15 +27,13 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentBottom="false"
         android:layout_alignWithParentIfMissing="false"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="240dp"
         android:id="@+id/relativeLayout"
-        android:background="#783d3c3c">
+        android:background="#783d3c3c"
+        android:layout_above="@+id/relativeLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="43dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -120,11 +118,12 @@
             android:layout_alignTop="@+id/textView4"
             android:layout_toRightOf="@+id/textView4"
             android:layout_toEndOf="@+id/textView4" />
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/relativeLayout"
         android:layout_alignStart="@+id/relativeLayout"
@@ -148,7 +147,8 @@
                 android:text="Scan"
                 android:id="@+id/textView9"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:textColor="#080707" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -167,7 +167,8 @@
                 android:text="Crop"
                 android:id="@+id/textView10"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:textColor="#080707" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -187,7 +188,97 @@
                 android:text="Send"
                 android:id="@+id/textView11"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:textColor="#080707" />
         </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        style="@android:style/Widget.Button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:id="@+id/save"
+        android:layout_above="@+id/relativeLayout2"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Save"
+            android:id="@+id/textView12"
+            android:textColor="#080707"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        style="@android:style/Widget.Button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:id="@+id/email"
+        android:layout_above="@+id/save"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="e-mail"
+            android:id="@+id/textView13"
+            android:textColor="#080707"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        style="@android:style/Widget.Button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:id="@+id/drive"
+        android:layout_above="@+id/email"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Drive"
+            android:id="@+id/textView14"
+            android:textColor="#080707"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        style="@android:style/Widget.Button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:clickable="true"
+        android:id="@+id/one_box"
+        android:layout_above="@+id/drive"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:visibility="gone"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="One Box"
+            android:id="@+id/one"
+            android:textColor="#080707"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 </RelativeLayout>
