@@ -5,16 +5,16 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
-public class DS_print extends AppCompatActivity {
 
-    public ImageButton quick, detail, photo4x6, photoletter, document;
+public class DS_print extends FragmentActivity {
+
+    public ImageButton quick, detail;
     public Button back;
     Fragment fr;
     FragmentManager fm;
@@ -25,8 +25,6 @@ public class DS_print extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ds_print);
-
-
 
         quick = (ImageButton) findViewById(R.id.quick);
         detail = (ImageButton) findViewById(R.id.detail);
@@ -45,21 +43,15 @@ public class DS_print extends AppCompatActivity {
 
             public void onClick (View v){
 
-
                 detail.setImageResource(R.mipmap.detail_white);
                 quick.setImageResource(R.mipmap.quick_yellow);
 
-                FragmentQuickPrint fr = new FragmentQuickPrint();
+                fr = new FragmentQuickPrint();
                 fm = getFragmentManager();
                 fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_placer, fr);
                 fragmentTransaction.commit();
-
-
-
-            }
-
-
+                }
         });
 
 
@@ -70,14 +62,11 @@ public class DS_print extends AppCompatActivity {
                 quick.setImageResource(R.mipmap.quick_white);
                 detail.setImageResource(R.mipmap.detail_yellow);
 
-                FragmentDetailPrint fr = new FragmentDetailPrint();
-
+                fr = new FragmentDetailPrint();
                 fm = getFragmentManager();
                 fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_placer, fr);
                 fragmentTransaction.commit();
-
-
             }
         });
 
