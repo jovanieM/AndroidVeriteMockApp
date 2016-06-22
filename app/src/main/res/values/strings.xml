@@ -145,5 +145,16 @@
         <item>Draft</item>
     </string-array>
 
+    <string-array name="printer_utility">
+        <item>Device Sleep Time</item>
+        <item>Clean Printhead</item>
+        <item>Cartridge Setup</item>
+        <item>Print Reports</item>
+        <item>Paper Setup</item>
+        <item>Restore Factory Default</item>
+    </string-array>
+
+
+
 
 </resources>

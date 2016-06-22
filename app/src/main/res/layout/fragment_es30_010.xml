@@ -105,7 +105,8 @@
             android:text="Input Password"
             android:singleLine="true"
             android:background="@drawable/edit_text_border"
-            android:imeOptions="actionGo"/>
+            android:imeOptions="actionDone"
+            android:selectAllOnFocus="true"/>
 
         <CheckBox
             android:layout_width="wrap_content"

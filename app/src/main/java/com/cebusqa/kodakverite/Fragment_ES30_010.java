@@ -45,7 +45,6 @@ public class Fragment_ES30_010 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_es30_010, container, false);
 
-
         editText = (EditText) view.findViewById(R.id.editText);
         etPassword = (EditText) view.findViewById(R.id.et_password);
         spinner = (Spinner) view.findViewById(R.id.sp_security);
@@ -80,18 +79,19 @@ public class Fragment_ES30_010 extends Fragment {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
 
-                               if(i == EditorInfo.IME_ACTION_GO){
+                                if(i == EditorInfo.IME_ACTION_DONE){
                                     Fragment_ES30_050 frag = new Fragment_ES30_050();
                                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                                     transaction.replace(R.id.my_layout, frag);
                                     transaction.commit();
 
-                                   hideSoftKeyboard();
+                                    hideSoftKeyboard();
                                 }
                                 return false;
                             }
                         });
+
                         break;
 
                     case 2:
@@ -100,7 +100,6 @@ public class Fragment_ES30_010 extends Fragment {
                         rlPassword.setVisibility(View.VISIBLE);
                         checkBox.setVisibility(View.VISIBLE);
 
-                        checkBox();
                         break;
 
                     case 3:
@@ -109,7 +108,6 @@ public class Fragment_ES30_010 extends Fragment {
                         rlPassword.setVisibility(View.VISIBLE);
                         checkBox.setVisibility(View.VISIBLE);
 
-                        checkBox();
                         break;
 
                     default:
@@ -129,7 +127,7 @@ public class Fragment_ES30_010 extends Fragment {
     public void hideSoftKeyboard(){
         if(getActivity().getCurrentFocus()!=null){
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(imm.HIDE_IMPLICIT_ONLY, 0);
+            imm.toggleSoftInput(imm.HIDE_NOT_ALWAYS, 0);
         }
     }
 

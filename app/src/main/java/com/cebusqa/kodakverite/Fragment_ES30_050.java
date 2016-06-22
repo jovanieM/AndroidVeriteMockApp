@@ -32,19 +32,10 @@ public class Fragment_ES30_050 extends Fragment {
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final ProgressDialog ringDialog = ProgressDialog.show(getActivity(), "", "Setting", true);
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(4000);
-                        } catch (Exception e) {
+                RingDialog ringDialog = new RingDialog(getActivity(), "", "Setting", true);
+                ringDialog.run();
 
-                        }
-                        ringDialog.dismiss();
-                    }
-                }).start();
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
