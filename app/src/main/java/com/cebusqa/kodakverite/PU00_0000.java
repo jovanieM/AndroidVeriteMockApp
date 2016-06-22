@@ -47,7 +47,7 @@ public class PU00_0000 extends Activity {
                         startActivity(intent3);
                         break;
                     case 4:
-                        Intent intent4 = new Intent (PU00_0000.this, Print_Reports.class);
+                        Intent intent4 = new Intent (PU00_0000.this, PaperSetup_000.class);
                         startActivity(intent4);
                         break;
                     case 5:
