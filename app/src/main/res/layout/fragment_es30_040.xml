@@ -51,7 +51,7 @@
     <!-- Password -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/ll_ssid"
         android:orientation="horizontal"
         android:id="@+id/rl_password1"
@@ -69,7 +69,7 @@
             android:textIsSelectable="true"/>
 
         <EditText
-            android:id="@+id/et_pass"
+            android:id="@+id/et_pass1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_password"
@@ -87,7 +87,7 @@
             android:text="Show password"
             android:id="@+id/checkBox3"
             android:layout_marginRight="10dp"
-            android:layout_below="@+id/et_pass"
+            android:layout_below="@+id/et_pass1"
             android:layout_alignParentRight="true" />
 
     </RelativeLayout>

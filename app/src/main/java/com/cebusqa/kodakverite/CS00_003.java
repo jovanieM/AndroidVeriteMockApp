@@ -17,7 +17,7 @@ public class CS00_003 extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cs00_003);
+        setContentView(R.layout.activity_cs00_000);
 
        new Handler().postDelayed(new Runnable() {
            @Override

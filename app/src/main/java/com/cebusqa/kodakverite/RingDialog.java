@@ -2,6 +2,8 @@ package com.cebusqa.kodakverite;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.view.View;
 
 /**
  * Created by SQA Cebu on 6/21/2016.
@@ -34,4 +36,5 @@ public class RingDialog implements Runnable {
             }
         }).start();
     }
+
 }

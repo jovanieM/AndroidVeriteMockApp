@@ -20,11 +20,6 @@ import java.util.List;
 
 public class FragmentTwo extends Fragment {
 
-    public Button color_btn;
-    public TextView papersize_txtview;
-    Fragment fr;
-    FragmentManager fm;
-    FragmentTransaction fragmentTransaction;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,28 +28,8 @@ public class FragmentTwo extends Fragment {
         // Inflate the layout for this fragment
         //   return inflater.inflate(R.layout.fragment_two, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_two, container, false);
 
-
-        color_btn = (Button)view.findViewById(R.id.color_btn);
-
-
-
-            color_btn.setOnClickListener(new OnClickListener() {
-
-        @Override
-            public void onClick(View v) {
-
-
-            fr = new ColorDialogFragment();
-            fm = getFragmentManager();
-            fragmentTransaction = fm.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_place,fr);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
-
-            }
-        });
+        final View view = inflater.inflate(R.layout.fragment_two, container, false);
 
 
         return view;
@@ -62,5 +37,4 @@ public class FragmentTwo extends Fragment {
 
 
 }
-
 

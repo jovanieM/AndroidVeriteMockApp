@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <include
-        layout="@layout/app_bar" />
+        layout="@layout/app_bar_back_only" />
 
     <TextView
         android:layout_width="match_parent"

@@ -18,7 +18,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created by SQA Cebu on 6/16/2016.
@@ -39,7 +38,7 @@ public class Fragment_ES30_040 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_es30_040, container, false);
 
         tvSSID = (TextView) view.findViewById(R.id.tv_ssid);
-        etPass = (EditText) view.findViewById(R.id.et_pass);
+        etPass = (EditText) view.findViewById(R.id.et_pass1);
         cbPassword = (CheckBox) view.findViewById(R.id.checkBox3);
         btnHelp = (Button) view.findViewById(R.id.btn_help1);
         btnOther = (Button) view.findViewById(R.id.btn_other);
@@ -79,6 +78,8 @@ public class Fragment_ES30_040 extends Fragment {
                 transaction.replace(R.id.my_layout, frag);
                 transaction.addToBackStack(null);
                 transaction.commit();
+
+                hideSoftKeyboard();
             }
         });
 
@@ -90,6 +91,8 @@ public class Fragment_ES30_040 extends Fragment {
 
                 transaction.replace(R.id.my_layout, frag);
                 transaction.commit();
+
+                hideSoftKeyboard();
             }
         });
 
@@ -113,9 +116,9 @@ public class Fragment_ES30_040 extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(!b){
-                    etPass.setInputType(129);
-                }else{
                     etPass.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }else{
+                    etPass.setInputType(129);
                 }
             }
         });

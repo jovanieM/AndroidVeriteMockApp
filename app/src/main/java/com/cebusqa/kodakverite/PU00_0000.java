@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 /**
@@ -16,12 +17,14 @@ public class PU00_0000 extends Activity {
     ListView lvPrinterUtilityList;
     String[] items;
     ArrayAdapter<String> adapter;
+    Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pu00_000);
 
+        btnBack = (Button) findViewById(R.id.back);
         lvPrinterUtilityList = (ListView) findViewById(R.id.lv_print_util_list);
         items = getResources().getStringArray(R.array.printer_utility);
 
@@ -35,22 +38,33 @@ public class PU00_0000 extends Activity {
                     case 0:
                         break;
                     case 1:
+                        Intent intent1 = new Intent (PU00_0000.this, Clean_Printhead.class);
+                        startActivity(intent1);
                         break;
                     case 2:
                         Intent intent = new Intent (PU00_0000.this, CS00_000.class);
                         startActivity(intent);
                         break;
                     case 3:
-
+                        Intent intent3 = new Intent (PU00_0000.this, Print_Reports.class);
+                        startActivity(intent3);
                         break;
                     case 4:
+                        Intent intent4 = new Intent (PU00_0000.this, Print_Reports.class);
+                        startActivity(intent4);
                         break;
                     case 5:
                         break;
                     default:
                         break;
-
                 }
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PU00_0000.this, DS_device.class));
             }
         });
     }

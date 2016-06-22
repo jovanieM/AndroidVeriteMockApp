@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <include layout="@layout/app_bar_back_only" />
+
+    <TextView
+        android:id="@+id/title_wifi_setup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Network and Password"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:background="@color/colorPrimary" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select the network..."
+        android:id="@+id/textView12"
+        android:textSize="15sp"
+        android:layout_margin="10dp" />
+
+    <!-- listview printer -->
+    <LinearLayout
+        android:id="@+id/printer_list"
+        android:layout_below="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        >
+
+        <ListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lv_connections"
+            android:entries="@array/routers_printer"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/printer_list"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <Button
+            android:id="@+id/btn_manual1"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="Manual"
+            android:background="@drawable/oval_background"
+            android:layout_marginRight="10dp" />
+
+        <Button
+            android:id="@+id/btn_wps1"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="WPS"
+            android:background="@drawable/oval_background"
+            android:layout_marginRight="10dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
