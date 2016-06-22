@@ -8,6 +8,7 @@
         android:layout_height="60dp"
         android:id="@+id/progressBar"
         android:indeterminateDrawable="@drawable/circular"
+
         android:max="100"
         android:progress="10"
         android:layout_marginLeft="47dp"

@@ -36,7 +36,7 @@ public class SP_000 extends AppCompatActivity{
     Bundle bundle;
     boolean visible = false;
     float measuredWidth, measuredHeigtt, width, height;
-
+    Thread t;
     int finalW, finalH;
     Uri resultUri;
     @Override
@@ -89,9 +89,27 @@ public class SP_000 extends AppCompatActivity{
         rl_scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ScanPhotoDialog scanPhotoDialog = new ScanPhotoDialog();
-                scanPhotoDialog.show(getFragmentManager(), "My Progress Dialog");
+                final ScanPhotoDialog scanPhotoDialog = new ScanPhotoDialog();
+                 t =new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        scanPhotoDialog.show(getFragmentManager(), "My Progress Dialog");
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            scanPhotoDialog.dismiss();
+                            t = null;
+                        }
+                        scanPhotoDialog.dismiss();
+                    }
+                });
+                t.start();
+
+
+             // Toast.makeText(getApplicationContext(), "yes", Toast.LENGTH_SHORT).show();
             }
+
         });
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -179,6 +197,8 @@ public class SP_000 extends AppCompatActivity{
                     visible = false;
                 }
 
+
+
             }
         });
 /*
@@ -226,5 +246,9 @@ public class SP_000 extends AppCompatActivity{
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(SP_000.this, HM10_000.class));
+    }
 }

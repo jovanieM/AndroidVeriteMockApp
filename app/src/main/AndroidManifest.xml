@@ -34,6 +34,7 @@
         <activity android:name=".CS00_002" />
         <activity android:name=".CS00_003" />
         <activity android:name=".CS00_002_Help" />
+        <activity android:name=".PhotoScanMain" />
     </application>
 
 </manifest>
