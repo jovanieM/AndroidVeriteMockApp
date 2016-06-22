@@ -12,6 +12,9 @@ public class DS_device extends AppCompatActivity {
     Button back;
     ImageButton btnPrintUtility, btnWifiSetup;
 
+    ImageButton network_status;
+
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +23,7 @@ public class DS_device extends AppCompatActivity {
         back = (Button)findViewById(R.id.back);
         btnPrintUtility = (ImageButton) findViewById(R.id.printer_utility);
         btnWifiSetup= (ImageButton) findViewById(R.id.wifi_setup);
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +47,13 @@ public class DS_device extends AppCompatActivity {
         });
 
 
+        network_status = (ImageButton)findViewById(R.id.network_status);
+        network_status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DS_device.this, NetworkStatus_details.class));
+            }
+        });
 
     }
 }

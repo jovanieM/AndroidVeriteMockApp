@@ -38,15 +38,20 @@ public class PU00_0000 extends Activity {
                     case 0:
                         break;
                     case 1:
+                        Intent intent1 = new Intent (PU00_0000.this, Clean_Printhead.class);
+                        startActivity(intent1);
                         break;
                     case 2:
                         Intent intent = new Intent (PU00_0000.this, CS00_000.class);
                         startActivity(intent);
                         break;
                     case 3:
-
+                        Intent intent3 = new Intent (PU00_0000.this, Print_Reports.class);
+                        startActivity(intent3);
                         break;
                     case 4:
+                        Intent intent4 = new Intent (PU00_0000.this, Print_Reports.class);
+                        startActivity(intent4);
                         break;
                     case 5:
                         break;

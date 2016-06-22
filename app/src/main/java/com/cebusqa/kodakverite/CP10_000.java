@@ -5,22 +5,21 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.view.ViewGroup;
 
-
-public class CP10_000 extends AppCompatActivity  {
+public class CP10_000 extends FragmentActivity {
 
     public ImageButton incre, decre, standardcolor, standardbw, custom;
     public TextView num_copies, color_txtview;
     public int num = 0;
     public String val;
-    boolean flag = true;
     public Button color_btn, back;
     Fragment fr;
     FragmentManager fm;
@@ -85,17 +84,11 @@ public class CP10_000 extends AppCompatActivity  {
                            custom.setImageResource(R.mipmap.custom_white);
 
                 fr = new FragmentOne();
-
                 fm = getFragmentManager();
                 fragmentTransaction = fm.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_place, fr);
                 fragmentTransaction.commit();
-
-
-
             }
-
-
         });
 
 
@@ -138,10 +131,6 @@ public class CP10_000 extends AppCompatActivity  {
                 }
 
                });
-
-
-
-
 
 
 }
