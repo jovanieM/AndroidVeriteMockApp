@@ -23,7 +23,7 @@ public class NetworkStatus_details extends AppCompatActivity {
         back = (Button)findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(NetworkStatus_details.this, DS10_000.class));
+                startActivity(new Intent(NetworkStatus_details.this, DS_device.class));
                             }
         });
 
