@@ -29,103 +29,96 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Device Setting"
+            android:text="Device Settings"
             android:id="@+id/textView"
             android:background="#000000"
             android:layout_weight="0.03"
             android:layout_gravity="bottom"
-            android:textSize="14dp"
-            android:paddingStart="20dp" />
+            android:textSize="20dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:id="@+id/b"
         android:layout_below="@+id/a"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingStart="15dp"
+        android:layout_alignParentStart="false"
         android:weightSum="1"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp">
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="140dp"
+            android:layout_height="wrap_content"
             android:id="@+id/network_status"
             android:src="@mipmap/network_status"
-            android:background="#000000"
-            android:layout_marginTop="5dp" />
+            android:background="#000000" />
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="140dp"
+            android:layout_height="wrap_content"
             android:id="@+id/wifi_setup"
             android:src="@mipmap/wifi_setup"
             android:background="#000000"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:id="@+id/c"
         android:layout_below="@+id/b"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingStart="15dp"
-        android:gravity="center_horizontal">
+        android:layout_alignParentStart="false"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="2dp">
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/gcp"
             android:src="@mipmap/gcp_icon"
-            android:background="#000000"
-            android:layout_marginTop="2dp" />
+            android:background="#000000" />
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/airprint"
             android:src="@mipmap/airprint_icon"
             android:background="#000000"
-            android:layout_marginTop="2dp"
             android:layout_marginLeft="5dp" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0.20"
         android:id="@+id/d"
         android:layout_below="@+id/c"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:paddingStart="15dp"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="2dp">
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/printer_utility"
             android:src="@mipmap/printer_utility"
-            android:background="#000000"
-            android:layout_marginTop="2dp" />
+            android:background="#000000" />
 
         <ImageButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/software_update"
             android:src="@mipmap/software_update"
             android:background="#000000"
-            android:layout_marginTop="2dp"
             android:layout_marginLeft="5dp" />
     </LinearLayout>
 

@@ -88,6 +88,15 @@
         <item>Restore Factory Default</item>
     </string-array>
 
+    <string-array name="wifi_setup">
+        <item>Network and Password</item>
+        <item>IP Address</item>
+        <item>Proxy</item>
+        <item>Host Name</item>
+        <item>Direct Connect Time</item>
+        <item>Friendly Name</item>
+    </string-array>
+
 
 
 </resources>

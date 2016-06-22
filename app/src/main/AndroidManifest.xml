@@ -33,6 +33,15 @@
         <activity android:name=".CS00_002" />
         <activity android:name=".CS00_003" />
         <activity android:name=".CS00_002_Help" />
+        <activity android:name=".WS00_000" />
+        <activity android:name=".WS00_010" />
+        <activity android:name=".WS00_011" />
+        <activity android:name=".WS00_012" />
+        <activity android:name=".WS00_013" />
+        <activity android:name=".WS00_012H" />
+        <activity android:name=".WS00_015" />
+        <activity android:name=".WS00_016" />
+        <activity android:name=".WS00_014" />
     </application>
 
 </manifest>
