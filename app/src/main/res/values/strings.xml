@@ -163,6 +163,13 @@
         <item>Friendly Name</item>
     </string-array>
 
+    <string-array name="direct_time">
+        <item> 5 min </item>
+        <item> 10 min </item>
+        <item> 60 min </item>
+        <item> Unlimited </item>
+    </string-array>
+
 
 
 
