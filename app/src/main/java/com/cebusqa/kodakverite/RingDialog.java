@@ -30,7 +30,7 @@ public class RingDialog implements Runnable {
                 try {
                     Thread.sleep(4000);
                 } catch (Exception e) {
-
+                    e.printStackTrace();
                 }
                 ringDialog.dismiss();
             }

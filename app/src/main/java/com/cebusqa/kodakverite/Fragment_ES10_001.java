@@ -4,14 +4,9 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentTransaction;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.cebusqa.kodakverite.Fragment_ES10_002;
-import com.cebusqa.kodakverite.R;
 
 /**
  * Created by SQA Cebu on 6/9/2016.

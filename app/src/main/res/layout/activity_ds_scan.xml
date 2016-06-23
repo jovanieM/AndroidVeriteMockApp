@@ -59,6 +59,14 @@
         android:layout_alignParentStart="true" >
 
 
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fragment_place_scan"
+            android:name="com.cebusqa.kodakverite.FragmentScanSettings"
+            tools:layout="@layout/fragment_ds_scan" />
+
+
         <ImageButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -66,6 +74,7 @@
             android:layout_gravity="center_horizontal"
             android:src="@mipmap/scan_document_m"
             android:background="#000000" />
+
 
         <Space
             android:layout_width="match_parent"

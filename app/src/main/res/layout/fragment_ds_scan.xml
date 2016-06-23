@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context="com.cebusqa.kodakverite.DS_scan">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout_ecomode"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scan_document_settings"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/scan_document_m"
+            android:background="#000000" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scan_photo_settings"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/scan_photo_m"
+            android:background="#000000" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:layout_gravity="center_horizontal" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
