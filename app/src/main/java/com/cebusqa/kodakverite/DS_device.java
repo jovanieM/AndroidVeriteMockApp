@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 public class DS_device extends AppCompatActivity {
 
     Button back;
-    ImageButton btnPrintUtility;
+    ImageButton btnPrintUtility, btnWifiSetup;
 
     ImageButton network_status;
 
@@ -22,6 +22,7 @@ public class DS_device extends AppCompatActivity {
 
         back = (Button)findViewById(R.id.back);
         btnPrintUtility = (ImageButton) findViewById(R.id.printer_utility);
+        btnWifiSetup= (ImageButton) findViewById(R.id.wifi_setup);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +36,13 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DS_device.this, PU00_0000.class));
+            }
+        });
+
+        btnWifiSetup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(DS_device.this, WS00_000.class));
             }
         });
 

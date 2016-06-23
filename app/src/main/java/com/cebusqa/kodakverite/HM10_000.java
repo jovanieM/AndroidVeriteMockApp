@@ -51,7 +51,7 @@ public class HM10_000 extends AppCompatActivity {
 
         scanphoto.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(HM10_000.this, SP_000.class));
+                startActivity(new Intent(HM10_000.this, PhotoScanMain.class));
             }
         });
 

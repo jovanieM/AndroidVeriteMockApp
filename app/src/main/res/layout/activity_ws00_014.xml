@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <include layout="@layout/app_bar_back_only" />
+
+    <TextView
+        android:id="@+id/title_wifi_setup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Network and Password"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:background="@color/colorPrimary" />
+
+    <!-- SSID -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/frameLayout"
+        android:layout_margin="10dp"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SSID"
+            android:layout_gravity="center_vertical"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:layout_marginRight="50dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_ssid1"
+            android:hint="Input SSID name"
+            android:singleLine="true"
+            android:background="@drawable/edit_text_border"
+            android:imeOptions="actionGo" />
+    </LinearLayout>
+
+    <!-- Select security -->
+    <LinearLayout
+        android:id="@+id/ll_security"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Security"
+            android:id="@+id/tvSecurity"
+            android:singleLine="true"
+            android:layout_marginRight="50dp" />
+
+        <Spinner
+            android:id="@+id/sp_security1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/security" />
+    </LinearLayout>
+
+    <!-- Password -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/rl_password1"
+        android:layout_margin="10dp"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:id="@+id/tv_password"
+            android:layout_gravity="center_vertical"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:layout_marginRight="50dp" />
+
+        <EditText
+            android:id="@+id/et_password3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_password"
+            android:hint="Input Password"
+            android:singleLine="true"
+            android:background="@drawable/edit_text_border"
+            android:imeOptions="actionGo"
+            android:selectAllOnFocus="true"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show password"
+            android:id="@+id/checkBox4"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/et_password3"
+            />
+    </RelativeLayout>
+</LinearLayout>

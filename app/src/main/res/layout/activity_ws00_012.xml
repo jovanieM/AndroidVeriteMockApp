@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:descendantFocusability="blocksDescendants">
+    android:background="@color/colorPrimary">
 
-    <!--status -->
-    <LinearLayout
-        android:id="@+id/status"
+    <include layout="@layout/app_bar" />
+
+    <TextView
+        android:id="@+id/title_wifi_setup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/status_3"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-    </LinearLayout>
+        android:text="Network and Password"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:background="@color/colorPrimary" />
 
     <!-- SSID -->
     <LinearLayout
-        android:id="@+id/ll_ssid"
+        android:id="@+id/ll_ssid1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/status"
         android:orientation="horizontal"
         android:layout_margin="10dp"
         android:padding="10dp">
@@ -44,15 +38,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_ssid"
-        />
+            android:id="@+id/tv_ssid1"
+            />
     </LinearLayout>
 
     <!-- Password -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_ssid"
         android:orientation="horizontal"
         android:id="@+id/rl_password1"
         android:layout_margin="10dp"
@@ -62,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password"
-            android:id="@+id/tv_password"
+            android:id="@+id/tv_password1"
             android:layout_gravity="center_vertical"
             android:textSize="13sp"
             android:layout_marginRight="50dp"
@@ -72,12 +65,12 @@
             android:id="@+id/et_pass1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/tv_password"
+            android:layout_toRightOf="@+id/tv_password1"
             android:hint="Input password"
             android:inputType="text"
             android:background="@drawable/edit_text_border"
             android:singleLine="true"
-            android:imeOptions="actionDone">
+            android:imeOptions="actionGo">
             <requestFocus />
         </EditText>
 
@@ -85,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Show password"
-            android:id="@+id/checkBox3"
+            android:id="@+id/checkBox4"
             android:layout_marginRight="10dp"
             android:layout_below="@+id/et_pass1"
             android:layout_alignParentRight="true" />
@@ -95,7 +88,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rl_password1"
         android:orientation="horizontal"
         android:background="@color/colorPrimary"
         android:gravity="center_vertical|center_horizontal"
@@ -103,7 +95,7 @@
         android:layout_marginRight="20dp">
 
         <Button
-            android:id="@+id/btn_help1"
+            android:id="@+id/btn_help2"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:text="help"
@@ -111,7 +103,7 @@
             android:layout_marginRight="10dp" />
 
         <Button
-            android:id="@+id/btn_other"
+            android:id="@+id/btn_other1"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:text="other..."
@@ -119,4 +111,4 @@
             android:layout_marginRight="10dp" />
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

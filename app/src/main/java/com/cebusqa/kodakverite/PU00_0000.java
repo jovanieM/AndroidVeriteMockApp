@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 /**
@@ -16,12 +17,14 @@ public class PU00_0000 extends Activity {
     ListView lvPrinterUtilityList;
     String[] items;
     ArrayAdapter<String> adapter;
+    Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pu00_000);
 
+        btnBack = (Button) findViewById(R.id.back);
         lvPrinterUtilityList = (ListView) findViewById(R.id.lv_print_util_list);
         items = getResources().getStringArray(R.array.printer_utility);
 
@@ -58,8 +61,14 @@ public class PU00_0000 extends Activity {
                         break;
                     default:
                         break;
-
                 }
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PU00_0000.this, DS_device.class));
             }
         });
     }
