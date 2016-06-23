@@ -24,7 +24,7 @@ public class Scan_Photo_Settings extends AppCompatActivity {
         back = (Button)findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(Scan_Photo_Settings.this, DS_scan.class));
+                finish();
                             }
         });
 

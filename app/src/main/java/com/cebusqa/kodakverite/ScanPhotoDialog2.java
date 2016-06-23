@@ -18,7 +18,7 @@ import android.widget.Toast;
 /**
  * Created by Cebu SQA on 21/06/2016.
  */
-public class ScanPhotoDialog extends DialogFragment{
+public class ScanPhotoDialog2 extends DialogFragment{
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -30,18 +30,9 @@ public class ScanPhotoDialog extends DialogFragment{
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
-
+                ((SP_000)getActivity()).test2 = true;
                 new RingDialog(getActivity(),"Canceling...", null, true).run();
-
-
-                if(getActivity() instanceof PhotoScanMain) {
-                    ((PhotoScanMain) getActivity()).test = true;
-                }
-                if(getActivity()instanceof DocumentScan){
-                    ((DocumentScan) getActivity()).dtest = true;
-                }
-
+                dialog.cancel();
 
 
                 //super.onCancel(dialog);

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.cebusqa.kodakverite.SP_000"
+    tools:context="com.cebusqa.kodakverite.DocumentScan"
     android:background="#010101">
 
     <include
@@ -19,15 +18,26 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Touch to Scan"
-        android:id="@+id/touchScan2"
+        android:id="@+id/dtouchScan2"
         android:layout_marginBottom="97dp"
         android:textSize="30dp"
         android:gravity="center_vertical|center_horizontal"
         android:textColor="#fdb700"
         android:layout_above="@+id/relativeLayout"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="touchScan" />
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0/0"
+        android:id="@+id/counts"
+        android:textColor="#fdb700"
+        android:layout_centerHorizontal="true"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="85dp" />
 
     <RelativeLayout
         android:orientation="vertical"
@@ -37,18 +47,17 @@
         android:id="@+id/relativeLayout"
         android:background="#783d3c3c"
         android:layout_above="@+id/relativeLayout2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="43dp">
+        android:layout_marginBottom="43dp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Quality : "
-            android:layout_marginBottom="10dp"
             android:id="@+id/quality_txtView"
-            android:layout_above="@+id/color_txtView"
+            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -58,9 +67,10 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Document :"
             android:id="@+id/document_txtView"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/color_txtView"
+            android:layout_marginTop="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,10 +78,10 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Color :"
             android:id="@+id/color_txtView"
-            android:layout_marginBottom="10dp"
-            android:layout_above="@+id/document_txtView"
+            android:layout_below="@+id/quality_txtView"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -80,9 +90,9 @@
             android:text="Plain"
             android:id="@+id/quality"
             android:textColor="#fdb700"
-            android:layout_alignTop="@+id/quality_txtView"
-            android:layout_toRightOf="@+id/quality_txtView"
-            android:layout_toEndOf="@+id/quality_txtView" />
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/dscan_save_asTV"
+            android:layout_alignEnd="@+id/dscan_save_asTV" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -91,9 +101,9 @@
             android:text=" Color"
             android:id="@+id/color"
             android:textColor="#fdb700"
-            android:layout_below="@+id/quality_txtView"
-            android:layout_toRightOf="@+id/color_txtView"
-            android:layout_toEndOf="@+id/color_txtView" />
+            android:layout_alignTop="@+id/color_txtView"
+            android:layout_alignRight="@+id/quality"
+            android:layout_alignEnd="@+id/quality" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,25 +112,46 @@
             android:text="Photo"
             android:id="@+id/document"
             android:textColor="#fdb700"
-            android:layout_below="@+id/color_txtView"
-            android:layout_toRightOf="@+id/document_txtView"
-            android:layout_toEndOf="@+id/document_txtView" />
+            android:layout_alignTop="@+id/document_txtView"
+            android:layout_toRightOf="@+id/dscan_save_asTV"
+            android:layout_toEndOf="@+id/dscan_save_asTV" />
 
         <ImageButton
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Settings"
-            android:id="@+id/scanSettingsIcon"
-            android:layout_above="@+id/document"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="43dp"
-            android:layout_marginEnd="43dp"
-            android:onClick="settingsIcon"
+            android:id="@+id/dscanSettingsIcon"
+            android:layout_marginRight="41dp"
+            android:layout_marginEnd="41dp"
+            android:onClick="dsettingsIcon"
             android:src="@mipmap/setting_icon"
             android:adjustViewBounds="false"
-            android:background="#00ffffff" />
+            android:background="#00ffffff"
+            android:layout_alignBottom="@+id/document"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Save as Type :"
+            android:id="@+id/dscan_save_asTV"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="PDF"
+            android:id="@+id/dscan_save_as"
+            android:textColor="#fdb700"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/document"
+            android:layout_alignEnd="@+id/document" />
 
     </RelativeLayout>
 
@@ -128,21 +159,23 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/relativeLayout"
-        android:layout_alignStart="@+id/relativeLayout"
         android:background="#030303"
-        android:id="@+id/relativeLayout2">
+        android:id="@+id/relativeLayout2"
+        android:layout_alignLeft="@+id/save"
+        android:layout_alignStart="@+id/save"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
         <RelativeLayout
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:id="@+id/scan"
+            android:id="@+id/dscan"
             android:clickable="true"
             style="@android:style/Widget.Button"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:onClick="touchScan">
+            android:onClick="dtouchScan">
 
             <TextView
                 android:layout_width="wrap_content"

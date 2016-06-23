@@ -54,6 +54,12 @@ public class HM10_000 extends AppCompatActivity {
                 startActivity(new Intent(HM10_000.this, PhotoScanMain.class));
             }
         });
+        scandocument.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), DocumentScan.class));
+            }
+        });
 
 
         ecomode.setOnClickListener(new View.OnClickListener(){

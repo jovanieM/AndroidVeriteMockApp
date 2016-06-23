@@ -19,7 +19,7 @@ public class PaperSetup_000 extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.papersetup_000);
 
-        btnCancel = (Button) findViewById(R.id.btnCancel);
+        //btnCancel = (Button) findViewById(R.id.btnCancel);
         btnBack = (Button) findViewById(R.id.back);
 
                     RingDialog ringDialog = new RingDialog(PaperSetup_000.this, "", "Getting Setup Information...", true);
