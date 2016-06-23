@@ -33,6 +33,8 @@ public class PU00_0000 extends Activity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i){
                     case 0:
+                        Intent intent0 = new Intent (PU00_0000.this, DeviceSleepTime_000.class);
+                        startActivity(intent0);
                         break;
                     case 1:
                         Intent intent1 = new Intent (PU00_0000.this, Clean_Printhead.class);
@@ -51,6 +53,8 @@ public class PU00_0000 extends Activity {
                         startActivity(intent4);
                         break;
                     case 5:
+                        Intent intent5 = new Intent (PU00_0000.this, Restore_Factory.class);
+                        startActivity(intent5);
                         break;
                     default:
                         break;
