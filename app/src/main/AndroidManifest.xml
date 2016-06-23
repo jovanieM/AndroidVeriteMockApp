@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".HM10_000"
+            android:name=".Splash"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".EasySetupMain" />
+<<<<<<< HEAD
+=======
+        <activity android:name=".HM10_000" />
+>>>>>>> f75fc8cfb8fc3f7dda6f719e8cd6ef979abba744
         <activity android:name=".IL10_000" />
         <activity android:name=".CP10_000" />
         <activity android:name=".DS_print" />
@@ -37,7 +41,18 @@
         <activity android:name=".CS00_002" />
         <activity android:name=".CS00_003" />
         <activity android:name=".CS00_002_Help" />
+<<<<<<< HEAD
         <activity android:name=".PhotoScanMain" />
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+        <activity android:name=".PhotoScanMain" />
+=======
+<<<<<<< HEAD
+>>>>>>> cf5df69de1036322f5550040ddfe2d8d188a50eb
+>>>>>>> f75fc8cfb8fc3f7dda6f719e8cd6ef979abba744
         <activity android:name=".WS00_000" />
         <activity android:name=".WS00_010" />
         <activity android:name=".WS00_011" />
@@ -49,8 +64,29 @@
         <activity android:name=".WS00_014" />
         <activity android:name=".Clean_Printhead"/>
         <activity android:name=".Print_Reports"/>
+<<<<<<< HEAD
         <activity android:name=".DocumentScan"/>
 
+=======
+<<<<<<< HEAD
+        <activity android:name=".WS00_020" />
+        <activity android:name=".WS00_030" />
+        <activity android:name=".WS00_040" />
+        <activity android:name=".WS00_050" />
+        <activity android:name=".WS00_060" />
+
+
+
+
+=======
+        <activity android:name=".PaperSetup_000"/>
+        <activity android:name=".DeviceSleepTime_000"/>
+        <activity android:name=".Restore_Factory"/>
+
+>>>>>>> 06e06816c484124f70f9f69d775260884b4399d3
+>>>>>>> b79064fbcd9dedfdcdf16bf080b0a7a3c10c198f
+>>>>>>> cf5df69de1036322f5550040ddfe2d8d188a50eb
+>>>>>>> f75fc8cfb8fc3f7dda6f719e8cd6ef979abba744
     </application>
 
 </manifest>
