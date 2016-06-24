@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.cebusqa.kodakverite.PhotoScanMain"
+    tools:context="com.cebusqa.kodakverite.SP_000"
     android:background="#010101">
 
     <include
@@ -106,15 +106,21 @@
             android:layout_toRightOf="@+id/document_txtView"
             android:layout_toEndOf="@+id/document_txtView" />
 
-        <Button
+        <ImageButton
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Settings"
             android:id="@+id/scanSettingsIcon"
-            android:layout_centerVertical="true"
+            android:layout_above="@+id/document"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="43dp"
+            android:layout_marginEnd="43dp"
+            android:onClick="settingsIcon"
+            android:src="@mipmap/setting_icon"
+            android:adjustViewBounds="false"
+            android:background="#00ffffff" />
 
     </RelativeLayout>
 

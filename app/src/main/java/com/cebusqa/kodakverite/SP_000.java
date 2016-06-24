@@ -1,5 +1,6 @@
 package  com.cebusqa.kodakverite;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -7,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,9 +18,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class SP_000 extends AppCompatActivity{
 
     Button back;
+    ImageButton settings;
     RelativeLayout rl_scan, rl_crop, rl_send, save,email,drive,skyDrive;
     Intent intent, chooser;
     Context context;
@@ -46,10 +55,13 @@ public class SP_000 extends AppCompatActivity{
         this.email = (RelativeLayout) findViewById(R.id.email);
         this.drive = (RelativeLayout) findViewById(R.id.drive);
         this.skyDrive = (RelativeLayout) findViewById(R.id.one_box);
+        settings = (ImageButton) findViewById(R.id.scanSettings);
         iv = (ImageView) findViewById(R.id.imageView);
         context = getApplicationContext();
-
+        test2 = new PhotoScanMain().test;
         Resources res = getResources();
+        email.bringToFront();
+        save.bringToFront();
 
 
 //        Resources resources = getResources();
@@ -82,25 +94,27 @@ public class SP_000 extends AppCompatActivity{
         rl_scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ScanPhotoDialog scanPhotoDialog = new ScanPhotoDialog();
-                 t =new Thread(new Runnable() {
+                test2 = false;
+                final ScanPhotoDialog2 scanPhotoDialog2 = new ScanPhotoDialog2();
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        scanPhotoDialog.show(getFragmentManager(), "My Progress Dialog");
+                        scanPhotoDialog2.show(getFragmentManager(), "My Progress Dialog");
                         try {
-                            Thread.sleep(3000);
+                            Thread.sleep(4000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
-                            scanPhotoDialog.dismiss();
-                            t = null;
                         }
-                        scanPhotoDialog.dismiss();
+                        if(test2){
+
+                            new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
+
+                        }
+                        scanPhotoDialog2.dismiss();
                     }
-                });
-                t.start();
+                }).start();
 
 
-             // Toast.makeText(getApplicationContext(), "yes", Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -194,32 +208,7 @@ public class SP_000 extends AppCompatActivity{
 
             }
         });
-/*
-      ViewTreeObserver vto = iv.getViewTreeObserver();
 
-        vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            @Override
-            public boolean onPreDraw() {
-                iv.getViewTreeObserver().addOnPreDrawListener(this);
-                finalW = iv.getLeft();
-                finalH = iv.getRight();
-                Toast.makeText(SP_000.this, String.valueOf(finalH),Toast.LENGTH_SHORT).show();
-                return true;
-            }
-        });
-
-        bm = BitmapFactory.decodeFile(resultUri.getPath());
-
-        //Bitmap bmp = Bitmap.createBitmap(bm,20,20,iv.getImageAlpha(),iv.getImageAlpha());
-        *//*
-*/
-/*measuredWidth = iv.getMeasuredWidth();
-        measuredHeigtt = iv.getMeasuredHeight();
-        width = iv.getWidth();
-        height = iv.getHeight();
-        iv.setImageBitmap(bm);
-*/
-        //ImageView iv = new ImageView(this);
     }
 
     @Override
@@ -237,6 +226,9 @@ public class SP_000 extends AppCompatActivity{
         }else{
             Toast.makeText(this, "no change", Toast.LENGTH_SHORT).show();
         }
+    }
+    public void settings(View v){
+        startActivity(new Intent(SP_000.this, Scan_Photo_Settings.class));
     }
 
     @Override
