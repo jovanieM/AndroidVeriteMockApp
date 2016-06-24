@@ -75,7 +75,7 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(PaperSetup_000.this, PU00_0000.class));
+                finish();
             }
         });
 

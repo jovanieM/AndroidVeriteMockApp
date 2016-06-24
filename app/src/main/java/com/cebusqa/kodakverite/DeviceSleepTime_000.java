@@ -63,7 +63,7 @@ public class DeviceSleepTime_000 extends Activity{
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(DeviceSleepTime_000.this, PU00_0000.class));
+                finish();
             }
         });
 

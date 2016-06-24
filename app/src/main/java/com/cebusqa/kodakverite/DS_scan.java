@@ -27,7 +27,7 @@ public class DS_scan extends AppCompatActivity {
         back = (Button)findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(DS_scan.this, DS10_000.class));
+                finish();
             }
         });
 

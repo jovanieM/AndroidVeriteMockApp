@@ -18,7 +18,7 @@ public class IL10_000 extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(IL10_000.this, HM10_000.class));
+                finish();
             }
         });
 

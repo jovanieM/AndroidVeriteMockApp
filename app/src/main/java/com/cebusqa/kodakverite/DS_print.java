@@ -34,7 +34,7 @@ public class DS_print extends FragmentActivity {
 
         back.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(DS_print.this, DS10_000.class));
+                finish();
             }
         });
 

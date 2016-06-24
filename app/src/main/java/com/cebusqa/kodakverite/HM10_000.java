@@ -13,7 +13,7 @@ import java.security.SecurityPermission;
 
 public class HM10_000 extends AppCompatActivity {
 
-    ImageButton inklevel, copy, scanphoto, scandocument, photoprint, ecomode, setting_icon;
+    ImageButton inklevel, copy, scanphoto, scandocument, photoprint, ecomode, setting_icon, printer, search_icon, printer_name;
     private ProgressDialog progressBar;
     private int progressBarStatus = 0;
     private int currentImage = 0;
@@ -32,7 +32,9 @@ public class HM10_000 extends AppCompatActivity {
         scandocument =(ImageButton)findViewById(R.id.scandocument);
         photoprint =(ImageButton)findViewById(R.id.photoprint);
         setting_icon =(ImageButton)findViewById(R.id.setting_icon);
-
+        printer = (ImageButton)findViewById(R.id.printer);
+        search_icon= (ImageButton)findViewById(R.id.search_icon);
+        printer_name= (ImageButton)findViewById(R.id.printer_name);
 
 
         inklevel.setOnClickListener(new View.OnClickListener(){
@@ -86,6 +88,12 @@ public class HM10_000 extends AppCompatActivity {
         });
 
 
+        search_icon.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                printer.setImageResource(R.mipmap.searching_for_printer);
+                printer_name.setImageResource(R.mipmap.addnewprinter);
+            }
+        });
 
     }
 }

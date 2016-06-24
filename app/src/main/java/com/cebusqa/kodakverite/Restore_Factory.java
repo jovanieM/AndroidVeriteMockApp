@@ -82,7 +82,7 @@ public class Restore_Factory extends Activity{
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Restore_Factory.this, PU00_0000.class));
+                finish();
             }
         });
     }

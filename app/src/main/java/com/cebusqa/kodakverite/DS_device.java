@@ -28,7 +28,7 @@ public class DS_device extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DS_device.this, DS10_000.class));
+                finish();
             }
         });
 
