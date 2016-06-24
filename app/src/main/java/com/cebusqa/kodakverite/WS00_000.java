@@ -36,19 +36,14 @@ public class WS00_000 extends Activity {
                         startActivity(new Intent(WS00_000.this, WS00_010.class));
                         break;
                     case 1:
-                        startActivity(new Intent(WS00_000.this, WS00_020.class));
                         break;
                     case 2:
-                        startActivity(new Intent(WS00_000.this, WS00_030.class));
                         break;
                     case 3:
-                        startActivity(new Intent(WS00_000.this, WS00_040.class));
                         break;
                     case 4:
-                        startActivity(new Intent(WS00_000.this, WS00_050.class));
                         break;
                     case 5:
-                        startActivity(new Intent(WS00_000.this, WS00_060.class));
                         break;
                     default:
                         break;

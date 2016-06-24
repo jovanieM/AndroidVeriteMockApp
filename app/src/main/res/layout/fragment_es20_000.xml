@@ -47,7 +47,8 @@
         android:layout_height="wrap_content"
         android:text="Skip Printhead alignment."
         android:layout_marginTop="5dp"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp" />
 
     <Button
         android:id="@+id/btn_default"
