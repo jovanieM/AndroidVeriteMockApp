@@ -28,16 +28,14 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.papersetup_000);
 
-<<<<<<< HEAD
+
         //btnCancel = (Button) findViewById(R.id.btnCancel);
-=======
-<<<<<<< HEAD
+
         //btnCancel = (Button) findViewById(R.id.btnCancel);
-=======
+
         paper_size = (TextView) findViewById(R.id.paper_size);
         paper_type = (TextView) findViewById(R.id.paper_type);
->>>>>>> cf5df69de1036322f5550040ddfe2d8d188a50eb
->>>>>>> f75fc8cfb8fc3f7dda6f719e8cd6ef979abba744
+
         btnBack = (Button) findViewById(R.id.back);
         btnSave = (Button) findViewById(R.id.btnSave);
 
@@ -46,8 +44,6 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
                     ringDialog.run();
 
 
-<<<<<<< HEAD
-=======
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
            public void onClick(View view) {
@@ -70,7 +66,7 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
         });
 
 
->>>>>>> cf5df69de1036322f5550040ddfe2d8d188a50eb
+
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

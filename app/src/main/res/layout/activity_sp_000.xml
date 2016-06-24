@@ -103,7 +103,7 @@
         android:layout_above="@+id/relativeLayout2"
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
         android:layout_marginBottom="20dp"
-        android:visibility="gone"
+        android:visibility="visible"
        >
 
         <TextView
@@ -148,7 +148,7 @@
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
         android:layout_marginBottom="20dp"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:layout_width="wrap_content"
@@ -169,7 +169,7 @@
         android:layout_above="@+id/drive"
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_marginBottom="20dp">
 
         <TextView

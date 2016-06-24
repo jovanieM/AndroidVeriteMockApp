@@ -57,12 +57,12 @@ public class DocumentScan extends Activity {
                     e.printStackTrace();
                 }
 
-                if(dtest){
-                    new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
-                    dscanDialog.dismiss();
-                }else{
-                    //startActivity(new Intent(getApplicationContext(), SP_000.class));
-                }
+              //  if(dtest){
+                 //   new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
+                 //   dscanDialog.dismiss();
+               // }else{
+                    startActivity(new Intent(getApplicationContext(), DocumentScan2.class));
+                //}
             }
         })
                 .start();
