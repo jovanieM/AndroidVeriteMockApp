@@ -3,48 +3,42 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/status_2"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:src="@drawable/status_2" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Place the calibration sheet face down and align to the upper left corner of the scanner, then press [Start(Scan)]."
-            android:textSize="12sp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Place the calibration sheet face down and align to the upper left corner of the scanner, then press [Start(Scan)]."
+        android:textSize="12sp" />
 
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:src="@drawable/image6"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center_horizontal" />
 
+    <Button
+        android:id="@+id/btn_start_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Start (Scan)"
+        android:background="@drawable/oval_background"
+        android:layout_gravity="center_horizontal" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:src="@drawable/image6"
-            android:adjustViewBounds="true"
-            android:layout_marginTop="20dp" />
-
-        <Button
-            android:id="@+id/btn_start_scan"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="Start (Scan)"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/oval_background" />
-
-        <Button
-            android:id="@+id/btn_help"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="Help"
-            android:background="@drawable/oval_background"
-            android:layout_marginTop="20dp" />
-
+    <Button
+        android:id="@+id/btn_help"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Help"
+        android:background="@drawable/oval_background"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
