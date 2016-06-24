@@ -17,15 +17,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Printing..."
-        android:textSize="12sp"
-        />
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
 
     <ImageView
         android:layout_width="280dp"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:src="@drawable/image5"
         android:adjustViewBounds="true"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
 
 
 </LinearLayout>

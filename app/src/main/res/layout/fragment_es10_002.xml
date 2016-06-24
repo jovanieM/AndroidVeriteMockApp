@@ -16,17 +16,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Printer found, checking status..."
-        android:textSize="12sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textIsSelectable="false" />
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textIsSelectable="false"
+        android:layout_marginTop="10dp" />
 
     <ImageView
         android:layout_width="280dp"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:src="@drawable/image3"
         android:adjustViewBounds="true"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
 
 
     <ProgressBar
@@ -41,11 +43,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Printer information:" />
+        android:text="Printer information:"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name-KODAK-VERITE-XXXXXX" />
+        android:text="Name-KODAK-VERITE-XXXXXX"
+        android:layout_marginLeft="20dp"
+        android:textSize="15sp" />
 
 </LinearLayout>

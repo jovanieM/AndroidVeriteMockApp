@@ -20,16 +20,18 @@
 \n1. Load Letter or A4 paper in tray.
 \n2. Install ink cartridges.
 \nCalibration sheet will then be printed."
-        android:textSize="12dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
 
     <ImageView
         android:layout_width="280dp"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:src="@drawable/image4"
         android:adjustViewBounds="true"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
 
     <Button
         android:id="@+id/btn_next"
@@ -37,12 +39,15 @@
         android:layout_height="30dp"
         android:text="Next"
         android:background="@drawable/oval_background"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Skip Printhead alignment." />
+        android:text="Skip Printhead alignment."
+        android:layout_marginTop="5dp"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/btn_default"
@@ -50,6 +55,7 @@
         android:layout_height="30dp"
         android:text="Use default"
         android:background="@drawable/oval_background"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp" />
 
 </LinearLayout>

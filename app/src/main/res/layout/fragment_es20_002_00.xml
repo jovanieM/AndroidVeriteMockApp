@@ -16,14 +16,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="By reading the pattern with the scanner, the printer alignment is optimized and the print quality would be better."
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp" />
 
     <ImageView
         android:layout_width="280dp"
-        android:layout_height="200dp"
+        android:layout_height="180dp"
         android:src="@drawable/image8"
         android:adjustViewBounds="true"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
 
 
 </LinearLayout>
