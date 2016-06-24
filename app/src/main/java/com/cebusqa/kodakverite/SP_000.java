@@ -31,6 +31,7 @@ public class SP_000 extends AppCompatActivity{
     Thread t;
     int finalW, finalH;
     Uri resultUri;
+    boolean test2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
