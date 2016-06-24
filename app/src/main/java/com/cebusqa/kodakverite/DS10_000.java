@@ -45,7 +45,7 @@ public class DS10_000 extends AppCompatActivity {
 
         back.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(DS10_000.this, HM10_000.class));
+                finish();
             }
         });
 
