@@ -23,9 +23,12 @@ public class Fragment_ES30_051 extends Fragment {
             public void run() {
                 Intent intent = new Intent(getActivity(), HM10_000.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         }, 4000);
 
         return inflater.inflate(R.layout.fragment_es30_051, container, false);
     }
+
+
 }

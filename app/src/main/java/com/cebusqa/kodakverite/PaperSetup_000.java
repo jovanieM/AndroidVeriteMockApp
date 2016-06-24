@@ -29,26 +29,14 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
         setContentView(R.layout.papersetup_000);
 
 
-
-        //btnCancel = (Button) findViewById(R.id.btnCancel);
-
         //btnCancel = (Button) findViewById(R.id.btnCancel);
 
         paper_size = (TextView) findViewById(R.id.paper_size);
         paper_type = (TextView) findViewById(R.id.paper_type);
-
-
-        paper_size = (TextView) findViewById(R.id.paper_size);
-        paper_type = (TextView) findViewById(R.id.paper_type);
-
         btnBack = (Button) findViewById(R.id.back);
         btnSave = (Button) findViewById(R.id.btnSave);
-
-
                     RingDialog ringDialog = new RingDialog(PaperSetup_000.this, "", "Getting Printer Setting...", true);
                     ringDialog.run();
-
-
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
            public void onClick(View view) {
@@ -69,8 +57,6 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
 
                }
         });
-
-
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,14 +98,11 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
     }
 
     @Override
-
     public void onClick(DialogInterface dialog, int pos){
         String selectedItem = items[pos];
         paper_size.setText(selectedItem);
     }
-
-
-    }
+}
 
 
 

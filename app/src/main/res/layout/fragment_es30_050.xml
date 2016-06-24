@@ -1,67 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
 
-    <!--status -->
-    <LinearLayout
-        android:id="@+id/status"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:src="@drawable/status_3" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/status_3"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-    </LinearLayout>
+        android:layout_gravity="center_horizontal"
+        android:text="Usage Tracking"
+        android:textSize="15sp"
+        android:layout_marginTop="80dp" />
 
-    <!--Content -->
-    <LinearLayout
-        android:id="@+id/content"
-        android:layout_below="@+id/status"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="100dp"
-        android:paddingTop="100dp"
-        android:paddingRight="20dp"
-        android:paddingLeft="20dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Usage Tracking"
-            android:textSize="15sp"
-            android:layout_marginBottom="10dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="To improve future versions of Kodak printers, allow printer to periodically send anonymous usage data to Funai. In addition, Funai use the collected data from the printer to activate your warranty, and allow printer to check for firmware updates."
-            android:textSize="15sp"
-            android:layout_marginBottom="10dp" />
-        <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="I have reviewed and accept the agreements and settings"
-            android:id="@+id/checkBox"
-            android:layout_below="@+id/content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="10dp" />
-        <Button
-            android:id="@+id/btn_done"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:background="@drawable/oval_background"
-            android:text="Done"
-            android:layout_gravity="center_horizontal"
-            android:onClick="launchRingDialog" />
-    </LinearLayout>
-</RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="To improve future versions of Kodak printers, allow printer to periodically send anonymous usage data to Funai. In addition, Funai use the collected data from the printer to activate your warranty, and allow printer to check for firmware updates."
+        android:textSize="15sp"
+        android:layout_marginTop="10dp" />
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I have reviewed and accept the agreements and settings"
+        android:id="@+id/checkBox"
+        android:layout_below="@+id/content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp" />
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="@drawable/oval_background"
+        android:text="Done"
+        android:layout_gravity="center_horizontal"
+        android:onClick="launchRingDialog"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>

@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
-    <!--status -->
-    <LinearLayout
-        android:id="@+id/status"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/status_3"/>
-    </LinearLayout>
+        android:layout_height="40dp"
+        android:src="@drawable/status_3"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -25,8 +18,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/frameLayout"
-        android:layout_margin="10dp"
-        android:background="@color/button_material_dark">
+        android:background="@color/button_material_dark"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,16 +31,16 @@
             android:textIsSelectable="true" />
 
         <EditText
-            android:layout_width="234dp"
+            android:layout_width="193dp"
             android:layout_height="wrap_content"
             android:id="@+id/editText"
-            android:layout_gravity="center"
-            android:text="Input SSID name"
+            android:layout_gravity="center_horizontal|top"
             android:singleLine="false"
             android:background="@drawable/edit_text_border"
             android:padding="3dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp" />
+            android:layout_marginBottom="5dp"
+            android:hint="Input SSID name" />
     </FrameLayout>
 
     <FrameLayout
@@ -57,10 +50,10 @@
         android:layout_below="@+id/frameLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="10dp"
         android:background="@color/button_material_dark"
-        android:clickable="true"
-        android:onClick="Security">
+        android:clickable="false"
+        android:onClick="Security"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -88,8 +81,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/framePassword"
-        android:layout_margin="10dp"
-        android:background="@color/button_material_dark">
+        android:background="@color/button_material_dark"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,7 +94,7 @@
             android:textIsSelectable="true" />
 
         <EditText
-            android:layout_width="234dp"
+            android:layout_width="174dp"
             android:layout_height="wrap_content"
             android:id="@+id/editPassword"
             android:layout_gravity="center"
@@ -111,8 +104,8 @@
             android:padding="3dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:hint="Input Password" />
     </FrameLayout>
 
-
-</RelativeLayout>
+</LinearLayout>

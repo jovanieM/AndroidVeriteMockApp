@@ -103,7 +103,7 @@
         android:layout_above="@+id/relativeLayout2"
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -125,8 +125,7 @@
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
         android:layout_marginBottom="20dp"
-        android:visibility="visible"
-       >
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -148,7 +147,7 @@
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
         android:layout_marginBottom="20dp"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -169,7 +168,7 @@
         android:layout_above="@+id/drive"
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_marginBottom="20dp">
 
         <TextView
@@ -260,18 +259,14 @@
             android:layout_toRightOf="@+id/textView7"
             android:layout_toEndOf="@+id/textView7" />
 
-        <ImageButton
+        <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Settings"
-            android:id="@+id/scanSettings"
-            android:onClick="settings"
-            android:layout_above="@+id/textView18"
+            android:id="@+id/button3"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="42dp"
-            android:layout_marginEnd="42dp"
-            android:src="@mipmap/setting_icon"/>
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 </RelativeLayout>
