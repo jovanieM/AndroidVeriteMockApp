@@ -23,7 +23,6 @@ public class Fragment_ES10_000 extends Fragment {
         //return inflater.inflate(R.layout.fragment_es10_000, container, false);
 
         View view = inflater.inflate(R.layout.fragment_es10_000, container, false);
-
         btnOk = (Button) view.findViewById(R.id.btnOk);
         btnSkip = (Button) view.findViewById(R.id.btnSkip);
 
@@ -33,7 +32,7 @@ public class Fragment_ES10_000 extends Fragment {
                 Fragment_ES10_001 newfrag = new Fragment_ES10_001();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.my_layout, newfrag);
-                //transaction.addToBackStack(null);
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
@@ -44,7 +43,8 @@ public class Fragment_ES10_000 extends Fragment {
                 startActivity(new Intent(getActivity(), HM10_000.class));
             }
         });
-
         return view;
     }
+
+
 }

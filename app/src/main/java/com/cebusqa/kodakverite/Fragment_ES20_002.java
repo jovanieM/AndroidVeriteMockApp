@@ -14,12 +14,14 @@ import android.widget.Button;
  */
 public class Fragment_ES20_002 extends Fragment {
 
-    Button btnScan, btnHelp;
+    Button btnScan, btnHelp, btnBack;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_es20_002, container, false);
+
         btnScan = (Button) view.findViewById(R.id.btn_start_scan);
         btnHelp = (Button) view.findViewById(R.id.btn_help);
 

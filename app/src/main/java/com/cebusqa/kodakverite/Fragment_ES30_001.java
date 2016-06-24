@@ -15,7 +15,7 @@ import android.widget.ListView;
 /**
  * Created by SQA Cebu on 6/13/2016.
  */
-public class Fragment_ES30_001 extends Fragment {
+public class  Fragment_ES30_001 extends Fragment {
 
     Button btnManual, btnWPS, btnDirect;
     ListView listView;

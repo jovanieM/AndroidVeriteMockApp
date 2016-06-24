@@ -1,6 +1,7 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -21,13 +22,14 @@ public class Fragment_ES10_001 extends Fragment {
             @Override
             public void run() {
                 Fragment_ES10_002 frag = new Fragment_ES10_002();
-                android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.my_layout, frag);
-                //transaction.addToBackStack(null);
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         }, 4000);
+
         return inflater.inflate(R.layout.fragment_es10_001, container, false);
     }
 

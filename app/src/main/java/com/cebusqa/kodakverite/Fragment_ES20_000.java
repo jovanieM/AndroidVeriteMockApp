@@ -43,6 +43,7 @@ public class Fragment_ES20_000 extends Fragment {
                 android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.my_layout, frag);
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
