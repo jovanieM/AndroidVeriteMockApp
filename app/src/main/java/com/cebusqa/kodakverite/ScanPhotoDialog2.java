@@ -18,7 +18,7 @@ import android.widget.Toast;
 /**
  * Created by Cebu SQA on 21/06/2016.
  */
-public class ScanPhotoDialog extends DialogFragment{
+public class ScanPhotoDialog2 extends DialogFragment{
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

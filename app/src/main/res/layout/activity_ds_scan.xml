@@ -65,8 +65,6 @@
             android:id="@+id/fragment_place_scan"
             android:name="com.cebusqa.kodakverite.FragmentScanSettings"
             tools:layout="@layout/fragment_ds_scan" />
-
-
         <ImageButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
