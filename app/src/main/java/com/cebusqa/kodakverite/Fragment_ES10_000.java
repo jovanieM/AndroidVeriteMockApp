@@ -26,7 +26,6 @@ public class Fragment_ES10_000 extends Fragment {
         btnOk = (Button) view.findViewById(R.id.btnOk);
         btnSkip = (Button) view.findViewById(R.id.btnSkip);
 
-
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +38,6 @@ public class Fragment_ES10_000 extends Fragment {
             }
         });
 
-
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +45,6 @@ public class Fragment_ES10_000 extends Fragment {
                 getActivity().finish();
             }
         });
-
 
         return view;
     }
