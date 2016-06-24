@@ -29,9 +29,14 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
         setContentView(R.layout.papersetup_000);
 
 
+
         //btnCancel = (Button) findViewById(R.id.btnCancel);
 
         //btnCancel = (Button) findViewById(R.id.btnCancel);
+
+        paper_size = (TextView) findViewById(R.id.paper_size);
+        paper_type = (TextView) findViewById(R.id.paper_type);
+
 
         paper_size = (TextView) findViewById(R.id.paper_size);
         paper_type = (TextView) findViewById(R.id.paper_type);

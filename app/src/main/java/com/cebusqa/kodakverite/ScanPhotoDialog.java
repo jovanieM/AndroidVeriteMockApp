@@ -30,21 +30,7 @@ public class ScanPhotoDialog extends DialogFragment{
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
-
-                new RingDialog(getActivity(),"Canceling...", null, true).run();
-
-
-                if(getActivity() instanceof PhotoScanMain) {
-                    ((PhotoScanMain) getActivity()).test = true;
-                }
-                if(getActivity()instanceof DocumentScan){
-                    ((DocumentScan) getActivity()).dtest = true;
-                }
-
-
-
-                //super.onCancel(dialog);
+                dialog.cancel();
             }
         });
 
@@ -54,6 +40,7 @@ public class ScanPhotoDialog extends DialogFragment{
 
         return scanDialog;
     }
+
 
 
 }

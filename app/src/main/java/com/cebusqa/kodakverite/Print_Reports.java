@@ -43,7 +43,7 @@ public class Print_Reports extends Activity{
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                startActivity(new Intent(Print_Reports.this, PU00_0000.class));
             }
         });
     }

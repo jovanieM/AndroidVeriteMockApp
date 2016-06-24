@@ -106,21 +106,15 @@
             android:layout_toRightOf="@+id/document_txtView"
             android:layout_toEndOf="@+id/document_txtView" />
 
-        <ImageButton
+        <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Settings"
             android:id="@+id/scanSettingsIcon"
-            android:layout_above="@+id/document"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="43dp"
-            android:layout_marginEnd="43dp"
-            android:onClick="settingsIcon"
-            android:src="@mipmap/setting_icon"
-            android:adjustViewBounds="false"
-            android:background="#00ffffff" />
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 

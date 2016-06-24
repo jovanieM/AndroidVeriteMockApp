@@ -31,7 +31,7 @@ public class CS00_000 extends Activity{
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                startActivity(new Intent(CS00_000.this, PU00_0000.class));
             }
         });
     }

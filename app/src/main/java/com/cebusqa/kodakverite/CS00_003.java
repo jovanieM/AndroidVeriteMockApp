@@ -12,6 +12,8 @@ import android.os.Handler;
  */
 public class CS00_003 extends Activity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +23,12 @@ public class CS00_003 extends Activity {
            @Override
            public void run() {
 
-              final AlertDialog.Builder dialog = new AlertDialog.Builder(CS00_003.this).setMessage("Cartridge Setup complete");                 final AlertDialog alert = dialog.create();
+               final AlertDialog.Builder dialog = new AlertDialog.Builder(CS00_003.this).setMessage("Cartridge Setup complete");                 final AlertDialog alert = dialog.create();
 
                alert.show();
                // alert.getWindow().setBackgroundDrawableResource(R.color.colorPrimary);
+
+
                final Handler handler = new Handler();
                final Runnable runnable = new Runnable() {
                    @Override

@@ -22,14 +22,13 @@ public class Fragment_ES10_001 extends Fragment {
             public void run() {
                 Fragment_ES10_002 frag = new Fragment_ES10_002();
                 android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
                 transaction.replace(R.id.my_layout, frag);
-                transaction.addToBackStack("");
+                //transaction.addToBackStack(null);
                 transaction.commit();
             }
         }, 4000);
         return inflater.inflate(R.layout.fragment_es10_001, container, false);
     }
-
-
 
 }

@@ -24,7 +24,7 @@ public class RingDialog implements Runnable {
     //public void a(){
     @Override
     public void run() {
-        Thread t= new Thread(new Runnable() {
+        new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -34,9 +34,7 @@ public class RingDialog implements Runnable {
                 }
                 ringDialog.dismiss();
             }
-        });
-        t.start();
-
+        }).start();
     }
 
 }
