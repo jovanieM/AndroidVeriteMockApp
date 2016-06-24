@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <include layout="@layout/app_bar_back_only" />
+
+    <TextView
+        android:id="@+id/title_wifi_setup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Direct Connect Time"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:background="@color/colorPrimary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="'Direct Connect Time' is the timeout time of Wireless direct connection. "/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#2e2e2e">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Direct Connect Time" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:entries="@array/direct_time" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Save Setting"
+        android:id="@+id/btn_save_setting"
+        android:background="@drawable/oval_background" />
+
+</LinearLayout>
