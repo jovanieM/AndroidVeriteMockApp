@@ -58,7 +58,7 @@
 
 
         <activity android:name=".DocumentScan"/>
-
+        <activity android:name=".DocumentScan2"/>
         <activity android:name=".WS00_020" />
         <activity android:name=".WS00_030" />
         <activity android:name=".WS00_040" />

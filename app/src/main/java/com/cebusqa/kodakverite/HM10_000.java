@@ -33,7 +33,12 @@ public class HM10_000 extends AppCompatActivity {
         photoprint =(ImageButton)findViewById(R.id.photoprint);
         setting_icon =(ImageButton)findViewById(R.id.setting_icon);
 
-
+        scandocument.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(), DocumentScan.class));
+            }
+        });
 
         inklevel.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
