@@ -6,19 +6,17 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 
-public class DS_print extends FragmentActivity {
+public class DS_print extends FragmentActivity implements View.OnClickListener {
 
     public ImageButton quick, detail;
     public Button back;
-    Fragment fr;
-    FragmentManager fm;
-    FragmentTransaction fragmentTransaction;
 
 
     @Override
@@ -46,11 +44,14 @@ public class DS_print extends FragmentActivity {
                 detail.setImageResource(R.mipmap.detail_white);
                 quick.setImageResource(R.mipmap.quick_yellow);
 
-                fr = new FragmentQuickPrint();
-                fm = getFragmentManager();
-                fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_placer, fr);
-                fragmentTransaction.commit();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+
+                FragmentQuickPrint quick = new FragmentQuickPrint();
+                ft.replace(R.id.fragment_placer, quick);
+                ft.addToBackStack(null);
+                ft.commit();
+
                 }
         });
 
@@ -62,14 +63,24 @@ public class DS_print extends FragmentActivity {
                 quick.setImageResource(R.mipmap.quick_white);
                 detail.setImageResource(R.mipmap.detail_yellow);
 
-                fr = new FragmentDetailPrint();
-                fm = getFragmentManager();
-                fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_placer, fr);
-                fragmentTransaction.commit();
-            }
+
+
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+
+                FragmentDetailPrint quick = new FragmentDetailPrint();
+                ft.add(R.id.fragment_placer, quick);
+                ft.addToBackStack(null);
+                ft.commit();
+
+             }
         });
 
+
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 }

@@ -4,17 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context="com.cebusqa.kodakverite.CP10_000"
+    tools:context="com.cebusqa.kodakverite.DS_print"
     android:gravity="center"
     android:paddingLeft="10dp">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></LinearLayout>
 
     <include
         layout="@layout/app_bar_back_only"
@@ -66,11 +58,12 @@
         </LinearLayout>
 
         <fragment
-            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="com.cebusqa.kodakverite.FragmentQuickPrint"
-            android:id="@+id/fragment_placer" />
+            android:layout_width="match_parent"
+            android:id="@+id/fragment_placer"
+            android:name="com.cebusqa.kodakverite.FragmentQuickPrint"/>
 
     </LinearLayout>
+
 
 </RelativeLayout>
