@@ -20,17 +20,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Connecting via Router..."
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:text="Connecting via Router..." />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="280dp"
+        android:layout_height="180dp"
         android:id="@+id/imageView2"
         android:src="@drawable/image10"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="true" />
 
 </LinearLayout>
