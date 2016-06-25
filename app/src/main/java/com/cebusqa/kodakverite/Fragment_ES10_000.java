@@ -41,6 +41,7 @@ public class Fragment_ES10_000 extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), HM10_000.class));
+                getActivity().finish();
             }
         });
         return view;

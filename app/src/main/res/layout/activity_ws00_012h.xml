@@ -22,13 +22,11 @@
         android:text="
 SSID and password are normally displayed at the side or bottom part of the router.
 For more detail, please refer to the manual of the router."
-        android:textSize="15sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:textSize="15sp" />
 
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="280dp"
+        android:layout_height="180dp"
         android:src="@drawable/image13"
         android:adjustViewBounds="true"
         android:layout_gravity="center_horizontal" />
