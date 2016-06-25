@@ -98,8 +98,8 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
 
                 AlertDialog.Builder builders=new AlertDialog.Builder(PaperSetup_000.this);
                 builders.setTitle("Paper Sizes");
-                items = getResources().getStringArray(R.array.Paper_type);
-                builders.setItems(items,PaperSetup_000.this);
+                items1 = getResources().getStringArray(R.array.Paper_type);
+                builders.setItems(items1,PaperSetup_000.this);
                 AlertDialog alertDialogObject = builders.create();
                 alertDialogObject.show();
 
@@ -109,8 +109,20 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
 
     }
 
+    @Override
+    public void onClick(DialogInterface dialog, int pos) {
+
+        String selectedItem = items[pos];
+        paper_size.setText(selectedItem);
+
+        String selectedItems = items1[pos];
+        paper_type.setText(selectedItems);
+
+    }
 
 
+
+/*
     @Override
     public void onClick(DialogInterface dialog, int pos){
 
@@ -143,7 +155,7 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
 
 
     }
-
+*/
 
 
 }

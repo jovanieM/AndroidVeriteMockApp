@@ -51,11 +51,6 @@ public class Restore_Factory extends Activity{
                                                 });
 
 
-                               //             };
-                              //          });
-
-
-
                                 AlertDialog alert = builder.create();
                                 alert.show();
 

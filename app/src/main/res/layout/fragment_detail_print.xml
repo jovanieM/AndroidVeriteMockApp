@@ -18,7 +18,10 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#000000">
+            android:background="#000000"
+            android:weightSum="1"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -75,7 +78,20 @@
                     android:src="@mipmap/incre" />
             </LinearLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Paper Size"
+                android:id="@+id/textView19"
+                android:layout_weight="0.06"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical" />
 
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner2"
+                android:visibility="visible" />
 
 
         </LinearLayout>

@@ -27,29 +27,27 @@
             android:layout_height="match_parent">
 
             <ImageButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/printer"
                 android:background="#000000"
                 android:src="@mipmap/printer1"
                 android:longClickable="true"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:layout_centerInParent="true" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/search_icon"
                 android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentLeft="false"
                 android:layout_alignParentStart="false"
-                android:layout_marginLeft="312dp"
-                android:layout_marginStart="312dp"
                 android:layout_alignParentEnd="true"
-                android:paddingEnd="20dp"
                 android:src="@mipmap/search_icon"
                 android:background="#000000"
-                android:paddingRight="20dp"
-                android:layout_alignParentRight="true" />
+                android:layout_alignParentRight="true"
+                android:paddingRight="5dp" />
         </RelativeLayout>
 
     </LinearLayout>
