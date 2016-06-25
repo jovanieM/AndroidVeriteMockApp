@@ -41,7 +41,7 @@ public class HM10_000 extends AppCompatActivity {
                 startActivity(new Intent(HM10_000.this, DocumentScan.class));
             }
         });
-        
+
 
         inklevel.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
