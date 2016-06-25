@@ -170,4 +170,10 @@
         <item> Unlimited </item>
     </string-array>
 
+    <string-array name="printer_select">
+        <item> Kodak1 </item>
+        <item> Kodak2 </item>
+        <item> Kodak3 </item>
+        <item> Kodak4 </item>
+    </string-array>
 </resources>
