@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,10 +20,10 @@ import android.widget.Toast;
  * Created by Cebu SQA on 21/06/2016.
  */
 public class ScanPhotoDialog extends DialogFragment{
-
+    boolean cancel;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.scan_photo_dialog, null);
         builder.setTitle("Scan Photo");
@@ -31,9 +32,7 @@ public class ScanPhotoDialog extends DialogFragment{
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-
-                new RingDialog(getActivity(),"Canceling...", null, true).run();
-
+                new RingDialog(getActivity(), "Canceling", null, true).run();
 
                 if(getActivity() instanceof PhotoScanMain) {
                     ((PhotoScanMain) getActivity()).test = true;
@@ -44,16 +43,13 @@ public class ScanPhotoDialog extends DialogFragment{
 
 
 
-                //super.onCancel(dialog);
-            }
-        });
+        }});
 
 
         Dialog scanDialog = builder.create();
-
-
         return scanDialog;
-    }
+
+        }
 
 
 }

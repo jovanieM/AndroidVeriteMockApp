@@ -17,7 +17,8 @@
         android:text="Connect the printer to AC Power, and turn on the printer. Confirm the Power LED is On and Wireless LED is lighting or blinking"
         android:textSize="15sp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
 
 
     <ImageView

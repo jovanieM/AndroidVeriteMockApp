@@ -35,11 +35,11 @@ public class ScanPhotoDialog2 extends DialogFragment{
                 new RingDialog(getActivity(),"Canceling...", null, true).run();
 
 
-                if(getActivity() instanceof PhotoScanMain) {
-                    ((PhotoScanMain) getActivity()).test = true;
+                if(getActivity() instanceof SP_000) {
+                    ((SP_000) getActivity()).test2 = true;
                 }
-                if(getActivity()instanceof DocumentScan){
-                    ((DocumentScan) getActivity()).dtest = true;
+                if(getActivity()instanceof DocumentScan2){
+                    ((DocumentScan2) getActivity()).dtest2 = true;
                 }
 
 
