@@ -1,5 +1,7 @@
 package com.cebusqa.kodakverite;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,18 +9,20 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.security.SecurityPermission;
 
 
-public class HM10_000 extends AppCompatActivity {
+public class HM10_000 extends AppCompatActivity implements Communicator{
 
-    ImageButton inklevel, copy, scanphoto, scandocument, photoprint, ecomode, setting_icon, printer, search_icon, printer_name;
+    ImageButton inklevel, copy, scanphoto, scandocument, photoprint, ecomode, setting_icon, printer, search_icon;
     private ProgressDialog progressBar;
     private int progressBarStatus = 0;
     private int currentImage = 0;
     int[] images = {R.mipmap.ecomode_off, R.mipmap.ecomode1, R.mipmap.ecomode2};
-
+    TextView printer_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ public class HM10_000 extends AppCompatActivity {
         setting_icon =(ImageButton)findViewById(R.id.setting_icon);
         printer = (ImageButton)findViewById(R.id.printer);
         search_icon= (ImageButton)findViewById(R.id.search_icon);
-        printer_name= (ImageButton)findViewById(R.id.printer_name);
+        printer_name= (TextView) findViewById(R.id.printer_name);
 
         scandocument.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -97,9 +101,30 @@ public class HM10_000 extends AppCompatActivity {
         search_icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 printer.setImageResource(R.mipmap.searching_for_printer);
-                printer_name.setImageResource(R.mipmap.addnewprinter);
+                printer_name.setText("Add Printer");
+                printer_name.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        DummyWirelessFragment dummyWirelessFragment =new DummyWirelessFragment();
+                        dummyWirelessFragment.show(getFragmentManager(), "this");
+                        dummyWirelessFragment.run();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                new SelectPrinterDialog().show(getFragmentManager(), "select");
+                            }
+                        }, 3700);
+
+                    }
+                });
             }
         });
+//
 
+    }
+
+    @Override
+    public void respond(String printer) {
+        printer_name.setText(printer);
     }
 }
