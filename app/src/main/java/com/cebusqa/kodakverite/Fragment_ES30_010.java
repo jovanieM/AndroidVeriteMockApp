@@ -30,7 +30,7 @@ import android.widget.TextView;
  */
 public class Fragment_ES30_010 extends Fragment {
 
-    EditText editText, etPassword;
+    EditText etSSID, etPassword;
     Spinner spinner;
     String[] items;
     ArrayAdapter<String> adapter;
@@ -45,7 +45,7 @@ public class Fragment_ES30_010 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_es30_010, container, false);
 
-        editText = (EditText) view.findViewById(R.id.editText);
+        etSSID = (EditText) view.findViewById(R.id.et_ssid);
         etPassword = (EditText) view.findViewById(R.id.et_password);
         spinner = (Spinner) view.findViewById(R.id.sp_security);
         rlPassword = (RelativeLayout) view.findViewById(R.id.rl_password);
@@ -65,6 +65,24 @@ public class Fragment_ES30_010 extends Fragment {
                         itemPos = adapterView.getSelectedItemPosition();
                         itemSecurity = adapterView.getSelectedItem().toString();
                         rlPassword.setVisibility(View.INVISIBLE);
+
+                        checkBox();
+                        etSSID.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                            @Override
+                            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                                if(i == EditorInfo.IME_ACTION_GO){
+                                    Fragment_ES30_050 frag = new Fragment_ES30_050();
+                                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                                    transaction.replace(R.id.my_layout, frag);
+                                    transaction.addToBackStack(null);
+                                    transaction.commit();
+
+                                    hideSoftKeyboard();
+                                }
+                                return false;
+                            }
+                        });
                         break;
 
                     case 1:
@@ -99,7 +117,6 @@ public class Fragment_ES30_010 extends Fragment {
                         itemSecurity = adapterView.getSelectedItem().toString();
                         rlPassword.setVisibility(View.VISIBLE);
                         checkBox.setVisibility(View.VISIBLE);
-
                         break;
 
                     case 3:
@@ -107,7 +124,6 @@ public class Fragment_ES30_010 extends Fragment {
                         itemSecurity = adapterView.getSelectedItem().toString();
                         rlPassword.setVisibility(View.VISIBLE);
                         checkBox.setVisibility(View.VISIBLE);
-
                         break;
 
                     default:
@@ -136,9 +152,9 @@ public class Fragment_ES30_010 extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(!b){
-                    etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                }else{
                     etPassword.setInputType(129);
+                }else{
+                    etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 }
             }
         });

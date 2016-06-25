@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.app.FragmentTransaction;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,10 @@ import android.view.ViewGroup;
 public class Fragment_ES20_003 extends Fragment {
 
     @Nullable
-    @Override
+    //@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_es20_003, container, false);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -29,6 +32,7 @@ public class Fragment_ES20_003 extends Fragment {
                 transaction.commit();
             }
         }, 4000);
-        return inflater.inflate(R.layout.fragment_es20_003, container, false);
+
+        return view;
     }
 }
