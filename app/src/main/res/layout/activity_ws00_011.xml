@@ -23,36 +23,19 @@
         android:textSize="15sp"
         android:layout_margin="10dp" />
 
-    <!-- listview printer -->
-    <LinearLayout
-        android:id="@+id/printer_list"
-        android:layout_below="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary"
-        android:gravity="center_horizontal"
-        >
-
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/lv_connections"
-            android:entries="@array/routers_printer"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp" />
-    </LinearLayout>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:id="@+id/lv_connections"
+        android:entries="@array/routers_printer"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/printer_list"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/colorPrimary"
         android:gravity="center_vertical|center_horizontal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginTop="10dp">
 
         <Button
             android:id="@+id/btn_manual1"
@@ -60,7 +43,7 @@
             android:layout_height="30dp"
             android:text="Manual"
             android:background="@drawable/oval_background"
-            android:layout_marginRight="10dp" />
+            android:layout_gravity="center_horizontal" />
 
         <Button
             android:id="@+id/btn_wps1"
@@ -68,8 +51,7 @@
             android:layout_height="30dp"
             android:text="WPS"
             android:background="@drawable/oval_background"
-            android:layout_marginRight="10dp" />
+            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
-
 </LinearLayout>

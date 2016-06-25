@@ -22,7 +22,9 @@
         android:layout_height="wrap_content"
         android:background="#2e2e2e"
         android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:paddingBottom="5dp"
+        android:weightSum="1"
+        android:id="@+id/ll_ipAdd">
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,22 +34,29 @@
             android:layout_marginRight="40dp"
             android:layout_gravity="center_vertical" />
 
-        <Switch
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Auto"
+            android:text="New Text"
+            android:id="@+id/tv_auto_manual" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/switch1"
             android:checked="false"
-            android:layout_weight="1"
             android:layout_marginLeft="40dp"
-            android:layout_gravity="center_vertical" />
+            android:textOn="Manual"
+            android:textOff="Auto"
+            android:layout_weight="0.36" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_ip_address"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:orientation="horizontal"

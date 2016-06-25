@@ -15,7 +15,7 @@ import android.widget.ListView;
 public class WS00_011 extends Activity {
 
     ListView listView;
-    Button btnManual, btnWPS;
+    Button btnManual, btnWPS, btnBack;
     String[] items;
     ArrayAdapter<String> adapter;
     static public String ssid_item;
@@ -28,6 +28,7 @@ public class WS00_011 extends Activity {
         listView = (ListView) findViewById(R.id.lv_connections);
         btnManual = (Button) findViewById(R.id.btn_manual1);
         btnWPS = (Button) findViewById(R.id.btn_wps1);
+        btnBack = (Button) findViewById(R.id.back);
 
         items = getResources().getStringArray(R.array.routers_printer);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
@@ -102,6 +103,13 @@ public class WS00_011 extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(WS00_011.this, WS00_014.class));
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
