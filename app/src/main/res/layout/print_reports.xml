@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:weightSum="1">
 
     <include
         layout="@layout/app_bar_back_only"
@@ -12,12 +13,13 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Print Report"
         android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:layout_weight="0.10" />
 
     <TextView
         android:layout_width="match_parent"
@@ -28,11 +30,14 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:singleLine="false"
-        android:textSize="15dp" />
+        android:textSize="15dp"
+        android:textColor="#ffffff"
+        android:layout_weight="0.07" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Start Printing"
         android:background="@drawable/oval_background"
-        android:id="@+id/btn_report" />
+        android:id="@+id/btn_report"
+        android:textColor="#ffffff" />
 </LinearLayout>

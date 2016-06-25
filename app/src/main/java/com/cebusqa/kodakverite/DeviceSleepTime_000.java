@@ -13,13 +13,14 @@ import android.widget.TextView;
 /**
  * Created by SQA Cebu on 6/21/2016.
  */
-public class DeviceSleepTime_000 extends Activity{
+public class DeviceSleepTime_000 extends Activity implements View.OnClickListener{
 
     Button btnBack, btnSave;
     TextView paper_size, paper_type;
     EditText num_min;
-    ImageButton incre, decre;
-    static int num = 10;
+    Button incre, decre;
+     int num = 10;
+    public int min ;
     public String val;
 
     @Override
@@ -29,20 +30,41 @@ public class DeviceSleepTime_000 extends Activity{
 
         paper_size = (TextView) findViewById(R.id.paper_size);
         paper_type = (TextView) findViewById(R.id.paper_type);
-        btnBack = (Button) findViewById(R.id.back);
-        btnSave = (Button) findViewById(R.id.btnSave);
         num_min = (EditText) findViewById(R.id.num_min);
-        incre = (ImageButton) findViewById(R.id.incre);
-        decre = (ImageButton) findViewById(R.id.decre);
 
-                    RingDialog ringDialog = new RingDialog(DeviceSleepTime_000.this, "", "Getting Printer Setting...", true);
-                    ringDialog.run();
+        btnBack = (Button) findViewById(R.id.back);
+        btnBack.setOnClickListener(this);
+
+        btnSave = (Button) findViewById(R.id.btnSave);
+        btnSave.setOnClickListener(this);
+
+        incre = (Button) findViewById(R.id.incre);
+        incre.setOnClickListener(this);
+
+        decre = (Button) findViewById(R.id.decre);
+        decre.setOnClickListener(this);
 
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-           public void onClick(View view) {
+        RingDialog ringDialog = new RingDialog(DeviceSleepTime_000.this, "", "Getting Printer Setting...", true);
+        ringDialog.run();
 
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
+        String minutes = num_min.getText().toString();
+        int min = Integer.parseInt(minutes);
+
+        if(min>120){
+
+           num_min.setText("120");
+        }
+
+        switch (v.getId()){
+
+            case R.id.btnSave:
 
 
                 RingDialog ringDialog = new RingDialog(DeviceSleepTime_000.this, "", "Setting is saved...", true);
@@ -55,47 +77,33 @@ public class DeviceSleepTime_000 extends Activity{
                         startActivity(intent);
                     }
                 }, 4000);
+                break;
 
-               }
-        });
+            case R.id.back:
 
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
                 finish();
-            }
-        });
+                break;
 
+            case R.id.incre:
 
-        incre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (num < 101) {
-                    num= num+1;
+                if (min < 120) {
+                    num= min + 1;
                     val = Integer.toString(num);
                     num_min.setText(val);
-
                 }
-            }
-        });
+                break;
+
+            case R.id.decre:
+
+                 if (min > 1){
+                    num=min-1;
+                    val=Integer.toString(num);
+                    num_min.setText(val);
+                }
+                break;
 
 
-        decre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (num>1)
-                    num= num-1;
-                val = Integer.toString(num);
-                num_min.setText(val);
-
-            }
-        });
-
+        }
 
     }
-
-
 }

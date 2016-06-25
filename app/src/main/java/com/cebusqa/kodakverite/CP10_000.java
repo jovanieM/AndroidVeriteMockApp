@@ -14,7 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.view.ViewGroup;
 
-public class CP10_000 extends FragmentActivity {
+public class CP10_000 extends FragmentActivity implements View.OnClickListener{
 
     public ImageButton incre, decre, standardcolor, standardbw, custom;
     public TextView num_copies, color_txtview;
@@ -136,4 +136,8 @@ public class CP10_000 extends FragmentActivity {
 }
 
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }

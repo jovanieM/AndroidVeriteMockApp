@@ -41,7 +41,7 @@ public class DocumentScan extends Activity {
         }
     }
 
-    public void dExec (){
+    public void dExec () {
 
         final ScanPhotoDialog dscanDialog = new ScanPhotoDialog();
         dscanDialog.setCancelable(true);
@@ -50,26 +50,28 @@ public class DocumentScan extends Activity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                dscanDialog.show(getFragmentManager(),"scan");
+                dscanDialog.show(getFragmentManager(), "scan");
                 try {
                     Thread.sleep(4000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
-              //  if(dtest){
-                 //   new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
-                 //   dscanDialog.dismiss();
-               // }else{
-                    startActivity(new Intent(getApplicationContext(), DocumentScan2.class));
-                //}
-            }
-        })
-                .start();
+                if (dtest) {
 
+                    new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
+
+                    // dscanDialog.dismiss();
+                } else {
+                    startActivity(new Intent(getApplicationContext(), DocumentScan2.class));
+                }
+            }
+        }).start();
     }
+
+
     public void dsettingsIcon(View v){
-        startActivity(new Intent(getApplicationContext(), Scan_Photo_Settings.class));
+        startActivity(new Intent(getApplicationContext(), Scan_Doc_Settings.class));
     }
 
 

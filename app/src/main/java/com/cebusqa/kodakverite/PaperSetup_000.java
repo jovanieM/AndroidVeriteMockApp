@@ -13,10 +13,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+
 /**
  * Created by SQA Cebu on 6/21/2016.
  */
-public class PaperSetup_000 extends Activity implements DialogInterface.OnClickListener{
+public class PaperSetup_000 extends Activity implements DialogInterface.OnClickListener {
 
     Button btnBack, btnSave;
     TextView paper_type, paper_size;
@@ -33,8 +34,15 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
 
         btnBack = (Button) findViewById(R.id.back);
         btnSave = (Button) findViewById(R.id.btnSave);
-                    RingDialog ringDialog = new RingDialog(PaperSetup_000.this, "", "Getting Printer Setting...", true);
-                    ringDialog.run();
+
+        RingDialog ringDialog = new RingDialog(PaperSetup_000.this, "", "Getting Printer Setting...", true);
+        ringDialog.run();
+
+
+
+
+
+
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +73,8 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
             }
         });
 
+
+
         paper_size.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,20 +98,54 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
 
                 AlertDialog.Builder builders=new AlertDialog.Builder(PaperSetup_000.this);
                 builders.setTitle("Paper Sizes");
-                items1 = getResources().getStringArray(R.array.Paper_type);
-                builders.setItems(items1,PaperSetup_000.this);
+                items = getResources().getStringArray(R.array.Paper_type);
+                builders.setItems(items,PaperSetup_000.this);
                 AlertDialog alertDialogObject = builders.create();
                 alertDialogObject.show();
 
             }
         });
+
+
     }
+
+
 
     @Override
     public void onClick(DialogInterface dialog, int pos){
-        String selectedItem = items[pos];
-        paper_size.setText(selectedItem);
+
+        if(paper_size.isSelected()){
+
+            AlertDialog.Builder builder=new AlertDialog.Builder(PaperSetup_000.this);
+            builder.setTitle("Paper Size");
+            items = getResources().getStringArray(R.array.Paper_size_print);
+            builder.setItems(items,PaperSetup_000.this);
+            AlertDialog alertDialogObject = builder.create();
+            alertDialogObject.show();
+
+            String selectedItem = items[pos];
+            paper_size.setText(selectedItem);
+        }
+
+        if(paper_type.isSelected()){
+
+            AlertDialog.Builder builders=new AlertDialog.Builder(PaperSetup_000.this);
+            builders.setTitle("Paper Type");
+            items = getResources().getStringArray(R.array.Paper_type);
+            builders.setItems(items,PaperSetup_000.this);
+            AlertDialog alertDialogObject = builders.create();
+            alertDialogObject.show();
+
+
+            String selectedItem = items[pos];
+            paper_size.setText(selectedItem);
+        }
+
+
     }
+
+
+
 }
 
 

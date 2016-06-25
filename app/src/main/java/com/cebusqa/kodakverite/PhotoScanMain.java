@@ -3,6 +3,7 @@ package com.cebusqa.kodakverite;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -22,7 +23,7 @@ public class PhotoScanMain extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photo_scan_main);
-        scanTv = (TextView) findViewById(R.id.touchScan2);
+        scanTv = (TextView) findViewById(R.id.touchScan);
         scanRelOut = (RelativeLayout) findViewById(R.id.scan);
         settingsIcon = (ImageButton) findViewById(R.id.scanSettingsIcon);
         scanTv.setOnClickListener(new View.OnClickListener() {
@@ -47,27 +48,45 @@ public class PhotoScanMain extends Activity{
 
         final ScanPhotoDialog scanDialog = new ScanPhotoDialog();
         scanDialog.setCancelable(true);
+        scanDialog.show(getFragmentManager(),"scan");
 
 
-        Thread t = new Thread(new Runnable() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                scanDialog.show(getFragmentManager(),"scan");
-                try {
-                    Thread.sleep(4000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
                 if(test){
+                    Thread.currentThread().interrupt();
+                   //
+
                     new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
-                    scanDialog.dismiss();
+
+                    //scanDialog.dismiss();
                 }else{
                     startActivity(new Intent(PhotoScanMain.this, SP_000.class));
                 }
             }
-        });
-        t.start();
+        },4000);
+//        Thread t = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                scanDialog.show(getFragmentManager(),"scan");
+//                try {
+//                    Thread.sleep(4000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                if(test){
+//                    new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
+//
+//                    scanDialog.dismiss();
+//                }else{
+//                    startActivity(new Intent(PhotoScanMain.this, SP_000.class));
+//                }
+//            }
+//        });
+//        t.start();
+//
 
     }
     public void settingsIcon(View v){

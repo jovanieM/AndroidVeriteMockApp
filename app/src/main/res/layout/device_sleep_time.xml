@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:weightSum="1">
 
     <include
         layout="@layout/app_bar_back_only"
@@ -12,23 +13,24 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:text="Device Sleep Time"
         android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:layout_weight="0.12" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The print switches sleep mode when non-operation time exceeds sleep time."
+        android:text="The print switches to sleep mode when idle for a given time."
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:singleLine="false"
-        android:textSize="15dp" />
+        android:textColor="#ffffff" />
 
     <Space
         android:layout_width="match_parent"
@@ -39,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:weightSum="1"
-        android:background="#000000">
+        android:background="#363434">
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,7 +50,8 @@
             android:id="@+id/textView15"
             android:layout_margin="5dp"
             android:textSize="15dp"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:textColor="#ffffff" />
 
         <Space
             android:layout_width="wrap_content"
@@ -57,16 +60,12 @@
 
     </LinearLayout>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="5dp" />
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:weightSum="1"
-        android:background="#5c5959"
+        android:background="#363434"
         android:layout_gravity="center_horizontal">
 
         <Space
@@ -82,7 +81,8 @@
             android:id="@+id/num_min"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:text="10" />
+            android:text="10"
+            android:textColor="#ffffff" />
 
         <Space
             android:layout_width="5dp"
@@ -97,29 +97,33 @@
             android:textColor="#ffcf33"
             android:singleLine="false" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <Button
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:text="-"
             android:id="@+id/decre"
             android:layout_marginLeft="40dp"
-            android:background="#5c5959"
+            android:background="#a09d9d"
             android:textColor="#000000"
-            android:textSize="45dp"
+            android:textSize="30dp"
             android:src="@mipmap/decre"
-            android:layout_gravity="center|right" />
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:gravity="center_vertical|center_horizontal" />
 
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
+        <Button
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:text="+"
             android:id="@+id/incre"
-            android:layout_marginLeft="0dp"
-            android:background="#5c5959"
+            android:layout_marginLeft="15dp"
+            android:background="#a09d9d"
             android:textColor="#000000"
-            android:textSize="40dp"
+            android:textSize="30dp"
             android:src="@mipmap/incre"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:allowUndo="true"
+            android:gravity="center_vertical|center_horizontal" />
     </LinearLayout>
 
     <Space
@@ -131,5 +135,6 @@
         android:layout_height="wrap_content"
         android:text="Save setting"
         android:background="@drawable/oval_background"
-        android:id="@+id/btnSave" />
+        android:id="@+id/btnSave"
+        android:textColor="#ffffff" />
 </LinearLayout>
