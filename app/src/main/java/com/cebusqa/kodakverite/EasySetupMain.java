@@ -5,6 +5,9 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,7 +18,6 @@ import android.widget.Button;
 public class EasySetupMain extends AppCompatActivity {
 
     FragmentManager manager;
-    static Button btn_Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -27,6 +29,23 @@ public class EasySetupMain extends AppCompatActivity {
         android.app.FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.my_layout, frag, "Arvin");
         transaction.commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.tool_bar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.item1:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void onBackPressed(){
