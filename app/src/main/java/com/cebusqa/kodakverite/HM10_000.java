@@ -32,12 +32,12 @@ public class HM10_000 extends AppCompatActivity {
         scandocument =(ImageButton)findViewById(R.id.scandocument);
         photoprint =(ImageButton)findViewById(R.id.photoprint);
         setting_icon =(ImageButton)findViewById(R.id.setting_icon);
-<<<<<<< HEAD
+
         printer = (ImageButton)findViewById(R.id.printer);
         search_icon= (ImageButton)findViewById(R.id.search_icon);
         printer_name= (ImageButton)findViewById(R.id.printer_name);
 
-=======
+
 
         scandocument.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +45,7 @@ public class HM10_000 extends AppCompatActivity {
                 startActivity(new Intent(getApplication(), DocumentScan.class));
             }
         });
->>>>>>> 3b075af98ae9927d13644dfb8377f1f42f8502f4
+
 
         inklevel.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
