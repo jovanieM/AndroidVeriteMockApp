@@ -1,66 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    android:clickable="true">
+    android:orientation="vertical">
 
-    <!--status -->
-    <LinearLayout
-        android:id="@+id/status"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
+        android:layout_height="40dp"
+        android:src="@drawable/status_3" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/status_3"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-    </LinearLayout>
-
-    <!-- SSID -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/status"
         android:orientation="horizontal"
-        android:id="@+id/frameLayout"
-        android:background="@color/button_material_dark"
-        android:layout_margin="10dp"
-        android:padding="10dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SSID"
             android:layout_gravity="center_vertical"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textIsSelectable="true"
             android:layout_marginRight="50dp" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:text="Input SSID name"
+            android:id="@+id/et_ssid"
             android:singleLine="true"
             android:background="@drawable/edit_text_border"
-            android:imeOptions="actionGo" />
+            android:imeOptions="actionGo"
+            android:hint="Input SSID" />
+
     </LinearLayout>
 
-    <!-- Select security -->
     <LinearLayout
-        android:id="@+id/ll_security"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/frameLayout"
         android:orientation="horizontal"
-        android:background="@color/button_material_dark"
-        android:layout_margin="10dp"
-        android:padding="10dp">
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,7 +48,8 @@
             android:text="Security"
             android:id="@+id/tvSecurity"
             android:singleLine="true"
-            android:layout_marginRight="50dp" />
+            android:layout_marginRight="50dp"
+            android:textSize="15sp" />
 
         <Spinner
             android:id="@+id/sp_security"
@@ -77,23 +58,19 @@
             android:entries="@array/security" />
     </LinearLayout>
 
-    <!-- Password -->
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_security"
-        android:orientation="horizontal"
         android:id="@+id/rl_password"
-        android:layout_margin="10dp"
-        android:padding="10dp">
-
+        android:layout_marginTop="10dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password"
             android:id="@+id/tv_password"
             android:layout_gravity="center_vertical"
-            android:textSize="13sp"
+            android:textSize="15sp"
             android:textIsSelectable="true"
             android:layout_marginRight="50dp" />
 
@@ -102,11 +79,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_password"
-            android:text="Input Password"
             android:singleLine="true"
             android:background="@drawable/edit_text_border"
             android:imeOptions="actionDone"
-            android:selectAllOnFocus="true"/>
+            android:selectAllOnFocus="true"
+            android:hint="Input Password" />
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -115,8 +92,10 @@
             android:id="@+id/checkBox2"
             android:layout_marginRight="10dp"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/et_password" />
+            android:layout_below="@+id/et_password"
+            android:layout_marginTop="10dp"
+            android:checked="false" />
+
     </RelativeLayout>
 
-
-</RelativeLayout>
+</LinearLayout>

@@ -1,89 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
-    <!--status -->
-    <LinearLayout
-        android:id="@+id/status"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:src="@drawable/status_3" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/status_3"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/content"
-        android:layout_below="@+id/status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="
+        android:layout_gravity="center_horizontal"
+        android:text="
 Some router support Easy Setup Setting called WPS. \n
 Find WPS button on your router and push it. \n
 Some router need 2-3 seconds push for starting WPS function. \n
 WPS takes up to 3 minutes to finish. "
-            android:textSize="15sp"
-            android:gravity="left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-    </LinearLayout>
+        android:textSize="15sp"
+        android:gravity="left" />
 
-    <!-- product image -->
-    <LinearLayout
-        android:id="@+id/product_image"
-        android:layout_below="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary">
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="200dp"
+        android:src="@drawable/image11"
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="10dp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:src="@drawable/image11"
-            android:layout_gravity="top|bottom"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:scaleType="fitXY"
-            android:layout_marginTop="20dp"
-            android:minHeight="200dp"
-            android:minWidth="200dp" />
+    <Button
+        android:id="@+id/btnFindRouter"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="@drawable/oval_background"
+        android:text="Find Router"
+        android:layout_gravity="center_horizontal"
+        android:clickable="false"
+        android:layout_marginTop="10dp" />
 
-    </LinearLayout>
-
-    <!-- buttons -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/product_image"
-        android:background="@color/colorPrimary"
-        >
-
-        <Button
-            android:id="@+id/btnFindRouter"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:background="@drawable/oval_background"
-            android:text="Find Router"
-            android:layout_gravity="center_horizontal"
-            android:clickable="false"
-            android:layout_marginTop="30dp" />
-
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

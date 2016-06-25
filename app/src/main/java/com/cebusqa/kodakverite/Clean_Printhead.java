@@ -39,6 +39,7 @@ public class Clean_Printhead extends Activity{
                         public void run() {
                             Intent intent = new Intent(Clean_Printhead.this, PU00_0000.class);
                             startActivity(intent);
+                            finish();
                         }
                     }, 4000);
                }

@@ -26,19 +26,16 @@ public class Fragment_ES10_000 extends Fragment {
         btnOk = (Button) view.findViewById(R.id.btnOk);
         btnSkip = (Button) view.findViewById(R.id.btnSkip);
 
-
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Fragment_ES10_001 newfrag = new Fragment_ES10_001();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
                 transaction.replace(R.id.my_layout, newfrag);
-                //transaction.addToBackStack(null);
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
-
 
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,8 +43,8 @@ public class Fragment_ES10_000 extends Fragment {
                 startActivity(new Intent(getActivity(), HM10_000.class));
             }
         });
-
-
         return view;
     }
+
+
 }

@@ -70,7 +70,7 @@ public class CP10_000 extends FragmentActivity {
 
         back.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(CP10_000.this, HM10_000.class));
+                finish();
             }
         });
 
