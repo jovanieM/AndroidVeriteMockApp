@@ -176,4 +176,9 @@
         <item> Kodak3 </item>
         <item> Kodak4 </item>
     </string-array>
+
+    <string-array name="gcp_reg_status">
+        <item>Start Registration</item>
+        <item>Start Unregistration</item>
+    </string-array>
 </resources>

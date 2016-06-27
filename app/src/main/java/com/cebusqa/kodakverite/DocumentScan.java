@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ public class DocumentScan extends Activity {
     TextView dScanTv;
     ImageButton dScanIb;
     boolean dtest = false;
+    private Button mBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,13 @@ public class DocumentScan extends Activity {
         dScanRl = (RelativeLayout) findViewById(R.id.dscan);
         dScanTv = (TextView) findViewById(R.id.dtouchScan2);
         dScanIb = (ImageButton) findViewById(R.id.dscanSettingsIcon);
+        mBack  = (Button) findViewById(R.id.back);
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         dScanTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +52,7 @@ public class DocumentScan extends Activity {
 
     public void dExec () {
 
-        final ScanPhotoDialog dscanDialog = new ScanPhotoDialog();
+        final ScanPhotoDialog dscanDialog = ScanPhotoDialog.newInstance("Scan Document");
         dscanDialog.setCancelable(true);
 
 
@@ -74,6 +83,9 @@ public class DocumentScan extends Activity {
         startActivity(new Intent(getApplicationContext(), Scan_Doc_Settings.class));
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
 }
