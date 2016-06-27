@@ -32,22 +32,13 @@ public class FragmentOne extends Fragment implements View.OnClickListener {
                         .setCancelable(false)
                         .setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-
                                 RingDialog ringDialog = new RingDialog(CP10_000.this, "", "Canceling...", true);
                                 ringDialog.run();
-
-
                             }
                         });
-
-
                 AlertDialog alert = builder.create();
                 alert.show();
-
-
             }
-
-
         });
 */
         return view;

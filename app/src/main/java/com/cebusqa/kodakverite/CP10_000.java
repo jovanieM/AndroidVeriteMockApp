@@ -37,9 +37,10 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener{
         standardcolor = (ImageButton) findViewById(R.id.standardcolor);
         standardbw = (ImageButton) findViewById(R.id.standardbw);
         custom = (ImageButton) findViewById(R.id.custom);
-        color_btn = (Button)findViewById(R.id.color_btn);
+        //color_btn = (Button)findViewById(R.id.color_btn);
         back = (Button)findViewById(R.id.back);
 
+        num_copies.setText("1");
 
         incre.setOnClickListener(new OnClickListener() {
             @Override
@@ -58,12 +59,10 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener{
         decre.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (num>1)
                 num= num-1;
                 val = Integer.toString(num);
                 num_copies.setText(val);
-
             }
         });
 
@@ -77,7 +76,6 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener{
         standardcolor.setOnClickListener(new OnClickListener(){
 
             public void onClick (View v){
-
 
                            standardcolor.setImageResource(R.mipmap.standardcolor_yellow);
                            standardbw.setImageResource(R.mipmap.standardbw_white);
