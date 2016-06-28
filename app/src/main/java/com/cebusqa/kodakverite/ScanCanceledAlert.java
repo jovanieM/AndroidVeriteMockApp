@@ -24,7 +24,7 @@ public class ScanCanceledAlert extends DialogFragment {
         String title = getArguments().getString("title");
 
         return new AlertDialog.Builder(getActivity())
-                .setTitle(title)
+
                 .setPositiveButton("OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
@@ -34,6 +34,7 @@ public class ScanCanceledAlert extends DialogFragment {
                             }
                         }
                 )
+                .setTitle(title)
 
                 .create();
     }

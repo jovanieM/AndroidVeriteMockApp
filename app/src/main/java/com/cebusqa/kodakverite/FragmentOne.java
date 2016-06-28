@@ -40,6 +40,7 @@ public class FragmentOne extends Fragment implements View.OnClickListener {
                      builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 
                             public void onClick(DialogInterface dialog, int id) {
+<<<<<<< HEAD
 
 
                                 RingDialog ringDialog = new RingDialog(getActivity(), "", "Canceling...", true);
@@ -85,6 +86,15 @@ public class FragmentOne extends Fragment implements View.OnClickListener {
 
         }
 
+=======
+                                RingDialog ringDialog = new RingDialog(CP10_000.this, "", "Canceling...", true);
+                                ringDialog.run();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+>>>>>>> c15055888b8c2a6ab0cc9c1d6c379193a1e29e96
         });
 
         return view;

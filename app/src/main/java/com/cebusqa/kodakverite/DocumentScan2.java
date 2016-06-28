@@ -21,7 +21,7 @@ import android.widget.Toast;
  */
 public class DocumentScan2 extends Activity {
 
-    Button back;
+    private Button mback;
     RelativeLayout scan, crop, send, save2,email2, drive2,skyDrive2;
     ImageView iv2;
     //Context context;
@@ -36,7 +36,7 @@ public class DocumentScan2 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.document_scan_2);
 
-        //this.back = (Button)findViewById(R.id.back);
+        mback = (Button) findViewById(R.id.back);
         this.scan = (RelativeLayout) findViewById(R.id.scan2);
         this.crop = (RelativeLayout) findViewById(R.id.crop2);
         this.send = (RelativeLayout) findViewById(R.id.send2);
@@ -55,6 +55,13 @@ public class DocumentScan2 extends Activity {
 
         bm2 = BitmapFactory.decodeResource(res, R.drawable.sample);
         iv2.setImageBitmap(bm2);
+
+        mback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication(), HM10_000.class));
+            }
+        });
 
         scan.setOnClickListener(new View.OnClickListener() {
             @Override

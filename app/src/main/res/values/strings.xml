@@ -176,4 +176,30 @@
         <item> Kodak3 </item>
         <item> Kodak4 </item>
     </string-array>
+
+    <string-array name="gcp_reg_status">
+        <item>Registration</item>
+        <item>Unregistration</item>
+    </string-array>
+
+    <string-array name="copy_desc">
+        <item> Color </item>
+        <item> Paper Size </item>
+        <item> Paper Type </item>
+        <item> Quality </item>
+        <item> Copy Resize </item>
+        <item> Paper Per Side </item>
+        <item> Brightness </item>
+    </string-array>
+
+    <string-array name="brightness">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+
+    </string-array>
+
+
 </resources>

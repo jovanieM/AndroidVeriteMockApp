@@ -95,7 +95,7 @@ public class WS00_030 extends Activity {
                         AlertDialog.Builder ad = new AlertDialog.Builder(WS00_030.this);
                         ad.setMessage("Setting saved");
                         AlertDialog adc = ad.create();
-                        adc.show();
+                        //adc.show();
 
                         startActivity(new Intent(WS00_030.this, WS00_000.class));
                         finish();
