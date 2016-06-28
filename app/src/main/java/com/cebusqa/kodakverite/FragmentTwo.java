@@ -59,7 +59,7 @@ public class FragmentTwo extends Fragment {
 
                                 switch (i){
                                     case 0:
-                                        color_item = adapterView.getSelectedItem().toString();
+                                        color_item = adapterView.getItemAtPosition(i).toString();
                                         tvCopyItem_item = (TextView) view.findViewById(R.id.tv_copy_setting_item);
                                         tvCopyItem_item.setText(color_item);
                                         break;
@@ -149,6 +149,7 @@ public class FragmentTwo extends Fragment {
             tvCopyDesc = (TextView) v.findViewById(R.id.tv_copy_setting_desc);
             tvCopyItem = (TextView) v.findViewById(R.id.tv_copy_setting_item);
         }
+
     }
 
     class CopyAdapter extends BaseAdapter{
