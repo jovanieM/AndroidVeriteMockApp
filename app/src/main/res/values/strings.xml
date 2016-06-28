@@ -178,8 +178,8 @@
     </string-array>
 
     <string-array name="gcp_reg_status">
-        <item>Start Registration</item>
-        <item>Start Unregistration</item>
+        <item>Registration</item>
+        <item>Unregistration</item>
     </string-array>
 
     <string-array name="copy_desc">

@@ -19,13 +19,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".EasySetupMain" />
-
         <activity android:name=".HM10_000" />
         <activity android:name=".IL10_000" />
         <activity android:name=".CP10_000" />
         <activity android:name=".DS_print" />
         <activity android:name=".DS_device" />
-
         <activity android:name=".DS_scan" />
         <activity android:name=".DS10_000" />
         <activity android:name=".ImageCropper" />
@@ -33,16 +31,13 @@
         <activity android:name=".Scan_Doc_Settings" />
         <activity android:name=".Scan_Photo_Settings" />
         <activity android:name=".NetworkStatus_details" />
-
         <activity android:name=".PU00_0000" />
         <activity android:name=".CS00_000" />
         <activity android:name=".CS00_001" />
         <activity android:name=".CS00_002" />
         <activity android:name=".CS00_003" />
         <activity android:name=".CS00_002_Help" />
-
         <activity android:name=".PhotoScanMain" />
-
         <activity android:name=".WS00_000" />
         <activity android:name=".WS00_010" />
         <activity android:name=".WS00_011" />
@@ -52,11 +47,8 @@
         <activity android:name=".WS00_015" />
         <activity android:name=".WS00_016" />
         <activity android:name=".WS00_014" />
-
         <activity android:name=".Clean_Printhead"/>
         <activity android:name=".Print_Reports"/>
-
-
         <activity android:name=".DocumentScan"/>
         <activity android:name=".DocumentScan2"/>
         <activity android:name=".WS00_020" />
@@ -70,6 +62,7 @@
         <activity android:name=".GoogleCloudPrint"/>
         <activity android:name=".GcpStatus" />
         <activity android:name=".GcpRegisterUnregister"/>
+        <activity android:name=".AirPrint"/>
 
     </application>
 
