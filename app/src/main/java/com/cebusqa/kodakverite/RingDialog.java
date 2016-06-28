@@ -2,7 +2,9 @@ package com.cebusqa.kodakverite;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 
 /**
@@ -13,7 +15,6 @@ public class RingDialog implements Runnable {
     String string, string2;
     boolean bool;
     Context context;
-    int style;
 
     public RingDialog(Context context, String string, String string2, boolean bool){
         ringDialog = ProgressDialog.show(context, string, string2, bool);
@@ -21,7 +22,7 @@ public class RingDialog implements Runnable {
         this.string2 = string2;
         this.bool = bool;
         this.context = context;
-        //this.style = i;
+
     }
     //public void a(){
     @Override

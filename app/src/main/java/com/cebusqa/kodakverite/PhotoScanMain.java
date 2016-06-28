@@ -1,10 +1,12 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,15 +19,23 @@ public class PhotoScanMain extends Activity{
     RelativeLayout scanRelOut;
     boolean test = false;
     ImageButton settingsIcon;
+    private Button mBack;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photo_scan_main);
+        mBack = (Button) findViewById(R.id.back);
         scanTv = (TextView) findViewById(R.id.touchScan);
         scanRelOut = (RelativeLayout) findViewById(R.id.scan);
         settingsIcon = (ImageButton) findViewById(R.id.scanSettingsIcon);
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         scanTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,16 +56,16 @@ public class PhotoScanMain extends Activity{
 
     public void exec (){
 
-        final ScanPhotoDialog scanDialog = new ScanPhotoDialog();
+        final ScanPhotoDialog scanDialog = ScanPhotoDialog.newInstance("Scan Photo");
         scanDialog.setCancelable(true);
         scanDialog.show(getFragmentManager(),"scan");
-
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 if(test){
                     Thread.currentThread().interrupt();
+
                    //
 
                     new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");

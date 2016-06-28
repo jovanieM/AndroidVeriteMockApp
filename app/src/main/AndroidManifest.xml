@@ -67,6 +67,9 @@
         <activity android:name=".PaperSetup_000"/>
         <activity android:name=".DeviceSleepTime_000"/>
         <activity android:name=".Restore_Factory"/>
+        <activity android:name=".GoogleCloudPrint"/>
+        <activity android:name=".GcpStatus" />
+        <activity android:name=".GcpRegisterUnregister"/>
 
     </application>
 
