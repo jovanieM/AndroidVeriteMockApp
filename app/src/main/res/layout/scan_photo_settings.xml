@@ -98,7 +98,8 @@
                 android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_quality"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:spinnerMode="dialog" />
         </LinearLayout>
 
         <LinearLayout
@@ -128,7 +129,8 @@
                 android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_color"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:spinnerMode="dialog" />
 
         </LinearLayout>
 
@@ -160,7 +162,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_photo"
                 android:layout_gravity="center"
-                android:focusableInTouchMode="false" />
+                android:focusableInTouchMode="false"
+                android:spinnerMode="dialog" />
 
         </LinearLayout>
 

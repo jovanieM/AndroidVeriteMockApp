@@ -109,7 +109,7 @@
             android:src="@mipmap/decre"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:gravity="center_vertical|center_horizontal" />
+            android:gravity="center|center_vertical|center_horizontal" />
 
         <Button
             android:layout_width="35dp"
@@ -123,7 +123,7 @@
             android:src="@mipmap/incre"
             android:layout_gravity="center"
             android:allowUndo="true"
-            android:gravity="center_vertical|center_horizontal" />
+            android:gravity="center|center_vertical|center_horizontal" />
     </LinearLayout>
 
     <Space

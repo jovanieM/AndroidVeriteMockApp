@@ -68,8 +68,8 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
 
-                FragmentDetailPrint quick = new FragmentDetailPrint();
-                ft.add(R.id.fragment_placer, quick);
+                FragmentDetailPrint quicks = new FragmentDetailPrint();
+                ft.replace(R.id.fragment_placer, quicks);
                 ft.addToBackStack(null);
                 ft.commit();
 

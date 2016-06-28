@@ -23,8 +23,10 @@ public class ScanPhotoDialog extends DialogFragment{
     boolean cancel;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final LayoutInflater inflater = getActivity().getLayoutInflater();
+
         View view = inflater.inflate(R.layout.scan_photo_dialog, null);
         builder.setTitle("Scan Photo");
         builder.setView(view);
