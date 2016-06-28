@@ -5,18 +5,25 @@ import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Button;
 import android.view.View.OnClickListener;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,183 +34,143 @@ import java.util.List;
 
 public class FragmentTwo extends Fragment {
 
-    ListView lvCopySetting;
-    String color_item;
-    TextView tvCopyItem_item;
+    Spinner spColor, spPaperSize, spPaperType, spQuality, spResize, spBrightness;
+    ArrayAdapter<String> adColor, adPaperSize, adPaperType, adQuality, adResize, adBrightness;
+    String[] colorItems, paperSizeItems, paperTypeItems, qualityItems, resizeItems, brightnessItems;
+    LinearLayout llCustomResize;
+    EditText etCustomResize;
+    Button btnIncrement, btnDecrement;
+    ImageButton btnCopy;
+    int ctr = 100;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.list_copy_setting, container, false);
-        lvCopySetting = (ListView) view.findViewById(R.id.lv_copy_setting);
-        lvCopySetting.setAdapter(new CopyAdapter(getActivity()));
-        lvCopySetting.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        View view = inflater.inflate(R.layout.fragment_two, container, false);
+
+        //init
+        spColor = (Spinner) view.findViewById(R.id.sp_color);
+        spPaperSize = (Spinner) view.findViewById(R.id.sp_paper_size);
+        spPaperType = (Spinner) view.findViewById(R.id.sp_paper_type);
+        spQuality = (Spinner) view.findViewById(R.id.sp_quality);
+        spResize = (Spinner) view.findViewById(R.id.sp_resize);
+        spBrightness = (Spinner) view.findViewById(R.id.sp_brightness);
+        llCustomResize = (LinearLayout) view.findViewById(R.id.ll_custom_resize);
+        etCustomResize = (EditText) view.findViewById(R.id.editText3);
+        btnIncrement = (Button) view.findViewById(R.id.btn_custom_resize_increment);
+        btnDecrement = (Button) view.findViewById(R.id.btn_custom_resize_decrement);
+        btnCopy = (ImageButton) view.findViewById(R.id.copy_btn);
+
+        //resources
+        colorItems = getResources().getStringArray(R.array.Color_copy);
+        paperSizeItems = getResources().getStringArray(R.array.Paper_size_copy);
+        paperTypeItems = getResources().getStringArray(R.array.Paper_type);
+        qualityItems = getResources().getStringArray(R.array.Quality_copy);
+        resizeItems = getResources().getStringArray(R.array.Copy_Resize);
+        brightnessItems = getResources().getStringArray(R.array.brightness);
+
+        //init adapter
+        adColor = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, colorItems);
+        adPaperSize = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, paperSizeItems);
+        adPaperType = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, paperTypeItems);
+        adQuality = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, qualityItems);
+        adResize = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, resizeItems);
+        adBrightness = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, brightnessItems);
+
+        //set adapter
+        spColor.setAdapter(adColor);
+        spPaperSize.setAdapter(adPaperSize);
+        spPaperType.setAdapter(adPaperType);
+        spQuality.setAdapter(adQuality);
+        spResize.setAdapter(adResize);
+        spBrightness.setAdapter(adBrightness);
+
+        llCustomResize.setVisibility(View.INVISIBLE);
+        etCustomResize.setText(Integer.toString(ctr));
+
+        btnCopy.setOnClickListener(new OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i){
+            public void onClick(View view) {
+                final ProgressDialog dialog = new ProgressDialog(getActivity());
+                dialog.setMessage("Copying");
+                dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try{
+                            Thread.sleep(4000);
+                        }catch (Exception e){
+
+                        }
+                        dialog.dismiss();
+                    }
+                }).start();
+            }
+        });
+
+        spResize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch(i){
                     case 0:
-                        String[] colorItems = getResources().getStringArray(R.array.Color_copy);
-
-                        final AlertDialog.Builder alertColor = new AlertDialog.Builder(getActivity());
-                        LayoutInflater inflater = getActivity().getLayoutInflater();
-                        View convertView = inflater.inflate(R.layout.listview, null);
-                        alertColor.setView(convertView);
-                        alertColor.setTitle("Color");
-                        final ListView lvColor = (ListView) convertView.findViewById(R.id.lv_item_item);
-                        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, colorItems);
-                        lvColor.setAdapter(adapter);
-                        lvColor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                view = null;
-
-                                switch (i){
-                                    case 0:
-                                        color_item = adapterView.getItemAtPosition(i).toString();
-                                        tvCopyItem_item = (TextView) view.findViewById(R.id.tv_copy_setting_item);
-                                        tvCopyItem_item.setText(color_item);
-                                        break;
-
-                                    default:
-                                        break;
-                                }
-                            }
-
-                        });
-                        alertColor.show();
-
+                        llCustomResize.setVisibility(View.INVISIBLE);
                         break;
                     case 1:
-                        String[] paperSizeItems = getResources().getStringArray(R.array.Paper_size_copy);
-
-                        AlertDialog.Builder alertPaperSize = new AlertDialog.Builder(getActivity());
-                        LayoutInflater inflater_paper_size = getActivity().getLayoutInflater();
-                        View viewPaperSize = inflater_paper_size.inflate(R.layout.listview, null);
-                        alertPaperSize.setView(viewPaperSize);
-                        alertPaperSize.setTitle("Paper Size");
-                        ListView lvPaperSize = (ListView) viewPaperSize.findViewById(R.id.lv_item_item);
-                        ArrayAdapter<String> adapterPaperSize = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, paperSizeItems);
-                        lvPaperSize.setAdapter(adapterPaperSize);
-                        alertPaperSize.show();
+                        llCustomResize.setVisibility(View.INVISIBLE);
                         break;
-
                     case 2:
-                        String[] paperTypeItems = getResources().getStringArray(R.array.Paper_type);
-
-                        AlertDialog.Builder alertPaperType = new AlertDialog.Builder(getActivity());
-                        LayoutInflater inflater_paper_type = getActivity().getLayoutInflater();
-                        View viewPaperType = inflater_paper_type.inflate(R.layout.listview, null);
-                        alertPaperType.setView(viewPaperType);
-                        alertPaperType.setTitle("Paper Type");
-                        ListView lvPaperType = (ListView) viewPaperType.findViewById(R.id.lv_item_item);
-                        ArrayAdapter<String> adapterPaperType = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, paperTypeItems);
-                        lvPaperType.setAdapter(adapterPaperType);
-                        alertPaperType.show();
+                        llCustomResize.setVisibility(View.INVISIBLE);
                         break;
-
                     case 3:
-                       String[] qualityItems = getResources().getStringArray(R.array.Paper_type);
-
-                        AlertDialog.Builder alertQuality = new AlertDialog.Builder(getActivity());
-                        LayoutInflater inflater_quality = getActivity().getLayoutInflater();
-                        View viewQuality = inflater_quality.inflate(R.layout.listview, null);
-                        alertQuality.setView(viewQuality);
-                        alertQuality.setTitle("Quality");
-                        ListView lvQuality = (ListView) viewQuality.findViewById(R.id.lv_item_item);
-                        ArrayAdapter<String> adapterQuality = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, qualityItems);
-                        lvQuality.setAdapter(adapterQuality);
-                        alertQuality.show();
+                        llCustomResize.setVisibility(View.INVISIBLE);
                         break;
-
                     case 4:
-                        Toast.makeText(getActivity(), "Copy Resize", Toast.LENGTH_SHORT).show();
+                        llCustomResize.setVisibility(View.INVISIBLE);
                         break;
                     case 5:
-                        Toast.makeText(getActivity(), "Pages Per Side", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 6:
-                        Toast.makeText(getActivity(), "Brightness", Toast.LENGTH_SHORT).show();
+                        llCustomResize.setVisibility(View.VISIBLE);
+
+                        btnIncrement.setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if(ctr < 400){
+                                    ctr += 1;
+                                    etCustomResize.setText(Integer.toString(ctr));
+                                }
+                            }
+                        });
+
+                        btnDecrement.setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if(ctr>25){
+                                    ctr -= 1;
+                                    etCustomResize.setText(Integer.toString(ctr));
+                                }
+                            }
+                        });
+
                         break;
                     default:
                         break;
                 }
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
         });
+
+
         return view;
-    }
-
-    class SingleRow{
-        String copyDesc, copyItem;
-
-        SingleRow(String copy_Desc, String copy_Items){
-            this.copyDesc = copy_Desc;
-            this.copyItem = copy_Items;
-        }
-    }
-
-    class Holder{
-        TextView tvCopyDesc;
-        TextView tvCopyItem;
-
-        Holder(View v){
-            tvCopyDesc = (TextView) v.findViewById(R.id.tv_copy_setting_desc);
-            tvCopyItem = (TextView) v.findViewById(R.id.tv_copy_setting_item);
-        }
-
-    }
-
-    class CopyAdapter extends BaseAdapter{
-
-        ArrayList<SingleRow> list;
-        Context context;
-
-        CopyAdapter(Context c){
-            context = c;
-            list = new ArrayList<>();
-            String[] copyDesc = getResources().getStringArray(R.array.copy_desc);
-            String[] copyDescItems = {"Color", "Letter", "Plain", "Text/Graphics", "100%", "One", "3"};
-
-            for(int i = 0; i < copyDesc.length; i++){
-                list.add(new SingleRow(copyDesc[i], copyDescItems[i]));
-            }
-        }
-
-        @Override
-        public int getCount() {
-            return list.size();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return list.get(i);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            View row = view;
-            Holder holder = null;
-
-            if(row == null){
-                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                row = inflater.inflate(R.layout.items_copy_settings, viewGroup, false);
-                holder = new Holder(row);
-                row.setTag(holder);
-            }else{
-                holder = (Holder) row.getTag();
-            }
-
-            SingleRow temp = list.get(i);
-
-            holder.tvCopyDesc.setText(temp.copyDesc);
-            holder.tvCopyItem.setText(temp.copyItem);
-
-            return row;
-        }
     }
 }
 

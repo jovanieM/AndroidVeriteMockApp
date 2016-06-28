@@ -6,185 +6,289 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/copy_btn"
+        android:layout_gravity="center_horizontal"
+        android:background="#000000"
+        android:src="@mipmap/copy_small"
+        android:focusable="false" />
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1.40">
+        android:layout_height="wrap_content"
+        android:id="@+id/Textview6"
+        android:text="Advanced Settings"
+        android:textColor="#f4f0f0" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/copy_btn"
-            android:layout_gravity="center_horizontal"
-            android:background="#000000"
-            android:src="@mipmap/copy_small"
-            android:focusable="false" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Textview6"
-            android:text="Advanced Settings"
-            android:textColor="#f4f0f0" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <!-- Color -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Color"
-                android:onClick=""
-                android:id="@+id/textView2"
-                android:layout_gravity="center"
-                android:textColor="#ffffff" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Color"
+                    android:onClick=""
+                    android:id="@+id/lblColor"
+                    android:layout_gravity="center"
+                    android:textColor="#ffffff"
+                    />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_color"
-                android:text="Color"
-                android:textColor="#ffcf33"
-                android:background="#000000"
-                android:layout_alignParentEnd="true" />
+                <Space
+                    android:layout_width="148dp"
+                    android:layout_height="match_parent" />
 
-        </RelativeLayout>
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dialog"
+                    android:id="@+id/sp_color"
+                    android:gravity="right"
+                    android:layout_gravity="right" />
+
+            </LinearLayout>
+
+        <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+            <!-- paper size -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paper Size"
+                    android:onClick=""
+                    android:id="@+id/lblPaperSize"
+                    android:layout_gravity="center"
+                    android:textColor="#ffffff"
+                    />
+
+                <Space
+                    android:layout_width="116dp"
+                    android:layout_height="match_parent" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dialog"
+                    android:id="@+id/sp_paper_size"
+                    android:gravity="right"
+                    android:layout_gravity="right" />
+
+            </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray" />
 
-        <RelativeLayout
+        <!-- paper type -->
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Paper Size"
-                android:id="@+id/textView3"
-                android:layout_gravity="center"
-                android:textColor="#ffffff"
-                android:paddingTop="3dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_papersize"
-                android:layout_gravity="right"
-                android:paddingTop="3dp"
-                android:text="Letter"
-                android:textColor="#ffcf33"
-                android:textAlignment="textEnd"
-                android:layout_alignParentEnd="true" />
-
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
-
-
-        <RelativeLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="40dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Paper Type"
-                android:id="@+id/textView4"
+                android:onClick=""
+                android:id="@+id/lblPaperType"
                 android:layout_gravity="center"
                 android:textColor="#ffffff"
-                android:paddingTop="3dp" />
+                />
 
-            <TextView
+            <Space
+                android:layout_width="114dp"
+                android:layout_height="match_parent" />
+
+            <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/papertype_txtview"
-                android:layout_gravity="right"
-                android:paddingTop="3dp"
-                android:textColor="#ffcf33"
-                android:text="Plain"
-                android:textAlignment="textEnd"
-                android:layout_alignParentEnd="true" />
+                android:spinnerMode="dialog"
+                android:id="@+id/sp_paper_type"
+                android:gravity="right"
+                android:layout_gravity="right" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_gravity="center" />
+            android:background="@android:color/darker_gray" />
 
-        <RelativeLayout
+        <!-- quality -->
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="1" >
+            android:layout_height="40dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quality"
-                android:id="@+id/textView5"
+                android:onClick=""
+                android:id="@+id/lblQuality"
                 android:layout_gravity="center"
                 android:textColor="#ffffff"
-                android:layout_weight="0.17" />
+                />
 
-            <TextView
+            <Space
+                android:layout_width="138dp"
+                android:layout_height="match_parent" />
+
+            <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/tv_quality"
-                android:layout_gravity="right"
-                android:paddingTop="3dp"
-                android:longClickable="true"
-                android:text="Text/Graphics"
-                android:textColor="#ffcf33"
-                android:textAlignment="textEnd"
-                android:layout_alignParentEnd="true" />
-        </RelativeLayout>
+                android:spinnerMode="dialog"
+                android:id="@+id/sp_quality"
+                android:gravity="right"
+                android:layout_gravity="right" />
+
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_gravity="bottom" />
+            android:background="@android:color/darker_gray" />
+
+        <!-- copy resize -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Copy Resize"
+                android:onClick=""
+                android:id="@+id/lblResize"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                />
+
+            <Space
+                android:layout_width="60dp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dialog"
+                    android:id="@+id/sp_resize"
+                    android:gravity="right"
+                    android:layout_gravity="right" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="37dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:id="@+id/ll_custom_resize">
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="100"
+                        android:id="@+id/editText3"
+                        android:textSize="12sp"
+                        android:layout_weight="0.25"
+                        android:layout_marginRight="5dp"
+                        android:editable="false"
+                        android:inputType="none" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%"
+                        android:id="@+id/textView2"
+                        android:layout_marginRight="5dp" />
+                    <Button
+                        android:layout_width="45dp"
+                        android:layout_height="match_parent"
+                        android:background="@mipmap/incre"
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/btn_custom_resize_increment" />
+                    <Button
+                        android:layout_width="39dp"
+                        android:layout_height="match_parent"
+                        android:text="-"
+                        android:layout_below="@+id/textView2"
+                        android:layout_toEndOf="@+id/editText3"
+                        android:id="@+id/btn_custom_resize_decrement"
+                        android:background="@mipmap/decre" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
+
+        <!-- pages per side -->
+
+            <!-- brightness -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brightness"
+                android:onClick=""
+                android:id="@+id/lblBrightness"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                />
+
+            <Space
+                android:layout_width="121dp"
+                android:layout_height="match_parent" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog"
+                android:id="@+id/sp_brightness"
+                android:gravity="right" />
 
         </LinearLayout>
 
-        </ScrollView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray" />
 
     </LinearLayout>
 
-
-
-
-
+    </ScrollView>
 </LinearLayout>
