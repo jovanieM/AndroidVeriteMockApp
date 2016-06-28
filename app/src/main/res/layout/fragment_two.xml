@@ -13,23 +13,28 @@
         android:layout_gravity="center_horizontal"
         android:background="#000000"
         android:src="@mipmap/copy_small"
-        android:focusable="false" />
+        android:focusable="false"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Textview6"
         android:text="Advanced Settings"
-        android:textColor="#f4f0f0" />
+        android:textColor="#f4f0f0"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="5dp" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
         <LinearLayout
             android:orientation="vertical"
