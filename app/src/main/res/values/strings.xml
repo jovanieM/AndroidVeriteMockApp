@@ -181,4 +181,16 @@
         <item>Start Registration</item>
         <item>Start Unregistration</item>
     </string-array>
+
+    <string-array name="copy_desc">
+        <item> Color </item>
+        <item> Paper Size </item>
+        <item> Paper Type </item>
+        <item> Quality </item>
+        <item> Copy Resize </item>
+        <item> Paper Per Side </item>
+        <item> Brightness </item>
+    </string-array>
+
+
 </resources>
