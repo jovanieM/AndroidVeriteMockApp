@@ -63,6 +63,8 @@
         <activity android:name=".GcpStatus" />
         <activity android:name=".GcpRegisterUnregister"/>
         <activity android:name=".AirPrint"/>
+        <activity android:name=".SoftwareUpdate" />
+        <activity android:name=".UpdatePrinterSoftware" />
 
     </application>
 

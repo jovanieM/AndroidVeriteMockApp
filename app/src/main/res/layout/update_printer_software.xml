@@ -12,24 +12,21 @@
         android:id="@+id/title_wifi_setup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Network and Password"
+        android:text="Software Update"
         android:textSize="20sp"
         android:gravity="center_horizontal" />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Searching for Routers..."
-        android:id="@+id/textView12"
-        android:textSize="15sp"
-        android:layout_margin="10dp" />
-
-    <ImageView
-        android:layout_width="280dp"
-        android:layout_height="180dp"
-        android:id="@+id/imageView2"
-        android:src="@drawable/image10"
+        android:text="If 'Software Update' is started, the printer is updated and this app automatically closed. Please DO NOT turn off the printer until the update is complete. "
+        android:id="@+id/textView3"
         android:layout_gravity="center_horizontal" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Update"
+        android:id="@+id/btn_start_update" />
 
 </LinearLayout>
