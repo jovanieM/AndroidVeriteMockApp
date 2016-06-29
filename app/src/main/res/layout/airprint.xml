@@ -69,7 +69,7 @@
     <TextView
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:text="Save setting"
+        android:text="Save settings"
         android:background="@drawable/oval_background"
         android:id="@+id/save_setting"
         android:layout_below="@+id/relativeLayout6"
@@ -81,7 +81,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp" />
+        android:layout_marginRight="5dp"
+        />
 
 
 </RelativeLayout>
