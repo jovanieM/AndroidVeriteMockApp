@@ -51,7 +51,7 @@ public class KodakVeriteApp extends Application {
 
             while(cursor.moveToNext()){
 
-                if(!bucketName.contains(cursor.getString(0)))
+                if(!bucketName.contains(cursor.getString(1)))
                 {
                     if (cursor.getString(0).toLowerCase().endsWith(".jpg")||cursor.getString(0).toLowerCase().endsWith(".jpeg")||cursor.getString(0).toLowerCase().endsWith(".png"))
                     {
