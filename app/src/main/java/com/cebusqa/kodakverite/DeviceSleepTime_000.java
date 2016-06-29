@@ -1,14 +1,20 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by SQA Cebu on 6/21/2016.
@@ -48,7 +54,7 @@ public class DeviceSleepTime_000 extends Activity implements View.OnClickListene
         RingDialog ringDialog = new RingDialog(DeviceSleepTime_000.this, "", "Getting Printer Setting...", true);
         ringDialog.run();
 
-    }
+   }
 
 
     @Override
@@ -106,4 +112,6 @@ public class DeviceSleepTime_000 extends Activity implements View.OnClickListene
         }
 
     }
+
+
 }

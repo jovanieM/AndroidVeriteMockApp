@@ -61,7 +61,7 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:id="@+id/fragment_placer"
-            android:name="com.cebusqa.kodakverite.FragmentQuickPrint"/>
+            android:name="com.cebusqa.kodakverite.FragmentDetailPrint"/>
 
     </LinearLayout>
 

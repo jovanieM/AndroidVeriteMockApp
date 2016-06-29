@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 
@@ -43,10 +44,11 @@ public class Restore_Factory extends Activity{
                                 .setCancelable(false)
                                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
+                                                finish();
+                                                moveTaskToBack(true);
+                                                android.os.Process.killProcess(android.os.Process.myPid());
+                                                System.exit(1);
 
-
-                                                      Intent intent = new Intent(Restore_Factory.this, Splash.class);
-                                                     startActivity(intent);
                                                     }
                                                 });
 

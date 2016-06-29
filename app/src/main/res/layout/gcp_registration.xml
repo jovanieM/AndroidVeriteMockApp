@@ -32,16 +32,18 @@
         android:gravity="center_vertical|center_horizontal"
         android:textSize="25dp" />
 
-    <Button
+    <TextView
         android:layout_width="280dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@drawable/oval_background"
         android:text="Start Registration"
         android:id="@+id/start_reg_unreg"
         android:layout_below="@+id/description"
         android:layout_centerHorizontal="true"
         android:textColor="#fdb700"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="20sp" />
 
 
 </RelativeLayout>

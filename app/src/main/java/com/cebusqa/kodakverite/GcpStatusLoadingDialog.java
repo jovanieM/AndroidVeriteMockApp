@@ -45,11 +45,12 @@ public class GcpStatusLoadingDialog extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        ((GcpRegisterUnregister) getActivity()).Canceled = true;
+
                         if(getActivity() instanceof GcpStatus) {
                             getActivity().finish();
                         }
                         if(getActivity()instanceof GcpRegisterUnregister) {
+                            ((GcpRegisterUnregister) getActivity()).Canceled = true;
                             if (!((GcpRegisterUnregister) getActivity()).test) {
                                 getActivity().finish();
                             }
