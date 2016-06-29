@@ -13,23 +13,28 @@
         android:layout_gravity="center_horizontal"
         android:background="#000000"
         android:src="@mipmap/copy_small"
-        android:focusable="false" />
+        android:focusable="false"
+        android:layout_marginTop="10dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Textview6"
         android:text="Advanced Settings"
-        android:textColor="#f4f0f0" />
+        android:textColor="#f4f0f0"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="5dp" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -43,7 +48,7 @@
                 android:layout_height="40dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:text="Color"
                     android:onClick=""
@@ -53,11 +58,11 @@
                     />
 
                 <Space
-                    android:layout_width="148dp"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="166dp"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dialog"
                     android:id="@+id/sp_color"
@@ -78,7 +83,7 @@
                 android:layout_height="40dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:text="Paper Size"
                     android:onClick=""
@@ -88,11 +93,11 @@
                     />
 
                 <Space
-                    android:layout_width="116dp"
+                    android:layout_width="80dp"
                     android:layout_height="match_parent" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="166dp"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dialog"
                     android:id="@+id/sp_paper_size"
@@ -113,7 +118,7 @@
             android:layout_height="40dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="Paper Type"
                 android:onClick=""
@@ -123,11 +128,11 @@
                 />
 
             <Space
-                android:layout_width="114dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent" />
 
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dialog"
                 android:id="@+id/sp_paper_type"
@@ -148,7 +153,7 @@
             android:layout_height="40dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="Quality"
                 android:onClick=""
@@ -158,11 +163,11 @@
                 />
 
             <Space
-                android:layout_width="138dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent" />
 
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dialog"
                 android:id="@+id/sp_quality"
@@ -183,7 +188,7 @@
             android:layout_height="100dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="Copy Resize"
                 android:onClick=""
@@ -193,7 +198,7 @@
                 />
 
             <Space
-                android:layout_width="60dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent" />
 
             <LinearLayout
@@ -201,14 +206,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="166dp"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dialog"
                     android:id="@+id/sp_resize"
                     android:gravity="right"
                     android:layout_gravity="right" />
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="166dp"
                     android:layout_height="37dp"
                     android:orientation="horizontal"
                     android:weightSum="1"
@@ -261,7 +266,7 @@
                 android:layout_height="40dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="Brightness"
                 android:onClick=""
@@ -271,11 +276,11 @@
                 />
 
             <Space
-                android:layout_width="121dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent" />
 
             <Spinner
-                android:layout_width="wrap_content"
+                android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dialog"
                 android:id="@+id/sp_brightness"

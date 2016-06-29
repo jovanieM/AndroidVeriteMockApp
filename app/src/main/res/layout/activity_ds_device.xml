@@ -23,7 +23,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="15dp"
+            android:layout_height="5dp"
             android:layout_weight="0.07" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:background="#000000"
             android:layout_weight="0.03"
             android:layout_gravity="bottom"
-            android:textSize="20dp" />
+            android:textSize="15dp" />
 
     </LinearLayout>
 

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -37,11 +38,6 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
 
         RingDialog ringDialog = new RingDialog(PaperSetup_000.this, "", "Getting Printer Setting...", true);
         ringDialog.run();
-
-
-
-
-
 
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -109,14 +105,15 @@ public class PaperSetup_000 extends Activity implements DialogInterface.OnClickL
 
     }
 
+
     @Override
     public void onClick(DialogInterface dialog, int pos) {
 
-        String selectedItem = items[pos];
-        paper_size.setText(selectedItem);
 
-        String selectedItems = items1[pos];
-        paper_type.setText(selectedItems);
+            String selectedItem = items[pos];
+            paper_size.setText(selectedItem);
+
+
 
     }
 
