@@ -65,6 +65,9 @@
         <activity android:name=".AirPrint"/>
         <activity android:name=".SoftwareUpdate" />
         <activity android:name=".UpdatePrinterSoftware" />
+        <activity android:name=".PhotoPrintDirs"/>
+        <activity android:name=".PhotoPrintPics"/>
+        <activity android:name=".FlickPrint"/>
 
     </application>
 
