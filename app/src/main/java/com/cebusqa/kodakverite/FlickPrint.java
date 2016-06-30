@@ -19,6 +19,7 @@ import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -50,6 +51,8 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
     TextView tv, flickMessage;
     RelativeLayout relativeLayout;
     ImageView settingFlick;
+    Button backIcon;
+
 
 
     @Override
@@ -59,6 +62,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         view = findViewById(R.id.kodakToolbar);
         view.bringToFront();
         flickImage = (ImageView) findViewById(R.id.flick_image);
+        backIcon = (Button) findViewById(R.id.back);
         toggleButton = (ToggleButton) findViewById(R.id.check_image);
         tv = (TextView) findViewById(R.id.flick_text);
         flickMessage = (TextView) findViewById(R.id.flick_message);
@@ -70,6 +74,13 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         tv.bringToFront();
         toggleButton.setChecked(true);
         toggleButton.setOnCheckedChangeListener(this);
+
+        backIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         //bitmap = BitmapFactory.decodeFile(fullImage);
         settingFlick.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +116,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
 
                         if(prevY-event.getRawY()>200){
                             imDisplay.setY(0-imDisplay.getHeight());
-                            startActivity(new Intent(getApplication(), PhotoScanMain.class));
+                            startActivity(new Intent(getApplication(), FlickPrintOut.class));
                             finish();
                         }else{
                             imDisplay.setY(displayYcoor);

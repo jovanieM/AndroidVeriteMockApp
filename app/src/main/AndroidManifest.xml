@@ -69,6 +69,7 @@
         <activity android:name=".PhotoPrintDirs"/>
         <activity android:name=".PhotoPrintPics"/>
         <activity android:name=".FlickPrint"/>
+        <activity android:name=".FlickPrintOut"/>
 
     </application>
 
