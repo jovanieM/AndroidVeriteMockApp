@@ -28,9 +28,9 @@ public class PU00_0000 extends Activity {
         lvPrinterUtilityList = (ListView) findViewById(R.id.lv_print_util_list);
         items = getResources().getStringArray(R.array.printer_utility);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
+        //adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
 
-        lvPrinterUtilityList.setAdapter(adapter);
+        lvPrinterUtilityList.setAdapter(new CustomAdapterPrintUtil(this, items));
         lvPrinterUtilityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
