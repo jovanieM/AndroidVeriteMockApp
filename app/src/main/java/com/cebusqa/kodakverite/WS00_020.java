@@ -95,9 +95,10 @@ public class WS00_020 extends Activity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         finish();
-                        moveTaskToBack(true);
+                        startActivity(new Intent(WS00_020.this, Splash.class));
+                        /* moveTaskToBack(true);
                         android.os.Process.killProcess(android.os.Process.myPid());
-                        System.exit(1);
+                        System.exit(1); */
                     }
                 });
                 ad.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
