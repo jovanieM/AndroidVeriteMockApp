@@ -276,17 +276,33 @@
                 />
 
             <Space
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent" />
 
-            <Spinner
-                android:layout_width="166dp"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dialog"
-                android:id="@+id/sp_brightness"
-                android:gravity="right" />
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/imageView4"
+                    android:src="@drawable/min" />
 
-        </LinearLayout>
+                <SeekBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seekBar"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:max="5"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/imageView5"
+                    android:src="@drawable/max"
+                    android:layout_gravity="bottom" />
+
+            </LinearLayout>
 
         <View
             android:layout_width="match_parent"
