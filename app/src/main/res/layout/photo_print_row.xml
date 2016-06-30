@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/pImageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:padding="5dp"
+        android:adjustViewBounds="true"
+        android:scaleType="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/pFoldername"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:singleLine="false"
+        android:gravity="fill_horizontal|center_vertical|fill_vertical|fill"
+        android:paddingLeft="20dp"
+        android:text="asd" />
+</LinearLayout>

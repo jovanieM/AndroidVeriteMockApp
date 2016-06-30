@@ -72,6 +72,13 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
             }
         });
 
+        photoprint.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                startActivity(new Intent(HM10_000.this, PhotoPrintDirs.class));
+            }
+        });
+
+
 
         ecomode.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){

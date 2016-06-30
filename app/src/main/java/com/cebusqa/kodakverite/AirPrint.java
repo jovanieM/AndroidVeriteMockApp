@@ -21,6 +21,8 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
     private TextView saveSettings;
     boolean prevState;
     Button back;
+    static boolean cancel = false;
+    Thread t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
         saveSettings = (TextView) findViewById(R.id.save_setting);
         back = (Button) findViewById(R.id.back);
         apStatusChanger.setChecked(prevState);
+
         saveSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +47,7 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            AirprintDialog.newInstance("Setting...").show(getFragmentManager(), "tag2");
+                            AirprintSavingSettings.newInstance("Setting...").show(getFragmentManager(), "tag2");
                             try {
                                 Thread.sleep(4000);
                             } catch (InterruptedException e) {
@@ -54,7 +57,7 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
                             //Thread.currentThread().interrupt();
 
                             try {
-                                UnregistrationComplete.newInstance("Setting is saved").show(getFragmentManager(), "tag3");
+                                UnregistrationComplete.newInstance("Settings is saved").show(getFragmentManager(), "tag3");
                                 Thread.sleep(2000);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
@@ -71,20 +74,41 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
                 }
             }
         });
+        t = new Thread(new Runnable() {
 
-       new Thread(new Runnable() {
-           @Override
-           public void run() {
-               AirprintDialog.newInstance("Getting Network information").show(getFragmentManager(), "tag");
-               try {
-                   Thread.sleep(4000);
-               } catch (InterruptedException e) {
-                   e.printStackTrace();
-               }
-               getFragmentManager().findFragmentByTag("tag").onDestroy();
-               Thread.currentThread().interrupt();
-           }
-       }).start();
+            @Override
+            public void run() {
+                cancel = false;
+                AirprintDialog.newInstance("Getting Network information").show(getFragmentManager(),"tag4");
+                try {
+                    Thread.sleep(4000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if(!cancel){
+                    getFragmentManager().findFragmentByTag("tag4").onDestroy();
+                }
+
+            }
+        });
+                t.start();
+
+
+
+
+//       new Thread(new Runnable() {
+//           @Override
+//           public void run() {
+//               AirprintDialog.newInstance("Getting Network information").show(getFragmentManager(), "tag");
+//               try {
+//                   Thread.sleep(4000);
+//               } catch (InterruptedException e) {
+//                   e.printStackTrace();
+//               }
+//               //getFragmentManager().findFragmentByTag("tag").onDestroy();
+//              // Thread.currentThread().interrupt();
+//           }
+//       }).start();
 
     }
 
@@ -101,5 +125,12 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
         }else{
             textView.setText("disable");
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        t.interrupt();
+
+        super.onDestroy();
     }
 }

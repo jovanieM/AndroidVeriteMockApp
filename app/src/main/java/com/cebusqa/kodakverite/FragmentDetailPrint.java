@@ -52,9 +52,11 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
         adapter_papertype.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spin_paper_type.setAdapter(adapter_papertype);
 
+
         ArrayAdapter<CharSequence> adapter_papersize = ArrayAdapter.createFromResource(this.getActivity(), R.array.Paper_size_print, R.layout.spinner_item_print);
         adapter_papersize.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spin_papersize.setAdapter(adapter_papersize);
+
 
         ArrayAdapter<CharSequence> adapter_color = ArrayAdapter.createFromResource(this.getActivity(), R.array.Color_print, R.layout.spinner_item_print);
         adapter_color.setDropDownViewResource(R.layout.spinner_dropdown_item);

@@ -34,6 +34,7 @@ public class Clean_Printhead extends Activity{
                     RingDialog ringDialog = new RingDialog(Clean_Printhead.this, "", "Printhead Cleaning...", true);
                     ringDialog.run();
 
+
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
