@@ -53,7 +53,7 @@ public class DocumentScan2 extends Activity {
         save2.bringToFront();
         dtest2 = new DocumentScan().dtest;
 
-        bm2 = BitmapFactory.decodeResource(res, R.drawable.sample);
+        bm2 = BitmapFactory.decodeResource(res, R.drawable.docu);
         iv2.setImageBitmap(bm2);
 
         mback.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +108,7 @@ public class DocumentScan2 extends Activity {
             @Override
             public void onClick(View v) {
 
-                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
+                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.docu);
                 intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_STREAM, imageUri);
@@ -120,7 +120,7 @@ public class DocumentScan2 extends Activity {
             @Override
             public void onClick(View v) {
 
-                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
+                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.docu);
                 intent = ShareCompat.IntentBuilder.from(DocumentScan2.this).setType("image/*").getIntent().setPackage("com.google.android.apps.docs");
 
                 // intent = new Intent(Intent.ACTION_SEND);
@@ -135,7 +135,7 @@ public class DocumentScan2 extends Activity {
             @Override
             public void onClick(View v) {
 
-                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
+                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.docu);
                 intent = ShareCompat.IntentBuilder.from(DocumentScan2.this).setType("image/*").getIntent().setPackage("com.microsoft.skydrive");
 
                 // intent = new Intent(Intent.ACTION_SEND);
