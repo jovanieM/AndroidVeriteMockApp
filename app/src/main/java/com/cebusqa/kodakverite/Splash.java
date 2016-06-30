@@ -25,10 +25,13 @@ public class Splash extends Activity {
                 Splash.this.finish();
             }
         }, 4000);
+
     }
 
     @Override
     public void onBackPressed(){
 
     }
+
+
 }

@@ -3,7 +3,9 @@ package com.cebusqa.kodakverite;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.AndroidCharacter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class FragmentTwo extends Fragment {
@@ -48,7 +51,6 @@ public class FragmentTwo extends Fragment {
 
         //resources
         colorItems = getResources().getStringArray(R.array.Color_copy);
-
         paperSizeItems = getResources().getStringArray(R.array.Paper_size_copy);
         paperTypeItems = getResources().getStringArray(R.array.Paper_type);
         qualityItems = getResources().getStringArray(R.array.Quality_copy);
@@ -56,12 +58,20 @@ public class FragmentTwo extends Fragment {
         brightnessItems = getResources().getStringArray(R.array.brightness);
 
         //init adapter
-        adColor = new ArrayAdapter<>(getActivity(), R.layout.spinner_dropdown_copy, colorItems);
-        adPaperSize = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, paperSizeItems);
-        adPaperType = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, paperTypeItems);
-        adQuality = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, qualityItems);
-        adResize = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, resizeItems);
-        adBrightness = new ArrayAdapter<>(getActivity(),android.R.layout.simple_list_item_1, brightnessItems);
+        adColor = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, colorItems);
+        adPaperSize = new ArrayAdapter<>(getActivity(),R.layout.spinner_item, paperSizeItems);
+        adPaperType = new ArrayAdapter<>(getActivity(),R.layout.spinner_item, paperTypeItems);
+        adQuality = new ArrayAdapter<>(getActivity(),R.layout.spinner_item, qualityItems);
+        adResize = new ArrayAdapter<>(getActivity(),R.layout.spinner_item, resizeItems);
+        adBrightness = new ArrayAdapter<>(getActivity(),R.layout.spinner_item, brightnessItems);
+
+        adColor.setDropDownViewResource(R.layout.spinner_dropdown_copy);
+        adPaperSize.setDropDownViewResource(R.layout.spinner_dropdown_copy);
+        adPaperType.setDropDownViewResource(R.layout.spinner_dropdown_copy);
+        adQuality.setDropDownViewResource(R.layout.spinner_dropdown_copy);
+        adResize.setDropDownViewResource(R.layout.spinner_dropdown_copy);
+        adBrightness.setDropDownViewResource(R.layout.spinner_dropdown_copy);;
+
 
         //set adapter
         spColor.setAdapter(adColor);

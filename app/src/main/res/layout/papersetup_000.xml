@@ -55,34 +55,15 @@
             android:padding="5dp"
             android:textColor="#ffffff" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <Spinner
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Letter"
-            android:id="@+id/paper_size"
-            android:layout_gravity="center|right"
-            android:textColor="#ffcf33"
-            android:singleLine="false"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_centerInParent="true"
-            android:layout_toLeftOf="@+id/txtview1" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=">"
-            android:id="@+id/txtview1"
-            android:textColor="#ffcf33"
-            android:textSize="20dp"
+            android:id="@+id/spin_paper_size"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_gravity="center"
-            android:layout_alignParentEnd="false"
-            android:paddingRight="10dp"
-            android:textAlignment="center"
-            android:layout_centerInParent="true"
-            android:layout_alignParentLeft="false"
-            android:paddingLeft="15dp"
-            android:src="@mipmap/arrowdown" />
+            android:layout_alignParentEnd="true"
+            android:spinnerMode="dialog" />
+
     </RelativeLayout>
 
     <Space
@@ -105,36 +86,18 @@
             android:layout_alignParentLeft="true"
             android:layout_gravity="center"
             android:padding="5dp"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:id="@+id/textView3" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <Spinner
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="Plain"
-            android:id="@+id/paper_type"
-            android:layout_gravity="center|right"
-            android:textColor="#ffcf33"
-            android:singleLine="false"
-            android:layout_toLeftOf="@+id/txtview2"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_centerInParent="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=">"
-            android:id="@+id/txtview2"
-            android:textColor="#ffcf33"
-            android:textSize="20dp"
+            android:id="@+id/spin_paper_type"
             android:layout_alignParentRight="true"
-            android:layout_gravity="center"
-            android:layout_alignParentEnd="false"
-            android:paddingRight="10dp"
-            android:textAlignment="center"
-            android:layout_centerInParent="true"
-            android:layout_alignParentLeft="false"
-            android:paddingLeft="15dp"
-            android:src="@mipmap/arrowdown" />
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:spinnerMode="dialog" />
+
     </RelativeLayout>
 
     <Space

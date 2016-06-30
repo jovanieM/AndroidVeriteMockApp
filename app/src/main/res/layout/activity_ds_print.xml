@@ -57,11 +57,20 @@
                 android:background="#000000" />
         </LinearLayout>
 
-        <fragment
-            android:layout_height="match_parent"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:id="@+id/fragment_placer"
-            android:name="com.cebusqa.kodakverite.FragmentDetailPrint"/>
+            android:layout_height="match_parent"
+            android:id="@+id/view"></LinearLayout>
+        <!--
+                <fragment
+                    android:layout_height="183dp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/fragment_placer"
+                    android:name="com.cebusqa.kodakverite.FragmentDetailPrint"
+                    />
+        -->
+
 
     </LinearLayout>
 

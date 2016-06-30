@@ -29,7 +29,7 @@ public class Restore_Factory extends Activity{
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(Restore_Factory.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(Restore_Factory.this, AlertDialog.THEME_HOLO_LIGHT);
                 builder.setMessage("Are you sure you want to restore factory default?")
                         .setCancelable(false)
                         .setPositiveButton("Restore", new DialogInterface.OnClickListener() {
@@ -38,18 +38,19 @@ public class Restore_Factory extends Activity{
                                 RingDialog ringDialog = new RingDialog(Restore_Factory.this, "", "Please wait...", true);
                                 ringDialog.run();
 
-                                AlertDialog.Builder builder = new AlertDialog.Builder(Restore_Factory.this);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(Restore_Factory.this, AlertDialog.THEME_HOLO_LIGHT);
                                 builder.setTitle("Printer rebooting...");
                                 builder.setMessage("Press [OK] to close this app. Please restart this app after rebooting the printer.")
                                 .setCancelable(false)
                                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
-                                                finish();
-                                                moveTaskToBack(true);
-                                                android.os.Process.killProcess(android.os.Process.myPid());
-                                                System.exit(1);
+    //                                            new KodakVeriteApp().onTerminate();
+    //                                            moveTaskToBack(true);
+    //                                            android.os.Process.killProcess(android.os.Process.myPid());
+//                                                System.exit(1);
+                                                startActivity(new Intent(Restore_Factory.this, Splash.class));
 
-                                                    }
+                                            }
                                                 });
 
 
