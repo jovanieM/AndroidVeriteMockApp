@@ -48,10 +48,7 @@ public class Restore_Factory extends Activity{
     //                                            moveTaskToBack(true);
     //                                            android.os.Process.killProcess(android.os.Process.myPid());
 //                                                System.exit(1);
-                                                Intent intent = new Intent(getApplicationContext(), Splash.class);
-                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                                intent.putExtra("LOGOUT", true);
-                                                startActivity(intent);
+                                                startActivity(new Intent(Restore_Factory.this, Splash.class));
 
                                             }
                                                 });

@@ -26,13 +26,6 @@ public class Splash extends Activity {
             }
         }, 4000);
 
-        if (getIntent().getBooleanExtra("LOGOUT", false))
-        {
-            finish();
-
-        }
-
-
     }
 
     @Override
