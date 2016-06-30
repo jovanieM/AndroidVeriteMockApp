@@ -25,13 +25,14 @@ public class CS00_000 extends Activity{
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CS00_000.this, CS00_001.class));
+                finish();
             }
         });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CS00_000.this, PU00_0000.class));
+               finish();
             }
         });
     }

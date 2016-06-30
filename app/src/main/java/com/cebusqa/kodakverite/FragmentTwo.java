@@ -42,7 +42,7 @@ public class FragmentTwo extends Fragment {
         spPaperType = (Spinner) view.findViewById(R.id.sp_paper_type);
         spQuality = (Spinner) view.findViewById(R.id.sp_quality);
         spResize = (Spinner) view.findViewById(R.id.sp_resize);
-        spBrightness = (Spinner) view.findViewById(R.id.sp_brightness);
+        //spBrightness = (Spinner) view.findViewById(R.id.sp_brightness);
         llCustomResize = (LinearLayout) view.findViewById(R.id.ll_custom_resize);
         etCustomResize = (EditText) view.findViewById(R.id.editText3);
         btnIncrement = (Button) view.findViewById(R.id.btn_custom_resize_increment);
@@ -55,7 +55,7 @@ public class FragmentTwo extends Fragment {
         paperTypeItems = getResources().getStringArray(R.array.Paper_type);
         qualityItems = getResources().getStringArray(R.array.Quality_copy);
         resizeItems = getResources().getStringArray(R.array.Copy_Resize);
-        brightnessItems = getResources().getStringArray(R.array.brightness);
+        //brightnessItems = getResources().getStringArray(R.array.brightness);
 
         //init adapter
         adColor = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, colorItems);
@@ -63,14 +63,14 @@ public class FragmentTwo extends Fragment {
         adPaperType = new ArrayAdapter<>(getActivity(),R.layout.spinner_item, paperTypeItems);
         adQuality = new ArrayAdapter<>(getActivity(),R.layout.spinner_item, qualityItems);
         adResize = new ArrayAdapter<>(getActivity(),R.layout.spinner_item, resizeItems);
-        adBrightness = new ArrayAdapter<>(getActivity(),R.layout.spinner_item, brightnessItems);
+        //adBrightness = new ArrayAdapter<>(getActivity(),R.layout.spinner_item, brightnessItems);
 
         adColor.setDropDownViewResource(R.layout.spinner_dropdown_copy);
         adPaperSize.setDropDownViewResource(R.layout.spinner_dropdown_copy);
         adPaperType.setDropDownViewResource(R.layout.spinner_dropdown_copy);
         adQuality.setDropDownViewResource(R.layout.spinner_dropdown_copy);
         adResize.setDropDownViewResource(R.layout.spinner_dropdown_copy);
-        adBrightness.setDropDownViewResource(R.layout.spinner_dropdown_copy);;
+        //adBrightness.setDropDownViewResource(R.layout.spinner_dropdown_copy);;
 
 
         //set adapter
@@ -79,7 +79,7 @@ public class FragmentTwo extends Fragment {
         spPaperType.setAdapter(adPaperType);
         spQuality.setAdapter(adQuality);
         spResize.setAdapter(adResize);
-        spBrightness.setAdapter(adBrightness);
+        //spBrightness.setAdapter(adBrightness);
 
         llCustomResize.setVisibility(View.INVISIBLE);
         etCustomResize.setText(Integer.toString(ctr));

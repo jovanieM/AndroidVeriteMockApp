@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/lv_copy_setting"
         android:layout_marginTop="10dp"
-        android:dividerHeight="2dp"
+        android:dividerHeight="1dp"
         android:fastScrollAlwaysVisible="false"
-        android:divider="@color/background_floating_material_dark" />
+        android:divider="@color/background_floating_material_dark"
+        android:background="@color/background_floating_material_light" />
 </LinearLayout>

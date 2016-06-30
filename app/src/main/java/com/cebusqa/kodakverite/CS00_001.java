@@ -19,6 +19,7 @@ public class CS00_001 extends Activity {
             @Override
             public void run() {
                 startActivity(new Intent(CS00_001.this, CS00_002.class));
+                finish();
             }
         }, 4000);
     }

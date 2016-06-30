@@ -35,6 +35,7 @@ public class CS00_003 extends Activity {
                    public void run() {
                        if (alert.isShowing()){
                            startActivity(new Intent(CS00_003.this, PU00_0000.class));
+                           finish();
                            alert.dismiss();
                        }
                    }
