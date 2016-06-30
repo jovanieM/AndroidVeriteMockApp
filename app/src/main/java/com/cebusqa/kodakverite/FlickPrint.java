@@ -19,8 +19,12 @@ import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -29,7 +33,7 @@ import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 /**
  * Created by Cebu SQA on 29/06/2016.
  */
-public class FlickPrint extends Activity{
+public class FlickPrint extends Activity implements CompoundButton.OnCheckedChangeListener {
 
     ImageView imDisplay;
     static String fullImage = null;
@@ -41,6 +45,12 @@ public class FlickPrint extends Activity{
     boolean threshold;
     float last;
     View view;
+    ImageView flickImage;
+    ToggleButton toggleButton;
+    TextView tv, flickMessage;
+    RelativeLayout relativeLayout;
+    ImageView settingFlick;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +58,26 @@ public class FlickPrint extends Activity{
         setContentView(R.layout.flick_print);
         view = findViewById(R.id.kodakToolbar);
         view.bringToFront();
-
-
-
+        flickImage = (ImageView) findViewById(R.id.flick_image);
+        toggleButton = (ToggleButton) findViewById(R.id.check_image);
+        tv = (TextView) findViewById(R.id.flick_text);
+        flickMessage = (TextView) findViewById(R.id.flick_message);
+        relativeLayout = (RelativeLayout) findViewById(R.id.rl_flick);
+        settingFlick = (ImageView) findViewById(R.id.settings_flick);
         imDisplay = (ImageView) findViewById(R.id.image_displayer);
+        flickImage.bringToFront();
+        toggleButton.bringToFront();
+        tv.bringToFront();
+        toggleButton.setChecked(true);
+        toggleButton.setOnCheckedChangeListener(this);
+
         //bitmap = BitmapFactory.decodeFile(fullImage);
+        settingFlick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), DS_print.class));
+            }
+        });
 
         mDetector = new GestureDetectorCompat(this, new MyGestureListener());
         imDisplay.setOnTouchListener(new View.OnTouchListener() {
@@ -110,6 +135,27 @@ public class FlickPrint extends Activity{
 
 
 
+    }
+
+    /**
+     * Called when the checked state of a compound button has changed.
+     *
+     * @param buttonView The compound button view whose state has changed.
+     * @param isChecked  The new checked state of buttonView.
+     */
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if(isChecked){
+            flickImage.setVisibility(View.VISIBLE);
+            tv.setVisibility(View.VISIBLE);
+            flickMessage.setVisibility(View.VISIBLE);
+            relativeLayout.setVisibility(View.VISIBLE);
+        }else{
+            flickImage.setVisibility(View.GONE);
+            tv.setVisibility(View.GONE);
+            flickMessage.setVisibility(View.GONE);
+            relativeLayout.setVisibility(View.GONE);
+        }
     }
 
 
