@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,10 +35,13 @@ public class UpdatePrinterSoftware extends Activity {
                 abDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivity(new Intent(UpdatePrinterSoftware.this, Splash.class));
                         finish();
-                        moveTaskToBack(true);
+
+                        /*moveTaskToBack(true);
                         android.os.Process.killProcess(android.os.Process.myPid());
-                        System.exit(1);
+                        System.exit(1);*/
+
                     }
                 });
                 AlertDialog dialog = abDialog.create();
