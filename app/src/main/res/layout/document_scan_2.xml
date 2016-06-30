@@ -233,7 +233,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            style="@android:style/Widget.Button"
+
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:clickable="true"
@@ -243,7 +243,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -251,11 +251,12 @@
                 android:id="@+id/textView12"
                 android:textColor="#080707"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/save_as"/>
         </RelativeLayout>
 
         <RelativeLayout
-            style="@android:style/Widget.Button"
+
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:clickable="true"
@@ -266,7 +267,7 @@
             android:layout_alignEnd="@+id/doc_image"
             android:layout_marginBottom="20dp">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -274,10 +275,11 @@
                 android:id="@+id/textView14"
                 android:textColor="#080707"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/google_drive"/>
         </RelativeLayout>
         <RelativeLayout
-            style="@android:style/Widget.Button"
+
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:clickable="true"
@@ -288,7 +290,7 @@
             android:layout_above="@+id/drive2"
             android:layout_marginBottom="20dp">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -296,11 +298,12 @@
                 android:id="@+id/one"
                 android:textColor="#080707"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/one_drive"/>
         </RelativeLayout>
 
         <RelativeLayout
-            style="@android:style/Widget.Button"
+
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:clickable="true"
@@ -311,7 +314,7 @@
             android:layout_above="@+id/save2"
             android:layout_marginBottom="20dp">
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
@@ -319,7 +322,8 @@
                 android:id="@+id/textView13"
                 android:textColor="#080707"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/email"/>
         </RelativeLayout>
 
     </RelativeLayout>
