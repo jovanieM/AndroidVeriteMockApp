@@ -36,6 +36,12 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
             }
         });
 
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        FragmentQuickPrint quick1 = new FragmentQuickPrint();
+        ft.replace(R.id.view, quick1);
+        ft.addToBackStack(null);
+        ft.commit();
 
         quick.setOnClickListener(new OnClickListener(){
 
@@ -48,7 +54,7 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
                 FragmentTransaction ft = fm.beginTransaction();
 
                 FragmentQuickPrint quick = new FragmentQuickPrint();
-                ft.replace(R.id.fragment_placer, quick);
+                ft.replace(R.id.view, quick);
                 ft.addToBackStack(null);
                 ft.commit();
 
@@ -68,8 +74,8 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
 
-                FragmentDetailPrint quicks = new FragmentDetailPrint();
-                ft.replace(R.id.fragment_placer, quicks);
+                FragmentDetailPrint details = new FragmentDetailPrint();
+                ft.replace(R.id.view, details);
                 ft.addToBackStack(null);
                 ft.commit();
 

@@ -1,5 +1,6 @@
 package com.cebusqa.kodakverite;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.Resources;
@@ -18,6 +19,7 @@ public class RingDialog implements Runnable {
 
     public RingDialog(Context context, String string, String string2, boolean bool){
         ringDialog = ProgressDialog.show(context, string, string2, bool);
+
         this.string = string;
         this.string2 = string2;
         this.bool = bool;

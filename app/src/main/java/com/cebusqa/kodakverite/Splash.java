@@ -25,10 +25,20 @@ public class Splash extends Activity {
                 Splash.this.finish();
             }
         }, 4000);
+
+        if (getIntent().getBooleanExtra("LOGOUT", false))
+        {
+            finish();
+
+        }
+
+
     }
 
     @Override
     public void onBackPressed(){
 
     }
+
+
 }

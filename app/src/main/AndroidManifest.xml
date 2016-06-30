@@ -5,8 +5,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher1"
+        android:label="Kodak Verite"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity

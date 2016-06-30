@@ -99,7 +99,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_quality"
                 android:layout_gravity="center"
-                android:spinnerMode="dialog" />
+                android:spinnerMode="dialog"
+                android:popupBackground="#FFFFFF"/>
         </LinearLayout>
 
         <LinearLayout

@@ -16,6 +16,8 @@ public class KodakVeriteApp extends Application {
         return new KodakVeriteApp();
     }
 
-
-
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+    }
 }
