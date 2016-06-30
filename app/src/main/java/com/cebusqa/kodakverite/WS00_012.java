@@ -23,7 +23,7 @@ public class WS00_012 extends Activity {
     TextView tvSSID;
     String ssid;
     CheckBox cBox;
-    EditText etPassword;
+    EditText etPass1;
     Button btnHelp, btnOther;
 
     @Override
@@ -32,23 +32,22 @@ public class WS00_012 extends Activity {
         setContentView(R.layout.activity_ws00_012);
 
         tvSSID = (TextView) findViewById(R.id.tv_ssid1);
-        cBox = (CheckBox) findViewById(R.id.checkBox4);
-        etPassword = (EditText) findViewById(R.id.et_pass1);
+        cBox = (CheckBox) findViewById(R.id.cb_et_pass);
+        etPass1 = (EditText) findViewById(R.id.et_pass10);
         btnHelp = (Button) findViewById(R.id.btn_help2);
         btnOther = (Button) findViewById(R.id.btn_other1);
-
 
         ssid = WS00_011.ssid_item;
         tvSSID.setText(ssid);
 
-        etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        checkBox();
+        etPass1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+
                 if(i == EditorInfo.IME_ACTION_GO)
                 {
-                    checkBox();
                     startActivity(new Intent(WS00_012.this, WS00_013.class));
-
                     hideSoftKeyboard();
                 }
                 return false;
@@ -84,9 +83,9 @@ public class WS00_012 extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(!b)
-                    etPassword.setInputType(129);
+                    etPass1.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 else
-                    etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    etPass1.setInputType(129);
             }
         });
     }

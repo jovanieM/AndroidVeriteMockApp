@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:src="@drawable/status_2" />
+        android:src="@drawable/status_3" />
 
     <TextView
         android:layout_width="match_parent"
