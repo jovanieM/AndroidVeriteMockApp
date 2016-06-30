@@ -181,7 +181,6 @@ public class SP_000 extends AppCompatActivity{
                 Intent intent = new Intent(SP_000.this, ImageCropper.class);
                 intent.putExtra("width", bm.getWidth()+80);
                 intent.putExtra("height", bm.getHeight()+80);
-                Toast.makeText(getApplicationContext(), String.valueOf(bm.getWidth()), Toast.LENGTH_SHORT).show();
                 startActivityForResult(intent,GET_BITMAP_REQUEST);
                 //startActivity(intent);
             }

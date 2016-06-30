@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +18,8 @@ import java.security.SecurityPermission;
 
 public class HM10_000 extends AppCompatActivity implements Communicator{
 
-    ImageButton inklevel, copy, scanphoto, scandocument, photoprint, ecomode, setting_icon, printer, search_icon;
+    ImageButton inklevel, copy, scanphoto, scandocument, photoprint, ecomode, setting_icon, search_icon,  printer;
+
     private ProgressDialog progressBar;
     private int progressBarStatus = 0;
     private int currentImage = 0;
@@ -36,7 +38,7 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
         scandocument =(ImageButton)findViewById(R.id.scandocument);
         photoprint =(ImageButton)findViewById(R.id.photoprint);
         setting_icon =(ImageButton)findViewById(R.id.setting_icon);
-        printer = (ImageButton)findViewById(R.id.printer);
+        printer = (ImageButton) findViewById(R.id.printer);
         search_icon= (ImageButton)findViewById(R.id.search_icon);
         printer_name= (TextView) findViewById(R.id.printer_name);
 
@@ -115,6 +117,7 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
                         DummyWirelessFragment dummyWirelessFragment =new DummyWirelessFragment();
                         dummyWirelessFragment.show(getFragmentManager(), "this");
                         dummyWirelessFragment.run();
+                        printer.setImageResource(R.mipmap.printer1);
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
@@ -132,6 +135,8 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
 
     @Override
     public void respond(String printer) {
+
         printer_name.setText(printer);
+
     }
 }

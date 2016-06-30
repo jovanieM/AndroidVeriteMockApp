@@ -18,12 +18,12 @@
         android:id="@+id/flick_image"
         android:src="@drawable/flicker"
         android:background="#01ffffff"
-        android:layout_alignTop="@+id/flick_text"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/flick_text" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:text="Flick Print"
         android:id="@+id/flick_text"
         android:layout_below="@+id/kodakToolbar"
