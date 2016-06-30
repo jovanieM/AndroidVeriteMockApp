@@ -62,26 +62,25 @@
             android:textIsSelectable="true"/>
 
         <EditText
-            android:id="@+id/et_pass1"
+            android:id="@+id/et_pass10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_password1"
-            android:hint="Input password"
-            android:inputType="text"
-            android:background="@drawable/edit_text_border"
+            android:hint="Input Password"
             android:singleLine="true"
-            android:imeOptions="actionGo">
-            <requestFocus />
-        </EditText>
+            android:background="@drawable/edit_text_border"
+            android:imeOptions="actionGo"
+            android:selectAllOnFocus="true"/>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Show password"
-            android:id="@+id/checkBox4"
+            android:id="@+id/cb_et_pass"
             android:layout_marginRight="10dp"
-            android:layout_below="@+id/et_pass1"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/et_pass10"
+            />
 
     </RelativeLayout>
 
