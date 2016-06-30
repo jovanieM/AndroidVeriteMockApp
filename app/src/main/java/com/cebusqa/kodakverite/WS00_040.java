@@ -28,7 +28,7 @@ public class WS00_040 extends Activity {
         btnSaveSetting = (Button) findViewById(R.id.btn_save_setting2);
         etHostname = (EditText) findViewById(R.id.et_hostname);
 
-        etHostname.setText("Kodak-Veritexxxxxx");
+        etHostname.setText("Kodak-Verite55 Plus");
 
         final ProgressDialog pd = new ProgressDialog(WS00_040.this);
         pd.setMessage("Getting network information...");
