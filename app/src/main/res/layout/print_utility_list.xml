@@ -5,13 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableRight="@mipmap/ic_launcher"
-        android:text="list1"
-        android:padding="5dp"
-        android:id="@+id/print_util_items" />
+        android:text="New Text"
+        android:id="@+id/print_util_items"
+        android:drawableRight="@drawable/arrow"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="fill_vertical"
+        android:textSize="15dp" />
 
 
 
