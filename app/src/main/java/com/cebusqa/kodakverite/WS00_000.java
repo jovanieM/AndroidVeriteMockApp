@@ -17,7 +17,6 @@ public class WS00_000 extends Activity {
     ListView lvWifiSetupItems;
     Context context;
     Button btnBack;
-
     //public static int [] prgImages ={R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher,};
     public static String [] prgItems; //= {"item1","item2","item3"};
     @Override
@@ -28,6 +27,14 @@ public class WS00_000 extends Activity {
         btnBack = (Button) findViewById(R.id.back);
         context=this;
         prgItems = getResources().getStringArray(R.array.wifi_setup);
+
+        back = (Button)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         lvWifiSetupItems = (ListView) findViewById(R.id.lv_wifi_setup);
         lvWifiSetupItems.setAdapter(new CustomAdapter(this, prgItems));

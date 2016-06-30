@@ -36,6 +36,14 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
         back = (Button) findViewById(R.id.back);
         apStatusChanger.setChecked(prevState);
 
+        back = (Button)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         saveSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
