@@ -8,10 +8,5 @@
     android:textColor="@drawable/spinner_background"
     android:padding="10dp"
     android:background="@color/white"
-
-
-
-
-
     />
 

@@ -13,7 +13,8 @@ import android.widget.Button;
  */
 public class UpdatePrinterSoftware extends Activity {
 
-    Button btnStartUpdate;
+    Button btnStartUpdate, btnBack;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class UpdatePrinterSoftware extends Activity {
         setContentView(R.layout.update_printer_software);
 
         btnStartUpdate = (Button) findViewById(R.id.btn_start_update);
+        btnBack = (Button) findViewById(R.id.back);
 
         btnStartUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +42,13 @@ public class UpdatePrinterSoftware extends Activity {
                 });
                 AlertDialog dialog = abDialog.create();
                 dialog.show();
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
