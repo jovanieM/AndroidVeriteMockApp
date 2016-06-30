@@ -3,16 +3,20 @@ package com.cebusqa.kodakverite;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -20,6 +24,7 @@ import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by Cebu SQA on 29/06/2016.
@@ -32,6 +37,14 @@ public class PhotoPrintPics extends Activity {
     //static int index;
     TextView mFolderDir;
     Button back;
+    int counter= 0;
+    int  counter2  = 0;
+    RelativeLayout rel = null;
+    boolean multiplePrint = false;
+    //TextView tv;
+    ArrayList<String> labelMem = new ArrayList<>();
+    String st;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +54,9 @@ public class PhotoPrintPics extends Activity {
         gridView = (GridView) findViewById(R.id.gridView);
         mFolderDir.setText(mFolder);
         back = (Button) findViewById(R.id.back);
+
+
+
 
         File dir = new File(folderPath);
         File[] picFiles = dir.listFiles();
@@ -55,6 +71,60 @@ public class PhotoPrintPics extends Activity {
         }
         ImageAdapter adapter  = new ImageAdapter(this, picPaths);
         gridView.setAdapter(adapter);
+
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                if (!multiplePrint) {
+                    // Toast.makeText(getApplication(),String.valueOf(view.getId()) , Toast.LENGTH_SHORT).show();
+                    RelativeLayout rel = (RelativeLayout) view.findViewById(R.id.rl_id);
+                    st = String.valueOf(position);
+
+                    if (rel.getVisibility() == View.GONE) {
+                        TextView tv = (TextView) view.findViewById(R.id.textViewTemp);
+
+                        labelMem.add(st);
+                        rel.setVisibility(View.VISIBLE);
+
+                        counter++;
+                        tv.setText(String.valueOf(counter));
+                    } else {
+
+                        labelMem.remove(st);
+                        rel.setVisibility(View.GONE);
+
+                        for (int i = 0; i < labelMem.size(); i++) {
+                            //Toast.makeText(getApplication(), labelMem.get(i), Toast.LENGTH_SHORT).show();
+                            counter2++;
+                            TextView tv2 = (TextView) gridView.getChildAt(Integer.parseInt(labelMem.get(i))).findViewById(R.id.textViewTemp);
+                            tv2.setText(String.valueOf(counter2));
+                        }
+                        counter = 0;
+                        //pass the current number to counter variable
+                        counter = counter2;
+                        counter2 = 0;
+                    }
+//               TextView tv  = (TextView) gridView.getChildAt(position).findViewById(R.id.textViewTemp);
+//                tv.setText("2");
+                    //gridView.getCount();
+                    //Toast.makeText(getApplication(),String.valueOf(gridView.getCount()), Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    for(int i = 0; i<picPaths.size() ; i++){
+                        if(i==position){
+                            FlickPrint.fullImage = picPaths.get(position);
+
+                        }
+                    }
+                    Intent intent = new Intent(getApplication(), FlickPrint.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+    /**  temporarily omitted, do not delete !!
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -68,6 +138,7 @@ public class PhotoPrintPics extends Activity {
                 startActivity(intent);
             }
         });
+        **/
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +166,7 @@ public class PhotoPrintPics extends Activity {
         ImageLoader imageLoader = ImageLoader.getInstance();
         ArrayList<String>list;
 
+
         ImageAdapter(Context c, ArrayList<String> paths) {
             mContext = c;
             list = paths;
@@ -121,8 +193,10 @@ public class PhotoPrintPics extends Activity {
 
         class ViewHolder{
             ImageView pictures;
+
             ViewHolder(View v){
                 pictures = (ImageView) v.findViewById(R.id.picture);
+
             }
         }
 
