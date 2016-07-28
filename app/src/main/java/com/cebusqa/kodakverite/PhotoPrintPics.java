@@ -35,8 +35,9 @@ public class PhotoPrintPics extends Activity {
     static String mFolder;
     ArrayList<String> picPaths = new ArrayList<>();
     //static int index;
-    TextView mFolderDir;
+    TextView mFolderDir, tvCancel;
     Button back;
+<<<<<<< HEAD
     int counter= 0;
     int  counter2  = 0;
     RelativeLayout rel = null;
@@ -44,6 +45,9 @@ public class PhotoPrintPics extends Activity {
     //TextView tv;
     ArrayList<String> labelMem = new ArrayList<>();
     String st;
+=======
+    ImageView iv_multiple, iv_printer;
+>>>>>>> ad50801c22ca89c803dd610b34dca3e659f977bb
 
 
     @Override
@@ -54,6 +58,11 @@ public class PhotoPrintPics extends Activity {
         gridView = (GridView) findViewById(R.id.gridView);
         mFolderDir.setText(mFolder);
         back = (Button) findViewById(R.id.back);
+        iv_multiple = (ImageView) findViewById(R.id.ic_multiple);
+        tvCancel = (TextView) findViewById(R.id.tv_cancel);
+        tvCancel.setVisibility(View.INVISIBLE);
+        iv_printer = (ImageView) findViewById(R.id.ic_printer);
+        iv_printer.setVisibility(View.INVISIBLE);
 
 
 
@@ -131,7 +140,6 @@ public class PhotoPrintPics extends Activity {
                 for(int i = 0; i<picPaths.size() ; i++){
                     if(i==position){
                         FlickPrint.fullImage = picPaths.get(position);
-
                     }
                 }
                 Intent intent = new Intent(getApplication(), FlickPrint.class);
@@ -145,13 +153,13 @@ public class PhotoPrintPics extends Activity {
                 finish();
             }
         });
-/*        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        /* gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 for(int i = 0; i<picPaths.size() ; i++){
                     if(i==position){
                         FullScreen.fullImage = picPaths.get(position);
-
                     }
                 }
                 Intent intent = new Intent(PicturesGrid.this, FullScreen.class);
@@ -159,7 +167,28 @@ public class PhotoPrintPics extends Activity {
             }
         });*/
 
+        iv_multiple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iv_multiple.setVisibility(View.INVISIBLE);
+
+                tvCancel.setVisibility(View.VISIBLE);
+                iv_printer.setVisibility(View.VISIBLE);
+            }
+        });
+
+        tvCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tvCancel.setVisibility(View.INVISIBLE);
+                iv_printer.setVisibility(View.INVISIBLE);
+
+                iv_multiple.setVisibility(View.VISIBLE);
+            }
+        });
+
     }
+
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
         DisplayImageOptions options;
