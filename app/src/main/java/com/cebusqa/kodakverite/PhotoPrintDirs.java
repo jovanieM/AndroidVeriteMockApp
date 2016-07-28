@@ -68,14 +68,10 @@ public class PhotoPrintDirs extends Activity {
                         PhotoPrintPics.folderPath = KodakVeriteApp.dirs.get(position);
                         PhotoPrintPics.mFolder = KodakVeriteApp.bucketName.get(position);
                     }
-
-
                 }
                 startActivity(new Intent(PhotoPrintDirs.this, PhotoPrintPics.class));
             }
         });
-
-
     }
 
     class MyAdapter extends ArrayAdapter<String>{
