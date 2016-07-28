@@ -37,7 +37,7 @@ public class PhotoPrintPics extends Activity {
     //static int index;
     TextView mFolderDir, tvCancel;
     Button back;
-<<<<<<< HEAD
+
     int counter= 0;
     int  counter2  = 0;
     RelativeLayout rel = null;
@@ -45,9 +45,9 @@ public class PhotoPrintPics extends Activity {
     //TextView tv;
     ArrayList<String> labelMem = new ArrayList<>();
     String st;
-=======
+
     ImageView iv_multiple, iv_printer;
->>>>>>> ad50801c22ca89c803dd610b34dca3e659f977bb
+
 
 
     @Override
