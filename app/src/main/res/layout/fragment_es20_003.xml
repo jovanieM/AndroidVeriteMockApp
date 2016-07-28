@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:weightSum="1">
 
     <ImageView
         android:layout_width="match_parent"
@@ -19,12 +20,29 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp" />
 
-    <ImageView
-        android:layout_width="280dp"
-        android:layout_height="180dp"
-        android:src="@drawable/image7"
-        android:adjustViewBounds="true"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="235dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp" />
+        android:layout_weight="0.04">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/scanning"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_margin="10dp" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar3"
+            android:progressDrawable="@drawable/progress_circle"
+            android:indeterminateDrawable="@drawable/progress_circle"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 </LinearLayout>
