@@ -3,16 +3,20 @@ package com.cebusqa.kodakverite;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -20,6 +24,7 @@ import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by Cebu SQA on 29/06/2016.
@@ -30,8 +35,20 @@ public class PhotoPrintPics extends Activity {
     static String mFolder;
     ArrayList<String> picPaths = new ArrayList<>();
     //static int index;
-    TextView mFolderDir;
+    TextView mFolderDir, tvCancel;
     Button back;
+<<<<<<< HEAD
+    int counter= 0;
+    int  counter2  = 0;
+    RelativeLayout rel = null;
+    boolean multiplePrint = false;
+    //TextView tv;
+    ArrayList<String> labelMem = new ArrayList<>();
+    String st;
+=======
+    ImageView iv_multiple, iv_printer;
+>>>>>>> ad50801c22ca89c803dd610b34dca3e659f977bb
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +58,14 @@ public class PhotoPrintPics extends Activity {
         gridView = (GridView) findViewById(R.id.gridView);
         mFolderDir.setText(mFolder);
         back = (Button) findViewById(R.id.back);
+        iv_multiple = (ImageView) findViewById(R.id.ic_multiple);
+        tvCancel = (TextView) findViewById(R.id.tv_cancel);
+        tvCancel.setVisibility(View.INVISIBLE);
+        iv_printer = (ImageView) findViewById(R.id.ic_printer);
+        iv_printer.setVisibility(View.INVISIBLE);
+
+
+
 
         File dir = new File(folderPath);
         File[] picFiles = dir.listFiles();
@@ -55,32 +80,86 @@ public class PhotoPrintPics extends Activity {
         }
         ImageAdapter adapter  = new ImageAdapter(this, picPaths);
         gridView.setAdapter(adapter);
+
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                if (!multiplePrint) {
+                    // Toast.makeText(getApplication(),String.valueOf(view.getId()) , Toast.LENGTH_SHORT).show();
+                    RelativeLayout rel = (RelativeLayout) view.findViewById(R.id.rl_id);
+                    st = String.valueOf(position);
+
+                    if (rel.getVisibility() == View.GONE) {
+                        TextView tv = (TextView) view.findViewById(R.id.textViewTemp);
+
+                        labelMem.add(st);
+                        rel.setVisibility(View.VISIBLE);
+
+                        counter++;
+                        tv.setText(String.valueOf(counter));
+                    } else {
+
+                        labelMem.remove(st);
+                        rel.setVisibility(View.GONE);
+
+                        for (int i = 0; i < labelMem.size(); i++) {
+                            //Toast.makeText(getApplication(), labelMem.get(i), Toast.LENGTH_SHORT).show();
+                            counter2++;
+                            TextView tv2 = (TextView) gridView.getChildAt(Integer.parseInt(labelMem.get(i))).findViewById(R.id.textViewTemp);
+                            tv2.setText(String.valueOf(counter2));
+                        }
+                        counter = 0;
+                        //pass the current number to counter variable
+                        counter = counter2;
+                        counter2 = 0;
+                    }
+//               TextView tv  = (TextView) gridView.getChildAt(position).findViewById(R.id.textViewTemp);
+//                tv.setText("2");
+                    //gridView.getCount();
+                    //Toast.makeText(getApplication(),String.valueOf(gridView.getCount()), Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    for(int i = 0; i<picPaths.size() ; i++){
+                        if(i==position){
+                            FlickPrint.fullImage = picPaths.get(position);
+
+                        }
+                    }
+                    Intent intent = new Intent(getApplication(), FlickPrint.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+    /**  temporarily omitted, do not delete !!
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 for(int i = 0; i<picPaths.size() ; i++){
                     if(i==position){
                         FlickPrint.fullImage = picPaths.get(position);
-
                     }
                 }
                 Intent intent = new Intent(getApplication(), FlickPrint.class);
                 startActivity(intent);
             }
         });
+        **/
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-/*        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        /* gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 for(int i = 0; i<picPaths.size() ; i++){
                     if(i==position){
                         FullScreen.fullImage = picPaths.get(position);
-
                     }
                 }
                 Intent intent = new Intent(PicturesGrid.this, FullScreen.class);
@@ -88,12 +167,34 @@ public class PhotoPrintPics extends Activity {
             }
         });*/
 
+        iv_multiple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iv_multiple.setVisibility(View.INVISIBLE);
+
+                tvCancel.setVisibility(View.VISIBLE);
+                iv_printer.setVisibility(View.VISIBLE);
+            }
+        });
+
+        tvCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tvCancel.setVisibility(View.INVISIBLE);
+                iv_printer.setVisibility(View.INVISIBLE);
+
+                iv_multiple.setVisibility(View.VISIBLE);
+            }
+        });
+
     }
+
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
         DisplayImageOptions options;
         ImageLoader imageLoader = ImageLoader.getInstance();
         ArrayList<String>list;
+
 
         ImageAdapter(Context c, ArrayList<String> paths) {
             mContext = c;
@@ -121,8 +222,10 @@ public class PhotoPrintPics extends Activity {
 
         class ViewHolder{
             ImageView pictures;
+
             ViewHolder(View v){
                 pictures = (ImageView) v.findViewById(R.id.picture);
+
             }
         }
 
