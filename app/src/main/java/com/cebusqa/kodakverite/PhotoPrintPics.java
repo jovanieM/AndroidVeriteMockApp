@@ -37,6 +37,10 @@ public class PhotoPrintPics extends Activity {
     //static int index;
     TextView mFolderDir, tvCancel, mCancelPrint, mPrintMulti;
     Button back;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1d3cb42b1b753f4295eda9818dc503e734efadae
     int counter= 0;
     int  counter2  = 0;
     RelativeLayout rel = null;
@@ -44,8 +48,13 @@ public class PhotoPrintPics extends Activity {
     //TextView tv;
     ArrayList<String> labelMem = new ArrayList<>();
     String st;
+<<<<<<< HEAD
     ImageView iv_multiple, iv_printer;
     RelativeLayout popUpLayout;
+=======
+
+    ImageView iv_multiple, iv_printer;
+>>>>>>> 1d3cb42b1b753f4295eda9818dc503e734efadae
 
 
 

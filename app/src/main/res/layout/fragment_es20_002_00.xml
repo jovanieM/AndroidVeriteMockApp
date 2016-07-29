@@ -21,13 +21,42 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp" />
 
-    <ImageView
-        android:layout_width="280dp"
-        android:layout_height="180dp"
-        android:src="@drawable/image8"
-        android:adjustViewBounds="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="280dp"
+            android:layout_height="180dp"
+            android:src="@drawable/image8"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar2"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+
+        <!--<ProgressBar
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/progressBar"
+            android:indeterminateDrawable="@drawable/circular"
+            android:max="100"
+            android:progress="10"
+            android:layout_marginStart="47dp"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:layout_centerInParent="true" />-->
+    </RelativeLayout>
 
 
 </LinearLayout>

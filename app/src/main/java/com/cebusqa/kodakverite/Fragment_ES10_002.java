@@ -23,7 +23,7 @@ public class Fragment_ES10_002 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_es10_002, container, false);
 
         //Progress bar
-        progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
