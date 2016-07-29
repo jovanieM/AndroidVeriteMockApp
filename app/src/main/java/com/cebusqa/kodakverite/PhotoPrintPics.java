@@ -37,10 +37,7 @@ public class PhotoPrintPics extends Activity {
     //static int index;
     TextView mFolderDir, tvCancel, mCancelPrint, mPrintMulti;
     Button back;
-<<<<<<< HEAD
-=======
 
->>>>>>> 1d3cb42b1b753f4295eda9818dc503e734efadae
     int counter= 0;
     int  counter2  = 0;
     RelativeLayout rel = null;
@@ -48,14 +45,9 @@ public class PhotoPrintPics extends Activity {
     //TextView tv;
     ArrayList<String> labelMem = new ArrayList<>();
     String st;
-<<<<<<< HEAD
-    ImageView iv_multiple, iv_printer;
     RelativeLayout popUpLayout;
-=======
-
+    boolean cancelPressed = false;
     ImageView iv_multiple, iv_printer;
->>>>>>> 1d3cb42b1b753f4295eda9818dc503e734efadae
-
 
 
     @Override
@@ -100,6 +92,10 @@ public class PhotoPrintPics extends Activity {
                     // Toast.makeText(getApplication(),String.valueOf(view.getId()) , Toast.LENGTH_SHORT).show();
                     RelativeLayout rel = (RelativeLayout) view.findViewById(R.id.rl_id);
                     st = String.valueOf(position);
+                    if (labelMem.size() == 0){
+                        counter = 0;
+                        counter2 = 0;
+                    }
 
                     if (rel.getVisibility() == View.GONE) {
                         TextView tv = (TextView) view.findViewById(R.id.textViewTemp);
@@ -122,6 +118,10 @@ public class PhotoPrintPics extends Activity {
                         }
                         counter = 0;
                         //pass the current number to counter variable
+                        if (cancelPressed){
+                            counter = 0;
+                            counter2 = 0;
+                        }
                         counter = counter2;
                         counter2 = 0;
                     }
@@ -202,8 +202,11 @@ public class PhotoPrintPics extends Activity {
                     //Toast.makeText(getApplication(), labelMem.get(i), Toast.LENGTH_SHORT).show();
                     RelativeLayout relativeLayout = (RelativeLayout) gridView.getChildAt(Integer.parseInt(labelMem.get(i))).findViewById(R.id.rl_id);
                     relativeLayout.setVisibility(View.GONE);
-                    counter = 0;
+
                 }
+                cancelPressed = true;
+                counter = 0;
+                counter2 = 0;
 
                 popUpLayout.setVisibility(View.GONE);
 
