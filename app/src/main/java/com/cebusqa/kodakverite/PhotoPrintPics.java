@@ -35,9 +35,12 @@ public class PhotoPrintPics extends Activity {
     static String mFolder;
     ArrayList<String> picPaths = new ArrayList<>();
     //static int index;
-    TextView mFolderDir, tvCancel;
+    TextView mFolderDir, tvCancel, mCancelPrint, mPrintMulti;
     Button back;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 1d3cb42b1b753f4295eda9818dc503e734efadae
     int counter= 0;
     int  counter2  = 0;
     RelativeLayout rel = null;
@@ -45,8 +48,13 @@ public class PhotoPrintPics extends Activity {
     //TextView tv;
     ArrayList<String> labelMem = new ArrayList<>();
     String st;
+<<<<<<< HEAD
+    ImageView iv_multiple, iv_printer;
+    RelativeLayout popUpLayout;
+=======
 
     ImageView iv_multiple, iv_printer;
+>>>>>>> 1d3cb42b1b753f4295eda9818dc503e734efadae
 
 
 
@@ -63,7 +71,9 @@ public class PhotoPrintPics extends Activity {
         tvCancel.setVisibility(View.INVISIBLE);
         iv_printer = (ImageView) findViewById(R.id.ic_printer);
         iv_printer.setVisibility(View.INVISIBLE);
-
+        popUpLayout = (RelativeLayout) findViewById(R.id.print_pop_up);
+        mCancelPrint  = (TextView) findViewById(R.id.cancelPrint);
+        mPrintMulti = (TextView) findViewById(R.id.printMulti);
 
 
 
@@ -86,7 +96,7 @@ public class PhotoPrintPics extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                if (!multiplePrint) {
+                if (multiplePrint) {
                     // Toast.makeText(getApplication(),String.valueOf(view.getId()) , Toast.LENGTH_SHORT).show();
                     RelativeLayout rel = (RelativeLayout) view.findViewById(R.id.rl_id);
                     st = String.valueOf(position);
@@ -121,6 +131,7 @@ public class PhotoPrintPics extends Activity {
                     //Toast.makeText(getApplication(),String.valueOf(gridView.getCount()), Toast.LENGTH_SHORT).show();
                 }
                 else{
+
                     for(int i = 0; i<picPaths.size() ; i++){
                         if(i==position){
                             FlickPrint.fullImage = picPaths.get(position);
@@ -174,6 +185,7 @@ public class PhotoPrintPics extends Activity {
 
                 tvCancel.setVisibility(View.VISIBLE);
                 iv_printer.setVisibility(View.VISIBLE);
+                multiplePrint = true;
             }
         });
 
@@ -184,6 +196,37 @@ public class PhotoPrintPics extends Activity {
                 iv_printer.setVisibility(View.INVISIBLE);
 
                 iv_multiple.setVisibility(View.VISIBLE);
+
+                multiplePrint = false;
+                for (int i = 0; i < labelMem.size(); i++) {
+                    //Toast.makeText(getApplication(), labelMem.get(i), Toast.LENGTH_SHORT).show();
+                    RelativeLayout relativeLayout = (RelativeLayout) gridView.getChildAt(Integer.parseInt(labelMem.get(i))).findViewById(R.id.rl_id);
+                    relativeLayout.setVisibility(View.GONE);
+                    counter = 0;
+                }
+
+                popUpLayout.setVisibility(View.GONE);
+
+            }
+        });
+        iv_printer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!labelMem.isEmpty()){
+
+                    popUpLayout.setVisibility(View.VISIBLE);
+//                    for(int i = 0 ; i < labelMem.size(); i++){
+//
+//                    }
+                }
+                //Toast.makeText(getApplication(),"yes", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        mCancelPrint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popUpLayout.setVisibility(View.GONE);
             }
         });
 
@@ -228,14 +271,11 @@ public class PhotoPrintPics extends Activity {
 
             }
         }
-
-
-
         // create a new ImageView for each item referenced by the Adapter
         public View getView(int position, View convertView, ViewGroup parent) {
+
             View row = convertView;
             ViewHolder holder;
-
 
             if (row == null) {
 
@@ -248,7 +288,6 @@ public class PhotoPrintPics extends Activity {
                 holder = (ViewHolder) row.getTag();
 
             }
-
 
             imageLoader.displayImage("file:///"+picPaths.get(position), holder.pictures, options);
             //imageView.setImageBitmap(ThumbnailUtils.extractThumbnail(BitmapFactory.decodeFile(picPaths.get(position)), 200, 150));
