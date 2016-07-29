@@ -1,51 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/black">
 
-    <ImageView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:src="@drawable/status" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Connect the printer to AC Power, and turn on the printer. Confirm the Power LED is On and Wireless LED is lighting or blinking"
-        android:textSize="15sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:src="@drawable/status" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Connect the printer to AC Power, and turn on the printer. Confirm the Power LED is On and Wireless LED is lighting or blinking"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp" />
+
+        <ImageView
+            android:id="@+id/iv2"
+            android:layout_width="280dp"
+            android:layout_height="180dp"
+            android:src="@mipmap/acplugin"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/btnOk"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/oval_background"
+            android:text="OK"
+            android:layout_gravity="center_horizontal"
+            android:clickable="false"
+            android:layout_marginTop="15dp" />
+
+        <Button
+            android:id="@+id/btnSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Skip"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/oval_background"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/iv2"
-        android:layout_width="280dp"
-        android:layout_height="180dp"
-        android:src="@drawable/image2"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
-        android:id="@+id/btnOk"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:background="@drawable/oval_background"
-        android:text="OK"
-        android:layout_gravity="center_horizontal"
-        android:clickable="false"
-        android:layout_marginTop="15dp" />
-
-    <Button
-        android:id="@+id/btnSkip"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="Skip"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/oval_background"
-        android:layout_marginTop="15dp" />
-
-</LinearLayout>
+</RelativeLayout>

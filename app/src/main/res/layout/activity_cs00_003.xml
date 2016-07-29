@@ -38,18 +38,33 @@
     </LinearLayout>
 
     <!-- product image -->
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/product_image"
         android:layout_below="@+id/content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:layout_height="269dp"
         android:background="@color/colorPrimary"
-        android:gravity="center_horizontal">
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:src="@drawable/image7"
-            android:adjustViewBounds="true" />
-    </LinearLayout>
+        android:gravity="center_horizontal"
+        android:layout_margin="10dp">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/scanning"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar3"
+            android:progressDrawable="@drawable/progress_circle"
+            android:indeterminateDrawable="@drawable/progress_circle"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 </LinearLayout>
