@@ -24,12 +24,32 @@
         android:textSize="15sp"
         android:layout_margin="10dp" />
 
-    <ImageView
-        android:layout_width="280dp"
-        android:layout_height="180dp"
-        android:id="@+id/imageView2"
-        android:src="@drawable/image10"
-        android:layout_gravity="center_horizontal" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="216dp"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:adjustViewBounds="false"
+            android:layout_gravity="center_horizontal"
+            android:cropToPadding="false"
+            android:src="@mipmap/routersearch"
+            android:layout_alignParentBottom="false"
+            android:layout_centerInParent="true" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar3"
+            android:progressDrawable="@drawable/progress_circle"
+            android:indeterminateDrawable="@drawable/progress_circle"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 
 </LinearLayout>

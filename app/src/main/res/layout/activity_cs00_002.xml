@@ -1,72 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
-    <include
-        layout="@layout/app_bar_back_only"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cartridge Setup"
-        android:textSize="20sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:gravity="center_horizontal" />
-
-    <!--Content -->
     <LinearLayout
-        android:id="@+id/content"
-        android:layout_below="@+id/status"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary">
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/app_bar_back_only"
+            />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Cartridge Setup"
+            android:textSize="20sp"
             android:layout_gravity="center_horizontal"
-            android:text="Place the calibration sheet face down and align to the upper left corner of the scanner, then press [Start(Scan)]."
-            android:textSize="15sp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-    </LinearLayout>
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal" />
 
-    <!-- product image -->
-    <LinearLayout
-        android:id="@+id/product_image"
-        android:layout_below="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary"
-        android:padding="20dp">
-        <ImageView
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_below="@+id/status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/image6"
-            android:adjustViewBounds="true" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            android:background="@color/colorPrimary">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Place the calibration sheet face down and align to the upper left corner of the scanner, then press [Start(Scan)]."
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+        </LinearLayout>
 
-    <!-- print button -->
-    <LinearLayout
-        android:id="@+id/content_info"
-        android:layout_below="@+id/product_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorPrimary"
-        android:gravity="center_horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="208dp"
+            android:layout_margin="10dp">
+
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/scan"
+                android:layout_gravity="center" />
+
+        </RelativeLayout>
+
         <Button
             android:id="@+id/btn_start_scan1"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:text="Start (Scan)"
             android:layout_marginTop="20dp"
-            android:background="@drawable/oval_background" />
+            android:background="@drawable/oval_background"
+            android:layout_gravity="center_horizontal" />
 
         <Button
             android:id="@+id/btn_help1"
@@ -74,7 +66,14 @@
             android:layout_height="30dp"
             android:text="Help"
             android:background="@drawable/oval_background"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
-</LinearLayout>
+    <!--Content -->
+
+    <!-- product image -->
+
+    <!-- print button -->
+
+</RelativeLayout>
