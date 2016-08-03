@@ -5,38 +5,26 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
-import com.squareup.picasso.Cache;
-import com.squareup.picasso.LruCache;
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by Cebu SQA on 29/06/2016.
@@ -117,8 +105,6 @@ public class PhotoPrintPics extends Activity {
                         selectedPic.add(picPaths.get(position));
                         labelMem.add(st);
                         rel.setVisibility(View.VISIBLE);
-                        rel.dispatchWindowVisibilityChanged(View.VISIBLE);
-                        rel.bringToFront();
 
                         counter++;
                         tv.setText(String.valueOf(counter));
@@ -331,7 +317,6 @@ public class PhotoPrintPics extends Activity {
                 for (int i = 0; i<labelMem.size(); i++){
                     if(Integer.parseInt(labelMem.get(i)) == position) {
                         relativeLayout.setVisibility(View.VISIBLE);
-
                         TextView tv2 = (TextView) relativeLayout.findViewById(R.id.textViewTemp);
                         tv2.setText(String.valueOf(i+1));
                     }
