@@ -1,21 +1,18 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 /**
- * Created by Cebu SQA on 28/06/2016.
+ * Created by Cebu SQA on 02/08/2016.
  */
-public class AirPrint  extends Activity implements CompoundButton.OnCheckedChangeListener{
+public class GcpEnableDisable extends Activity implements CompoundButton.OnCheckedChangeListener {
+
     private ToggleButton apStatusChanger;
     private TextView textView;
     private TextView saveSettings;
@@ -27,8 +24,8 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.airprint);
-        prevState = KodakVeriteApp.airprintPrvState;
+        setContentView(R.layout.gcp_enable_disable);
+        prevState = KodakVeriteApp.gcpPrevState;
         apStatusChanger = (ToggleButton) findViewById(R.id.toggleButton);
         apStatusChanger.setOnCheckedChangeListener(this);
         textView = (TextView) findViewById(R.id.tvState);
@@ -48,7 +45,7 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
             @Override
             public void onClick(View v) {
                 if (prevState != apStatusChanger.isChecked()){
-                    KodakVeriteApp.airprintPrvState = apStatusChanger.isChecked();
+                    KodakVeriteApp.gcpPrevState = apStatusChanger.isChecked();
                     //Toast.makeText(getApplicationContext(), "yes", Toast.LENGTH_SHORT).show();
                     /**Recylce Unregistration complete view**/
 
@@ -87,7 +84,7 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
             @Override
             public void run() {
                 cancel = false;
-                AirprintDialog.newInstance("Getting Network information").show(getFragmentManager(),"tag4");
+                AirprintDialog.newInstance("GCP Status Loading").show(getFragmentManager(),"tag4");
                 try {
                     Thread.sleep(4000);
                 } catch (InterruptedException e) {
@@ -99,7 +96,7 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
 
             }
         });
-                t.start();
+        t.start();
 
 
 
@@ -133,12 +130,6 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
         }else{
             textView.setText("Disable");
         }
-    }
 
-    @Override
-    protected void onDestroy() {
-        t.interrupt();
-
-        super.onDestroy();
     }
 }

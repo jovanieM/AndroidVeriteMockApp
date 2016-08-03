@@ -6,6 +6,10 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.cache.disc.DiskCache;
+import com.nostra13.universalimageloader.cache.disc.impl.BaseDiskCache;
+import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
+import com.nostra13.universalimageloader.cache.disc.impl.ext.LruDiskCache;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -23,6 +27,7 @@ import java.util.ArrayList;
 public class KodakVeriteApp extends Application {
     static int  currentStatusValue = 0;
     static boolean airprintPrvState = false;
+    static boolean gcpPrevState = false;
     static ArrayList<String> bucketName;
     static ArrayList<String> bucketData;
     static ArrayList<String> dirs;
@@ -88,11 +93,15 @@ public class KodakVeriteApp extends Application {
         }
 
 
+
+
         ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
                 .threadPriority(Thread.NORM_PRIORITY - 2)
-                .denyCacheImageMultipleSizesInMemory()
-                .tasksProcessingOrder(QueueProcessingType.FIFO)
-                .memoryCache(new WeakMemoryCache())
+                .threadPoolSize(3)
+                .diskCache(new UnlimitedDiskCache(getCacheDir()))
+                .diskCacheExtraOptions(480, 320, null)
+                //.tasksProcessingOrder(QueueProcessingType.LIFO)
+                //.memoryCache(new WeakMemoryCache())
                 .imageDecoder(new BaseImageDecoder(true))
                 .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
                 .build();

@@ -24,7 +24,7 @@
             android:layout_below="@+id/toolbar"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignBottom="@+id/relativeLayout" />
+            android:layout_above="@+id/counts" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,121 +38,14 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="85dp" />
 
-        <RelativeLayout
-            android:orientation="vertical"
+        <include
+            layout="@layout/document_settings"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_alignWithParentIfMissing="false"
-            android:id="@+id/relativeLayout"
-            android:background="#783d3c3c"
-            android:layout_above="@+id/relativeLayout2"
-            android:layout_marginBottom="43dp"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentStart="true">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Quality : "
-                android:id="@+id/quality_txtView"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Document :"
-                android:id="@+id/document_txtView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/color_txtView"
-                android:layout_marginTop="5dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Color :"
-                android:id="@+id/color_txtView"
-                android:layout_below="@+id/quality_txtView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="5dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Plain"
-                android:id="@+id/quality"
-                android:textColor="#fdb700"
-                android:layout_alignParentTop="true"
-                android:layout_alignRight="@+id/dscan_save_asTV"
-                android:layout_alignEnd="@+id/dscan_save_asTV" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text=" Color"
-                android:id="@+id/color"
-                android:textColor="#fdb700"
-                android:layout_alignTop="@+id/color_txtView"
-                android:layout_alignRight="@+id/quality"
-                android:layout_alignEnd="@+id/quality" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Photo"
-                android:id="@+id/document"
-                android:textColor="#fdb700"
-                android:layout_alignTop="@+id/document_txtView"
-                android:layout_toRightOf="@+id/dscan_save_asTV"
-                android:layout_toEndOf="@+id/dscan_save_asTV" />
-
-            <ImageButton
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Settings"
-                android:id="@+id/dscanSettingsIcon"
-                android:layout_marginRight="41dp"
-                android:layout_marginEnd="41dp"
-                android:onClick="dsettingsIcon"
-                android:src="@mipmap/setting_icon"
-                android:adjustViewBounds="false"
-                android:background="#00ffffff"
-                android:layout_alignBottom="@+id/document"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Save as Type :"
-                android:id="@+id/dscan_save_asTV"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="PDF"
-                android:id="@+id/dscan_save_as"
-                android:textColor="#fdb700"
-                android:layout_alignParentBottom="true"
-                android:layout_alignRight="@+id/document"
-                android:layout_alignEnd="@+id/document" />
-
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/counts"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/include8" />
 
         <RelativeLayout
             android:layout_width="match_parent"

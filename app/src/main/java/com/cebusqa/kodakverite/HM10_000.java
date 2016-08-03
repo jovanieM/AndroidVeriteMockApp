@@ -139,4 +139,6 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
         printer_name.setText(printer);
 
     }
+
+
 }

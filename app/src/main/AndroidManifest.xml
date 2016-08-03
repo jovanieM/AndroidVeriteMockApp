@@ -19,57 +19,58 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EasySetupMain" />
-        <activity android:name=".HM10_000" />
-        <activity android:name=".IL10_000" />
-        <activity android:name=".CP10_000" />
-        <activity android:name=".DS_print" />
-        <activity android:name=".DS_device" />
-        <activity android:name=".DS_scan" />
-        <activity android:name=".DS10_000" />
-        <activity android:name=".ImageCropper" />
-        <activity android:name=".SP_000" />
-        <activity android:name=".Scan_Doc_Settings" />
-        <activity android:name=".Scan_Photo_Settings" />
-        <activity android:name=".NetworkStatus_details" />
-        <activity android:name=".PU00_0000" />
-        <activity android:name=".CS00_000" />
-        <activity android:name=".CS00_001" />
-        <activity android:name=".CS00_002" />
-        <activity android:name=".CS00_003" />
-        <activity android:name=".CS00_002_Help" />
-        <activity android:name=".PhotoScanMain" />
-        <activity android:name=".WS00_000" />
-        <activity android:name=".WS00_010" />
-        <activity android:name=".WS00_011" />
-        <activity android:name=".WS00_012" />
-        <activity android:name=".WS00_013" />
-        <activity android:name=".WS00_012H" />
-        <activity android:name=".WS00_015" />
-        <activity android:name=".WS00_016" />
-        <activity android:name=".WS00_014" />
-        <activity android:name=".Clean_Printhead"/>
-        <activity android:name=".Print_Reports"/>
-        <activity android:name=".DocumentScan"/>
-        <activity android:name=".DocumentScan2"/>
-        <activity android:name=".WS00_020" />
-        <activity android:name=".WS00_030" />
-        <activity android:name=".WS00_040" />
-        <activity android:name=".WS00_050" />
-        <activity android:name=".WS00_060" />
-        <activity android:name=".PaperSetup_000"/>
-        <activity android:name=".DeviceSleepTime_000"/>
-        <activity android:name=".Restore_Factory"/>
-        <activity android:name=".GoogleCloudPrint"/>
-        <activity android:name=".GcpStatus" />
-        <activity android:name=".GcpRegisterUnregister"/>
-        <activity android:name=".AirPrint"/>
-        <activity android:name=".SoftwareUpdate" />
-        <activity android:name=".UpdatePrinterSoftware" />
-        <activity android:name=".PhotoPrintDirs"/>
-        <activity android:name=".PhotoPrintPics"/>
-        <activity android:name=".FlickPrint"/>
-        <activity android:name=".FlickPrintOut"/>
+        <activity android:name=".EasySetupMain" android:screenOrientation="portrait"/>
+        <activity android:name=".HM10_000" android:screenOrientation="portrait"/>
+        <activity android:name=".IL10_000" android:screenOrientation="portrait"/>
+        <activity android:name=".CP10_000" android:screenOrientation="portrait"/>
+        <activity android:name=".DS_print" android:screenOrientation="portrait"/>
+        <activity android:name=".DS_device" android:screenOrientation="portrait"/>
+        <activity android:name=".DS_scan" android:screenOrientation="portrait"/>
+        <activity android:name=".DS10_000" android:screenOrientation="portrait"/>
+        <activity android:name=".ImageCropper" android:screenOrientation="portrait"/>
+        <activity android:name=".SP_000" android:screenOrientation="portrait"/>
+        <activity android:name=".Scan_Doc_Settings" android:screenOrientation="portrait"/>
+        <activity android:name=".Scan_Photo_Settings" android:screenOrientation="portrait"/>
+        <activity android:name=".NetworkStatus_details" android:screenOrientation="portrait"/>
+        <activity android:name=".PU00_0000" android:screenOrientation="portrait"/>
+        <activity android:name=".CS00_000" android:screenOrientation="portrait"/>
+        <activity android:name=".CS00_001" android:screenOrientation="portrait"/>
+        <activity android:name=".CS00_002" android:screenOrientation="portrait"/>
+        <activity android:name=".CS00_003" android:screenOrientation="portrait"/>
+        <activity android:name=".CS00_002_Help" android:screenOrientation="portrait"/>
+        <activity android:name=".PhotoScanMain" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_000" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_010" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_011" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_012" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_013" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_012H" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_015" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_016" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_014" android:screenOrientation="portrait"/>
+        <activity android:name=".Clean_Printhead" android:screenOrientation="portrait"/>
+        <activity android:name=".Print_Reports" android:screenOrientation="portrait"/>
+        <activity android:name=".DocumentScan" android:screenOrientation="portrait"/>
+        <activity android:name=".DocumentScan2" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_020" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_030" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_040" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_050" android:screenOrientation="portrait"/>
+        <activity android:name=".WS00_060" android:screenOrientation="portrait"/>
+        <activity android:name=".PaperSetup_000" android:screenOrientation="portrait"/>
+        <activity android:name=".DeviceSleepTime_000" android:screenOrientation="portrait"/>
+        <activity android:name=".Restore_Factory" android:screenOrientation="portrait"/>
+        <activity android:name=".GoogleCloudPrint" android:screenOrientation="portrait"/>
+        <activity android:name=".GcpStatus" android:screenOrientation="portrait"/>
+        <activity android:name=".GcpRegisterUnregister" android:screenOrientation="portrait"/>
+        <activity android:name=".AirPrint" android:screenOrientation="portrait"/>
+        <activity android:name=".GcpEnableDisable" android:screenOrientation="portrait"/>
+        <activity android:name=".SoftwareUpdate" android:screenOrientation="portrait"/>
+        <activity android:name=".UpdatePrinterSoftware" android:screenOrientation="portrait"/>
+        <activity android:name=".PhotoPrintDirs" android:screenOrientation="portrait"/>
+        <activity android:name=".PhotoPrintPics" android:screenOrientation="portrait"/>
+        <activity android:name=".FlickPrint" android:screenOrientation="portrait"/>
+        <activity android:name=".FlickPrintOut" android:screenOrientation="portrait"/>
 
     </application>
 

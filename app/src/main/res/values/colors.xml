@@ -5,8 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="gradient_start">#494949</color>
-    <color name="gradient_end">#333232</color>
+    <color name="gradient_start">#2e2e2e</color>
+    <color name="gradient_end">#161616</color>
     <color name="yellow">#FFFF00</color>
 
 
