@@ -70,7 +70,9 @@
         <activity android:name=".PhotoPrintDirs" android:screenOrientation="portrait"/>
         <activity android:name=".PhotoPrintPics" android:screenOrientation="portrait"/>
         <activity android:name=".FlickPrint" android:screenOrientation="portrait"/>
-        <activity android:name=".FlickPrintOut" android:screenOrientation="portrait"/>
+        <activity android:name=".FlickPrintOut" android:screenOrientation="portrait" />
+        <activity android:name=".MultiplePrintQueue" android:screenOrientation="portrait" />
+
 
     </application>
 

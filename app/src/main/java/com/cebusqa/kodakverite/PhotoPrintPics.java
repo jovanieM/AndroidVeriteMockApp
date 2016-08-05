@@ -46,7 +46,7 @@ public class PhotoPrintPics extends Activity {
     String st;
     RelativeLayout popUpLayout;
     ImageView iv_multiple, iv_printer, settingsIcon;
-
+    KodakVeriteApp thumbsData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,7 @@ public class PhotoPrintPics extends Activity {
         mCancelPrint = (TextView) findViewById(R.id.cancelPrint);
         mPrintMulti = (TextView) findViewById(R.id.printMulti);
         settingsIcon = (ImageView) findViewById(R.id.scanSettingsIcon);
+        thumbsData = new KodakVeriteApp();
 
 
         File dir = new File(folderPath);
@@ -226,9 +227,9 @@ public class PhotoPrintPics extends Activity {
                     popUpLayout.setVisibility(View.VISIBLE);
                     popUpLayout.bringToFront();
 
-                    for (int i = 0; i < selectedPic.size(); i++) {
-                        //Toast.makeText(getApplication(), selectedPic.get(i), Toast.LENGTH_SHORT).show();
-                    }
+
+
+                    thumbsData.setThumbData(selectedPic);
 //                    for(int i = 0 ; i < labelMem.size(); i++){
 //
 //                    }
@@ -240,6 +241,7 @@ public class PhotoPrintPics extends Activity {
         mCancelPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                thumbsData.clearData();
                 gridView.setEnabled(true);
                 popUpLayout.setVisibility(View.GONE);
             }
@@ -251,15 +253,24 @@ public class PhotoPrintPics extends Activity {
                 startActivity(new Intent(getApplicationContext(), DS_print.class));
             }
         });
+        mPrintMulti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                for (int i = 0; i< selectedPic.size(); i++){
+//                    //
+//                    thumbsData.thumbData.add(selectedPic.get(i));
+//                }
+                startActivity(new Intent(getApplicationContext(), MultiplePrintQueue.class));
+            }
+        });
     }
 
 
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
         DisplayImageOptions options;
-        ImageLoader imageLoader = ImageLoader.getInstance();
+        ImageLoader imageLoader;
         ArrayList<String> list;
-        BitmapFactory.Options bmpOptions = new BitmapFactory.Options();
 
 
         ImageAdapter(Context c, ArrayList<String> paths) {
