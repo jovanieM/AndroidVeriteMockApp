@@ -29,6 +29,7 @@ public class ScanCanceledAlert extends DialogFragment {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 //((SP_000)getActivity()).test2 = true;
+
                                 dialog.dismiss();
 
                             }
@@ -38,4 +39,5 @@ public class ScanCanceledAlert extends DialogFragment {
 
                 .create();
     }
+
 }

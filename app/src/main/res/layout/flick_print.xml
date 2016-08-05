@@ -28,7 +28,7 @@
         android:id="@+id/flick_text"
         android:layout_below="@+id/kodakToolbar"
         android:layout_centerHorizontal="true"
-        android:textSize="35sp"
+        android:textSize="35dp"
         android:layout_marginTop="10dp" />
 
     <ToggleButton
@@ -51,98 +51,16 @@
         android:layout_below="@+id/flick_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:background="#00ffffff" />
 
-    <RelativeLayout
+    <include layout="@layout/photo_print_settngs"
+        android:id="@+id/include6"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:layout_alignBottom="@+id/flick_image"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#6a3a3a3a"
-        android:id="@+id/rl_flick">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Paper Size :"
-            android:id="@+id/textView30"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="20dp"
-            android:textSize="15sp"
-            android:layout_marginTop="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Paper Type :"
-            android:id="@+id/textView31"
-            android:textSize="15sp"
-            android:layout_below="@+id/textView30"
-            android:layout_alignLeft="@+id/textView30"
-            android:layout_alignStart="@+id/textView30"
-            android:layout_marginTop="15dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Print Quality :"
-            android:id="@+id/textView32"
-            android:textSize="15sp"
-            android:layout_below="@+id/textView31"
-            android:layout_alignLeft="@+id/textView31"
-            android:layout_alignStart="@+id/textView31"
-            android:layout_marginTop="15dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4x6 in. borderless"
-            android:id="@+id/textView33"
-            android:textSize="15sp"
-            android:layout_above="@+id/textView31"
-            android:layout_toRightOf="@+id/textView31"
-            android:layout_toEndOf="@+id/textView31"
-            android:layout_marginLeft="15dp"
-            android:textColor="#fdb700" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Glossy Photo"
-            android:id="@+id/textView34"
-            android:textSize="15sp"
-            android:layout_alignTop="@+id/textView31"
-            android:layout_toRightOf="@+id/textView31"
-            android:layout_toEndOf="@+id/textView31"
-            android:layout_marginLeft="15dp"
-            android:textColor="#fdb700" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Best"
-            android:id="@+id/textView35"
-            android:textSize="15sp"
-            android:layout_alignTop="@+id/textView32"
-            android:layout_toRightOf="@+id/textView32"
-            android:layout_toEndOf="@+id/textView32"
-            android:layout_marginLeft="15dp"
-            android:textColor="#fdb700" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/settings_flick"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:src="@mipmap/setting_icon"
-            android:layout_marginRight="15dp"
-            android:background="#00ffffff" />
-    </RelativeLayout>
+        android:layout_marginBottom="10dp" />
 
 </RelativeLayout>

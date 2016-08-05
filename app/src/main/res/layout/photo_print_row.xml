@@ -26,5 +26,6 @@
         android:singleLine="false"
         android:gravity="fill_horizontal|center_vertical|fill_vertical|fill"
         android:paddingLeft="20dp"
-        android:text="asd" />
+        android:text="asd"
+        android:textSize="15dp" />
 </LinearLayout>

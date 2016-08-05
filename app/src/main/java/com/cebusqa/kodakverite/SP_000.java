@@ -55,7 +55,7 @@ public class SP_000 extends AppCompatActivity{
         this.email = (RelativeLayout) findViewById(R.id.email);
         this.drive = (RelativeLayout) findViewById(R.id.drive);
         this.skyDrive = (RelativeLayout) findViewById(R.id.one_box);
-        settings = (ImageButton) findViewById(R.id.scanSettings);
+        settings = (ImageButton) findViewById(R.id.scanSettingsIcon);
         iv = (ImageView) findViewById(R.id.imageView);
         context = getApplicationContext();
         test2 = new PhotoScanMain().test;
@@ -85,7 +85,12 @@ public class SP_000 extends AppCompatActivity{
         bm = BitmapFactory.decodeResource(res, R.drawable.sample);
 
         iv.setImageBitmap(bm);
-
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SP_000.this, Scan_Photo_Settings.class));
+            }
+        });
         back.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(SP_000.this, HM10_000.class));
@@ -226,13 +231,12 @@ public class SP_000 extends AppCompatActivity{
             Toast.makeText(this, "no change", Toast.LENGTH_SHORT).show();
         }
     }
-    public void settings(View v){
-        startActivity(new Intent(SP_000.this, Scan_Photo_Settings.class));
-    }
+
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(SP_000.this, HM10_000.class));
+        finish();
+       // startActivity(new Intent(SP_000.this, HM10_000.class));
     }
 }

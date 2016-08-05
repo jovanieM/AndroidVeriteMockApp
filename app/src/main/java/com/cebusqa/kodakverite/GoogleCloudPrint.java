@@ -52,6 +52,7 @@ public class GoogleCloudPrint extends Activity implements View.OnClickListener{
                startActivity(new Intent(getApplicationContext(), GcpRegisterUnregister.class));
                 break;
             case R.id.gcp_enable_disable:
+                startActivity(new Intent(getApplicationContext(), GcpEnableDisable.class));
                 break;
         }
     }

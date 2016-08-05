@@ -42,6 +42,7 @@ public class AirprintDialog extends DialogFragment{
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         AirPrint.cancel = true;
+                        GcpEnableDisable.cancel = true;
                         dialog.dismiss();
                         getActivity().finish();
 

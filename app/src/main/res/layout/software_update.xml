@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Software Update"
-        android:textSize="20sp"
+        android:textSize="20dp"
         android:gravity="center_horizontal" />
 
     <ImageView
@@ -41,12 +41,13 @@
             android:layout_height="wrap_content"
             android:text="Installed:"
             android:layout_marginRight="50dp"
-            android:textSize="15sp" />
+            android:textSize="15dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1.00.000"
-            android:layout_marginLeft="50dp" />
+            android:layout_marginLeft="50dp"
+            android:textSize="15dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -58,13 +59,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Latest:"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:layout_marginRight="45dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1.00.000"
-            android:layout_marginLeft="70dp" />
+            android:layout_marginLeft="70dp"
+            android:textSize="15dp" />
     </LinearLayout>
 
     <Button
@@ -72,7 +74,8 @@
         android:layout_height="wrap_content"
         android:text="Confirmation"
         android:layout_gravity="right"
-        android:id="@+id/btn_confirmation" />
+        android:id="@+id/btn_confirmation"
+        android:textSize="15dp" />
 
     <CheckBox
         android:layout_width="match_parent"
@@ -81,13 +84,15 @@
         android:id="@+id/cb_allow"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textSize="14dp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update Printer Software"
         android:id="@+id/btn_update_printer"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textSize="15dp" />
 
 </LinearLayout>

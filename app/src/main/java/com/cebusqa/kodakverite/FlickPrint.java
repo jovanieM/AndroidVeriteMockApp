@@ -66,8 +66,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         toggleButton = (ToggleButton) findViewById(R.id.check_image);
         tv = (TextView) findViewById(R.id.flick_text);
         flickMessage = (TextView) findViewById(R.id.flick_message);
-        relativeLayout = (RelativeLayout) findViewById(R.id.rl_flick);
-        settingFlick = (ImageView) findViewById(R.id.settings_flick);
+        settingFlick = (ImageView) findViewById(R.id.scanSettingsIcon);
         imDisplay = (ImageView) findViewById(R.id.image_displayer);
         flickImage.bringToFront();
         toggleButton.bringToFront();

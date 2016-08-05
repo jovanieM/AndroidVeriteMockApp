@@ -1,94 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/photoPrintSettings"
-    android:layout_width="wrap_content"
-    android:layout_height="80dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_above="@+id/relativeLayout2"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     android:layout_alignWithParentIfMissing="false"
     android:layout_marginBottom="43dp"
-    android:background="#783d3c3c">
+    android:background="#f23d3c3c"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
     <TextView
         android:id="@+id/quality_txtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/color_txtView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
         android:text="Quality : "
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/document_txtView"
+        android:layout_alignStart="@+id/document_txtView" />
 
     <TextView
         android:id="@+id/document_txtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:text="Document :"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="10dp"
+        android:layout_below="@+id/color_txtView"
+        android:layout_alignLeft="@+id/color_txtView"
+        android:layout_alignStart="@+id/color_txtView" />
 
     <TextView
         android:id="@+id/color_txtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/document_txtView"
+        android:text="Color :"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="10dp"
+        android:layout_below="@+id/quality_txtView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
-        android:text="Color :"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
 
     <TextView
         android:id="@+id/quality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/quality_txtView"
-        android:layout_toEndOf="@+id/quality_txtView"
-        android:layout_toRightOf="@+id/quality_txtView"
         android:text="Plain"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#fdb700" />
+        android:textColor="#fdb700"
+        android:textSize="10dp"
+        android:layout_above="@+id/color_txtView"
+        android:layout_toRightOf="@+id/quality_txtView"
+        android:layout_toEndOf="@+id/quality_txtView" />
 
     <TextView
         android:id="@+id/color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/quality_txtView"
-        android:layout_toEndOf="@+id/color_txtView"
-        android:layout_toRightOf="@+id/color_txtView"
         android:text=" Color"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#fdb700" />
+        android:textColor="#fdb700"
+        android:textSize="10dp"
+        android:layout_alignTop="@+id/color_txtView"
+        android:layout_toRightOf="@+id/color_txtView"
+        android:layout_toEndOf="@+id/color_txtView" />
 
     <TextView
         android:id="@+id/document"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/color_txtView"
-        android:layout_toEndOf="@+id/document_txtView"
-        android:layout_toRightOf="@+id/document_txtView"
-        android:text="Photo"
+        android:text=" Photo"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#fdb700" />
+        android:textColor="#fdb700"
+        android:textSize="10dp"
+        android:layout_alignTop="@+id/document_txtView"
+        android:layout_toRightOf="@+id/document_txtView"
+        android:layout_toEndOf="@+id/document_txtView" />
 
     <ImageButton
         android:id="@+id/scanSettingsIcon"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/document"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="43dp"
-        android:layout_marginRight="43dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
         android:adjustViewBounds="false"
         android:background="#00ffffff"
-        android:onClick="settingsIcon"
         android:src="@mipmap/setting_icon"
-        android:text="Settings" />
+        android:text="Settings"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

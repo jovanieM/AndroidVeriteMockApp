@@ -62,6 +62,7 @@ public class ScanPhotoDialog extends DialogFragment{
 
 
         Dialog scanDialog = builder.create();
+
         return scanDialog;
 
         }

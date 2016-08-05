@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000">
 
     <include
         layout="@layout/app_bar_back_only"
@@ -11,7 +12,7 @@
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -22,148 +23,186 @@
             android:layout_height="wrap_content"
             android:text="GCP Status"
             android:id="@+id/textView19"
-            android:textSize="30sp"
+            android:textSize="30dp"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:layout_below="@+id/relativeLayout4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/relativeLayout5"
         style="@android:style/Widget.Button"
-        android:background="@drawable/view_button_style">
+        android:background="@drawable/view_button_style"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Status"
-            android:id="@+id/textView20"
-            android:textSize="20sp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp" />
+            android:weightSum="2"
+            android:gravity="center_vertical"
+            android:background="#00ffffff">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Not Configured"
-            android:id="@+id/textView23"
-            android:textSize="20sp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Status"
+                android:id="@+id/textView5"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Not Configured"
+                android:id="@+id/textView6"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:textSize="15dp" />
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:layout_below="@+id/relativeLayout5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/gcp_reg_unreg"
         style="@android:style/Widget.Button"
-        android:background="@drawable/view_button_style">
+        android:background="@drawable/view_button_style"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="GCP Printer Name"
-            android:id="@+id/textView21"
-            android:textSize="20sp"
+            android:weightSum="2"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp" />
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kodak Verite"
-            android:id="@+id/textView24"
-            android:textSize="20dp"
-            android:layout_alignTop="@+id/textView21"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="GCP Printer Name"
+                android:id="@+id/textView7"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Kodak Verite"
+                android:id="@+id/textView8"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:textSize="15dp" />
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:layout_below="@+id/gcp_reg_unreg"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         style="@android:style/Widget.Button"
         android:background="@drawable/view_button_style"
-        android:id="@+id/relativeLayout7">
+        android:id="@+id/relativeLayout7"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="GCP Description"
-            android:id="@+id/textView22"
-            android:textSize="20sp"
+            android:weightSum="2"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp" />
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kodak Verite"
-            android:id="@+id/textView25"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="GCP Description"
+                android:id="@+id/textView16"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Kodak Verite"
+                android:id="@+id/textView17"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:textSize="15dp" />
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
         style="@android:style/Widget.Button"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:background="@drawable/view_button_style"
         android:layout_below="@+id/relativeLayout7"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enable/Disable"
-            android:id="@+id/textView26"
-            android:textSize="20sp"
+            android:weightSum="2"
             android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="10dp" />
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enable"
-            android:id="@+id/textView27"
-            android:textSize="20dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Enable/Disable"
+                android:id="@+id/textView26"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Enable"
+                android:id="@+id/textView30"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:layout_marginRight="10dp"
+                android:textSize="15dp" />
+        </LinearLayout>
     </RelativeLayout>
 
 

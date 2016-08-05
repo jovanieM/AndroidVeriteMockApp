@@ -129,9 +129,9 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(isChecked){
-            textView.setText("enable");
+            textView.setText("Enable");
         }else{
-            textView.setText("disable");
+            textView.setText("Disable");
         }
     }
 

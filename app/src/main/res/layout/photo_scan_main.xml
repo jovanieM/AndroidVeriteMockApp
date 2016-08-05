@@ -32,7 +32,7 @@
 
     <include
         layout="@layout/photo_print_settngs"
-        android:id="@+id/include4"
+        android:id="@+id/include9"
         />
 
     <RelativeLayout
