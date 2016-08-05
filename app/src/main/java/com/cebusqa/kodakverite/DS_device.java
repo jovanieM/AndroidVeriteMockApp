@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 public class DS_device extends AppCompatActivity {
 
     Button back;
-    ImageButton btnPrintUtility, btnWifiSetup, gcp, airPrint, network_status, softwareUpdate;
+    LinearLayout wifi, networkstat, google_cloud, air_print, update, printer_utility;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -19,12 +20,13 @@ public class DS_device extends AppCompatActivity {
 
         //init
         back = (Button)findViewById(R.id.back);
-        btnPrintUtility = (ImageButton) findViewById(R.id.printer_utility);
-        btnWifiSetup= (ImageButton) findViewById(R.id.wifi_setup);
-        gcp= (ImageButton) findViewById(R.id.gcp);
-        airPrint= (ImageButton) findViewById(R.id.airprint);
-        network_status = (ImageButton)findViewById(R.id.network_status);
-        softwareUpdate = (ImageButton) findViewById(R.id.software_update);
+
+        wifi = (LinearLayout)findViewById(R.id.wifi);
+        networkstat = (LinearLayout)findViewById(R.id.networkstat);
+        google_cloud = (LinearLayout)findViewById(R.id.google_cloud);
+        air_print = (LinearLayout)findViewById(R.id.air_print);
+        update = (LinearLayout)findViewById(R.id.update);
+        printer_utility = (LinearLayout)findViewById(R.id.printer_utility);
 
         //back button
         back.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +37,7 @@ public class DS_device extends AppCompatActivity {
         });
 
         //printer utility button
-        btnPrintUtility.setOnClickListener(new View.OnClickListener() {
+        printer_utility.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             startActivity(new Intent(DS_device.this, PU00_0000.class));
@@ -43,7 +45,7 @@ public class DS_device extends AppCompatActivity {
         });
 
         //wifi setup button
-        btnWifiSetup.setOnClickListener(new View.OnClickListener() {
+        wifi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DS_device.this, WS00_000.class));
@@ -51,7 +53,7 @@ public class DS_device extends AppCompatActivity {
         });
 
         //network status button
-        network_status.setOnClickListener(new View.OnClickListener() {
+        networkstat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DS_device.this, NetworkStatus_details.class));
@@ -59,7 +61,7 @@ public class DS_device extends AppCompatActivity {
         });
 
         //google cloud print button
-        gcp.setOnClickListener(new View.OnClickListener() {
+        google_cloud.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), GoogleCloudPrint.class));
@@ -67,7 +69,7 @@ public class DS_device extends AppCompatActivity {
         });
 
         //airprint button
-        airPrint.setOnClickListener(new View.OnClickListener() {
+        air_print.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),AirPrint.class));
@@ -75,7 +77,7 @@ public class DS_device extends AppCompatActivity {
         });
 
         //software update
-        softwareUpdate.setOnClickListener(new View.OnClickListener() {
+        update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DS_device.this, SoftwareUpdate.class));
