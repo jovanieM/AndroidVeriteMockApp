@@ -4,6 +4,7 @@ import android.app.Application;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.cache.disc.DiskCache;
@@ -31,7 +32,7 @@ public class KodakVeriteApp extends Application {
     static ArrayList<String> bucketName;
     static ArrayList<String> bucketData;
     static ArrayList<String> dirs;
-    ArrayList<String> pictures;
+    static ArrayList<String> thumbData;
     static ArrayList<String> noOfFiles;
     int counter = 0;
     static String fName;
@@ -111,8 +112,14 @@ public class KodakVeriteApp extends Application {
         //Toast.makeText(getApplicationContext(), String.valueOf(noOfFiles.get(0)), Toast.LENGTH_SHORT).show();
     }
 
+    public ArrayList<String> getThumbData() {
+        return thumbData;
+    }
 
-
-
-
+    public void setThumbData(ArrayList<String> thumbData) {
+        this.thumbData = thumbData;
+    }
+    public void clearData(){
+        thumbData.clear();
+    }
 }

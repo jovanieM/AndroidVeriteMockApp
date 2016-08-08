@@ -55,6 +55,7 @@ public class PhotoScanMain extends Activity{
 
 
 
+
     }
     public void touchScan(View v){
 

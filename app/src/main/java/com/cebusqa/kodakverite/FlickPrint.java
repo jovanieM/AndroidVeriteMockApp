@@ -49,7 +49,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
     ImageView flickImage;
     ToggleButton toggleButton;
     TextView tv, flickMessage;
-    RelativeLayout relativeLayout;
+    RelativeLayout inst;
     ImageView settingFlick;
     Button backIcon;
 
@@ -68,6 +68,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         flickMessage = (TextView) findViewById(R.id.flick_message);
         settingFlick = (ImageView) findViewById(R.id.scanSettingsIcon);
         imDisplay = (ImageView) findViewById(R.id.image_displayer);
+        inst = (RelativeLayout) findViewById(R.id.instructHolder);
         flickImage.bringToFront();
         toggleButton.bringToFront();
         tv.bringToFront();
@@ -104,34 +105,29 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
                         break;
                     case MotionEvent.ACTION_MOVE:
                         if (moving){
-                            y = event.getRawY()- prevY;
+                            y = event.getRawY() - prevY;
 
-                            imDisplay.setY(displayYcoor+y);
+                            imDisplay.setY(displayYcoor + y);
                             last = imDisplay.getY();
 
                         }
                         break;
                     case MotionEvent.ACTION_UP:
 
-                        if(prevY-event.getRawY()>200){
+                        if(prevY - event.getRawY() > 200){
                             imDisplay.setY(0-imDisplay.getHeight());
                             startActivity(new Intent(getApplication(), FlickPrintOut.class));
                             finish();
                         }else{
                             imDisplay.setY(displayYcoor);
                         }
-
-
                            // height = imDisplay.getY();
                            // Toast.makeText(getApplicationContext(), String.valueOf(height), Toast.LENGTH_SHORT).show();
 //                        if(threshold){
 //                            startActivity(new Intent(getApplication(), PhotoScanMain.class));
 //                        }else{
 //
-//
 //                        }
-
-
                         break;
                 }
                 return true;
@@ -156,15 +152,19 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(isChecked){
-            flickImage.setVisibility(View.VISIBLE);
-            tv.setVisibility(View.VISIBLE);
-            flickMessage.setVisibility(View.VISIBLE);
-            relativeLayout.setVisibility(View.VISIBLE);
+//            flickImage.setVisibility(View.VISIBLE);
+//            tv.setVisibility(View.VISIBLE);
+//            flickMessage.setVisibility(View.VISIBLE);
+//            relativeLayout.setVisibility(View.VISIBLE);
+            inst.setVisibility(View.VISIBLE);
+
         }else{
-            flickImage.setVisibility(View.GONE);
-            tv.setVisibility(View.GONE);
-            flickMessage.setVisibility(View.GONE);
-            relativeLayout.setVisibility(View.GONE);
+//            flickImage.setVisibility(View.GONE);
+//            tv.setVisibility(View.GONE);
+//            flickMessage.setVisibility(View.GONE);
+//            relativeLayout.setVisibility(View.GONE);
+            inst.setVisibility(View.GONE);
+
         }
     }
 

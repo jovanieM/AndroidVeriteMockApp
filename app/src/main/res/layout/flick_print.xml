@@ -8,28 +8,59 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/image_displayer"
-        android:layout_below="@+id/kodakToolbar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/check_image" />
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/flick_image"
-        android:src="@drawable/flicker"
-        android:background="#01ffffff"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/flick_text" />
+    <RelativeLayout
+        android:id="@+id/instructHolder"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/check_image">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="Flick Print"
-        android:id="@+id/flick_text"
-        android:layout_below="@+id/kodakToolbar"
-        android:layout_centerHorizontal="true"
-        android:textSize="35dp"
-        android:layout_marginTop="10dp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/flick_image"
+            android:src="@drawable/flicker"
+            android:background="#01ffffff"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/flick_text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Flick Print"
+            android:id="@+id/flick_text"
+
+            android:layout_centerHorizontal="true"
+            android:textSize="35dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Swipe image up to print"
+            android:id="@+id/flick_message"
+            android:layout_below="@+id/flick_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:textSize="20dp"
+            android:background="#00ffffff" />
+
+        <include layout="@layout/photo_print_settngs"
+            android:id="@+id/include6"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="10dp" />
+
+    </RelativeLayout>
 
     <ToggleButton
         android:layout_width="40dp"
@@ -38,29 +69,9 @@
         android:textOff=""
         android:textOn=""
         android:background="@drawable/toggle_checbox"
+
         android:layout_below="@+id/kodakToolbar"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="10dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Swipe image up to print"
-        android:id="@+id/flick_message"
-        android:layout_below="@+id/flick_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:textSize="20dp"
-        android:background="#00ffffff" />
-
-    <include layout="@layout/photo_print_settngs"
-        android:id="@+id/include6"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp" />
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

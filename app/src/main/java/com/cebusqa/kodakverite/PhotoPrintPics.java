@@ -5,38 +5,26 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
-import com.squareup.picasso.Cache;
-import com.squareup.picasso.LruCache;
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by Cebu SQA on 29/06/2016.
@@ -58,7 +46,7 @@ public class PhotoPrintPics extends Activity {
     String st;
     RelativeLayout popUpLayout;
     ImageView iv_multiple, iv_printer, settingsIcon;
-
+    KodakVeriteApp thumbsData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +65,7 @@ public class PhotoPrintPics extends Activity {
         mCancelPrint = (TextView) findViewById(R.id.cancelPrint);
         mPrintMulti = (TextView) findViewById(R.id.printMulti);
         settingsIcon = (ImageView) findViewById(R.id.scanSettingsIcon);
+        thumbsData = new KodakVeriteApp();
 
 
         File dir = new File(folderPath);
@@ -117,8 +106,6 @@ public class PhotoPrintPics extends Activity {
                         selectedPic.add(picPaths.get(position));
                         labelMem.add(st);
                         rel.setVisibility(View.VISIBLE);
-                        rel.dispatchWindowVisibilityChanged(View.VISIBLE);
-                        rel.bringToFront();
 
                         counter++;
                         tv.setText(String.valueOf(counter));
@@ -240,9 +227,9 @@ public class PhotoPrintPics extends Activity {
                     popUpLayout.setVisibility(View.VISIBLE);
                     popUpLayout.bringToFront();
 
-                    for (int i = 0; i < selectedPic.size(); i++) {
-                        //Toast.makeText(getApplication(), selectedPic.get(i), Toast.LENGTH_SHORT).show();
-                    }
+
+
+                    thumbsData.setThumbData(selectedPic);
 //                    for(int i = 0 ; i < labelMem.size(); i++){
 //
 //                    }
@@ -254,6 +241,7 @@ public class PhotoPrintPics extends Activity {
         mCancelPrint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                thumbsData.clearData();
                 gridView.setEnabled(true);
                 popUpLayout.setVisibility(View.GONE);
             }
@@ -265,15 +253,24 @@ public class PhotoPrintPics extends Activity {
                 startActivity(new Intent(getApplicationContext(), DS_print.class));
             }
         });
+        mPrintMulti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                for (int i = 0; i< selectedPic.size(); i++){
+//                    //
+//                    thumbsData.thumbData.add(selectedPic.get(i));
+//                }
+                startActivity(new Intent(getApplicationContext(), MultiplePrintQueue.class));
+            }
+        });
     }
 
 
     public class ImageAdapter extends BaseAdapter {
         private Context mContext;
         DisplayImageOptions options;
-        ImageLoader imageLoader = ImageLoader.getInstance();
+        ImageLoader imageLoader;
         ArrayList<String> list;
-        BitmapFactory.Options bmpOptions = new BitmapFactory.Options();
 
 
         ImageAdapter(Context c, ArrayList<String> paths) {
@@ -331,7 +328,6 @@ public class PhotoPrintPics extends Activity {
                 for (int i = 0; i<labelMem.size(); i++){
                     if(Integer.parseInt(labelMem.get(i)) == position) {
                         relativeLayout.setVisibility(View.VISIBLE);
-
                         TextView tv2 = (TextView) relativeLayout.findViewById(R.id.textViewTemp);
                         tv2.setText(String.valueOf(i+1));
                     }

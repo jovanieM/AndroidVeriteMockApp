@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,21 +19,22 @@ import java.security.SecurityPermission;
 
 public class HM10_000 extends AppCompatActivity implements Communicator{
 
-    ImageButton inklevel, copy, scanphoto, scandocument, photoprint, ecomode, setting_icon, search_icon,  printer;
-
+    ImageButton inklevel, scanphoto, scandocument, photoprint, ecomode, setting_icon, search_icon,  printer;
+    LinearLayout photo_print, ink_level, copy_icon, scan_document, scan_photo;
     private ProgressDialog progressBar;
     private int progressBarStatus = 0;
     private int currentImage = 0;
     int[] images = {R.mipmap.ecomode_off, R.mipmap.ecomode1, R.mipmap.ecomode2};
-    TextView printer_name;
+    TextView printer_name, printer_selected;
+    ImageView copy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hm10_000);
 
-        inklevel =(ImageButton)findViewById(R.id.inklevel);
-        copy =(ImageButton)findViewById(R.id.copy);
+
+        copy =(ImageView)findViewById(R.id.copy);
         ecomode =(ImageButton)findViewById(R.id.ecomode);
         scanphoto =(ImageButton)findViewById(R.id.scanphoto);
         scandocument =(ImageButton)findViewById(R.id.scandocument);
@@ -41,21 +43,29 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
         printer = (ImageButton) findViewById(R.id.printer);
         search_icon= (ImageButton)findViewById(R.id.search_icon);
         printer_name= (TextView) findViewById(R.id.printer_name);
+        photo_print = (LinearLayout)findViewById(R.id.photo_print);
+        ink_level = (LinearLayout)findViewById(R.id.ink_level);
+        copy_icon = (LinearLayout)findViewById(R.id.copy_icon);
+        scan_document = (LinearLayout)findViewById(R.id.scan_document);
+        scan_photo = (LinearLayout)findViewById(R.id.scan_photo);
+        printer_selected = (TextView)findViewById(R.id.printer_selected);
 
-        scandocument.setOnClickListener(new View.OnClickListener(){
+
+        scan_document.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(HM10_000.this, DocumentScan.class));
             }
         });
 
 
-        inklevel.setOnClickListener(new View.OnClickListener(){
+        ink_level.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+
                 startActivity(new Intent(HM10_000.this, IL10_000.class));
             }
         });
 
-        copy.setOnClickListener(new View.OnClickListener(){
+        copy_icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(HM10_000.this, CP10_000.class));
             }
@@ -68,19 +78,18 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
         });
 
 
-        scanphoto.setOnClickListener(new View.OnClickListener(){
+        scan_photo.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 startActivity(new Intent(HM10_000.this, PhotoScanMain.class));
             }
         });
 
-        photoprint.setOnClickListener(new View.OnClickListener(){
+        photo_print.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+
                 startActivity(new Intent(HM10_000.this, PhotoPrintDirs.class));
             }
         });
-
-
 
         ecomode.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -109,15 +118,16 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
 
         search_icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                printer.setImageResource(R.mipmap.searching_for_printer);
+                printer_selected.setText("Searching for printer");
                 printer_name.setText("Add Printer");
+
                 printer_name.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         DummyWirelessFragment dummyWirelessFragment =new DummyWirelessFragment();
                         dummyWirelessFragment.show(getFragmentManager(), "this");
                         dummyWirelessFragment.run();
-                        printer.setImageResource(R.mipmap.printer1);
+                    //    printer.setImageResource(R.mipmap.printer1);
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
@@ -129,14 +139,17 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
                 });
             }
         });
-//
 
     }
+
+
+
 
     @Override
     public void respond(String printer) {
 
         printer_name.setText(printer);
+        printer_selected.setText("Selected Printer");
 
     }
 
