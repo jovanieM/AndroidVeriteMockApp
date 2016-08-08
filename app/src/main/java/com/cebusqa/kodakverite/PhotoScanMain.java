@@ -1,6 +1,7 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ public class PhotoScanMain extends Activity{
     boolean test = false;
     ImageButton settingsIcon;
     private Button mBack;
+    boolean cancelOK = false;
 
 
     @Override
@@ -30,6 +32,12 @@ public class PhotoScanMain extends Activity{
         scanTv = (TextView) findViewById(R.id.touchScan);
         scanRelOut = (RelativeLayout) findViewById(R.id.scan);
         settingsIcon = (ImageButton) findViewById(R.id.scanSettingsIcon);
+        settingsIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Scan_Photo_Settings.class));
+            }
+        });
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +52,9 @@ public class PhotoScanMain extends Activity{
             }
         });
         exec();
+
+
+
 
     }
     public void touchScan(View v){
@@ -63,15 +74,16 @@ public class PhotoScanMain extends Activity{
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(test){
-                    Thread.currentThread().interrupt();
 
+                if(test){
+
+                    Thread.currentThread().interrupt();
                    //
 
                     new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
-
                     //scanDialog.dismiss();
                 }else{
+                    finish();
                     startActivity(new Intent(PhotoScanMain.this, SP_000.class));
                 }
             }
@@ -99,9 +111,7 @@ public class PhotoScanMain extends Activity{
 //
 
     }
-    public void settingsIcon(View v){
-        startActivity(new Intent(getApplicationContext(), Scan_Photo_Settings.class));
-    }
+
 
 
 }

@@ -204,6 +204,7 @@ public class DocumentScan2 extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(DocumentScan2.this, HM10_000.class));
+        finish();
+        //startActivity(new Intent(DocumentScan2.this, HM10_000.class));
     }
 }

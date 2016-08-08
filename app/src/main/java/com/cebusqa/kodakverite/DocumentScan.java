@@ -72,6 +72,7 @@ public class DocumentScan extends Activity {
 
                     // dscanDialog.dismiss();
                 } else {
+                    finish();
                     startActivity(new Intent(getApplicationContext(), DocumentScan2.class));
                 }
             }
@@ -85,7 +86,14 @@ public class DocumentScan extends Activity {
 
     @Override
     public void onBackPressed() {
-        finish();
-        super.onBackPressed();
+
+        ScanPhotoDialog dial = (ScanPhotoDialog) getFragmentManager().findFragmentByTag("scan");
+        if (dial != null && dial.getDialog().isShowing()) {
+            dial.getDialog().dismiss();
+            finish();
+        }else {
+
+            super.onBackPressed();
+        }
     }
 }
