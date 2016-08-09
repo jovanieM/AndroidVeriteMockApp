@@ -18,6 +18,7 @@ import android.widget.Toast;
 public class GcpRegisterUnregister extends Activity {
     boolean test = false;
     boolean Canceled;
+    Button back;
     TextView regUnreg;
     TextView tvDescription;
     @Override
@@ -27,7 +28,14 @@ public class GcpRegisterUnregister extends Activity {
         final String [] status = getResources().getStringArray(R.array.gcp_reg_status);
         tvDescription = (TextView) findViewById(R.id.description);
         regUnreg = (TextView) findViewById(R.id.start_reg_unreg);
+        back = (Button)findViewById(R.id.back);
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         new Thread( new Runnable() {
             @Override

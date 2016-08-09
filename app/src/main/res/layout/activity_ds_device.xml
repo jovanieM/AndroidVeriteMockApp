@@ -228,12 +228,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/imageButton5"
-                        android:src="@mipmap/printer_utility"
                         android:layout_gravity="center"
                         android:background="#00ffffff"
                         android:focusable="false"
                         android:clickable="false"
-                        android:layout_marginTop="15dp" />
+                        android:layout_marginTop="15dp"
+                        android:src="@mipmap/printer_utility" />
 
                     <TextView
                         android:layout_width="wrap_content"
