@@ -116,8 +116,8 @@ public class KodakVeriteApp extends Application {
         return thumbData;
     }
 
-    public void setThumbData(ArrayList<String> thumbData) {
-        this.thumbData = thumbData;
+    public void setThumbData(ArrayList<String> thumbData2) {
+        thumbData = thumbData2;
     }
     public void clearData(){
         thumbData.clear();
