@@ -260,7 +260,9 @@ public class PhotoPrintPics extends Activity {
 //                    //
 //                    thumbsData.thumbData.add(selectedPic.get(i));
 //                }
+
                 startActivity(new Intent(getApplicationContext(), MultiplePrintQueue.class));
+                //finish();
             }
         });
     }
