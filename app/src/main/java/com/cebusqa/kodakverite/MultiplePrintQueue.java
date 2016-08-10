@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,7 @@ public class MultiplePrintQueue extends Activity {
     PrintQueueAdapter adapter;
     String date;
     int cntr;
-    ProgressBar progressBar;
+    //ProgressBar progressBar;
 
     //ProgressBar progressBar;
 
@@ -112,30 +113,37 @@ public class MultiplePrintQueue extends Activity {
                         e.printStackTrace();
                     }
 
+
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            progressBar = (ProgressBar) listViewPrintQueue.getChildAt(0).findViewById(R.id.progressBar_2);
-                            progressBar.setProgress(progressStatus);
-                            if (progressStatus == 99) {
-                                if(!thmbs.isEmpty()){
-                                    ListIterator listIterator = thmbs.listIterator();
-                                    if(listIterator.hasNext()){
-                                        listIterator.next();
-                                        listIterator.remove();
+                            Log.v("my activity", "top");
+                            if(!thmbs.isEmpty()){
+                                ProgressBar  progressBar = (ProgressBar) listViewPrintQueue.getChildAt(0).findViewById(R.id.progressBar_2);
+                                progressBar.setProgress(progressStatus);
 
-                                        //listViewPrintQueue.setAdapter(adapter);
-                                        adapter.notifyDataSetChanged();
+                                if (progressStatus == 100 ) {
+                                    progressStatus = 0;
+                                    thmbs.remove(0);
+                                    adapter.notifyDataSetChanged();
 
-                                        progressStatus = 0;
-                                        t.interrupt();
-                                    }
                                 }
+
+                            }else {
+                                t.interrupt();
                             }
+
+                            Log.v("my activity", "bottom");
                         }
+
                     });
+
                 }
-               // t.interrupt();
+
+                //t.interrupt();
+               // finish();
+
+
                 //finish();
 //                Toast.makeText(getApplication(),"yes",Toast.LENGTH_SHORT).show();
 //                progressStatus = 0;
