@@ -1,15 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorPrimary">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:src="@drawable/status_2" />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/frameLayout7"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/progress_step2"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status check"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alignment"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wi-Fi Setup"
+            android:layout_gravity="center_vertical|right"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginRight="20dp" />
+    </FrameLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -17,9 +67,12 @@
         android:layout_gravity="center_horizontal"
         android:text="Alignment is skipped. You can run Alignment using [Settings > Device Settings > Printer Utitlity > Cartridge Setup] on the top screen."
         android:textSize="15sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_below="@+id/frameLayout7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView35"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <ImageView
         android:layout_width="280dp"
@@ -27,7 +80,13 @@
         android:src="@mipmap/homesettings"
         android:adjustViewBounds="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp" />
+        android:id="@+id/imageView12"
+        android:layout_below="@+id/textView35"
+        android:layout_alignLeft="@+id/frameLayout7"
+        android:layout_alignStart="@+id/frameLayout7"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp" />
 
     <Button
         android:id="@+id/btnOk_1"
@@ -36,6 +95,8 @@
         android:text="OK"
         android:background="@drawable/oval_background"
         android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/imageView12"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
-</LinearLayout>
+</RelativeLayout>

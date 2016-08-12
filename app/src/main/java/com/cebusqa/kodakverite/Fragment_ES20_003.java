@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.app.FragmentTransaction;
 import android.support.v4.app.FragmentActivity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,21 @@ public class Fragment_ES20_003 extends Fragment {
                 transaction.commit();
             }
         }, 4000);
+
+        //disable Back key
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(event.getAction() == KeyEvent.ACTION_DOWN){
+                    if(keyCode == KeyEvent.KEYCODE_BACK){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
 
         return view;
     }

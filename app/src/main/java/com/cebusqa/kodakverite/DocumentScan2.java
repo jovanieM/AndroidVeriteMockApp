@@ -22,7 +22,7 @@ import android.widget.Toast;
 public class DocumentScan2 extends Activity {
 
     private Button mback;
-    RelativeLayout scan, crop, send, save2,email2, drive2,skyDrive2;
+    RelativeLayout scan, crop, send, save2, email2, drive2, skyDrive2;
     ImageView iv2;
     //Context context;
     static final int GET_BITMAP_REQUEST2 = 2;
@@ -31,6 +31,7 @@ public class DocumentScan2 extends Activity {
     boolean dtest2;
     Intent intent, chooser;
     boolean visible2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,9 +78,9 @@ public class DocumentScan2 extends Activity {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        if(dtest2){
+                        if (dtest2) {
 
-                            new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
+                            new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(), "dialog");
 
                         }
                         scanPhotoDialog3.dismiss();
@@ -102,17 +103,16 @@ public class DocumentScan2 extends Activity {
         });
 
 
-
         //working code
         email2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.docu);
+                Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.docu);
                 intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-                chooser=Intent.createChooser(intent, "Send Image");
+                chooser = Intent.createChooser(intent, "Send Image");
                 startActivity(chooser);
             }
         });
@@ -120,13 +120,12 @@ public class DocumentScan2 extends Activity {
             @Override
             public void onClick(View v) {
 
-                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.docu);
-                intent = ShareCompat.IntentBuilder.from(DocumentScan2.this).setType("image/*").getIntent().setPackage("com.google.android.apps.docs");
-
-                // intent = new Intent(Intent.ACTION_SEND);
+                Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.docu);
+                intent = ShareCompat.IntentBuilder.from(DocumentScan2.this).setType("image/*").getIntent().setPackage("com.google.android.apps.docs");//("com.google.android.apps.cloudprint");//"com.google.android.apps.docs");
+                //intent = new Intent(Intent.ACTION_SEND);
                 //intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-                chooser=Intent.createChooser(intent, "Send Image");
+                chooser = Intent.createChooser(intent, "Send Image");
                 startActivity(chooser);
             }
         });
@@ -135,13 +134,13 @@ public class DocumentScan2 extends Activity {
             @Override
             public void onClick(View v) {
 
-                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.docu);
+                Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.docu);
                 intent = ShareCompat.IntentBuilder.from(DocumentScan2.this).setType("image/*").getIntent().setPackage("com.microsoft.skydrive");
 
                 // intent = new Intent(Intent.ACTION_SEND);
                 //intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-                chooser=Intent.createChooser(intent, "Send Image");
+                chooser = Intent.createChooser(intent, "Send Image");
                 startActivity(chooser);
             }
         });
@@ -150,10 +149,10 @@ public class DocumentScan2 extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DocumentScan2.this, ImageCropper.class);
-                intent.putExtra("width", bm2.getWidth()+80);
-                intent.putExtra("height", bm2.getHeight()+80);
+                intent.putExtra("width", bm2.getWidth() + 80);
+                intent.putExtra("height", bm2.getHeight() + 80);
                 Toast.makeText(getApplicationContext(), String.valueOf(bm2.getWidth()), Toast.LENGTH_SHORT).show();
-                startActivityForResult(intent,GET_BITMAP_REQUEST2);
+                startActivityForResult(intent, GET_BITMAP_REQUEST2);
                 //startActivity(intent);
             }
         });
@@ -161,13 +160,13 @@ public class DocumentScan2 extends Activity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!visible2) {
+                if (!visible2) {
                     save2.setVisibility(View.VISIBLE);
                     email2.setVisibility(View.VISIBLE);
                     drive2.setVisibility(View.VISIBLE);
                     skyDrive2.setVisibility(View.VISIBLE);
                     visible2 = true;
-                }else{
+                } else {
                     save2.setVisibility(View.GONE);
                     email2.setVisibility(View.GONE);
                     drive2.setVisibility(View.GONE);
@@ -176,28 +175,29 @@ public class DocumentScan2 extends Activity {
                 }
 
 
-
             }
         });
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == 2){
-            int l = data.getIntExtra("left",0);
+        if (resultCode == 2) {
+            int l = data.getIntExtra("left", 0);
             int t = data.getIntExtra("top", 0);
             int r = data.getIntExtra("right", 300);
             int b = data.getIntExtra("bottom", 500);
 
 
-            Bitmap mBitmap = Bitmap.createBitmap(bm2, l,t,r,b);
+            Bitmap mBitmap = Bitmap.createBitmap(bm2, l, t, r, b);
             iv2.setImageBitmap(mBitmap);
-        }else{
+        } else {
             Toast.makeText(this, "no change", Toast.LENGTH_SHORT).show();
         }
     }
-    public void dsettingsIcon(View v){
+
+    public void dsettingsIcon(View v) {
         startActivity(new Intent(DocumentScan2.this, Scan_Doc_Settings.class));
     }
 

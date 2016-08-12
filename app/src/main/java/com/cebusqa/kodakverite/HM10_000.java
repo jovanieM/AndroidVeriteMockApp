@@ -115,7 +115,6 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
 
         });
 
-
         search_icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 printer_selected.setText("Searching for printer");
@@ -142,16 +141,19 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
 
     }
 
-
-
-
     @Override
     public void respond(String printer) {
-
         printer_name.setText(printer);
         printer_selected.setText("Selected Printer");
-
     }
 
-
+    @Override
+    public void onBackPressed() {
+        if(getFragmentManager().getBackStackEntryCount() == 0){
+            this.finish();
+        }else{
+            getFragmentManager().popBackStack();
+            super.onBackPressed();
+        }
+    }
 }

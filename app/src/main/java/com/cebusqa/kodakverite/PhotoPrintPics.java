@@ -73,7 +73,10 @@ public class PhotoPrintPics extends Activity {
         for (File sFile : picFiles) {
             if (!sFile.isDirectory() && !sFile.isHidden()) {
                 String sFilePath = sFile.getAbsolutePath();
-                if (sFilePath.toLowerCase().endsWith(".jpg") || sFilePath.toLowerCase().endsWith(".jpeg") || sFilePath.toLowerCase().endsWith(".png")) {
+                if (sFilePath.toLowerCase().endsWith(".jpg") ||
+                        sFilePath.toLowerCase().endsWith(".jpeg") ||
+                        sFilePath.toLowerCase().endsWith(".png") ||
+                        sFilePath.toLowerCase().endsWith(".pdf")) {
                     picPaths.add(sFilePath);
                 }
                 //Toast.makeText(this, sFilePath,Toast.LENGTH_SHORT).show();
@@ -83,8 +86,6 @@ public class PhotoPrintPics extends Activity {
 
         ImageAdapter adapter = new ImageAdapter(this, picPaths);
         gridView.setAdapter(adapter);
-
-
 
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -197,24 +198,7 @@ public class PhotoPrintPics extends Activity {
         tvCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counter = 0;
-                counter2 = 0;
-                tvCancel.setVisibility(View.INVISIBLE);
-                iv_printer.setVisibility(View.INVISIBLE);
-
-                iv_multiple.setVisibility(View.VISIBLE);
-
-                multiplePrint = false;
-
-                for (int i = 0; i < labelMem.size(); i++) {
-                    //Toast.makeText(getApplication(), labelMem.get(i), Toast.LENGTH_SHORT).show();
-                    RelativeLayout relativeLayout = (RelativeLayout) gridView.getChildAt(Integer.parseInt(labelMem.get(i))).findViewById(R.id.rl_id);
-                    relativeLayout.setVisibility(View.GONE);
-
-                }
-                popUpLayout.setVisibility(View.GONE);
-                labelMem.clear();
-                selectedPic.clear();
+                resetData();
 
             }
         });
@@ -226,8 +210,6 @@ public class PhotoPrintPics extends Activity {
 
                     popUpLayout.setVisibility(View.VISIBLE);
                     popUpLayout.bringToFront();
-
-
 
                     thumbsData.setThumbData(selectedPic);
 //                    for(int i = 0 ; i < labelMem.size(); i++){
@@ -261,10 +243,43 @@ public class PhotoPrintPics extends Activity {
 //                    thumbsData.thumbData.add(selectedPic.get(i));
 //                }
 
+
                 startActivity(new Intent(getApplicationContext(), MultiplePrintQueue.class));
+
                 //finish();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resetData();
+    }
+
+    public void resetData() {
+        counter = 0;
+        counter2 = 0;
+        tvCancel.setVisibility(View.INVISIBLE);
+        iv_printer.setVisibility(View.INVISIBLE);
+
+        iv_multiple.setVisibility(View.VISIBLE);
+
+        multiplePrint = false;
+
+        if (!labelMem.isEmpty()) {
+            for (int i = 0; i < labelMem.size(); i++) {
+                //Toast.makeText(getApplication(), labelMem.get(i), Toast.LENGTH_SHORT).show();
+                RelativeLayout relativeLayout = (RelativeLayout) gridView.getChildAt(Integer.parseInt(labelMem.get(i))).findViewById(R.id.rl_id);
+                relativeLayout.setVisibility(View.GONE);
+
+            }
+        }
+
+        gridView.setEnabled(true);
+        popUpLayout.setVisibility(View.GONE);
+
+        selectedPic.clear();
     }
 
 
@@ -326,16 +341,16 @@ public class PhotoPrintPics extends Activity {
             ImageView imageView = (ImageView) convertView.findViewById(R.id.picture);
             RelativeLayout relativeLayout = (RelativeLayout) convertView.findViewById(R.id.rl_id);
             //TextView tv = (TextView) convertView.findViewById(R.id.textViewTemp);
-            if(!labelMem.isEmpty()){
-                for (int i = 0; i<labelMem.size(); i++){
-                    if(Integer.parseInt(labelMem.get(i)) == position) {
+            if (!labelMem.isEmpty()) {
+                for (int i = 0; i < labelMem.size(); i++) {
+                    if (Integer.parseInt(labelMem.get(i)) == position) {
                         relativeLayout.setVisibility(View.VISIBLE);
                         TextView tv2 = (TextView) relativeLayout.findViewById(R.id.textViewTemp);
-                        tv2.setText(String.valueOf(i+1));
+                        tv2.setText(String.valueOf(i + 1));
                     }
                 }
             }
-           // relativeLayout.setVisibility(View.VISIBLE);
+            // relativeLayout.setVisibility(View.VISIBLE);
 
             //holder = new ViewHolder(row);
             //row.setTag(holder);

@@ -1,22 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:src="@drawable/status_3" />
+    <FrameLayout
+        android:id="@+id/frameLayout14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/progress_step3"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status check"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dp"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alignment"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginRight="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wi-Fi Setup"
+            android:layout_gravity="center_vertical|right"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginRight="30dp" />
+
+    </FrameLayout>
+
+    <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:weightSum="1">
+        android:weightSum="1"> -->
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,27 +73,34 @@
             android:layout_gravity="center_vertical"
             android:textSize="13sp"
             android:textIsSelectable="true"
-            android:layout_marginLeft="5dp" />
+            android:layout_below="@+id/frameLayout14"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView52" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_ssid"
             android:layout_weight="0.56"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/edit_text_border" />
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/edit_text_border"
+            android:layout_alignBottom="@+id/checkBox3"
+            android:layout_toRightOf="@+id/textView52"
+            android:layout_toEndOf="@+id/textView52"
+            android:layout_marginStart="10dp" />
 
-    </LinearLayout>
+    <!-- </LinearLayout> -->
 
 
     <!-- Password -->
-    <RelativeLayout
+    <!-- <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll_ssid"
         android:orientation="horizontal"
         android:id="@+id/rl_password1"
         android:padding="10dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"> -->
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,19 +109,26 @@
             android:id="@+id/tv_password"
             android:layout_gravity="center_vertical"
             android:textSize="13sp"
-            android:layout_marginRight="50dp"
-            android:textIsSelectable="true"/>
+            android:textIsSelectable="true"
+            android:layout_below="@+id/textView52"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="9dp" />
 
         <EditText
             android:id="@+id/et_pass1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/tv_password"
             android:hint="Input password"
             android:inputType="text"
             android:background="@drawable/edit_text_border"
             android:singleLine="true"
-            android:imeOptions="actionDone">
+            android:imeOptions="actionDone"
+            android:layout_alignBottom="@+id/tv_password"
+            android:layout_toRightOf="@+id/tv_password"
+            android:layout_toEndOf="@+id/tv_password"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp">
             <requestFocus />
         </EditText>
 
@@ -79,7 +141,7 @@
             android:layout_below="@+id/et_pass1"
             android:layout_alignParentRight="true" />
 
-    </RelativeLayout>
+    <!-- </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,7 +149,7 @@
         android:orientation="horizontal"
         android:background="@color/colorPrimary"
         android:gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp">  -->
 
         <Button
             android:id="@+id/btn_help1"
@@ -95,7 +157,10 @@
             android:layout_height="30dp"
             android:text="help"
             android:background="@drawable/oval_background"
-            android:layout_marginRight="10dp" />
+            android:layout_below="@+id/checkBox3"
+            android:layout_alignLeft="@+id/et_pass1"
+            android:layout_alignStart="@+id/et_pass1"
+            android:layout_marginTop="27dp" />
 
         <Button
             android:id="@+id/btn_other"
@@ -103,7 +168,9 @@
             android:layout_height="30dp"
             android:text="other..."
             android:background="@drawable/oval_background"
-            android:layout_marginRight="10dp" />
-    </LinearLayout>
+            android:layout_alignTop="@+id/btn_help1"
+            android:layout_toRightOf="@+id/et_pass1"
+            android:layout_toEndOf="@+id/et_pass1" />
+    <!-- </LinearLayout> -->
 
-</LinearLayout>
+</RelativeLayout>

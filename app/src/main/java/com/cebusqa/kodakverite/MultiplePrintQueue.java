@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -33,7 +34,7 @@ import java.util.StringTokenizer;
 /**
  * Created by Cebu SQA on 05/08/2016.
  */
-public class MultiplePrintQueue extends Activity implements View.OnClickListener {
+public class MultiplePrintQueue extends Activity {
     ListView listViewPrintQueue;
     KodakVeriteApp kodakVeriteApp;
     static ArrayList<String> thmbs;
@@ -44,11 +45,8 @@ public class MultiplePrintQueue extends Activity implements View.OnClickListener
     String date;
     int cntr;
     ArrayList<ImageView> imList;
-
-    //ProgressBar progressBar;
-
-    //ProgressBar progressBar;
     ProgressBar  progressBar;
+    Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,62 +59,28 @@ public class MultiplePrintQueue extends Activity implements View.OnClickListener
         adapter = new PrintQueueAdapter(this, thmbs);
         listViewPrintQueue.setAdapter(adapter);
         imList = new ArrayList<>();
-
-
-
-        //if(thmbs.isEmpty()) {thmbs = kodakVeriteApp.getThumbData();}
+        back = (Button) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         date = simpleDateFormat.format(calendar.getTime());
-/*
-        if(!thmbs.isEmpty()){
-
-            t = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    while (progressStatus < 100){
-                        progressStatus += 1;
-
-                        try {
-                            Thread.sleep(40);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                progressBar = (ProgressBar) listViewPrintQueue.getChildAt(0).findViewById(R.id.progressBar_2);
-
-                                progressBar.setProgress(progressStatus);
-                            }
-                        });
-
-                        t.interrupt();
-
-                    }
-                }
-            });
-            t.start();
-            if(t.isInterrupted()){
-                thmbs.remove(0);
-                adapter.notifyDataSetChanged();
-            }
-        }
-//*/
-//        for(int i = 0; i<thmbs.size(); i++){
-//            //ImageView imageView  = (ImageView) listViewPrintQueue.getChildAt(i).findViewById(R.id.cancelPrint);
-//            //imList.add(imageView);
-//           // imList.get(i).setOnClickListener(this);
-//            Log.v("my activity", "anu");
-//            Toast.makeText(getApplicationContext(), String.valueOf(i), Toast.LENGTH_SHORT).show();
-//
-//        }
 
 
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressStatus = 0;
         t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -135,7 +99,7 @@ public class MultiplePrintQueue extends Activity implements View.OnClickListener
                         public void run() {
                             Log.v("my activity", "top");
                             if(!thmbs.isEmpty()){
-                                ProgressBar  progressBar = (ProgressBar) listViewPrintQueue.getChildAt(0).findViewById(R.id.progressBar_2);
+                                progressBar = (ProgressBar) listViewPrintQueue.getChildAt(0).findViewById(R.id.progressBar_2);
                                 progressBar.setProgress(progressStatus);
 
                                 if (progressStatus == 100 ) {
@@ -156,135 +120,10 @@ public class MultiplePrintQueue extends Activity implements View.OnClickListener
 
                 }
 
-                //t.interrupt();
-                // finish();
-
-
-                //finish();
-//                Toast.makeText(getApplication(),"yes",Toast.LENGTH_SHORT).show();
-//                progressStatus = 0;
-//                t.interrupt();
-                //t.interrupt();
-                //Thread.currentThread().interrupt();
             }
         });
         t.start();
 
-//        for (int i = 0; i<listViewPrintQueue.getCount(); i++){
-//            final ProgressBar progressBar = (ProgressBar) listViewPrintQueue.getChildAt(i).findViewById(R.id.progressBar_2);
-//            t = new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    while(progressStatus < 100){
-//                        progressStatus+=1;
-//
-//                        try{
-//                            Thread.sleep(30);
-//                        }catch(InterruptedException e){
-//                            e.printStackTrace();
-//                        }
-//
-//                        new Handler().post(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                progressBar.setProgress(progressStatus);
-//                            }
-//
-//                        });
-//                    } t.interrupt();
-//                }
-//            }); t.start();
-        //ProgressBar progressBar = (ProgressBar) listViewPrintQueue.getChildAt(0).findViewById(R.id.progressBar_2);
-
-
-//        for(int i = 0; i<thmbs.size(); i++){
-//            Toast.makeText(getApplicationContext(), String.valueOf(thmbs.get(i)), Toast.LENGTH_SHORT).show();
-//        }
-
-
-    }
-
-/*
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-
-
-       */
-/* t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (progressStatus < 100) {
-                    progressStatus += 1;
-
-                    try {
-                        Thread.sleep(40);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Log.v("my activity", "top");
-                            if(!thmbs.isEmpty()){
-                                ProgressBar  progressBar = (ProgressBar) listViewPrintQueue.getChildAt(0).findViewById(R.id.progressBar_2);
-                                progressBar.setProgress(progressStatus);
-
-                                if (progressStatus == 100 ) {
-                                    progressStatus = 0;
-                                    thmbs.remove(0);
-                                    adapter.notifyDataSetChanged();
-
-                                }
-
-                            }else {
-                                t.interrupt();
-                            }
-
-                            Log.v("my activity", "bottom");
-                        }
-
-                    });
-
-                }
-
-                //t.interrupt();
-               // finish();
-
-
-                //finish();
-//                Toast.makeText(getApplication(),"yes",Toast.LENGTH_SHORT).show();
-//                progressStatus = 0;
-//                t.interrupt();
-                //t.interrupt();
-                //Thread.currentThread().interrupt();
-            }
-        });
-        t.start();*//*
-
-//        for(int i =0 ; i<thmbs.size(); i++){
-//            if(!t.isAlive()){
-//                t.start();
-//
-//            }
-//            Toast.makeText(getApplication(),String.valueOf(i),Toast.LENGTH_SHORT).show();
-//        }
-    }
-*/
-
-    @Override
-    public void onClick(View v) {
-        for (int i = 0; i<imList.size();i++){
-            if(v.equals(imList.get(i))){
-                imList.remove(i);
-                thmbs.remove(i);
-                adapter.notifyDataSetChanged();
-            }
-        }
     }
 
     public class PrintQueueAdapter extends BaseAdapter{
