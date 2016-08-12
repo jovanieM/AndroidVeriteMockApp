@@ -193,10 +193,6 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
                 return false;
             }
             return true;
-
-
         }
     }
-
-
 }

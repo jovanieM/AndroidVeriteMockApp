@@ -1,40 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:src="@drawable/status_3" />
+    <FrameLayout
+        android:id="@+id/frameLayout16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/progress_step3"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status check"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dp"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alignment"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginRight="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wi-Fi Setup"
+            android:layout_gravity="center_vertical|right"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginRight="30dp" />
+
+    </FrameLayout>
 
     <TextView
+        android:id="@+id/textView54"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/frameLayout16"
         android:layout_gravity="center_horizontal"
         android:text="Usage Tracking"
         android:textSize="15sp"
-        android:layout_marginTop="80dp" />
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <TextView
+        android:id="@+id/textView55"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView54"
         android:layout_gravity="center_horizontal"
         android:text="To improve future versions of Kodak printers, allow printer to periodically send anonymous usage data to Funai. In addition, Funai use the collected data from the printer to activate your warranty, and allow printer to check for firmware updates."
         android:textSize="15sp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
     <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textView55"
         android:text="I have reviewed and accept the agreements and settings"
-        android:id="@+id/checkBox"
-        android:layout_below="@+id/content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
     <Button
         android:id="@+id/btn_done"
         android:layout_width="wrap_content"
@@ -43,6 +106,8 @@
         android:text="Done"
         android:layout_gravity="center_horizontal"
         android:onClick="launchRingDialog"
+        android:layout_below="@+id/checkBox"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
-</LinearLayout>
+</RelativeLayout>

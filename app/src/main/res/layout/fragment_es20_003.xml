@@ -6,42 +6,106 @@
     android:background="@color/colorPrimary"
     android:weightSum="1">
 
-    <LinearLayout
+    <!-- <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="1">
+        android:weightSum="1"> -->
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:src="@drawable/status_2" />
+        <FrameLayout
+            android:id="@+id/frame1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/progress_step2"
+                android:layout_gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/imageView7" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alignment"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wi-Fi Setup"
+                android:layout_gravity="center_vertical|right"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status check"
+                android:layout_gravity="left|center_vertical"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:shadowColor="@color/text_shadow"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:layout_alignBaseline="@+id/textview"
+                android:layout_alignBottom="@+id/textview"
+                android:layout_alignLeft="@+id/imageView7"
+                android:layout_alignStart="@+id/imageView7"
+                android:layout_marginLeft="22dp"
+                android:layout_marginStart="22dp" />
+
+        </FrameLayout>
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/textview"
+            android:layout_below="@+id/frame1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Scanning..."
             android:textSize="15sp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
 
-        <RelativeLayout
+        <!-- <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="213dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
-            android:layout_weight="0.05">
+            android:layout_weight="0.05"> -->
 
             <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/view2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:src="@drawable/scanning"
                 android:layout_gravity="center"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_below="@+id/textview"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"
-                android:layout_alignParentBottom="true" />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
 
             <ProgressBar
                 style="?android:attr/progressBarStyleLarge"
@@ -50,9 +114,11 @@
                 android:id="@+id/progressBar3"
                 android:progressDrawable="@drawable/progress_circle"
                 android:indeterminateDrawable="@drawable/progress_circle"
-                android:layout_centerVertical="true"
+                android:layout_marginTop="83dp"
+                android:layout_alignTop="@+id/view2"
                 android:layout_centerHorizontal="true" />
-        </RelativeLayout>
-    </LinearLayout>
+
+    <!--    </RelativeLayout>
+     </LinearLayout> -->
 
 </RelativeLayout>

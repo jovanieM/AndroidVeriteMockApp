@@ -1,7 +1,9 @@
 package com.cebusqa.kodakverite;
 
 import android.app.ActionBar;
+import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -17,17 +19,18 @@ import android.widget.Button;
  */
 public class EasySetupMain extends AppCompatActivity {
 
-    FragmentManager manager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.easy_setup_main_layout);
 
+        EasySetupAppBar appBar = new EasySetupAppBar();
         Fragment_ES10_000 frag = new Fragment_ES10_000();
-        manager = getFragmentManager();
-        android.app.FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.my_layout, frag, "Arvin");
+
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.layout_app_bar, appBar, "AppBar");
+        transaction.add(R.id.my_layout, frag, "Content");
         transaction.commit();
     }
 
@@ -56,4 +59,6 @@ public class EasySetupMain extends AppCompatActivity {
             //super.onBackPressed();
         }
     }
+
+
 }

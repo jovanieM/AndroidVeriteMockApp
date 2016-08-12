@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,6 @@ public class Fragment_ES30_050 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_es30_050, container, false);
 
         btnDone = (Button) view.findViewById(R.id.btn_done);
-
         updateHandler = new Handler();
 
         btnDone.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +48,22 @@ public class Fragment_ES30_050 extends Fragment {
                 }, 4000);
             }
         });
+
+        //disable Back key
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(event.getAction() == KeyEvent.ACTION_DOWN){
+                    if(keyCode == KeyEvent.KEYCODE_BACK){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
         return view;
     }
 }

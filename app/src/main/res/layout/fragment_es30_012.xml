@@ -1,25 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorPrimary">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:src="@drawable/status_3"/>
+    <FrameLayout
+        android:id="@+id/frameLayout11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/progress_step3"
+            android:layout_gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status check"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dp"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alignment"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginRight="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wi-Fi Setup"
+            android:layout_gravity="center_vertical|right"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginRight="30dp" />
+
+    </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/frameLayout12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/status"
+        android:layout_below="@+id/frameLayout11"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/frameLayout"
         android:background="@color/button_material_dark"
-        android:layout_marginTop="10dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,13 +102,15 @@
         android:id="@+id/frame_security"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/frameLayout"
+        android:layout_below="@+id/frameLayout12"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:background="@color/button_material_dark"
         android:clickable="false"
         android:onClick="Security"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -82,7 +139,9 @@
         android:layout_alignParentStart="true"
         android:id="@+id/framePassword"
         android:background="@color/button_material_dark"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -108,4 +167,4 @@
             android:hint="Input Password" />
     </FrameLayout>
 
-</LinearLayout>
+</RelativeLayout>
