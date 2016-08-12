@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/colorPrimary">
 
     <!-- AppBar -->
-    <include
+    <!-- <include
         layout="@layout/app_bar"
-        android:id="@+id/toolbar" />
+        android:id="@+id/toolbar" /> -->
+
+    <LinearLayout
+        android:id="@+id/layout_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+    </LinearLayout>
 
     <!-- Header -->
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
+
         android:orientation="horizontal"
         android:background="#000000"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -29,13 +40,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/my_layout"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_below="@+id/header"
-        android:orientation="vertical"
-        android:id="@+id/my_layout">
+        android:orientation="vertical" >
 
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

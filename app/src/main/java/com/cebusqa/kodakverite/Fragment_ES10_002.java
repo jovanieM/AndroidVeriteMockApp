@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,20 +23,34 @@ public class Fragment_ES10_002 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_es10_002, container, false);
 
-        //Progress bar
-
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                EasySetupAppBar appBar = new EasySetupAppBar();
                 Fragment_ES20_000 frag = new Fragment_ES20_000();
                 android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
+                transaction.replace(R.id.layout_app_bar, appBar);
                 transaction.replace(R.id.my_layout, frag);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
         }, 4000);
+
+        //disable Back key
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(event.getAction() == KeyEvent.ACTION_DOWN){
+                    if(keyCode == KeyEvent.KEYCODE_BACK){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
 
         return view;
     }

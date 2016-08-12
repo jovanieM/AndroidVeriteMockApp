@@ -1,29 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:orientation="vertical">
+    android:background="@color/colorPrimary" >
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:src="@drawable/status_3" />
+    <FrameLayout
+        android:id="@+id/frameLayout10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp">
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/progress_step3"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status check"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dp"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alignment"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginRight="7dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wi-Fi Setup"
+            android:layout_gravity="center_vertical|right"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginRight="30dp" />
+
+    </FrameLayout>
+
+    <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp">  -->
 
         <TextView
+            android:id="@+id/textView51"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SSID"
             android:layout_gravity="center_vertical"
             android:textSize="15sp"
             android:textIsSelectable="true"
-            android:layout_marginRight="50dp" />
+            android:layout_below="@+id/frameLayout10"
+            android:layout_alignParentLeft="true"
+
+
+            android:layout_marginLeft="20dp" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -32,15 +89,20 @@
             android:singleLine="true"
             android:background="@drawable/edit_text_border"
             android:imeOptions="actionGo"
-            android:hint="Input SSID" />
+            android:hint="Input SSID"
+            android:layout_alignBottom="@+id/textView51"
+            android:layout_toRightOf="@+id/tvSecurity"
+            android:layout_marginLeft="60dp"
+            android:layout_alignRight="@+id/frameLayout10"
+            android:layout_alignEnd="@+id/frameLayout10" />
 
-    </LinearLayout>
+    <!-- </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"> -->
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,42 +110,59 @@
             android:text="Security"
             android:id="@+id/tvSecurity"
             android:singleLine="true"
-            android:layout_marginRight="50dp"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:layout_below="@+id/textView51"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp" />
 
         <Spinner
             android:id="@+id/sp_security"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/security" />
-    </LinearLayout>
+            android:entries="@array/security"
+            android:layout_below="@+id/tvSecurity"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+    <!-- </LinearLayout>-->
 
 
     <RelativeLayout
+        android:id="@+id/rl_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/rl_password"
-        android:layout_marginTop="10dp">
+        android:layout_below="@id/sp_security"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
         <TextView
+            android:id="@+id/tv_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password"
-            android:id="@+id/tv_password"
             android:layout_gravity="center_vertical"
             android:textSize="15sp"
             android:textIsSelectable="true"
-            android:layout_marginRight="50dp" />
+            android:layout_above="@+id/checkBox2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <EditText
             android:id="@+id/et_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/tv_password"
             android:singleLine="true"
             android:background="@drawable/edit_text_border"
             android:imeOptions="actionDone"
             android:selectAllOnFocus="true"
-            android:hint="Input Password" />
+            android:hint="Input Password"
+            android:layout_toRightOf="@+id/tv_password"
+            android:layout_marginLeft="50dp"
+            android:layout_alignRight="@+id/checkBox2"
+            android:layout_alignEnd="@+id/checkBox2" />
 
         <CheckBox
             android:layout_width="wrap_content"
@@ -96,6 +175,6 @@
             android:layout_marginTop="10dp"
             android:checked="false" />
 
-    </RelativeLayout>
+   </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

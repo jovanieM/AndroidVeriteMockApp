@@ -15,24 +15,28 @@ import android.widget.Button;
  */
 public class Fragment_ES10_000 extends Fragment {
 
-    Button btnOk, btnSkip;
+    Button btnOk, btnSkip, btnBack;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //return inflater.inflate(R.layout.fragment_es10_000, container, false);
 
         View view = inflater.inflate(R.layout.fragment_es10_000, container, false);
         btnOk = (Button) view.findViewById(R.id.btnOk);
         btnSkip = (Button) view.findViewById(R.id.btnSkip);
 
+
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Fragment_ES10_001 newfrag = new Fragment_ES10_001();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                EasySetupAppBar appBar = new EasySetupAppBar();
+                FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
+
                 transaction.replace(R.id.my_layout, newfrag);
+                transaction.replace(R.id.layout_app_bar, appBar);
                 transaction.addToBackStack(null);
+
                 transaction.commit();
             }
         });
@@ -46,6 +50,9 @@ public class Fragment_ES10_000 extends Fragment {
         });
         return view;
     }
+
+
+
 
 
 }

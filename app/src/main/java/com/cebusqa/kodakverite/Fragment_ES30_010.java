@@ -137,6 +137,21 @@ public class Fragment_ES30_010 extends Fragment {
             }
         });
 
+        //disable Back key
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(event.getAction() == KeyEvent.ACTION_DOWN){
+                    if(keyCode == KeyEvent.KEYCODE_BACK){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
         return view;
     }
 
