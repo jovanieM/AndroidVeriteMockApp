@@ -2,18 +2,8 @@ package com.cebusqa.kodakverite;
 
 import android.app.Activity;
 import android.content.Intent;
-<<<<<<< HEAD
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v4.print.PrintHelper;
-=======
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v4.app.ShareCompat;
->>>>>>> 41e37eba85c48bc56da3fbb57e46d2a5f6c71fff
 import android.support.v4.view.GestureDetectorCompat;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,7 +12,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -49,14 +38,9 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
     TextView tv, flickMessage;
     RelativeLayout inst;
     ImageView settingFlick;
-<<<<<<< HEAD
-    Button backIcon, gcp;
-
-=======
     Button backIcon;
     Intent intent;
     Intent chooser;
->>>>>>> 41e37eba85c48bc56da3fbb57e46d2a5f6c71fff
 
 
     @Override
@@ -65,7 +49,6 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         setContentView(R.layout.flick_print);
         view = findViewById(R.id.kodakToolbar);
         view.bringToFront();
-        gcp = (Button)findViewById(R.id.gcp);
         flickImage = (ImageView) findViewById(R.id.flick_image);
         backIcon = (Button) findViewById(R.id.back);
         toggleButton = (ToggleButton) findViewById(R.id.check_image);
@@ -147,19 +130,6 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
                 .displayer(new SimpleBitmapDisplayer())
                 .build());
 
-        gcp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.v("testing", "test1");
-                PrintHelper photoPrinter = new PrintHelper(FlickPrint.this);
-                photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
-                Bitmap bitmap = BitmapFactory.decodeFile(fullImage);
-                Log.v("testing", "test2");
-                photoPrinter.printBitmap("photo", bitmap);
-                Log.v("testing", "test3");
-
-            }
-        });
 
     }
 
