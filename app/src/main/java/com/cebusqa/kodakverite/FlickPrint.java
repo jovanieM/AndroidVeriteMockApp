@@ -4,21 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
+import android.support.v4.print.PrintHelper;
 import android.support.v4.view.GestureDetectorCompat;
-import android.transition.TransitionManager;
-import android.view.DragEvent;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -51,7 +43,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
     TextView tv, flickMessage;
     RelativeLayout inst;
     ImageView settingFlick;
-    Button backIcon;
+    Button backIcon, gcp;
 
 
 
@@ -61,6 +53,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         setContentView(R.layout.flick_print);
         view = findViewById(R.id.kodakToolbar);
         view.bringToFront();
+        gcp = (Button)findViewById(R.id.gcp);
         flickImage = (ImageView) findViewById(R.id.flick_image);
         backIcon = (Button) findViewById(R.id.back);
         toggleButton = (ToggleButton) findViewById(R.id.check_image);
@@ -139,6 +132,19 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
                 .displayer(new SimpleBitmapDisplayer())
                 .build());
 
+        gcp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.v("testing", "test1");
+                PrintHelper photoPrinter = new PrintHelper(FlickPrint.this);
+                photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
+                Bitmap bitmap = BitmapFactory.decodeFile(fullImage);
+                Log.v("testing", "test2");
+                photoPrinter.printBitmap("photo", bitmap);
+                Log.v("testing", "test3");
+
+            }
+        });
 
 
     }
