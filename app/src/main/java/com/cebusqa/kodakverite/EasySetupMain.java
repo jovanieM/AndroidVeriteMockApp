@@ -24,12 +24,12 @@ public class EasySetupMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.easy_setup_main_layout);
 
-        EasySetupAppBar appBar = new EasySetupAppBar();
+        //EasySetupAppBar appBar = new EasySetupAppBar();
         Fragment_ES10_000 frag = new Fragment_ES10_000();
 
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.layout_app_bar, appBar, "AppBar");
+        //transaction.add(R.id.layout_app_bar, appBar, "AppBar");
         transaction.add(R.id.my_layout, frag, "Content");
         transaction.commit();
     }
