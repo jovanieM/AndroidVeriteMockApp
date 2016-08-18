@@ -54,8 +54,8 @@ public class ImageCropper extends Activity implements View.OnClickListener{
             Intent intent = new Intent();
             intent.putExtra("left", 0);
             intent.putExtra("top", 0);
-            intent.putExtra("right",cv.right);
-            intent.putExtra("bottom",cv.bottom);
+            intent.putExtra("right",300);
+            intent.putExtra("bottom",500);
             setResult(2, intent);
             finish();
         }

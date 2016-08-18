@@ -32,6 +32,7 @@ public class DocumentScan2 extends Activity {
     Intent intent, chooser;
     boolean visible2;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

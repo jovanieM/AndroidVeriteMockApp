@@ -1,12 +1,21 @@
 package com.cebusqa.kodakverite;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CancellationSignal;
 import android.os.Handler;
+import android.os.ParcelFileDescriptor;
+import android.print.PageRange;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,15 +38,15 @@ import java.util.ArrayList;
 /**
  * Created by Cebu SQA on 29/06/2016.
  */
-public class PhotoPrintPics extends Activity {
+public class PhotoPrintPics extends AppCompatActivity {
     GridView gridView;
     static String folderPath;
     static String mFolder;
     ArrayList<String> picPaths = new ArrayList<>();
     ArrayList<String> selectedPic = new ArrayList<>();
     TextView mFolderDir, tvCancel, mCancelPrint, mPrintMulti, tv;
-    Button back;
-
+    Button back, mGcp;
+    RelativeLayout rel;
     static int counter = 0;
     static int counter2 = 0;
 
@@ -56,6 +65,7 @@ public class PhotoPrintPics extends Activity {
         gridView = (GridView) findViewById(R.id.gridView);
         mFolderDir.setText(mFolder);
         back = (Button) findViewById(R.id.back);
+        mGcp = (Button) findViewById(R.id.gcp);
         iv_multiple = (ImageView) findViewById(R.id.ic_multiple);
         tvCancel = (TextView) findViewById(R.id.tv_cancel);
         tvCancel.setVisibility(View.INVISIBLE);
@@ -66,6 +76,7 @@ public class PhotoPrintPics extends Activity {
         mPrintMulti = (TextView) findViewById(R.id.printMulti);
         settingsIcon = (ImageView) findViewById(R.id.scanSettingsIcon);
         thumbsData = new KodakVeriteApp();
+
 
 
         File dir = new File(folderPath);
@@ -87,6 +98,12 @@ public class PhotoPrintPics extends Activity {
         ImageAdapter adapter = new ImageAdapter(this, picPaths);
         gridView.setAdapter(adapter);
 
+        mGcp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doPrint();
+            }
+        });
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -95,14 +112,14 @@ public class PhotoPrintPics extends Activity {
 
                 if (multiplePrint) {
                     // Toast.makeText(getApplication(),String.valueOf(view.getId()) , Toast.LENGTH_SHORT).show();
-                    RelativeLayout rel = (RelativeLayout) view.findViewById(R.id.rl_id);
+                    rel = (RelativeLayout) view.findViewById(R.id.rl_id);
                     st = String.valueOf(position);
                     if (labelMem.size() == 0) {
                         counter = 0;
                         counter2 = 0;
                     }
 
-                    if (rel.getVisibility() == View.GONE) {
+                    if (rel.getVisibility() == View.INVISIBLE) {
                         tv = (TextView) view.findViewById(R.id.textViewTemp);
                         selectedPic.add(picPaths.get(position));
                         labelMem.add(st);
@@ -114,7 +131,7 @@ public class PhotoPrintPics extends Activity {
 
                         labelMem.remove(st);
                         selectedPic.remove(picPaths.get(position));
-                        rel.setVisibility(View.GONE);
+                        rel.setVisibility(View.INVISIBLE);
 
 
                         for (int i = 0; i < labelMem.size(); i++) {
@@ -249,6 +266,15 @@ public class PhotoPrintPics extends Activity {
                 //finish();
             }
         });
+    }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void doPrint() {
+
+        PrintManager printManager = (PrintManager) PhotoPrintPics.this.getSystemService(Context.PRINT_SERVICE);
+
+        printManager.print("any", new MyPrintDocumentAdapter(this), null);
+
     }
 
     @Override
