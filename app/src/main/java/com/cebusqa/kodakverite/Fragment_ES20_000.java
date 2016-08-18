@@ -33,7 +33,7 @@ public class Fragment_ES20_000 extends Fragment {
                 Fragment_ES20_001 frag = new Fragment_ES20_001();
                 android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.layout_app_bar, appBar);
+                //transaction.replace(R.id.layout_app_bar, appBar);
                 transaction.replace(R.id.my_layout, frag, "Tag");
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -58,8 +58,8 @@ public class Fragment_ES20_000 extends Fragment {
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getAction() == KeyEvent.ACTION_DOWN){
-                    if(keyCode == KeyEvent.KEYCODE_BACK){
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
                         return true;
                     }
                 }

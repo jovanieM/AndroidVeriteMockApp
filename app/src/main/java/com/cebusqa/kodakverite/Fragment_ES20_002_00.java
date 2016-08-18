@@ -23,22 +23,21 @@ public class Fragment_ES20_002_00 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_es20_002_00, container, false);
 
-        /* btnBack = (Button) view.findViewById(R.id.back);
+        btnBack = (Button) view.findViewById(R.id.back);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EasySetupAppBarBack appBarBack = new EasySetupAppBarBack();
+
                 Fragment_ES20_002 frag = new Fragment_ES20_002();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.layout_app_bar, appBarBack);
                 transaction.replace(R.id.my_layout, frag);
                 transaction.addToBackStack(null);
 
                 transaction.commit();
             }
-        }); */
+        });
 
         return view;
     }

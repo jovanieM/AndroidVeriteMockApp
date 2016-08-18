@@ -2,9 +2,12 @@ package com.cebusqa.kodakverite;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ShareCompat;
+import android.support.v4.print.PrintHelper;
 import android.support.v4.view.GestureDetectorCompat;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -42,7 +45,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
     TextView tv, flickMessage;
     RelativeLayout inst;
     ImageView settingFlick;
-    Button backIcon;
+    Button backIcon, gcp;
     Intent intent;
     Intent chooser;
 
@@ -61,6 +64,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         settingFlick = (ImageView) findViewById(R.id.scanSettingsIcon);
         imDisplay = (ImageView) findViewById(R.id.image_displayer);
         inst = (RelativeLayout) findViewById(R.id.instructHolder);
+        gcp = (Button)findViewById(R.id.gcp);
         flickImage.bringToFront();
         toggleButton.bringToFront();
         tv.bringToFront();
@@ -134,8 +138,70 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
                 .displayer(new SimpleBitmapDisplayer())
                 .build());
 
+        gcp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                boolean installed  =   appInstalledOrNot("com.google.android.apps.cloudprint");
+                if(installed)
+                {
+                    Toast.makeText(getApplicationContext(),"You can print using Cloud Print application", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.cloudprint&hl=en"));
+                    startActivity(browserIntent);
+                    Toast.makeText(getApplicationContext(),"Please install Cloud Print application", Toast.LENGTH_LONG).show();
+
+                }
+
+
+                PrintHelper photoPrinter = new PrintHelper(FlickPrint.this);
+                photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
+                Bitmap bitmap = BitmapFactory.decodeFile(fullImage);
+                photoPrinter.printBitmap("photo", bitmap);
+
+            }
+
+            /*public void openWebPage(String url) {
+                Uri webpage = Uri.parse("http://www.google.com");
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }*/
+
+
+            private boolean appInstalledOrNot(String uri)
+            {
+                PackageManager pm = getPackageManager();
+                boolean app_installed;
+                try
+                {
+                    pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+                    app_installed = true;
+                    Log.v("test", "test2");
+                }
+                catch (PackageManager.NameNotFoundException e)
+                {
+                    app_installed = false;
+                    Log.v("test", "test1");
+                }
+
+
+
+                return app_installed ;
+            }
+
+        });
+
 
     }
+
+
+
+
 
     /**
      * Called when the checked state of a compound button has changed.

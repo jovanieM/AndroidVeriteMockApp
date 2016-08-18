@@ -17,6 +17,7 @@ import android.widget.Button;
 public class Fragment_ES10_001 extends Fragment {
 
     Button btnBack;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -26,11 +27,11 @@ public class Fragment_ES10_001 extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                EasySetupAppBar appBar = new EasySetupAppBar();
+                //EasySetupAppBar appBar = new EasySetupAppBar();
                 Fragment_ES10_002 frag = new Fragment_ES10_002();
                 FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.layout_app_bar, appBar);
+                //transaction.replace(R.id.layout_app_bar, appBar);
                 transaction.replace(R.id.my_layout, frag);
                 transaction.disallowAddToBackStack();
                 transaction.commit();
@@ -43,8 +44,8 @@ public class Fragment_ES10_001 extends Fragment {
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getAction() == KeyEvent.ACTION_DOWN){
-                    if(keyCode == KeyEvent.KEYCODE_BACK){
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
                         return true;
                     }
                 }

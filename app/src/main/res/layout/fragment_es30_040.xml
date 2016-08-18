@@ -1,176 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
+
+    <TextView
+        android:id="@+id/easy_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/easy_setup"
+        android:textSize="@dimen/easy_setup_size" />
+
     <FrameLayout
         android:id="@+id/frameLayout14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_below="@+id/easy_setup"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/progress_step3"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:src="@mipmap/progress_step3" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Status check"
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="15dp"
-            android:textAlignment="center"
-            android:textSize="12sp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
-            android:shadowRadius="2"/>
+            android:shadowRadius="2"
+            android:text="@string/status_check"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alignment"
             android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="12sp"
+            android:layout_marginRight="7dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:layout_marginRight="7dp" />
+            android:text="@string/alignment"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wi-Fi Setup"
             android:layout_gravity="center_vertical|right"
-            android:textAlignment="center"
-            android:textSize="12sp"
+            android:layout_marginRight="30dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:layout_marginRight="30dp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
 
     </FrameLayout>
 
-    <!-- <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView52"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/frameLayout14"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:text="@string/ssid"
+        android:textIsSelectable="true"
+        android:textSize="@dimen/text_size" />
+
+    <TextView
+        android:id="@+id/tv_ssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_pass1"
+        android:layout_alignStart="@+id/et_pass1"
+        android:layout_below="@+id/frameLayout14"
+        android:layout_weight="0.56"
+        android:background="@drawable/edit_text_border" />
+
+    <TextView
+        android:id="@+id/tv_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView52"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:weightSum="1"> -->
+        android:text="@string/password"
+        android:textIsSelectable="true"
+        android:textSize="@dimen/text_size" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SSID"
-            android:layout_gravity="center_vertical"
-            android:textSize="13sp"
-            android:textIsSelectable="true"
-            android:layout_below="@+id/frameLayout14"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/textView52" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_ssid"
-            android:layout_weight="0.56"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/edit_text_border"
-            android:layout_alignBottom="@+id/checkBox3"
-            android:layout_toRightOf="@+id/textView52"
-            android:layout_toEndOf="@+id/textView52"
-            android:layout_marginStart="10dp" />
-
-    <!-- </LinearLayout> -->
-
-
-    <!-- Password -->
-    <!-- <RelativeLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/et_pass1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_ssid"
-        android:orientation="horizontal"
-        android:id="@+id/rl_password1"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"> -->
+        android:layout_alignBottom="@+id/tv_password"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/tv_password"
+        android:layout_toRightOf="@+id/tv_password"
+        android:background="@drawable/edit_text_border"
+        android:hint="@string/input_password"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:singleLine="true">
+        <requestFocus />
+    </EditText>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password"
-            android:id="@+id/tv_password"
-            android:layout_gravity="center_vertical"
-            android:textSize="13sp"
-            android:textIsSelectable="true"
-            android:layout_below="@+id/textView52"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="9dp" />
-
-        <EditText
-            android:id="@+id/et_pass1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Input password"
-            android:inputType="text"
-            android:background="@drawable/edit_text_border"
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            android:layout_alignBottom="@+id/tv_password"
-            android:layout_toRightOf="@+id/tv_password"
-            android:layout_toEndOf="@+id/tv_password"
-            android:layout_marginLeft="13dp"
-            android:layout_marginStart="13dp">
-            <requestFocus />
-        </EditText>
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show password"
-            android:id="@+id/checkBox3"
-            android:layout_marginRight="10dp"
-            android:layout_below="@+id/et_pass1"
-            android:layout_alignParentRight="true" />
-
-    <!-- </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary"
-        android:gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="10dp">  -->
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/et_pass1"
+        android:layout_marginRight="10dp"
+        android:text="@string/show_password" />
 
-        <Button
-            android:id="@+id/btn_help1"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:text="help"
-            android:background="@drawable/oval_background"
-            android:layout_below="@+id/checkBox3"
-            android:layout_alignLeft="@+id/et_pass1"
-            android:layout_alignStart="@+id/et_pass1"
-            android:layout_marginTop="27dp" />
+    <Button
+        android:id="@+id/btn_help1"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/et_pass1"
+        android:layout_alignStart="@+id/et_pass1"
+        android:layout_below="@+id/checkBox3"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/oval_background"
+        android:text="@string/help" />
 
-        <Button
-            android:id="@+id/btn_other"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
-            android:text="other..."
-            android:background="@drawable/oval_background"
-            android:layout_alignTop="@+id/btn_help1"
-            android:layout_toRightOf="@+id/et_pass1"
-            android:layout_toEndOf="@+id/et_pass1" />
-    <!-- </LinearLayout> -->
+    <Button
+        android:id="@+id/btn_other"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/btn_help1"
+        android:layout_toEndOf="@+id/et_pass1"
+        android:layout_toRightOf="@+id/et_pass1"
+        android:background="@drawable/oval_background"
+        android:text="@string/other" />
 
 </RelativeLayout>

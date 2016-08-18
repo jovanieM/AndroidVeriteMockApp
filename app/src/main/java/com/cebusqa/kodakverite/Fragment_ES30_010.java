@@ -16,6 +16,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -38,6 +39,7 @@ public class Fragment_ES30_010 extends Fragment {
     String itemSecurity;
     RelativeLayout rlPassword;
     CheckBox checkBox;
+    Button btnBack;
 
     @Nullable
     @Override
@@ -50,6 +52,7 @@ public class Fragment_ES30_010 extends Fragment {
         spinner = (Spinner) view.findViewById(R.id.sp_security);
         rlPassword = (RelativeLayout) view.findViewById(R.id.rl_password);
         checkBox = (CheckBox) view.findViewById(R.id.checkBox2);
+        btnBack = (Button) view.findViewById(R.id.back);
 
         items = getResources().getStringArray(R.array.security);
 
@@ -60,7 +63,7 @@ public class Fragment_ES30_010 extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                switch(i){
+                switch (i) {
                     case 0:
                         itemPos = adapterView.getSelectedItemPosition();
                         itemSecurity = adapterView.getSelectedItem().toString();
@@ -70,7 +73,7 @@ public class Fragment_ES30_010 extends Fragment {
                         etSSID.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                                if(i == EditorInfo.IME_ACTION_GO){
+                                if (i == EditorInfo.IME_ACTION_GO) {
                                     Fragment_ES30_050 frag = new Fragment_ES30_050();
                                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
@@ -97,7 +100,7 @@ public class Fragment_ES30_010 extends Fragment {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
 
-                                if(i == EditorInfo.IME_ACTION_DONE){
+                                if (i == EditorInfo.IME_ACTION_DONE) {
                                     Fragment_ES30_050 frag = new Fragment_ES30_050();
                                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
@@ -137,8 +140,20 @@ public class Fragment_ES30_010 extends Fragment {
             }
         });
 
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment_ES30_001 frag = new Fragment_ES30_001();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.my_layout, frag);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
         //disable Back key
-        view.setFocusableInTouchMode(true);
+        /* view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -150,25 +165,25 @@ public class Fragment_ES30_010 extends Fragment {
                 }
                 return false;
             }
-        });
+        }); */
 
         return view;
     }
 
-    public void hideSoftKeyboard(){
-        if(getActivity().getCurrentFocus()!=null){
+    public void hideSoftKeyboard() {
+        if (getActivity().getCurrentFocus() != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.toggleSoftInput(imm.HIDE_NOT_ALWAYS, 0);
         }
     }
 
-    public void checkBox(){
+    public void checkBox() {
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(!b){
+                if (!b) {
                     etPassword.setInputType(129);
-                }else{
+                } else {
                     etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 }
             }
