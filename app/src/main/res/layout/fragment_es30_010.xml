@@ -89,38 +89,38 @@
         android:id="@+id/et_ssid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView51"
-        android:layout_alignEnd="@+id/frameLayout10"
-        android:layout_alignRight="@+id/frameLayout10"
-        android:layout_marginLeft="60dp"
-        android:layout_toRightOf="@+id/tvSecurity"
         android:background="@drawable/edit_text_border"
         android:hint="Input SSID"
         android:imeOptions="actionGo"
-        android:singleLine="true" />
+        android:singleLine="true"
+        android:layout_alignTop="@+id/textView51"
+        android:layout_alignLeft="@+id/easy_setup"
+        android:layout_alignStart="@+id/easy_setup"
+        android:layout_alignRight="@+id/frameLayout10"
+        android:layout_alignEnd="@+id/frameLayout10" />
 
     <TextView
         android:id="@+id/tvSecurity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView51"
-        android:layout_marginLeft="20dp"
         android:singleLine="true"
         android:text="@string/security"
-        android:textSize="15sp" />
+        android:textSize="@dimen/text_size"
+        android:layout_below="@+id/textView51"
+        android:layout_alignLeft="@+id/textView51"
+        android:layout_alignStart="@+id/textView51"
+        android:layout_marginTop="27dp" />
 
     <Spinner
         android:id="@+id/sp_security"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/tvSecurity"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:entries="@array/security" />
+        android:entries="@array/security"
+        android:layout_alignTop="@+id/tvSecurity"
+        android:layout_alignRight="@+id/rl_password"
+        android:layout_alignEnd="@+id/rl_password"
+        android:layout_alignLeft="@+id/et_ssid"
+        android:layout_alignStart="@+id/et_ssid" />
 
     <RelativeLayout
         android:id="@+id/rl_password"

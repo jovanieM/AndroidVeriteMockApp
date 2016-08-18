@@ -82,7 +82,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="By reading the pattern with the scanner, the printer alignment is optimized and the print quality would be better."
-        android:textSize="15sp" />
+        android:textSize="@dimen/text_size" />
 
     <ImageView
         android:id="@+id/imageView9"
