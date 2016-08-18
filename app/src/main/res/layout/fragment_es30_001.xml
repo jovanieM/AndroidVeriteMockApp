@@ -4,12 +4,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
-    <!-- <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1">  -->
-
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
@@ -48,9 +42,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Status check"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/status_check"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,9 +54,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Alignment"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/alignment"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -74,9 +66,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Wi-Fi Setup"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
 
     </FrameLayout>
 
@@ -98,21 +89,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:layout_weight="0.09"
         android:entries="@array/routers_printer" />
-
-    <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="350dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal">  -->
 
     <Button
         android:id="@+id/btn_wps"
@@ -123,8 +100,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
-        android:text="WPS"
-        android:textSize="10sp" />
+        android:text="@string/wps"
+        android:textSize="@dimen/text_size" />
 
     <Button
         android:id="@+id/btn_manual"
@@ -134,8 +111,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
-        android:text="Manual"
-        android:textSize="10sp" />
+        android:text="@string/manual"
+        android:textSize="@dimen/text_size" />
 
     <Button
         android:id="@+id/btn_direct"
@@ -146,11 +123,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
-        android:text="Direct"
-        android:textSize="10sp" />
-    <!-- </LinearLayout>
-
-</LinearLayout>
-</LinearLayout>  -->
+        android:text="@string/direct"
+        android:textSize="@dimen/text_size" />
 
 </RelativeLayout>

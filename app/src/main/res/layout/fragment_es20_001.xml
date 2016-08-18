@@ -2,13 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    android:orientation="vertical">
-
-    <!-- <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"> -->
+    android:background="@color/colorPrimary">
 
     <include
         android:id="@+id/app_bar"
@@ -31,7 +25,9 @@
         android:layout_below="@+id/easy_setup"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -48,9 +44,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Status check"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/status_check"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,9 +55,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Alignment"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/alignment"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -73,9 +67,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Wi-Fi Setup"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
     </FrameLayout>
 
     <TextView
@@ -120,8 +113,4 @@
         android:layout_marginTop="73dp"
         android:indeterminateDrawable="@drawable/progress_circle"
         android:progressDrawable="@drawable/progress_circle" />
-    <!--    </RelativeLayout>
-     </LinearLayout> -->
-
-
 </RelativeLayout>

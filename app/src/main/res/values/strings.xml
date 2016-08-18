@@ -1,6 +1,27 @@
 <resources>
     <string name="app_name">Kodak Verite</string>
     <string name="easy_setup">EASY SETUP</string>
+    <string name="status_check">Status check</string>
+    <string name="alignment">Alignment</string>
+    <string name="wifi_setup">Wi-Fi Setup</string>
+    <string name="ok">OK</string>
+    <string name="skip">Skip</string>
+    <string name="start_scan">Start (Scan)</string>
+    <string name="help">Help</string>
+    <string name="scanning">Scanning...</string>
+    <string name="wps">WPS</string>
+    <string name="manual">Manual</string>
+    <string name="direct">Direct</string>
+    <string name="ssid">SSID</string>
+    <string name="security">Security</string>
+    <string name="password">Password</string>
+    <string name="input_password">Input Password</string>
+    <string name="show_password">Show password</string>
+    <string name="ssid_name">Input SSID name</string>
+    <string name="find_router">Find Router</string>
+    <string name="other">other...</string>
+    <string name="usage_tracking">Usage Tracking</string>
+    <string name="done">Done</string>
 
     <string-array name="Color_copy">
         <item>Color</item>

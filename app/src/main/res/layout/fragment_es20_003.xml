@@ -5,12 +5,6 @@
     android:background="@color/colorPrimary"
     android:weightSum="1">
 
-    <!-- <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1"> -->
-
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
@@ -32,14 +26,14 @@
         android:layout_below="@+id/easy_setup"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <ImageView
             android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:src="@mipmap/progress_step2" />
 
@@ -51,40 +45,33 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Alignment"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/alignment"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|right"
+            android:layout_gravity="center_vertical|end"
             android:layout_marginRight="20dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Wi-Fi Setup"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textview"
-            android:layout_alignBottom="@+id/textview"
-            android:layout_alignLeft="@+id/imageView7"
-            android:layout_alignStart="@+id/imageView7"
-            android:layout_gravity="left|center_vertical"
+            android:layout_gravity="start|center_vertical"
             android:layout_marginLeft="22dp"
             android:layout_marginStart="22dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Status check"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/status_check"
+            android:textSize="@dimen/text_size" />
 
     </FrameLayout>
 
@@ -95,21 +82,13 @@
         android:layout_below="@+id/frame1"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Scanning..."
+        android:text="@string/scanning"
         android:textSize="15sp" />
-
-    <!-- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="213dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:layout_weight="0.05"> -->
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/view2"
         android:layout_width="wrap_content"
         android:layout_height="250dp"
-        android:layout_alignParentEnd="false"
         android:layout_below="@+id/textview"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
@@ -128,8 +107,5 @@
         android:layout_marginTop="83dp"
         android:indeterminateDrawable="@drawable/progress_circle"
         android:progressDrawable="@drawable/progress_circle" />
-
-    <!--    </RelativeLayout>
-     </LinearLayout> -->
 
 </RelativeLayout>

@@ -3,15 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="true"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
-        android:weightSum="1"> -->
-
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
@@ -50,9 +41,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Status check"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/status_check"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -62,9 +52,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Alignment"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/alignment"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -75,9 +64,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Wi-Fi Setup"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
     </FrameLayout>
 
     <TextView

@@ -41,9 +41,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Status check"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/status_check"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -54,9 +53,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Alignment"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/alignment"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,9 +65,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Wi-Fi Setup"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
 
     </FrameLayout>
 
@@ -81,7 +78,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:text="SSID and password are normally displayed at the side or bottom part of the router. \nFor more detail, please refer to the manual of the router."
-        android:textSize="15sp" />
+        android:textSize="@dimen/text_size" />
 
     <ImageView
         android:id="@+id/imageView15"

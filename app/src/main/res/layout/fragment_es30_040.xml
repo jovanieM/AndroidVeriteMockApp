@@ -43,9 +43,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Status check"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/status_check"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -56,9 +55,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Alignment"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/alignment"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,18 +67,10 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Wi-Fi Setup"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
 
     </FrameLayout>
-
-    <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:weightSum="1"> -->
 
     <TextView
         android:id="@+id/textView52"
@@ -91,9 +81,9 @@
         android:layout_below="@+id/frameLayout14"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="20dp"
-        android:text="SSID"
+        android:text="@string/ssid"
         android:textIsSelectable="true"
-        android:textSize="13sp" />
+        android:textSize="@dimen/text_size" />
 
     <TextView
         android:id="@+id/tv_ssid"
@@ -105,19 +95,6 @@
         android:layout_weight="0.56"
         android:background="@drawable/edit_text_border" />
 
-    <!-- </LinearLayout> -->
-
-
-    <!-- Password -->
-    <!-- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_ssid"
-        android:orientation="horizontal"
-        android:id="@+id/rl_password1"
-        android:padding="10dp"
-        android:layout_marginTop="10dp"> -->
-
     <TextView
         android:id="@+id/tv_password"
         android:layout_width="wrap_content"
@@ -128,9 +105,9 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="Password"
+        android:text="@string/password"
         android:textIsSelectable="true"
-        android:textSize="13sp" />
+        android:textSize="@dimen/text_size" />
 
     <EditText
         android:id="@+id/et_pass1"
@@ -142,11 +119,10 @@
         android:layout_toEndOf="@+id/tv_password"
         android:layout_toRightOf="@+id/tv_password"
         android:background="@drawable/edit_text_border"
-        android:hint="Input password"
+        android:hint="@string/input_password"
         android:imeOptions="actionDone"
         android:inputType="text"
         android:singleLine="true">
-
         <requestFocus />
     </EditText>
 
@@ -157,17 +133,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/et_pass1"
         android:layout_marginRight="10dp"
-        android:text="Show password" />
-
-    <!-- </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorPrimary"
-        android:gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="10dp">  -->
+        android:text="@string/show_password" />
 
     <Button
         android:id="@+id/btn_help1"
@@ -178,7 +144,7 @@
         android:layout_below="@+id/checkBox3"
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
-        android:text="help" />
+        android:text="@string/help" />
 
     <Button
         android:id="@+id/btn_other"
@@ -188,7 +154,6 @@
         android:layout_toEndOf="@+id/et_pass1"
         android:layout_toRightOf="@+id/et_pass1"
         android:background="@drawable/oval_background"
-        android:text="other..." />
-    <!-- </LinearLayout> -->
+        android:text="@string/other" />
 
 </RelativeLayout>

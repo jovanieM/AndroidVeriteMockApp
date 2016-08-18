@@ -42,9 +42,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Status check"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/status_check"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -55,9 +54,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Alignment"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/alignment"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,17 +66,10 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Wi-Fi Setup"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
 
     </FrameLayout>
-
-    <!-- <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">  -->
 
     <TextView
         android:id="@+id/textView51"
@@ -88,11 +79,9 @@
         android:layout_below="@+id/frameLayout10"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="20dp"
-        android:text="SSID"
+        android:text="@string/ssid"
         android:textIsSelectable="true"
-
-
-        android:textSize="15sp" />
+        android:textSize="@dimen/text_size" />
 
     <EditText
         android:id="@+id/et_ssid"
@@ -108,14 +97,6 @@
         android:imeOptions="actionGo"
         android:singleLine="true" />
 
-    <!-- </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"> -->
-
     <TextView
         android:id="@+id/tvSecurity"
         android:layout_width="wrap_content"
@@ -125,7 +106,7 @@
         android:layout_below="@+id/textView51"
         android:layout_marginLeft="20dp"
         android:singleLine="true"
-        android:text="Security"
+        android:text="@string/security"
         android:textSize="15sp" />
 
     <Spinner
@@ -138,8 +119,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:entries="@array/security" />
-    <!-- </LinearLayout>-->
-
 
     <RelativeLayout
         android:id="@+id/rl_password"
@@ -158,9 +137,9 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_gravity="center_vertical"
-            android:text="Password"
+            android:text="@string/password"
             android:textIsSelectable="true"
-            android:textSize="15sp" />
+            android:textSize="@dimen/text_size" />
 
         <EditText
             android:id="@+id/et_password"
@@ -171,7 +150,7 @@
             android:layout_marginLeft="50dp"
             android:layout_toRightOf="@+id/tv_password"
             android:background="@drawable/edit_text_border"
-            android:hint="Input Password"
+            android:hint="@string/input_password"
             android:imeOptions="actionDone"
             android:selectAllOnFocus="true"
             android:singleLine="true" />
@@ -185,7 +164,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:checked="false"
-            android:text="Show password" />
+            android:text="@string/show_password" />
 
     </RelativeLayout>
 

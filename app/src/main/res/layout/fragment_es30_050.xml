@@ -43,9 +43,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Status check"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/status_check"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -56,9 +55,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Alignment"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/alignment"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,9 +67,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Wi-Fi Setup"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
 
     </FrameLayout>
 
@@ -84,8 +81,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="80dp"
-        android:text="Usage Tracking"
-        android:textSize="15sp" />
+        android:text="@string/usage_tracking"
+        android:textSize="@dimen/text_size" />
 
     <TextView
         android:id="@+id/textView55"
@@ -97,7 +94,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:text="To improve future versions of Kodak printers, allow printer to periodically send anonymous usage data to Funai. In addition, Funai use the collected data from the printer to activate your warranty, and allow printer to check for firmware updates."
-        android:textSize="15sp" />
+        android:textSize="@dimen/text_size" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -119,6 +116,6 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
         android:onClick="launchRingDialog"
-        android:text="Done" />
+        android:text="@string/done" />
 
 </RelativeLayout>

@@ -30,8 +30,6 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:src="@mipmap/progress_step3" />
 
@@ -44,9 +42,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Status check"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/status_check"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,9 +54,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Alignment"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/alignment"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,9 +66,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Wi-Fi Setup"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
 
     </FrameLayout>
 
@@ -92,9 +87,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="SSID"
+            android:text="@string/ssid"
             android:textIsSelectable="true"
-            android:textSize="13sp" />
+            android:textSize="@dimen/text_size" />
 
         <EditText
             android:id="@+id/editText"
@@ -104,7 +99,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/edit_text_border"
-            android:hint="Input SSID name"
+            android:hint="@string/ssid_name"
             android:padding="3dp"
             android:singleLine="false" />
     </FrameLayout>
@@ -129,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_vertical|right"
             android:singleLine="true"
-            android:text="Security" />
+            android:text="@string/security" />
 
         <TextView
             android:id="@+id/tvSecurityName"
@@ -159,9 +154,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Password"
+            android:text="@string/password"
             android:textIsSelectable="true"
-            android:textSize="13sp" />
+            android:textSize="@dimen/text_size" />
 
         <EditText
             android:id="@+id/editPassword"
@@ -171,11 +166,10 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/edit_text_border"
-            android:hint="Input Password"
+            android:hint="@string/input_password"
             android:inputType="textPassword"
             android:padding="3dp"
-            android:singleLine="false"
-            android:text="" />
+            android:singleLine="false" />
     </FrameLayout>
 
 </RelativeLayout>

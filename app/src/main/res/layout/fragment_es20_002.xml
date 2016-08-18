@@ -24,7 +24,9 @@
         android:layout_below="@+id/easy_setup"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -53,8 +55,7 @@
             android:shadowDy="1"
             android:shadowRadius="2"
             android:text="@string/alignment"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -65,9 +66,8 @@
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:text="Wi-Fi Setup"
-            android:textAlignment="center"
-            android:textSize="12sp" />
+            android:text="@string/wifi_setup"
+            android:textSize="@dimen/text_size" />
     </FrameLayout>
 
     <TextView
@@ -104,7 +104,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
-        android:text="Start (Scan)" />
+        android:text="@string/start_scan" />
 
     <Button
         android:id="@+id/btn_help"
@@ -116,7 +116,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
-        android:text="Help" />
+        android:text="@string/help" />
     <!-- </LinearLayout> -->
 </RelativeLayout>
 
