@@ -1,66 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar_back_only" />
+
+    <TextView
+        android:id="@+id/easy_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/easy_setup"
+        android:textSize="@dimen/easy_setup_size" />
 
     <FrameLayout
         android:id="@+id/frameLayout13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/easy_setup"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
         android:layout_marginBottom="10dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/progress_step3"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:src="@mipmap/progress_step3" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Status check"
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="15dp"
-            android:textAlignment="center"
-            android:textSize="12sp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
-            android:shadowRadius="2"/>
+            android:shadowRadius="2"
+            android:text="Status check"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alignment"
             android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="12sp"
+            android:layout_marginRight="7dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:layout_marginRight="7dp" />
+            android:text="Alignment"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wi-Fi Setup"
             android:layout_gravity="center_vertical|right"
-            android:textAlignment="center"
-            android:textSize="12sp"
+            android:layout_marginRight="30dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:layout_marginRight="30dp" />
+            android:text="Wi-Fi Setup"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
     </FrameLayout>
 
@@ -68,36 +79,36 @@
         android:id="@+id/textView51"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:layout_below="@+id/frameLayout13"
-        android:text="Some router support Easy Setup Setting called WPS. \nFind WPS button on your router and push it. \nSome router need 2-3 seconds push for starting WPS function. \nWPS takes up to 3 minutes to finish. "
-        android:textSize="15sp"
-        android:gravity="left"
+        android:layout_gravity="center_horizontal"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="20dp"
+        android:gravity="left"
+        android:text="Some router support Easy Setup Setting called WPS. \nFind WPS button on your router and push it. \nSome router need 2-3 seconds push for starting WPS function. \nWPS takes up to 3 minutes to finish. "
+        android:textSize="15sp" />
 
     <ImageView
         android:id="@+id/imageView14"
         android:layout_width="280dp"
         android:layout_height="175dp"
-        android:src="@drawable/image11"
-        android:scaleType="fitXY"
-        android:layout_gravity="center_horizontal"
-        android:adjustViewBounds="true"
         android:layout_below="@+id/textView51"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/image11" />
 
     <Button
         android:id="@+id/btnFindRouter"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:background="@drawable/oval_background"
-        android:text="Find Router"
-        android:layout_gravity="center_horizontal"
-        android:clickable="false"
         android:layout_below="@+id/imageView14"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/oval_background"
+        android:clickable="false"
+        android:text="Find Router" />
 
 </RelativeLayout>

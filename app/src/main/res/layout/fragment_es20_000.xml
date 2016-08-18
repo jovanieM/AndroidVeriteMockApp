@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <!-- <LinearLayout
         android:layout_width="match_parent"
@@ -13,122 +12,133 @@
         android:orientation="vertical"
         android:weightSum="1"> -->
 
-        <FrameLayout
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
+
+    <TextView
+        android:id="@+id/easy_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/easy_setup"
+        android:textSize="@dimen/easy_setup_size" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/easy_setup"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/frameLayout5"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/progress_step2"
-                android:layout_gravity="center" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status check"
-                android:layout_gravity="left|center_vertical"
-                android:layout_marginLeft="20dp"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:shadowColor="@color/text_shadow"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="2"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alignment"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:shadowColor="@color/text_shadow"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wi-Fi Setup"
-                android:layout_gravity="center_vertical|right"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:shadowColor="@color/text_shadow"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="2"
-                android:layout_marginRight="20dp" />
-        </FrameLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text=
-    "To perform printhead alignment,  \n1. Load Letter or A4 paper in tray.   \n2. Install ink cartridges.     \n3. Press [Next] and calibration sheet will be printed."
-            android:id="@+id/textView34"
-            android:layout_below="@+id/frameLayout5"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-
-        <pl.droidsonroids.gif.GifImageView
-            android:layout_width="wrap_content"
-            android:layout_height="175dp"
-            android:src="@drawable/alignment"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.14"
-            android:id="@+id/view4"
-            android:layout_below="@+id/textView34"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:text="Next"
-            android:background="@drawable/oval_background"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/view4"
-            android:layout_alignLeft="@+id/btn_default"
-            android:layout_alignStart="@+id/btn_default"
-            android:layout_marginTop="10dp" />
+            android:src="@mipmap/progress_step2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Skip Printhead alignment."
-            android:id="@+id/textView33"
-            android:layout_below="@+id/btn_next"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp" />
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Status check"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
-        <Button
-            android:id="@+id/btn_default"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:text="Use default"
-            android:background="@drawable/oval_background"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/textView33"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Alignment"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="20dp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Wi-Fi Setup"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/frameLayout5"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="To perform printhead alignment,  \n1. Load Letter or A4 paper in tray.   \n2. Install ink cartridges.     \n3. Press [Next] and calibration sheet will be printed." />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/view4"
+        android:layout_width="wrap_content"
+        android:layout_height="175dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView34"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.14"
+        android:src="@drawable/alignment" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_alignLeft="@+id/btn_default"
+        android:layout_alignStart="@+id/btn_default"
+        android:layout_below="@+id/view4"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/oval_background"
+        android:text="Next" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn_next"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Skip Printhead alignment." />
+
+    <Button
+        android:id="@+id/btn_default"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_below="@+id/textView33"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/oval_background"
+        android:text="Use default" />
     <!--    </LinearLayout>  -->
 </RelativeLayout>
 

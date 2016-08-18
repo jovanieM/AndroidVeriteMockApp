@@ -15,7 +15,7 @@ import android.widget.Button;
  */
 public class Fragment_ES30_020 extends Fragment {
 
-    Button btnFindRouter;
+    Button btnFindRouter, btnBack;
 
     @Nullable
     @Override
@@ -24,6 +24,8 @@ public class Fragment_ES30_020 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_es30_020, container, false);
 
         btnFindRouter = (Button) view.findViewById(R.id.btnFindRouter);
+        btnBack = (Button) view.findViewById(R.id.back);
+
         btnFindRouter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,8 +38,20 @@ public class Fragment_ES30_020 extends Fragment {
             }
         });
 
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment_ES30_001 frag = new Fragment_ES30_001();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.my_layout, frag);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
         //disable Back key
-        view.setFocusableInTouchMode(true);
+        /* view.setFocusableInTouchMode(true);
         view.requestFocus();
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -49,7 +63,7 @@ public class Fragment_ES30_020 extends Fragment {
                 }
                 return false;
             }
-        });
+        }); */
 
         return view;
     }

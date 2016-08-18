@@ -30,11 +30,11 @@ public class Fragment_ES10_000 extends Fragment {
             @Override
             public void onClick(View view) {
                 Fragment_ES10_001 newfrag = new Fragment_ES10_001();
-                EasySetupAppBar appBar = new EasySetupAppBar();
+                //EasySetupAppBar appBar = new EasySetupAppBar();
                 FragmentTransaction transaction = getActivity().getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.my_layout, newfrag);
-                transaction.replace(R.id.layout_app_bar, appBar);
+                //transaction.replace(R.id.layout_app_bar, appBar);
                 transaction.addToBackStack(null);
 
                 transaction.commit();
@@ -50,9 +50,6 @@ public class Fragment_ES10_000 extends Fragment {
         });
         return view;
     }
-
-
-
 
 
 }

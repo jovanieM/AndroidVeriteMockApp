@@ -27,14 +27,14 @@ public class Fragment_ES20_001 extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-            EasySetupAppBarBack appBar = new EasySetupAppBarBack();
-            Fragment_ES20_002 frag = new Fragment_ES20_002();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                EasySetupAppBarBack appBar = new EasySetupAppBarBack();
+                Fragment_ES20_002 frag = new Fragment_ES20_002();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-            transaction.replace(R.id.layout_app_bar, appBar);
-            transaction.replace(R.id.my_layout, frag);
-            transaction.addToBackStack(null);
-            transaction.commit();
+                //transaction.replace(R.id.layout_app_bar, appBar);
+                transaction.replace(R.id.my_layout, frag);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         }, 4000);
 
@@ -44,8 +44,8 @@ public class Fragment_ES20_001 extends Fragment {
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getAction() == KeyEvent.ACTION_DOWN){
-                    if(keyCode == KeyEvent.KEYCODE_BACK){
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
                         return true;
                     }
                 }

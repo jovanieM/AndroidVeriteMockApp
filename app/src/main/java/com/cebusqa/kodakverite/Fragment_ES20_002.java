@@ -16,7 +16,7 @@ import android.widget.Button;
 public class Fragment_ES20_002 extends Fragment {
 
     Button btnScan, btnHelp, btnBack;
-    private final static String TAG_FRAGMENT = "TAG_FRAGMENT";
+
 
     @Nullable
     @Override
@@ -26,6 +26,7 @@ public class Fragment_ES20_002 extends Fragment {
 
         btnScan = (Button) view.findViewById(R.id.btn_start_scan);
         btnHelp = (Button) view.findViewById(R.id.btn_help);
+        btnBack = (Button) view.findViewById(R.id.back);
 
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +35,7 @@ public class Fragment_ES20_002 extends Fragment {
                 Fragment_ES20_003 frag = new Fragment_ES20_003();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.layout_app_bar, appBar);
+                //transaction.replace(R.id.layout_app_bar, appBar);
                 transaction.replace(R.id.my_layout, frag);
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -48,7 +49,19 @@ public class Fragment_ES20_002 extends Fragment {
                 Fragment_ES20_002_00 frag = new Fragment_ES20_002_00();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.layout_app_bar, appBarBack);
+                //transaction.replace(R.id.layout_app_bar, appBarBack);
+                transaction.replace(R.id.my_layout, frag);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment_ES20_000 frag = new Fragment_ES20_000();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
                 transaction.replace(R.id.my_layout, frag);
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -63,10 +76,16 @@ public class Fragment_ES20_002 extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if(event.getAction() == KeyEvent.ACTION_DOWN){
                     if(keyCode == KeyEvent.KEYCODE_BACK){
-                        return true;
+
+                        Fragment_ES20_000 frag = new Fragment_ES20_000();
+                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                        transaction.replace(R.id.my_layout, frag);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
                     }
                 }
-                return false;
+                return true; //false;
             }
         });
 

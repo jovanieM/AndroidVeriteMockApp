@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
@@ -10,107 +9,118 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"> -->
 
-        <FrameLayout
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar_back_only" />
+
+    <TextView
+        android:id="@+id/easy_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/easy_setup"
+        android:textSize="@dimen/easy_setup_size" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/easy_setup"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:id="@+id/frameLayout2"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageView9"
-            android:layout_alignStart="@+id/imageView9"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/progress_step2"
-                android:layout_gravity="center" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status check"
-                android:layout_gravity="left|center_vertical"
-                android:layout_marginLeft="20dp"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:shadowColor="@color/text_shadow"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="2"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alignment"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:shadowColor="@color/text_shadow"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wi-Fi Setup"
-                android:layout_gravity="center_vertical|right"
-                android:textAlignment="center"
-                android:textSize="12sp"
-                android:shadowColor="@color/text_shadow"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="2"
-                android:layout_marginRight="20dp" />
-
-        </FrameLayout>
+            android:src="@mipmap/progress_step2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="By reading the pattern with the scanner, the printer alignment is optimized and the print quality would be better."
-            android:textSize="15sp"
-            android:layout_below="@+id/frameLayout2"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/textView4"
+            android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Status check"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
-        <!-- <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="204dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="10dp"> -->
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Alignment"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/scanning_00"
-                android:adjustViewBounds="true"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/imageView9"
-                android:layout_below="@+id/textView4"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="20dp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Wi-Fi Setup"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frameLayout2"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="By reading the pattern with the scanner, the printer alignment is optimized and the print quality would be better."
+        android:textSize="15sp" />
+
+    <!-- <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="204dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"> -->
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/scanning_00" />
 
 
-            <!--<ProgressBar
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:id="@+id/progressBar"
-                android:indeterminateDrawable="@drawable/circular"
-                android:max="100"
-                android:progress="10"
-                android:layout_marginStart="47dp"
-                android:layout_alignParentLeft="false"
-                android:layout_alignParentStart="false"
-                android:layout_centerInParent="true" />-->
+    <!--<ProgressBar
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/progressBar"
+        android:indeterminateDrawable="@drawable/circular"
+        android:max="100"
+        android:progress="10"
+        android:layout_marginStart="47dp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_centerInParent="true" />-->
     <!--   </RelativeLayout>
     </LinearLayout> -->
 

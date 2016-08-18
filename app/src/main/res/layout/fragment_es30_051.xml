@@ -1,106 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
-        <FrameLayout
-            android:id="@+id/frameLayout17"
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
+
+    <TextView
+        android:id="@+id/easy_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/easy_setup"
+        android:textSize="@dimen/easy_setup_size" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/easy_setup"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/progress_step3"
-                    android:layout_gravity="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Status check"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_marginLeft="15dp"
-                    android:textAlignment="center"
-                    android:textSize="12sp"
-                    android:shadowColor="@color/text_shadow"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Alignment"
-                    android:layout_gravity="center"
-                    android:textAlignment="center"
-                    android:textSize="12sp"
-                    android:shadowColor="@color/text_shadow"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    android:layout_marginRight="7dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Wi-Fi Setup"
-                    android:layout_gravity="center_vertical|right"
-                    android:textAlignment="center"
-                    android:textSize="12sp"
-                    android:shadowColor="@color/text_shadow"
-                    android:shadowDx="1"
-                    android:shadowDy="1"
-                    android:shadowRadius="2"
-                    android:layout_marginRight="30dp" />
-
-        </FrameLayout>
+            android:src="@mipmap/progress_step3" />
 
         <TextView
-            android:id="@+id/textView56"
-            android:layout_below="@+id/frameLayout17"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Initial setup finished. \nYour connection will be switched from \nWireless Direct to Router connection."
-            android:textSize="15sp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="15dp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Status check"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
-        <!-- <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="233dp"
-            android:layout_margin="10dp"> -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="7dp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Alignment"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
-                <ImageView
-                    android:id="@+id/imageView16"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:layout_below="@+id/textView56"
-                    android:src="@mipmap/routerconnection"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="30dp"
+            android:shadowColor="@color/text_shadow"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Wi-Fi Setup"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
-                <ProgressBar
-                    android:id="@+id/progressBar2"
-                    style="?android:attr/progressBarStyleLarge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+    </FrameLayout>
 
-                    android:progressDrawable="@drawable/progress_circle"
-                    android:indeterminateDrawable="@drawable/progress_circle"
-                    android:layout_alignTop="@+id/imageView16"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="52dp" />
-        <!-- </RelativeLayout>  -->
+    <TextView
+        android:id="@+id/textView56"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frameLayout17"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Initial setup finished. \nYour connection will be switched from \nWireless Direct to Router connection."
+        android:textSize="15sp" />
+
+    <!-- <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="233dp"
+        android:layout_margin="10dp"> -->
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@+id/textView56"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/routerconnection" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignTop="@+id/imageView16"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp"
+        android:indeterminateDrawable="@drawable/progress_circle"
+        android:progressDrawable="@drawable/progress_circle" />
+    <!-- </RelativeLayout>  -->
 
 </RelativeLayout>

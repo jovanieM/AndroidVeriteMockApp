@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
@@ -11,132 +10,144 @@
         android:layout_height="match_parent"
         android:weightSum="1">  -->
 
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
+
+    <TextView
+        android:id="@+id/easy_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/easy_setup"
+        android:textSize="@dimen/easy_setup_size" />
+
     <FrameLayout
         android:id="@+id/frameLayout9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/easy_setup"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_gravity="center"
         android:layout_marginBottom="10dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/progress_step3"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:src="@mipmap/progress_step3" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Status check"
             android:layout_gravity="left|center_vertical"
             android:layout_marginLeft="15dp"
-            android:textAlignment="center"
-            android:textSize="12sp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
-            android:shadowRadius="2"/>
+            android:shadowRadius="2"
+            android:text="Status check"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alignment"
             android:layout_gravity="center"
-            android:textAlignment="center"
-            android:textSize="12sp"
+            android:layout_marginRight="7dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:layout_marginRight="7dp" />
+            android:text="Alignment"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wi-Fi Setup"
             android:layout_gravity="center_vertical|right"
-            android:textAlignment="center"
-            android:textSize="12sp"
+            android:layout_marginRight="30dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
-            android:layout_marginRight="30dp" />
+            android:text="Wi-Fi Setup"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 
     </FrameLayout>
 
-        <TextView
-            android:id="@+id/textView50"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Select the network..."
-            android:textSize="15sp"
-            android:layout_below="@+id/frameLayout9"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+    <TextView
+        android:id="@+id/textView50"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frameLayout9"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Select the network..."
+        android:textSize="15sp" />
 
-        <ListView
-            android:id="@+id/lv_connections"
-            android:layout_width="wrap_content"
-            android:layout_height="280dp"
-            android:layout_below="@+id/textView50"
-            android:entries="@array/routers_printer"
-            android:layout_weight="0.09"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+    <ListView
+        android:id="@+id/lv_connections"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:layout_below="@+id/textView50"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.09"
+        android:entries="@array/routers_printer" />
 
-        <!-- <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+    <!-- <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
             android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">  -->
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="350dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal">  -->
+    <Button
+        android:id="@+id/btn_wps"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/lv_connections"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/oval_background"
+        android:text="WPS"
+        android:textSize="10sp" />
 
-                <Button
-                    android:id="@+id/btn_wps"
-                    android:layout_width="90dp"
-                    android:layout_height="30dp"
-                    android:text="WPS"
-                    android:background="@drawable/oval_background"
-                    android:layout_below="@+id/lv_connections"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="10sp" />
+    <Button
+        android:id="@+id/btn_manual"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/lv_connections"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/oval_background"
+        android:text="Manual"
+        android:textSize="10sp" />
 
-                <Button
-                    android:id="@+id/btn_manual"
-                    android:layout_width="90dp"
-                    android:layout_height="30dp"
-                    android:text="Manual"
-                    android:background="@drawable/oval_background"
-                    android:layout_below="@+id/lv_connections"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:textSize="10sp" />
-
-                <Button
-                    android:id="@+id/btn_direct"
-                    android:layout_width="90dp"
-                    android:layout_height="30dp"
-                    android:text="Direct"
-                    android:background="@drawable/oval_background"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@+id/lv_connections"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="20dp"
-                    android:textSize="10sp" />
+    <Button
+        android:id="@+id/btn_direct"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/lv_connections"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/oval_background"
+        android:text="Direct"
+        android:textSize="10sp" />
     <!-- </LinearLayout>
 
 </LinearLayout>
