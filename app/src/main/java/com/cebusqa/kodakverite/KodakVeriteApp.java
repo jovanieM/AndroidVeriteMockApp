@@ -61,8 +61,7 @@ public class KodakVeriteApp extends Application {
                 {
                     if (cursor.getString(0).toLowerCase().endsWith(".jpg")||
                             cursor.getString(0).toLowerCase().endsWith(".jpeg")||
-                            cursor.getString(0).toLowerCase().endsWith(".png")||
-                            cursor.getString(0).toLowerCase().endsWith(".pdf"))
+                            cursor.getString(0).toLowerCase().endsWith(".png"))
                     {
 
 

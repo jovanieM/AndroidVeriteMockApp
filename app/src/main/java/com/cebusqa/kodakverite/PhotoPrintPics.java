@@ -86,8 +86,7 @@ public class PhotoPrintPics extends AppCompatActivity {
                 String sFilePath = sFile.getAbsolutePath();
                 if (sFilePath.toLowerCase().endsWith(".jpg") ||
                         sFilePath.toLowerCase().endsWith(".jpeg") ||
-                        sFilePath.toLowerCase().endsWith(".png") ||
-                        sFilePath.toLowerCase().endsWith(".pdf")) {
+                        sFilePath.toLowerCase().endsWith(".png") ) {
                     picPaths.add(sFilePath);
                 }
                 //Toast.makeText(this, sFilePath,Toast.LENGTH_SHORT).show();
@@ -275,6 +274,7 @@ public class PhotoPrintPics extends AppCompatActivity {
 
         printManager.print("any", new MyPrintDocumentAdapter(this), null);
 
+
     }
 
     @Override
@@ -304,6 +304,7 @@ public class PhotoPrintPics extends AppCompatActivity {
 
         gridView.setEnabled(true);
         popUpLayout.setVisibility(View.GONE);
+        labelMem.clear();
 
         selectedPic.clear();
     }
