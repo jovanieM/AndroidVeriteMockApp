@@ -1,7 +1,5 @@
 package com.cebusqa.kodakverite;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +9,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.security.SecurityPermission;
 
 
 public class HM10_000 extends AppCompatActivity implements Communicator{
@@ -26,7 +22,8 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
     private int currentImage = 0;
     int[] images = {R.mipmap.ecomode_off, R.mipmap.ecomode1, R.mipmap.ecomode2};
     TextView printer_name, printer_selected;
-    ImageView copy;
+    ImageView copy, checkmark;
+    ProgressBar progressbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +46,8 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
         scan_document = (LinearLayout)findViewById(R.id.scan_document);
         scan_photo = (LinearLayout)findViewById(R.id.scan_photo);
         printer_selected = (TextView)findViewById(R.id.printer_selected);
-
+        progressbar = (ProgressBar)findViewById(R.id.progressbar);
+        checkmark = (ImageView)findViewById(R.id.checkmark);
 
         scan_document.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -118,6 +116,8 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
         search_icon.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 printer_selected.setText("Searching for printer");
+                checkmark.setVisibility(View.INVISIBLE);
+                progressbar.setVisibility(View.VISIBLE);
                 printer_name.setText("Add Printer");
 
                 printer_name.setOnClickListener(new View.OnClickListener() {
@@ -136,6 +136,7 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
 
                     }
                 });
+
             }
         });
 
@@ -145,6 +146,8 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
     public void respond(String printer) {
         printer_name.setText(printer);
         printer_selected.setText("Selected Printer");
+        progressbar.setVisibility(View.INVISIBLE);
+        checkmark.setVisibility(View.VISIBLE);
     }
 
     @Override

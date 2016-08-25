@@ -3,18 +3,17 @@ package com.cebusqa.kodakverite;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.view.ViewGroup;
 
-public class CP10_000 extends FragmentActivity implements View.OnClickListener{
+public class CP10_000 extends FragmentActivity implements View.OnClickListener {
 
     public ImageButton incre, decre, standardcolor, standardbw, custom;
     public TextView num_copies, color_txtview;
@@ -25,6 +24,10 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener{
     FragmentManager fm;
     FragmentTransaction fragmentTransaction;
 
+    private Handler repeatUpdateHandler = new Handler();
+    private boolean mAutoIncrement = false;
+    private boolean mAutoDecrement = false;
+    private final long REP_DELAY = 50;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +41,16 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener{
         standardbw = (ImageButton) findViewById(R.id.standardbw);
         custom = (ImageButton) findViewById(R.id.custom);
         //color_btn = (Button)findViewById(R.id.color_btn);
-        back = (Button)findViewById(R.id.back);
+        back = (Button) findViewById(R.id.back);
 
         num_copies.setText("1");
+
 
         incre.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (num < 101) {
+                if (num < 100) {
                     num= num+1;
                     val = Integer.toString(num);
                     num_copies.setText(val);
@@ -59,80 +63,166 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener{
         decre.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num>1)
-                num= num-1;
-                val = Integer.toString(num);
-                num_copies.setText(val);
-            }
-        });
 
-
-        back.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                finish();
-            }
-        });
-
-        standardcolor.setOnClickListener(new OnClickListener(){
-
-            public void onClick (View v){
-
-                           standardcolor.setImageResource(R.mipmap.standardcolor_yellow);
-                           standardbw.setImageResource(R.mipmap.standardbw_white);
-                           custom.setImageResource(R.mipmap.custom_white);
-
-                fr = new FragmentOne();
-                fm = getFragmentManager();
-                fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_place, fr);
-                fragmentTransaction.commit();
-            }
-        });
-
-
-        standardbw.setOnClickListener(new OnClickListener(){
-
-            public void onClick (View v){
-
-                            standardbw.setImageResource(R.mipmap.standardbw_yellow);
-                            standardcolor.setImageResource(R.mipmap.standardcolor_white);
-                            custom.setImageResource(R.mipmap.custom_white);
-
-                fr = new FragmentOne();
-
-                fm = getFragmentManager();
-                fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_place, fr);
-                fragmentTransaction.commit();
-
-
-            }
-        });
-
-
-        custom.setOnClickListener(new OnClickListener(){
-
-            public void onClick (View v){
-
-                            custom.setImageResource(R.mipmap.custom_yellow);
-                            standardcolor.setImageResource(R.mipmap.standardcolor_white);
-                            standardbw.setImageResource(R.mipmap.standardbw_white);
-
-                fr = new FragmentTwo();
-
-                fm = getFragmentManager();
-                fragmentTransaction = fm.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_place, fr);
-                fragmentTransaction.commit();
-
-
+                if(num_copies.getText().equals("0")){
+                    num_copies.setText("1");
+                }else if(num>1) {
+                    num = num - 1;
+                    val = Integer.toString(num);
+                    num_copies.setText(val);
                 }
+            }
+        });
 
-               });
 
 
-}
+        class RptUpdater implements Runnable {
+            public void run() {
+                if (mAutoIncrement) {
+                    increment();
+                    repeatUpdateHandler.postDelayed(new RptUpdater(), REP_DELAY);
+                } else if (mAutoDecrement) {
+                    decrement();
+                    repeatUpdateHandler.postDelayed(new RptUpdater(), REP_DELAY);
+                }
+            }
+        }
 
+
+        incre.setOnLongClickListener(
+                new View.OnLongClickListener() {
+                    public boolean onLongClick(View arg0) {
+                        mAutoIncrement = true;
+                        repeatUpdateHandler.post(new RptUpdater());
+                        return false;
+                    }
+                }
+        );
+
+
+        incre.setOnTouchListener(new View.OnTouchListener() {
+                                     public boolean onTouch(View v, MotionEvent event) {
+                                         if ((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)
+                                                 && mAutoIncrement) {
+                                             mAutoIncrement = false;
+                                         }
+                                         return false;
+                                     }
+                                 }
+        );
+
+        decre.setOnLongClickListener(
+                new View.OnLongClickListener() {
+                    public boolean onLongClick(View arg0) {
+                        mAutoDecrement = true;
+                        repeatUpdateHandler.post(new RptUpdater());
+                        return false;
+                    }
+                }
+        );
+
+
+        decre.setOnTouchListener(new View.OnTouchListener() {
+                                     public boolean onTouch(View v, MotionEvent event) {
+                                         if ((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)
+                                                 && mAutoDecrement) {
+                                             mAutoDecrement = false;
+                                         }
+                                         return false;
+                                     }
+                                 }
+        );
+
+
+        back.setOnClickListener(new View.OnClickListener()
+
+                                {
+                                    public void onClick(View v) {
+                                        finish();
+                                    }
+                                }
+
+        );
+
+        standardcolor.setOnClickListener(new OnClickListener() {
+
+                                             public void onClick(View v) {
+
+                                                 standardcolor.setImageResource(R.mipmap.standardcolor_yellow);
+                                                 standardbw.setImageResource(R.mipmap.standardbw_white);
+                                                 custom.setImageResource(R.mipmap.custom_white);
+
+                                                 fr = new FragmentOne();
+                                                 fm = getFragmentManager();
+                                                 fragmentTransaction = fm.beginTransaction();
+                                                 fragmentTransaction.replace(R.id.fragment_place, fr);
+                                                 fragmentTransaction.commit();
+                                             }
+                                         }
+
+        );
+
+
+        standardbw.setOnClickListener(new OnClickListener() {
+
+                                          public void onClick(View v) {
+
+                                              standardbw.setImageResource(R.mipmap.standardbw_yellow);
+                                              standardcolor.setImageResource(R.mipmap.standardcolor_white);
+                                              custom.setImageResource(R.mipmap.custom_white);
+
+                                              fr = new FragmentOne();
+
+                                              fm = getFragmentManager();
+                                              fragmentTransaction = fm.beginTransaction();
+                                              fragmentTransaction.replace(R.id.fragment_place, fr);
+                                              fragmentTransaction.commit();
+
+
+                                          }
+                                      }
+
+        );
+
+
+        custom.setOnClickListener(new OnClickListener() {
+
+                                      public void onClick(View v) {
+
+                                          custom.setImageResource(R.mipmap.custom_yellow);
+                                          standardcolor.setImageResource(R.mipmap.standardcolor_white);
+                                          standardbw.setImageResource(R.mipmap.standardbw_white);
+
+                                          fr = new FragmentTwo();
+
+                                          fm = getFragmentManager();
+                                          fragmentTransaction = fm.beginTransaction();
+                                          fragmentTransaction.replace(R.id.fragment_place, fr);
+                                          fragmentTransaction.commit();
+
+
+                                      }
+
+                                  }
+
+        );
+    }
+
+        public void increment() {
+            if (num < 100) {
+                num++;
+                num_copies.setText(String.valueOf(num));
+            }
+
+        }
+
+        public void decrement() {
+            if (num > 1) {
+                num--;
+                num_copies.setText(String.valueOf(num));
+            }
+
+        }
 
     @Override
     public void onClick(View v) {
