@@ -263,9 +263,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout2"
+            android:layout_marginBottom="5dp"
             android:background="#2e2e2e"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/lbl_dns_address"
@@ -342,95 +342,76 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/linearLayout3"
             android:background="#2e2e2e"
-            android:orientation="horizontal"
-            android:layout_below="@+id/linearLayout3">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/lbl_subnet_mask"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="7dp"
-                android:layout_marginStart="7dp"
-                android:text="@string/subnet_mask" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginEnd="40dp"
+                android:text="@string/subnet_mask"
+                android:textSize="@dimen/text_size" />
 
             <EditText
                 android:id="@+id/editText_subnet_byte1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="62dp"
-                android:layout_marginStart="62dp"
-                android:layout_toEndOf="@+id/lbl_subnet_mask"
-                android:layout_toRightOf="@+id/lbl_subnet_mask"
-                android:text="255" />
+                android:width="40dp"
+                android:gravity="center_horizontal"
+                android:text="255"
+                android:textSize="@dimen/text_size" />
 
             <TextView
                 android:id="@+id/subnet_period_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="11dp"
-                android:layout_marginStart="11dp"
-                android:layout_toEndOf="@+id/editText_subnet_byte1"
-                android:layout_toRightOf="@+id/editText_subnet_byte1"
                 android:text="." />
 
             <EditText
                 android:id="@+id/editText_subnet_byte2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="13dp"
-                android:layout_marginStart="13dp"
-                android:layout_toEndOf="@+id/subnet_period_1"
-                android:layout_toRightOf="@+id/subnet_period_1"
-                android:text="255" />
+                android:gravity="center_horizontal"
+                android:text="255"
+                android:width="40dp"
+                android:textSize="@dimen/text_size" />
 
             <TextView
                 android:id="@+id/subnet_period_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="11dp"
-                android:layout_marginStart="11dp"
-                android:layout_toEndOf="@+id/editText_subnet_byte2"
-                android:layout_toRightOf="@+id/editText_subnet_byte2"
+
                 android:text="." />
 
             <EditText
                 android:id="@+id/editText_subnet_byte3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_toEndOf="@+id/subnet_period_2"
-                android:layout_toRightOf="@+id/subnet_period_2"
-                android:text="255" />
+                android:gravity="center_horizontal"
+                android:text="255"
+                android:width="40dp"
+                android:textSize="@dimen/text_size" />
 
             <TextView
                 android:id="@+id/subnet_period_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="11dp"
-                android:layout_marginStart="11dp"
-                android:layout_toEndOf="@+id/editText_subnet_byte3"
-                android:layout_toRightOf="@+id/editText_subnet_byte3"
                 android:text="." />
 
             <EditText
                 android:id="@+id/editText_subnet_byte4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:text="255" />
+                android:gravity="center_horizontal"
+                android:text="255"
+                android:width="40dp"
+                android:textSize="@dimen/text_size" />
 
         </LinearLayout>
 
