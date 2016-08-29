@@ -7,11 +7,11 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * Created by SQA Cebu on 6/22/2016.
+ * Created by Arvin on 6/22/2016.
  */
 public class WS00_015 extends Activity {
 
-    Button btnFindRouter;
+    Button btnFindRouter, btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,8 @@ public class WS00_015 extends Activity {
         setContentView(R.layout.activity_ws00_015);
 
         btnFindRouter = (Button) findViewById(R.id.btnFindRouter1);
+        btnBack = (Button) findViewById(R.id.back);
+
         btnFindRouter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,7 +28,18 @@ public class WS00_015 extends Activity {
             }
         });
 
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WS00_015.this, WS00_011.class));
+                finish();
+            }
+        });
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WS00_015.this, WS00_011.class));
+        finish();
     }
 }

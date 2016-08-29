@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 /**
- * Created by SQA Cebu on 6/22/2016.
+ * Created by Arvin on 6/22/2016.
  */
 public class WS00_011 extends Activity {
 
@@ -37,7 +37,7 @@ public class WS00_011 extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i){
+                switch (i) {
                     case 0:
                         ssid_item = listView.getItemAtPosition(i).toString();
                         toWS00_012();
@@ -96,6 +96,7 @@ public class WS00_011 extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(WS00_011.this, WS00_015.class));
+                finish();
             }
         });
 
@@ -103,6 +104,7 @@ public class WS00_011 extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(WS00_011.this, WS00_014.class));
+                finish();
             }
         });
 
@@ -114,7 +116,7 @@ public class WS00_011 extends Activity {
         });
     }
 
-    public void toWS00_012(){
+    public void toWS00_012() {
         startActivity(new Intent(WS00_011.this, WS00_012.class));
     }
 }

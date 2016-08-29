@@ -47,9 +47,9 @@ public class WS00_020 extends Activity {
         final ProgressDialog pd = new ProgressDialog(WS00_020.this);
         pd.setMessage("Getting network information...");
         pd.setCancelable(true);
-        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener(){
+        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which){
+            public void onClick(DialogInterface dialog, int which) {
                 startActivity(new Intent(WS00_020.this, WS00_000.class));
                 pd.dismiss();
                 isCanceled = true;
@@ -60,10 +60,9 @@ public class WS00_020 extends Activity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try{
-
+                try {
                     Thread.sleep(4000);
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 pd.dismiss();
@@ -76,10 +75,10 @@ public class WS00_020 extends Activity {
         swAutoManual.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
+                if (b) {
                     tvAutoManual.setText(manual);
                     llipAddress.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     tvAutoManual.setText(auto);
                     llipAddress.setVisibility(View.INVISIBLE);
                 }
@@ -120,13 +119,5 @@ public class WS00_020 extends Activity {
                 finish();
             }
         });
-
-
-
-
-
-
-
-
     }
 }

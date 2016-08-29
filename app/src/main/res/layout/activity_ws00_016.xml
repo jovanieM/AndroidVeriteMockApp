@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:orientation="vertical"
     android:weightSum="1">
 
     <include layout="@layout/app_bar" />
@@ -11,44 +12,47 @@
         android:id="@+id/title_wifi_setup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Network and Password"
-        android:textSize="20sp"
-        android:gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@color/colorPrimary"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
+        android:gravity="center_horizontal"
+        android:text="@string/network_and_password"
+        android:textSize="@dimen/text_size_20" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Connecting via Router..."
-        android:layout_marginTop="5dp" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/connecting_via_router" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="244dp"
-        android:layout_margin="10dp">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="center"
-            android:adjustViewBounds="false"
-            android:layout_gravity="center_horizontal"
-            android:cropToPadding="false"
-            android:src="@mipmap/routersearch"
             android:layout_alignParentBottom="false"
-            android:layout_centerInParent="true" />
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="center"
+            android:src="@mipmap/routersearch" />
 
         <ProgressBar
+            android:id="@+id/progressBar3"
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/progressBar3"
-            android:progressDrawable="@drawable/progress_circle"
-            android:indeterminateDrawable="@drawable/progress_circle"
+            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:indeterminateDrawable="@drawable/progress_circle"
+            android:progressDrawable="@drawable/progress_circle" />
     </RelativeLayout>
 
 </LinearLayout>

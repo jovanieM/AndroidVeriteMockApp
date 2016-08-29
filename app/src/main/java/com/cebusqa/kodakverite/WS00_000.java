@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 /**
- * Created by SQA Cebu on 6/21/2016.
+ * Created by Arvin on 6/21/2016.
  */
 public class WS00_000 extends Activity {
 
@@ -18,16 +18,16 @@ public class WS00_000 extends Activity {
     Context context;
     Button btnBack;
     //public static int [] prgImages ={R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher,};
-    public static String [] prgItems; //= {"item1","item2","item3"};
+    public static String[] prgItems; //= {"item1","item2","item3"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ws00_000);
 
         btnBack = (Button) findViewById(R.id.back);
-        context=this;
+        context = this;
         prgItems = getResources().getStringArray(R.array.wifi_setup);
-
 
 
         lvWifiSetupItems = (ListView) findViewById(R.id.lv_wifi_setup);
@@ -35,7 +35,7 @@ public class WS00_000 extends Activity {
         lvWifiSetupItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                switch(position){
+                switch (position) {
                     case 0:
                         startActivity(new Intent(WS00_000.this, WS00_010.class));
                         break;
