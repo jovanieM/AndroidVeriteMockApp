@@ -22,6 +22,19 @@
     <string name="other">other...</string>
     <string name="usage_tracking">Usage Tracking</string>
     <string name="done">Done</string>
+    <string name="searching_for_routers">Searching for Routers...</string>
+    <string name="network_and_password">Network and Password</string>
+    <string name="select_the_network">Select the network...</string>
+    <string name="connecting_via_router">Connecting via Router...</string>
+    <string name="ip_address">IP Address</string>
+    <string name="save_setting">Save Setting</string>
+    <string name="proxy">Proxy</string>
+    <string name="host_name">Host Name</string>
+    <string name="direct_connect_time">Direct Connect Time</string>
+    <string name="friendly_name">Friendly Name</string>
+    <string name="subnet_mask">Subnet mask</string>
+    <string name="default_gateway">Default Gateway</string>
+    <string name="dns_address">DNS Address</string>
 
     <string-array name="Color_copy">
         <item>Color</item>

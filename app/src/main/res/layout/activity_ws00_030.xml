@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:orientation="vertical"
     android:weightSum="1">
 
     <include layout="@layout/app_bar_back_only" />
@@ -11,61 +12,69 @@
         android:id="@+id/title_wifi_setup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Proxy"
-        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/colorPrimary"
         android:gravity="center_horizontal"
-        android:background="@color/colorPrimary" />
+        android:text="@string/proxy"
+        android:textSize="@dimen/text_size_20" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="#2e2e2e"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Proxy"
             android:id="@+id/tv_ipAdd"
-            android:layout_marginRight="40dp"
-            android:layout_gravity="center_vertical" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="40dp"
+            android:text="@string/proxy" />
+
+        <TextView
             android:id="@+id/tv_on_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical" />
 
         <Switch
+            android:id="@+id/sw_on_off"
             android:layout_width="58dp"
             android:layout_height="wrap_content"
-            android:id="@+id/sw_on_off"
-            android:checked="false"
+            android:layout_gravity="center_vertical"
             android:layout_marginLeft="40dp"
-            android:layout_gravity="center_vertical" />
+            android:checked="false" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_address_port"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/ll_address_port">
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#2e2e2e">
+            android:background="#2e2e2e"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Address:"
+                android:layout_gravity="center_vertical"
                 android:layout_marginRight="40dp"
-                android:layout_gravity="center_vertical" />
+                android:text="Address:" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -74,18 +83,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#2e2e2e"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Port:"
+                android:layout_gravity="center_vertical"
                 android:layout_marginRight="40dp"
-                android:layout_gravity="center_vertical" />
+                android:text="Port:" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -96,10 +104,12 @@
     </LinearLayout>
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="Save Setting"
         android:id="@+id/btn_save_setting1"
-        android:background="@drawable/oval_background" />
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/oval_background"
+        android:text="@string/save_setting" />
 
 </LinearLayout>

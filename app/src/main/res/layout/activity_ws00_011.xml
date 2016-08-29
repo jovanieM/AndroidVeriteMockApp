@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
 
     <include layout="@layout/app_bar_back_only" />
 
@@ -10,48 +11,59 @@
         android:id="@+id/title_wifi_setup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Network and Password"
-        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/colorPrimary"
         android:gravity="center_horizontal"
-        android:background="@color/colorPrimary" />
+        android:text="@string/network_and_password"
+        android:textSize="@dimen/text_size_20" />
 
     <TextView
+        android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select the network..."
-        android:id="@+id/textView12"
-        android:textSize="15sp"
-        android:layout_margin="10dp" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/select_the_network"
+        android:textSize="@dimen/text_size" />
 
     <ListView
+        android:id="@+id/lv_connections"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
-        android:id="@+id/lv_connections"
-        android:entries="@array/routers_printer"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:entries="@array/routers_printer" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:gravity="center_vertical|center_horizontal"
-        android:layout_marginTop="10dp">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_manual1"
             android:layout_width="100dp"
             android:layout_height="30dp"
-            android:text="Manual"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="10dp"
             android:background="@drawable/oval_background"
-            android:layout_gravity="center_horizontal" />
+            android:text="@string/manual" />
 
         <Button
             android:id="@+id/btn_wps1"
             android:layout_width="100dp"
             android:layout_height="30dp"
-            android:text="WPS"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/oval_background"
-            android:layout_gravity="center_horizontal" />
+            android:text="@string/wps" />
 
     </LinearLayout>
 </LinearLayout>

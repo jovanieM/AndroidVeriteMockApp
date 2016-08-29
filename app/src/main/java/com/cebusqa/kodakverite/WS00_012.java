@@ -16,7 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 /**
- * Created by SQA Cebu on 6/22/2016.
+ * Created by Arvin on 6/22/2016.
  */
 public class WS00_012 extends Activity {
 
@@ -45,8 +45,7 @@ public class WS00_012 extends Activity {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
 
-                if(i == EditorInfo.IME_ACTION_GO)
-                {
+                if (i == EditorInfo.IME_ACTION_GO) {
                     startActivity(new Intent(WS00_012.this, WS00_013.class));
                     hideSoftKeyboard();
                 }
@@ -58,6 +57,7 @@ public class WS00_012 extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(WS00_012.this, WS00_012H.class));
+                finish();
             }
         });
 
@@ -65,28 +65,34 @@ public class WS00_012 extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(WS00_012.this, WS00_011.class));
+                finish();
             }
         });
 
 
     }
 
-    public void hideSoftKeyboard(){
-        if(this.getCurrentFocus()!=null){
+    public void hideSoftKeyboard() {
+        if (this.getCurrentFocus() != null) {
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.toggleSoftInput(imm.HIDE_IMPLICIT_ONLY, 0);
         }
     }
 
-    public void checkBox(){
+    public void checkBox() {
         cBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(!b)
+                if (!b)
                     etPass1.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 else
                     etPass1.setInputType(129);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

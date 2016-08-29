@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 /**
  * Created by SQA Cebu on 6/23/2016.
@@ -19,11 +21,11 @@ import android.widget.TextView;
 public class WS00_020 extends Activity {
 
     private boolean isCanceled;
-    LinearLayout llipAddress, llipAdd;
+    RelativeLayout rlipAdd, llipAddress;
     TextView tvAutoManual;
-    String auto = "Auto";
-    String manual = "Manual";
-    Switch swAutoManual;
+    String auto = "auto";
+    String manual = "manual";
+    ToggleButton toggleButton_auto_manual;
     Button btnBack, btnSaveSetting;
 
     @Override
@@ -31,12 +33,13 @@ public class WS00_020 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ws00_020);
 
-        llipAddress = (LinearLayout) findViewById(R.id.ll_ip_address);
-        llipAdd = (LinearLayout) findViewById(R.id.ll_ipAdd);
+
+        llipAddress = (RelativeLayout) findViewById(R.id.ll_ip_address);
+        rlipAdd = (RelativeLayout) findViewById(R.id.rl_ipAdd);
         btnSaveSetting = (Button) findViewById(R.id.btn_save_setting);
         btnBack = (Button) findViewById(R.id.back);
         tvAutoManual = (TextView) findViewById(R.id.tv_auto_manual);
-        swAutoManual = (Switch) findViewById(R.id.switch1);
+        toggleButton_auto_manual = (ToggleButton) findViewById(R.id.toggleButton2);
 
         tvAutoManual.setText(auto);
         llipAddress.setVisibility(View.INVISIBLE);
@@ -47,9 +50,9 @@ public class WS00_020 extends Activity {
         final ProgressDialog pd = new ProgressDialog(WS00_020.this);
         pd.setMessage("Getting network information...");
         pd.setCancelable(true);
-        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener(){
+        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which){
+            public void onClick(DialogInterface dialog, int which) {
                 startActivity(new Intent(WS00_020.this, WS00_000.class));
                 pd.dismiss();
                 isCanceled = true;
@@ -60,26 +63,25 @@ public class WS00_020 extends Activity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try{
-
+                try {
                     Thread.sleep(4000);
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 pd.dismiss();
             }
         }).start();
 
-        llipAdd.setVisibility(View.VISIBLE);
+        rlipAdd.setVisibility(View.VISIBLE);
         btnSaveSetting.setVisibility(View.VISIBLE);
 
-        swAutoManual.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        toggleButton_auto_manual.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
+                if (b) {
                     tvAutoManual.setText(manual);
                     llipAddress.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     tvAutoManual.setText(auto);
                     llipAddress.setVisibility(View.INVISIBLE);
                 }
@@ -120,13 +122,5 @@ public class WS00_020 extends Activity {
                 finish();
             }
         });
-
-
-
-
-
-
-
-
     }
 }
