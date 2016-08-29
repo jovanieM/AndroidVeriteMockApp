@@ -34,7 +34,6 @@ public class KodakVeriteApp extends Application {
     static ArrayList<String> dirs;
     static ArrayList<String> thumbData;
     static ArrayList<String> noOfFiles;
-    int counter = 0;
     static String fName;
 
     @Override

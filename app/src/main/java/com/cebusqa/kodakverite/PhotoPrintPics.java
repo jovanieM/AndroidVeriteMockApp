@@ -322,7 +322,7 @@ public class PhotoPrintPics extends AppCompatActivity {
             list = paths;
             options = new DisplayImageOptions.Builder()
                     .cacheOnDisk(true)
-                    .imageScaleType(ImageScaleType.EXACTLY)
+                    .imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2)
                     .displayer(new SimpleBitmapDisplayer())
                     .bitmapConfig(Bitmap.Config.RGB_565)
                     .handler(new Handler())
