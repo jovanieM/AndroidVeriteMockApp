@@ -12,6 +12,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -20,7 +21,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 /**
- * Created by SQA Cebu on 6/22/2016.
+ * Created by Arvin on 6/22/2016.
  */
 public class WS00_014 extends Activity {
 
@@ -30,6 +31,7 @@ public class WS00_014 extends Activity {
     Spinner spinner;
     RelativeLayout relativeLayout;
     CheckBox cbox;
+    Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class WS00_014 extends Activity {
         spinner = (Spinner) findViewById(R.id.sp_security1);
         relativeLayout = (RelativeLayout) findViewById(R.id.rl_password1);
         cbox = (CheckBox) findViewById(R.id.checkBox4);
+        btnBack = (Button) findViewById(R.id.back);
 
         items = getResources().getStringArray(R.array.security);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
@@ -50,18 +53,17 @@ public class WS00_014 extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-                switch (i){
+                switch (i) {
                     case 0:
                         relativeLayout.setVisibility(View.INVISIBLE);
                         checkBox();
                         etSSID.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                                if(i == EditorInfo.IME_ACTION_GO){
+                                if (i == EditorInfo.IME_ACTION_GO) {
                                     startActivity(new Intent(WS00_014.this, WS00_013.class));
                                     hideSoftKeyboard();
                                 }
-
                                 return false;
                             }
                         });
@@ -73,8 +75,7 @@ public class WS00_014 extends Activity {
                         etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                                if(i == EditorInfo.IME_ACTION_GO)
-                                {
+                                if (i == EditorInfo.IME_ACTION_GO) {
                                     startActivity(new Intent(WS00_014.this, WS00_013.class));
                                     hideSoftKeyboard();
                                 }
@@ -88,8 +89,7 @@ public class WS00_014 extends Activity {
                         etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                                if(i == EditorInfo.IME_ACTION_GO)
-                                {
+                                if (i == EditorInfo.IME_ACTION_GO) {
                                     startActivity(new Intent(WS00_014.this, WS00_013.class));
                                 }
                                 return false;
@@ -102,8 +102,7 @@ public class WS00_014 extends Activity {
                         etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                                if(i == EditorInfo.IME_ACTION_GO)
-                                {
+                                if (i == EditorInfo.IME_ACTION_GO) {
                                     startActivity(new Intent(WS00_014.this, WS00_013.class));
                                 }
                                 return false;
@@ -121,31 +120,47 @@ public class WS00_014 extends Activity {
 
             }
         });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WS00_014.this, WS00_011.class));
+                finish();
+            }
+        });
     }
 
-    public void showSoftKeyboard(){
-        if(this.getCurrentFocus()!=null){
+    public void showSoftKeyboard() {
+        etSSID.requestFocus();
+        if (this.getCurrentFocus() != null) {
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.toggleSoftInput(imm.SHOW_IMPLICIT, 0);
         }
     }
 
-    public void hideSoftKeyboard(){
-        if(this.getCurrentFocus()!=null){
+    public void hideSoftKeyboard() {
+        if (this.getCurrentFocus() != null) {
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(imm.HIDE_NOT_ALWAYS, 0);}
+            imm.toggleSoftInput(imm.HIDE_NOT_ALWAYS, 0);
+        }
     }
 
-    public void checkBox(){
+    public void checkBox() {
         cbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(!b){
-                    etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                }else{
+                if (!b) {
                     etPassword.setInputType(129);
+                } else {
+                    etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WS00_014.this, WS00_011.class));
+        finish();
     }
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
 
     <include layout="@layout/app_bar_back_only" />
 
@@ -10,24 +11,28 @@
         android:id="@+id/title_wifi_setup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Network and Password"
-        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/colorPrimary"
         android:gravity="center_horizontal"
-        android:background="@color/colorPrimary" />
+        android:text="@string/network_and_password"
+        android:textSize="@dimen/text_size_20" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="
-SSID and password are normally displayed at the side or bottom part of the router.
-For more detail, please refer to the manual of the router."
-        android:textSize="15sp" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="SSID and password are normally displayed at the side or bottom part of the router.  \nFor more detail, please refer to the manual of the router."
+        android:textSize="@dimen/text_size" />
 
     <ImageView
         android:layout_width="280dp"
         android:layout_height="180dp"
-        android:src="@drawable/image13"
+        android:layout_gravity="center_horizontal"
         android:adjustViewBounds="true"
-        android:layout_gravity="center_horizontal" />
+        android:src="@drawable/image13" />
 </LinearLayout>

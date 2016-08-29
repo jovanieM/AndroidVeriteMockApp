@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 /**
- * Created by SQA Cebu on 6/22/2016.
+ * Created by Arvin on 6/22/2016.
  */
 public class WS00_013 extends Activity {
 
@@ -19,6 +19,7 @@ public class WS00_013 extends Activity {
             @Override
             public void run() {
                 startActivity(new Intent(WS00_013.this, HM10_000.class));
+                finish();
             }
         }, 4000);
     }

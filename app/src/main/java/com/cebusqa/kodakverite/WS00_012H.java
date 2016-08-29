@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * Created by SQA Cebu on 6/22/2016.
+ * Created by Arvin on 6/22/2016.
  */
 public class WS00_012H extends Activity {
 
@@ -23,6 +23,7 @@ public class WS00_012H extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(WS00_012H.this, WS00_012.class));
+                finish();
             }
         });
     }
