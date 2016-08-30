@@ -25,6 +25,8 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
+import java.io.File;
+
 /**
  * Created by Cebu SQA on 29/06/2016.
  */
@@ -142,57 +144,51 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
             @Override
             public void onClick(View v) {
 
-                boolean installed  =   appInstalledOrNot("com.google.android.apps.cloudprint");
-                if(installed)
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+
+                    boolean installed = appInstalledOrNot("com.google.android.apps.cloudprint");
+                    if (installed) {
+                        Toast.makeText(getApplicationContext(), "You can print using Cloud Print application", Toast.LENGTH_LONG).show();
+                    } else {
+
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.cloudprint&hl=en"));
+                        startActivity(browserIntent);
+                        Toast.makeText(getApplicationContext(), "Please install Cloud Print application", Toast.LENGTH_LONG).show();
+
+                    }
+
+
+                    PrintHelper photoPrinter = new PrintHelper(FlickPrint.this);
+                    photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
+                    Bitmap bitmap = BitmapFactory.decodeFile(fullImage);
+                    photoPrinter.printBitmap("photo", bitmap);
+
+                } else
+
                 {
-                    Toast.makeText(getApplicationContext(),"You can print using Cloud Print application", Toast.LENGTH_LONG).show();
+                    File fileImage = new File(fullImage);
+                    Intent sendIntent = new Intent(Intent.ACTION_SEND);
+                    sendIntent.putExtra(android.content.Intent.EXTRA_STREAM, Uri.fromFile(fileImage));
+                    sendIntent.setType("image*//*");
+                    startActivity(sendIntent);
                 }
-                else
-                {
-
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.cloudprint&hl=en"));
-                    startActivity(browserIntent);
-                    Toast.makeText(getApplicationContext(),"Please install Cloud Print application", Toast.LENGTH_LONG).show();
-
-                }
-
-
-                PrintHelper photoPrinter = new PrintHelper(FlickPrint.this);
-                photoPrinter.setScaleMode(PrintHelper.SCALE_MODE_FIT);
-                Bitmap bitmap = BitmapFactory.decodeFile(fullImage);
-                photoPrinter.printBitmap("photo", bitmap);
-
             }
-
-            /*public void openWebPage(String url) {
-                Uri webpage = Uri.parse("http://www.google.com");
-                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
-            }*/
-
-
-            private boolean appInstalledOrNot(String uri)
-            {
+                private boolean appInstalledOrNot(String uri) {
                 PackageManager pm = getPackageManager();
                 boolean app_installed;
-                try
-                {
+                try {
                     pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
                     app_installed = true;
                     Log.v("test", "test2");
-                }
-                catch (PackageManager.NameNotFoundException e)
-                {
+                } catch (PackageManager.NameNotFoundException e) {
                     app_installed = false;
                     Log.v("test", "test1");
                 }
 
 
-
-                return app_installed ;
+                return app_installed;
             }
+
 
         });
 
