@@ -36,6 +36,7 @@ public class KodakVeriteApp extends Application {
     static ArrayList<String> noOfFiles;
     static String fName;
 
+
     @Override
     public void onCreate() {
         super.onCreate();
