@@ -1,19 +1,12 @@
 package com.cebusqa.kodakverite;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.CancellationSignal;
 import android.os.Handler;
-import android.os.ParcelFileDescriptor;
-import android.print.PageRange;
-import android.print.PrintAttributes;
-import android.print.PrintDocumentAdapter;
 import android.print.PrintManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -30,6 +23,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.decode.ImageDecoder;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import java.io.File;
@@ -99,8 +93,18 @@ public class PhotoPrintPics extends AppCompatActivity {
 
         mGcp.setOnClickListener(new View.OnClickListener() {
             @Override
+
+
             public void onClick(View v) {
-                doPrint();
+                     doPrint();
+
+            /*    File fileImage = new File(String.valueOf(picPaths));
+                Uri uri = Uri.fromFile(fileImage);
+                Intent sendIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+                sendIntent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uri);
+                sendIntent.setType("image*//*");
+                startActivity(sendIntent);*/
+
             }
         });
 
@@ -387,7 +391,7 @@ public class PhotoPrintPics extends AppCompatActivity {
 
             //}
             //Picasso.with(getApplicationContext()).load("file:///"+picPaths.get(position)).into(holder.pictures);
-
+            
             imageLoader.displayImage("file:///" + picPaths.get(position), imageView, options);
             //imageView.setImageBitmap(ThumbnailUtils.extractThumbnail(BitmapFactory.decodeFile(picPaths.get(position)), 200, 150));
             return convertView;

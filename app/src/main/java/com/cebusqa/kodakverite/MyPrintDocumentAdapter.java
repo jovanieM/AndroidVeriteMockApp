@@ -7,9 +7,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.pdf.PdfDocument;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CancellationSignal;
+import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.print.PageRange;
 import android.print.PrintAttributes;
@@ -18,9 +20,10 @@ import android.print.PrintDocumentInfo;
 import android.print.pdf.PrintedPdfDocument;
 import android.util.Log;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,13 +40,13 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
     int mPages;
     Rect mRect;
     Bitmap bitmap;
-    PaperSizeComputation paperSizeComputation;
+
+
     BitmapFactory.Options options;
     PdfDocument.Page page;
     int imageWidth, imageHeight;
-
+    DisplayImageOptions displayImageOptions;
     PrintAttributes mPrintAttributes;
-    PrintAttributes.Margins margins;
 
 
     MyPrintDocumentAdapter(Context context) {
@@ -51,21 +54,15 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
         kodakVeriteApp = new KodakVeriteApp();
         uri = kodakVeriteApp.getThumbData();
         mPrintAttributes = null;
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
         Log.v("my Activity", "onStart");
-
-        bitmap = null;
-
         mPages = kodakVeriteApp.getThumbData().size();
-        paperSizeComputation = new PaperSizeComputation();
-        margins = PrintAttributes.Margins.NO_MARGINS;
-        //PrintAttributes.Margins printAttributes= PrintAttributes.Margins.NO_MARGINS;
-
-
+        bitmap = null;
     }
 
     @Override
@@ -115,12 +112,12 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
 
         mPdfDocument = new PrintedPdfDocument(context, mPrintAttributes);
 
-//        if(cancellationSignal.isCanceled()){
-//            callback.onWriteCancelled();
-//            mPdfDocument.close();
-//            mPdfDocument = null;
-//            return;
-//        }
+        if(cancellationSignal.isCanceled()){
+            callback.onWriteCancelled();
+            mPdfDocument.close();
+            mPdfDocument = null;
+            return;
+        }
 
         for (int i = 0; i < mPages;){
             bitmap = null;
@@ -136,19 +133,46 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
             options.inJustDecodeBounds = true;
 
             bitmap = BitmapFactory.decodeFile(uri.get(i), options);
-
             imageWidth = options.outWidth;
             imageHeight = options.outHeight;
+
            // bitmap = convertBitmap(uri.get(i), options);
 
             options.inJustDecodeBounds = false;
-            options.inSampleSize = 1;
-            bitmap = BitmapFactory.decodeFile(uri.get(i), options);
+            //options = new BitmapFactory.Options();
+            options.inSampleSize = 2;
 
+            /*displayImageOptions = new DisplayImageOptions.Builder()
+                    .cacheOnDisk(true)
+                    .handler(new Handler())
+                    .decodingOptions(options)
+                    .build();*/
+
+            //bitmap = BitmapFactory.decodeFile(uri.get(i), options);
+                    //ImageLoader.getInstance().loadImageSync("file:///" + uri.get(i), displayImageOptions);
+          //  Log.v("my Activity", String.valueOf(bitmap.getWidth()));
+            Log.v("my Activity", String.valueOf(imageWidth));
            // bitmap = convertBitmap(uri.get(i), options);
 
+            new AsyncTask<String, Void, Void>(){
+                @Override
+                protected Void doInBackground(String... params) {
+                    synchronized (this){
+                        bitmap = BitmapFactory.decodeFile(params[0], options);
+                        Log.v("decode bitmap", String.valueOf(bitmap));
 
+                        Log.v("my Activity", "after notify");
+                        return null;
+                    }
 
+                }
+
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    Log.v("onPost execute", "after notify");
+                    notify();
+                }
+            }.execute(uri.get(i));
 
             Log.v("loop number", String.valueOf(i));
 
@@ -156,9 +180,7 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
 
                 double paperSizeRatio = ((double) mPrintAttributes.getMediaSize().getWidthMils() / (double) mPrintAttributes.getMediaSize().getHeightMils());
 
-
                 if (imageWidth > imageHeight) {
-
 
                     double sRatio = ((double) imageHeight / imageWidth);
                     //double width = ((double) (mPrintAttributes.getMediaSize().getWidthMils() / 1000)) * 72;
@@ -178,6 +200,7 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
 
                 }
                 if (imageWidth < imageHeight) {
+
                     //double paperRatio = mPrintAttributes.getMediaSize().getWidthMils() / mPrintAttributes.getMediaSize().getHeightMils();
                     double sRatio = ((double) imageWidth / imageHeight);
                     double sRatio2 = ((double) imageHeight / imageWidth);
@@ -199,10 +222,13 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
                         Log.v("my Activity", String.valueOf(outPutWidth));
                         Log.v("my Activity", String.valueOf(imageHeight));
                         Log.v("my Activity", String.valueOf(imageWidth));
+
                     }else{
+
                         double outPutHeight = width * sRatio2;
                         int marginHeight = (int)Math.round((height - outPutHeight) / 2.0);
                         mRect = new Rect(9, marginHeight + 9, final_width - 9, final_height -(marginHeight+9) );
+
                     }
 
 
@@ -263,21 +289,29 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
             }
             //options.inTempStorage
 
-
             //Toast.makeText(context, String.valueOf(mPrintAttributes.getResolution()), Toast.LENGTH_LONG).show();
+            synchronized (this){
+                try {
+                    wait();
+                    Log.v("my Activity", "before wait");
+
+                    drawPage(page, mRect);
+
+                    mPdfDocument.finishPage(page);
+
+                    bitmap.recycle();
+
+                    i++;
+                    Log.v("my Activity", "after wait");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
 
+            }
 
-            drawPage(page, mRect);
-            mPdfDocument.finishPage(page);
 
-            bitmap.recycle();
-
-            i++;
-
-            //bitmap = null;
         }
-
 
         try {
             mPdfDocument.writeTo(new FileOutputStream(destination.getFileDescriptor()));
@@ -287,6 +321,7 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
         } finally {
             mPdfDocument.close();
             mPdfDocument = null;
+            bitmap.recycle();
         }
 
         PageRange[] writtenPages = {PageRange.ALL_PAGES};
@@ -296,10 +331,9 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
 
     }
 
-
-
     void drawPage(PdfDocument.Page page, Rect rect){
         Canvas canvas = page.getCanvas();
+
         canvas.drawBitmap(bitmap, null, rect, null);
     }
 
