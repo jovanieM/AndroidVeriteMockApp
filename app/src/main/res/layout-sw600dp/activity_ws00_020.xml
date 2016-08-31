@@ -73,7 +73,8 @@
             android:layout_marginRight="20dp"
             android:background="@drawable/toggle_selector"
             android:textOff=""
-            android:textOn="" />
+            android:textOn=""
+            android:checked="false" />
 
         <!-- <Switch
             android:id="@+id/switch1"

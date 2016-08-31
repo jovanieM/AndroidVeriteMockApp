@@ -32,6 +32,9 @@
     <string name="host_name">Host Name</string>
     <string name="direct_connect_time">Direct Connect Time</string>
     <string name="friendly_name">Friendly Name</string>
+    <string name="subnet_mask">Subnet mask</string>
+    <string name="default_gateway">Default Gateway</string>
+    <string name="dns_address">DNS Address</string>
 
     <string-array name="Color_copy">
         <item>Color</item>

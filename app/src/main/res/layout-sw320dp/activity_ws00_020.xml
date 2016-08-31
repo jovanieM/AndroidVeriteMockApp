@@ -55,8 +55,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="55dp"
-            android:layout_marginRight="55dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginRight="45dp"
             android:layout_toLeftOf="@+id/toggleButton2"
             android:layout_toStartOf="@+id/toggleButton2"
             android:text="New Text" />
@@ -94,8 +94,8 @@
         android:layout_below="@+id/rl_ipAdd"
         android:layout_marginBottom="10dp">
 
-        <LinearLayout
-            android:id="@+id/linearLayout1"
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -104,11 +104,14 @@
 
             <TextView
                 android:id="@+id/lbl_ip_address"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginStart="10dp"
                 android:text="@string/ip_address"
                 android:textSize="@dimen/text_size" />
 
@@ -116,9 +119,13 @@
                 android:id="@+id/editText_ip_byte1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/ip_period_1"
+                android:layout_toStartOf="@+id/ip_period_1"
+                android:width="@dimen/ip_edittext"
                 android:cursorVisible="false"
                 android:gravity="center_horizontal"
+                android:inputType="number"
                 android:text="192"
                 android:textSize="@dimen/text_size" />
 
@@ -126,18 +133,26 @@
                 android:id="@+id/ip_period_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center|end"
-                android:background="@android:color/transparent"
+                android:layout_alignBaseline="@+id/editText_ip_byte2"
+                android:layout_alignBottom="@+id/editText_ip_byte2"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_ip_byte2"
+                android:layout_toStartOf="@+id/editText_ip_byte2"
                 android:text="." />
 
             <EditText
                 android:id="@+id/editText_ip_byte2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical|end"
-                android:width="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/ip_period_2"
+                android:layout_toStartOf="@+id/ip_period_2"
+                android:width="@dimen/ip_edittext"
                 android:cursorVisible="false"
                 android:gravity="center_horizontal"
+                android:inputType="number"
                 android:text="168"
                 android:textSize="@dimen/text_size" />
 
@@ -145,17 +160,26 @@
                 android:id="@+id/ip_period_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
+                android:layout_alignBaseline="@+id/editText_ip_byte3"
+                android:layout_alignBottom="@+id/editText_ip_byte3"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_ip_byte3"
+                android:layout_toStartOf="@+id/editText_ip_byte3"
                 android:text="." />
 
             <EditText
                 android:id="@+id/editText_ip_byte3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:width="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/ip_period_3"
+                android:layout_toStartOf="@+id/ip_period_3"
+                android:width="@dimen/ip_edittext"
                 android:cursorVisible="false"
                 android:gravity="center_horizontal"
+                android:inputType="number"
                 android:text="1"
                 android:textSize="@dimen/text_size" />
 
@@ -163,198 +187,290 @@
                 android:id="@+id/ip_period_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
+                android:layout_alignBaseline="@+id/editText_ip_byte4"
+                android:layout_alignBottom="@+id/editText_ip_byte4"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_ip_byte4"
+                android:layout_toStartOf="@+id/editText_ip_byte4"
                 android:text="." />
 
             <EditText
                 android:id="@+id/editText_ip_byte4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:width="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:width="@dimen/ip_edittext"
                 android:cursorVisible="false"
                 android:gravity="center_horizontal"
+                android:inputType="number"
                 android:text="1"
                 android:textSize="@dimen/text_size" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout2"
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout1"
+            android:layout_below="@+id/relativeLayout1"
             android:layout_marginBottom="5dp"
             android:background="#2e2e2e"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/lbl_default_gateway"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="21dp"
+                android:layout_marginStart="10dp"
                 android:text="@string/default_gateway"
                 android:textSize="@dimen/text_size" />
 
             <EditText
-                android:id="@+id/editText_dns_byte1"
+                android:id="@+id/editText_default_byte1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/default_period_1"
+                android:layout_toStartOf="@+id/default_period_1"
+                android:width="@dimen/ip_edittext"
                 android:cursorVisible="false"
                 android:gravity="center_horizontal"
+                android:inputType="number"
                 android:text="255"
                 android:textSize="@dimen/text_size" />
 
             <TextView
-                android:id="@+id/dns_period_1"
+                android:id="@+id/default_period_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/editText_default_byte2"
+                android:layout_alignBottom="@+id/editText_default_byte2"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_default_byte2"
+                android:layout_toStartOf="@+id/editText_default_byte2"
                 android:text="." />
 
             <EditText
-                android:id="@+id/editText_dns_byte2"
+                android:id="@+id/editText_default_byte2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/default_period_2"
+                android:layout_toStartOf="@+id/default_period_2"
+                android:width="@dimen/ip_edittext"
                 android:cursorVisible="false"
                 android:gravity="center_horizontal"
+                android:inputType="number"
                 android:text="255"
                 android:textSize="@dimen/text_size" />
 
             <TextView
-                android:id="@+id/dns_period_2"
+                android:id="@+id/default_period_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/editText_default_byte3"
+                android:layout_alignBottom="@+id/editText_default_byte3"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_default_byte3"
+                android:layout_toStartOf="@+id/editText_default_byte3"
                 android:text="." />
 
             <EditText
-                android:id="@+id/editText_dns_byte3"
+                android:id="@+id/editText_default_byte3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/default_period_3"
+                android:layout_toStartOf="@+id/default_period_3"
+                android:width="@dimen/ip_edittext"
                 android:cursorVisible="false"
                 android:gravity="center_horizontal"
+                android:inputType="number"
                 android:text="255"
                 android:textSize="@dimen/text_size" />
 
             <TextView
-                android:id="@+id/subnet_dns_3"
+                android:id="@+id/default_period_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/editText_default_byte4"
+                android:layout_alignBottom="@+id/editText_default_byte4"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_default_byte4"
+                android:layout_toStartOf="@+id/editText_default_byte4"
                 android:text="." />
 
             <EditText
-                android:id="@+id/editText_dns_byte4"
+                android:id="@+id/editText_default_byte4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:width="@dimen/ip_edittext"
                 android:cursorVisible="false"
                 android:gravity="center_horizontal"
+                android:inputType="number"
                 android:text="0"
                 android:textSize="@dimen/text_size" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
+        <RelativeLayout
+            android:id="@+id/relativeLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout2"
+            android:layout_below="@+id/relativeLayout2"
             android:layout_marginBottom="5dp"
             android:background="#2e2e2e"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/lbl_dns_address"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="37dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="37dp"
                 android:layout_marginStart="10dp"
                 android:text="@string/dns_address"
                 android:textSize="@dimen/text_size" />
 
             <EditText
-                android:id="@+id/editText_gateway_byte1"
+                android:id="@+id/editText_dns_byte1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/dns_period_1"
+                android:layout_toStartOf="@+id/dns_period_1"
+                android:width="@dimen/ip_edittext"
                 android:cursorVisible="false"
                 android:gravity="center_horizontal"
-                android:text="255"
+                android:inputType="number"
+                android:text="192"
                 android:textSize="@dimen/text_size" />
 
             <TextView
-                android:id="@+id/gateway_period_1"
+                android:id="@+id/dns_period_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/editText_dns_byte2"
+                android:layout_alignBottom="@+id/editText_dns_byte2"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_dns_byte2"
+                android:layout_toStartOf="@+id/editText_dns_byte2"
                 android:text="." />
 
             <EditText
-                android:id="@+id/editText_gateway_byte2"
+                android:id="@+id/editText_dns_byte2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/dns_period_2"
+                android:layout_toStartOf="@+id/dns_period_2"
+                android:width="@dimen/ip_edittext"
+                android:cursorVisible="false"
                 android:gravity="center_horizontal"
-                android:text="255"
+                android:inputType="number"
+                android:text="168"
                 android:textSize="@dimen/text_size" />
 
             <TextView
-                android:id="@+id/gateway_period_2"
+                android:id="@+id/dns_period_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/editText_dns_byte3"
+                android:layout_alignBottom="@+id/editText_dns_byte3"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_dns_byte3"
+                android:layout_toStartOf="@+id/editText_dns_byte3"
                 android:text="." />
 
             <EditText
-                android:id="@+id/editText_gateway_byte3"
+                android:id="@+id/editText_dns_byte3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/dns_period_3"
+                android:layout_toStartOf="@+id/dns_period_3"
+                android:width="@dimen/ip_edittext"
+                android:cursorVisible="false"
                 android:gravity="center_horizontal"
-                android:text="255"
+                android:inputType="number"
+                android:text="1"
                 android:textSize="@dimen/text_size" />
 
             <TextView
-                android:id="@+id/subnet_gateway_3"
+                android:id="@+id/dns_period_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/editText_dns_byte4"
+                android:layout_alignBottom="@+id/editText_dns_byte4"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_dns_byte4"
+                android:layout_toStartOf="@+id/editText_dns_byte4"
                 android:text="." />
 
             <EditText
-                android:id="@+id/editText_gateway_byte4"
+                android:id="@+id/editText_dns_byte4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:width="@dimen/ip_edittext"
+                android:cursorVisible="false"
                 android:gravity="center_horizontal"
-                android:text="255"
+                android:inputType="number"
+                android:text="1"
                 android:textSize="@dimen/text_size" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout4"
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/linearLayout3"
+            android:layout_below="@+id/relativeLayout3"
             android:background="#2e2e2e"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/lbl_subnet_mask"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginEnd="40dp"
                 android:text="@string/subnet_mask"
                 android:textSize="@dimen/text_size" />
 
@@ -362,58 +478,98 @@
                 android:id="@+id/editText_subnet_byte1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:width="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/subnet_period_1"
+                android:layout_toStartOf="@+id/subnet_period_1"
+                android:width="@dimen/ip_edittext"
+                android:cursorVisible="false"
                 android:gravity="center_horizontal"
-                android:text="255"
+                android:inputType="number"
+                android:text="192"
                 android:textSize="@dimen/text_size" />
 
             <TextView
                 android:id="@+id/subnet_period_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/editText_subnet_byte2"
+                android:layout_alignBottom="@+id/editText_subnet_byte2"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_subnet_byte2"
+                android:layout_toStartOf="@+id/editText_subnet_byte2"
                 android:text="." />
 
             <EditText
                 android:id="@+id/editText_subnet_byte2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/subnet_period_2"
+                android:layout_toStartOf="@+id/subnet_period_2"
+                android:width="@dimen/ip_edittext"
+                android:cursorVisible="false"
                 android:gravity="center_horizontal"
-                android:text="255"
-                android:width="40dp"
+                android:inputType="number"
+                android:text="168"
                 android:textSize="@dimen/text_size" />
 
             <TextView
                 android:id="@+id/subnet_period_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:layout_alignBaseline="@+id/editText_subnet_byte3"
+                android:layout_alignBottom="@+id/editText_subnet_byte3"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_subnet_byte3"
+                android:layout_toStartOf="@+id/editText_subnet_byte3"
                 android:text="." />
 
             <EditText
                 android:id="@+id/editText_subnet_byte3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/subnet_period_3"
+                android:layout_toStartOf="@+id/subnet_period_3"
+                android:width="@dimen/ip_edittext"
+                android:cursorVisible="false"
                 android:gravity="center_horizontal"
-                android:text="255"
-                android:width="40dp"
+                android:inputType="number"
+                android:text="1"
                 android:textSize="@dimen/text_size" />
 
             <TextView
                 android:id="@+id/subnet_period_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/editText_subnet_byte4"
+                android:layout_alignBottom="@+id/editText_subnet_byte4"
+                android:layout_gravity="center_vertical"
+                android:layout_toLeftOf="@+id/editText_subnet_byte4"
+                android:layout_toStartOf="@+id/editText_subnet_byte4"
                 android:text="." />
 
             <EditText
                 android:id="@+id/editText_subnet_byte4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:width="@dimen/ip_edittext"
+                android:cursorVisible="false"
                 android:gravity="center_horizontal"
-                android:text="255"
-                android:width="40dp"
+                android:inputType="number"
+                android:text="1"
                 android:textSize="@dimen/text_size" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
 

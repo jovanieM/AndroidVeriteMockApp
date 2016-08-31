@@ -1,10 +1,10 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.transition.Transition;
 
 public class FragmentDetailPrint extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
@@ -25,6 +24,11 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
     public String val;
     boolean flag = true;
     public Button back;
+
+    private Handler repeatUpdateHandler = new Handler();
+    private boolean mAutoIncrement = false;
+    private boolean mAutoDecrement = false;
+    private final long REP_DELAY = 50;
 
 
 //    @Override
@@ -41,6 +45,8 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
 
         decre = (ImageButton) view.findViewById(R.id.decre);
         decre.setOnClickListener(this);
+
+        num_copies.setText("1");
 
         Spinner spin_papersize = (Spinner) view.findViewById(R.id.spin_papersize);
         Spinner spin_color_output = (Spinner) view.findViewById(R.id.spin_color_output);
@@ -71,8 +77,8 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
             @Override
             public void onClick(View v) {
 
-                if (num < 99) {
-                    num = num + 1;
+                if (num < 100) {
+                    num= num+1;
                     val = Integer.toString(num);
                     num_copies.setText(val);
 
@@ -85,16 +91,95 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
             @Override
             public void onClick(View v) {
 
-                if (num > 1)
+                if(num_copies.getText().equals("0")){
+                    num_copies.setText("1");
+                }else if(num>1) {
                     num = num - 1;
-                val = Integer.toString(num);
-                num_copies.setText(val);
-
+                    val = Integer.toString(num);
+                    num_copies.setText(val);
+                }
             }
         });
 
+
+
+        class RptUpdater implements Runnable {
+            public void run() {
+                if (mAutoIncrement) {
+                    increment();
+                    repeatUpdateHandler.postDelayed(new RptUpdater(), REP_DELAY);
+                } else if (mAutoDecrement) {
+                    decrement();
+                    repeatUpdateHandler.postDelayed(new RptUpdater(), REP_DELAY);
+                }
+            }
+        }
+
+
+        incre.setOnLongClickListener(
+                new View.OnLongClickListener() {
+                    public boolean onLongClick(View arg0) {
+                        mAutoIncrement = true;
+                        repeatUpdateHandler.post(new RptUpdater());
+                        return false;
+                    }
+                }
+        );
+
+
+        incre.setOnTouchListener(new View.OnTouchListener() {
+                                     public boolean onTouch(View v, MotionEvent event) {
+                                         if ((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)
+                                                 && mAutoIncrement) {
+                                             mAutoIncrement = false;
+                                         }
+                                         return false;
+                                     }
+                                 }
+        );
+
+        decre.setOnLongClickListener(
+                new View.OnLongClickListener() {
+                    public boolean onLongClick(View arg0) {
+                        mAutoDecrement = true;
+                        repeatUpdateHandler.post(new RptUpdater());
+                        return false;
+                    }
+                }
+        );
+
+
+        decre.setOnTouchListener(new View.OnTouchListener() {
+                                     public boolean onTouch(View v, MotionEvent event) {
+                                         if ((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)
+                                                 && mAutoDecrement) {
+                                             mAutoDecrement = false;
+                                         }
+                                         return false;
+                                     }
+                                 }
+        );
+
+
         return view;
     }
+
+    public void increment() {
+        if (num < 100) {
+            num++;
+            num_copies.setText(String.valueOf(num));
+        }
+
+    }
+
+    public void decrement() {
+        if (num > 1) {
+            num--;
+            num_copies.setText(String.valueOf(num));
+        }
+
+    }
+
 
     @Override
     public void onClick(View v) {

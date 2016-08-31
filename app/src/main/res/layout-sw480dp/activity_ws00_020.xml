@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginRight="130dp"
                 android:text="@string/ip_address"
                 android:textSize="@dimen/text_size" />
 
@@ -194,7 +194,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="21dp"
+                android:layout_marginRight="100dp"
                 android:text="@string/default_gateway"
                 android:textSize="@dimen/text_size" />
 
@@ -272,9 +272,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="37dp"
+                android:layout_marginEnd="115dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="37dp"
+                android:layout_marginRight="115dp"
                 android:layout_marginStart="10dp"
                 android:text="@string/dns_address"
                 android:textSize="@dimen/text_size" />
@@ -353,8 +353,8 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginRight="120dp"
+                android:layout_marginEnd="120dp"
                 android:text="@string/subnet_mask"
                 android:textSize="@dimen/text_size" />
 
