@@ -169,7 +169,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
                     File fileImage = new File(fullImage);
                     Intent sendIntent = new Intent(Intent.ACTION_SEND);
                     sendIntent.putExtra(android.content.Intent.EXTRA_STREAM, Uri.fromFile(fileImage));
-                    sendIntent.setType("image*//*");
+                    sendIntent.setType("image/*");
                     startActivity(sendIntent);
                 }
             }
