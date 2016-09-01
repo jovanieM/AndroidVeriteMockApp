@@ -50,11 +50,6 @@ public class PhotoPrintDirs extends Activity {
             }
         });
 
-
-        //KodakVeriteApp.getInstance();
-//        int size = KodakVeriteApp.bucketName.size();
-//        Toast.makeText(this, String.valueOf(size), Toast.LENGTH_SHORT).show();
-        //listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, KodakVeriteApp.noOfFiles));
         MyAdapter adapter = new MyAdapter(this, KodakVeriteApp.bucketName, KodakVeriteApp.bucketData);
 
         mlistView.setAdapter(adapter);

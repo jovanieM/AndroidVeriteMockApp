@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
@@ -14,6 +15,7 @@ import android.graphics.Region;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 /**
@@ -36,7 +38,7 @@ public class CropView extends View {
     Bitmap bitmap;
     Rect rect;
     Bitmap mBitmap;
-
+    static double mWidth, mHeight;
 
 
     public CropView(Context context) {
@@ -65,19 +67,45 @@ public class CropView extends View {
         pressed = false;
         path = new Path();
         paint = new Paint();
-        pe = new DashPathEffect(new float[] {10, 5, 5, 5}, 5);
+        pe = new DashPathEffect(new float[] {20, 20, 20, 20}, 5);
 
         paint.setStyle(Paint.Style.STROKE);
         //paint.setColor(Color.TRANSPARENT);
         paint.setAntiAlias(true);
+        paint.setColor(Color.WHITE);
+        paint.setStrokeWidth(5);
         paint.getStrokeJoin();
         paint.setPathEffect(pe);
 
     }
+/*
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+
+        double ratio = (double)(MeasureSpec.getSize(widthMeasureSpec)/MeasureSpec.getSize(heightMeasureSpec));
+        double resultRatio = (double)(bitmap.getWidth()/bitmap.getHeight());
+        if (resultRatio <= ratio){
+            mHeight = MeasureSpec.getSize(heightMeasureSpec);
+            mWidth = mHeight * resultRatio;
+
+
+        }else{
+            mWidth = MeasureSpec.getSize(widthMeasureSpec);
+            mHeight = mWidth * resultRatio;
+        }
+        Toast.makeText(getContext(), String.valueOf(mHeight), Toast.LENGTH_SHORT).show();
+
+
+
+        setMeasuredDimension((int)mWidth,(int)mHeight);
+    }*/
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+
+
 
         //Rect rect = new Rect();
         // rect.set(x,y, (getWidth()-10),(getHeight())/2);

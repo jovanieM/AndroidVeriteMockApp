@@ -7,11 +7,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.pdf.PdfDocument;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CancellationSignal;
-import android.os.Handler;
 import android.os.ParcelFileDescriptor;
 import android.print.PageRange;
 import android.print.PrintAttributes;
@@ -21,8 +19,6 @@ import android.print.pdf.PrintedPdfDocument;
 import android.util.Log;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -112,14 +108,14 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
 
         mPdfDocument = new PrintedPdfDocument(context, mPrintAttributes);
 
-        if(cancellationSignal.isCanceled()){
+        if (cancellationSignal.isCanceled()) {
             callback.onWriteCancelled();
             mPdfDocument.close();
             mPdfDocument = null;
             return;
         }
 
-        for (int i = 0; i < mPages;){
+        for (int i = 0; i < mPages; ) {
             bitmap = null;
             mRect = null;
 
@@ -136,11 +132,12 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
             imageWidth = options.outWidth;
             imageHeight = options.outHeight;
 
-           // bitmap = convertBitmap(uri.get(i), options);
+            // bitmap = convertBitmap(uri.get(i), options);
 
             options.inJustDecodeBounds = false;
             //options = new BitmapFactory.Options();
             options.inSampleSize = 2;
+            bitmap = BitmapFactory.decodeFile(uri.get(i), options);
 
             /*displayImageOptions = new DisplayImageOptions.Builder()
                     .cacheOnDisk(true)
@@ -149,34 +146,15 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
                     .build();*/
 
             //bitmap = BitmapFactory.decodeFile(uri.get(i), options);
-                    //ImageLoader.getInstance().loadImageSync("file:///" + uri.get(i), displayImageOptions);
-          //  Log.v("my Activity", String.valueOf(bitmap.getWidth()));
+            //ImageLoader.getInstance().loadImageSync("file:///" + uri.get(i), displayImageOptions);
+            //  Log.v("my Activity", String.valueOf(bitmap.getWidth()));
             Log.v("my Activity", String.valueOf(imageWidth));
-           // bitmap = convertBitmap(uri.get(i), options);
+            //bitmap = convertBitmap(uri.get(i), options);
 
-            new AsyncTask<String, Void, Void>(){
-                @Override
-                protected Void doInBackground(String... params) {
-                    synchronized (this){
-                        bitmap = BitmapFactory.decodeFile(params[0], options);
-                        Log.v("decode bitmap", String.valueOf(bitmap));
-
-                        Log.v("my Activity", "after notify");
-                        return null;
-                    }
-
-                }
-
-                @Override
-                protected void onPostExecute(Void aVoid) {
-                    Log.v("onPost execute", "after notify");
-                    notify();
-                }
-            }.execute(uri.get(i));
 
             Log.v("loop number", String.valueOf(i));
 
-            if(mPrintAttributes.getMediaSize().isPortrait()) {
+            if (mPrintAttributes.getMediaSize().isPortrait()) {
 
                 double paperSizeRatio = ((double) mPrintAttributes.getMediaSize().getWidthMils() / (double) mPrintAttributes.getMediaSize().getHeightMils());
 
@@ -184,14 +162,14 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
 
                     double sRatio = ((double) imageHeight / imageWidth);
                     //double width = ((double) (mPrintAttributes.getMediaSize().getWidthMils() / 1000)) * 72;
-                    double width = ((double)mPrintAttributes.getMediaSize().getWidthMils() / 1000.0) * 72.0;
-                    double height =  ((double)mPrintAttributes.getMediaSize().getHeightMils() / 1000.0) * 72.0;
+                    double width = ((double) mPrintAttributes.getMediaSize().getWidthMils() / 1000.0) * 72.0;
+                    double height = ((double) mPrintAttributes.getMediaSize().getHeightMils() / 1000.0) * 72.0;
                     int final_width = (int) Math.round(width);
                     int final_height = (int) Math.round(height);
 
                     double outPutHeight = width * sRatio;
-                    int marginHeight = (int) Math.round((height - outPutHeight)/2.0);
-                    mRect = new Rect(9, marginHeight + 9, final_width - 9, final_height - (marginHeight +9));
+                    int marginHeight = (int) Math.round((height - outPutHeight) / 2.0);
+                    mRect = new Rect(9, marginHeight + 9, final_width - 9, final_height - (marginHeight + 9));
                     Log.v("my Activity", String.valueOf(marginHeight));
                     Log.v("my Activity", String.valueOf(sRatio));
                     Log.v("my Activity", String.valueOf(mPrintAttributes.getMediaSize().getWidthMils()));
@@ -204,14 +182,14 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
                     //double paperRatio = mPrintAttributes.getMediaSize().getWidthMils() / mPrintAttributes.getMediaSize().getHeightMils();
                     double sRatio = ((double) imageWidth / imageHeight);
                     double sRatio2 = ((double) imageHeight / imageWidth);
-                    double width = ((double)mPrintAttributes.getMediaSize().getWidthMils() / 1000.0) * 72.0;
-                    double height =  ((double)mPrintAttributes.getMediaSize().getHeightMils() / 1000.0) * 72.0;
+                    double width = ((double) mPrintAttributes.getMediaSize().getWidthMils() / 1000.0) * 72.0;
+                    double height = ((double) mPrintAttributes.getMediaSize().getHeightMils() / 1000.0) * 72.0;
                     int final_width = (int) Math.round(width);
                     int final_height = (int) Math.round(height);
 
                     if (sRatio <= paperSizeRatio) {
                         double outPutWidth = height * sRatio;
-                        int marginWidth = (int)Math.round((width - outPutWidth) / 2.0);
+                        int marginWidth = (int) Math.round((width - outPutWidth) / 2.0);
                         mRect = new Rect(9 + marginWidth, 9, final_width - (marginWidth + 9), final_height - 9);
                         Log.v("my Activity", String.valueOf(mPrintAttributes.getMediaSize().getWidthMils()));
 
@@ -223,32 +201,32 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
                         Log.v("my Activity", String.valueOf(imageHeight));
                         Log.v("my Activity", String.valueOf(imageWidth));
 
-                    }else{
+                    } else {
 
                         double outPutHeight = width * sRatio2;
-                        int marginHeight = (int)Math.round((height - outPutHeight) / 2.0);
-                        mRect = new Rect(9, marginHeight + 9, final_width - 9, final_height -(marginHeight+9) );
+                        int marginHeight = (int) Math.round((height - outPutHeight) / 2.0);
+                        mRect = new Rect(9, marginHeight + 9, final_width - 9, final_height - (marginHeight + 9));
 
                     }
 
 
                 }
-            }else{
+            } else {
                 double paperSizeRatio = ((double) mPrintAttributes.getMediaSize().getHeightMils() / (double) mPrintAttributes.getMediaSize().getWidthMils());
 
-                if(imageWidth > imageHeight){
+                if (imageWidth > imageHeight) {
 
                     double sRatio = ((double) imageHeight / imageWidth);
                     double sRatio2 = ((double) imageWidth / imageHeight);
-                    double width = ((double)mPrintAttributes.getMediaSize().getWidthMils() / 1000.0) * 72.0;
-                    double height =  ((double)mPrintAttributes.getMediaSize().getHeightMils() / 1000.0) * 72.0;
+                    double width = ((double) mPrintAttributes.getMediaSize().getWidthMils() / 1000.0) * 72.0;
+                    double height = ((double) mPrintAttributes.getMediaSize().getHeightMils() / 1000.0) * 72.0;
                     int final_width = (int) Math.round(width);
                     int final_height = (int) Math.round(height);
 
                     if (sRatio <= paperSizeRatio) {
                         double outPutHeight = width * sRatio;
-                        int marginHeight = (int)Math.round((height - outPutHeight) / 2.0);
-                        mRect = new Rect(9 , marginHeight + 9, final_width - 9, final_height - (marginHeight + 9));
+                        int marginHeight = (int) Math.round((height - outPutHeight) / 2.0);
+                        mRect = new Rect(9, marginHeight + 9, final_width - 9, final_height - (marginHeight + 9));
                         Log.v("my Activity", String.valueOf(mPrintAttributes.getMediaSize().getWidthMils()));
 
                         Log.v("my Activity", String.valueOf(marginHeight));
@@ -258,10 +236,10 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
                         Log.v("my Activity", String.valueOf(outPutHeight));
                         Log.v("my Activity", String.valueOf(imageHeight));
                         Log.v("my Activity", String.valueOf(imageWidth));
-                    }else{
+                    } else {
                         double outPutWidth = height * sRatio2;
-                        int marginWidth = (int)Math.round((width - outPutWidth) / 2.0);
-                        mRect = new Rect(9 + marginWidth, 9, final_width - (marginWidth + 9), final_height -9);
+                        int marginWidth = (int) Math.round((width - outPutWidth) / 2.0);
+                        mRect = new Rect(9 + marginWidth, 9, final_width - (marginWidth + 9), final_height - 9);
                     }
 
 //                    double sRatio = ((double) imageHeight / imageWidth);
@@ -275,14 +253,14 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
                     double sRatio = ((double) imageWidth / imageHeight);
 
                     //double sRatio2 = ((double) imageHeight / imageWidth);
-                    double width = ((double)mPrintAttributes.getMediaSize().getWidthMils() / 1000.0) * 72.0;
-                    double height =  ((double)mPrintAttributes.getMediaSize().getHeightMils() / 1000.0) * 72.0;
+                    double width = ((double) mPrintAttributes.getMediaSize().getWidthMils() / 1000.0) * 72.0;
+                    double height = ((double) mPrintAttributes.getMediaSize().getHeightMils() / 1000.0) * 72.0;
                     int final_width = (int) Math.round(width);
                     int final_height = (int) Math.round(height);
 
                     double outPutWidth = height * sRatio;
-                    int marginWidth = (int) Math.round((width - outPutWidth)/2.0);
-                    mRect = new Rect(marginWidth + 9, 9, final_width - (marginWidth + 9), final_height -9);
+                    int marginWidth = (int) Math.round((width - outPutWidth) / 2.0);
+                    mRect = new Rect(marginWidth + 9, 9, final_width - (marginWidth + 9), final_height - 9);
 
                 }
 
@@ -290,25 +268,18 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
             //options.inTempStorage
 
             //Toast.makeText(context, String.valueOf(mPrintAttributes.getResolution()), Toast.LENGTH_LONG).show();
-            synchronized (this){
-                try {
-                    wait();
-                    Log.v("my Activity", "before wait");
-
-                    drawPage(page, mRect);
-
-                    mPdfDocument.finishPage(page);
-
-                    bitmap.recycle();
-
-                    i++;
-                    Log.v("my Activity", "after wait");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
 
 
-            }
+            Log.v("my Activity", "before wait");
+
+            drawPage(page, mRect);
+
+            mPdfDocument.finishPage(page);
+
+            bitmap.recycle();
+
+            i++;
+            Log.v("my Activity", "after wait");
 
 
         }
@@ -331,7 +302,7 @@ public class MyPrintDocumentAdapter extends PrintDocumentAdapter {
 
     }
 
-    void drawPage(PdfDocument.Page page, Rect rect){
+    void drawPage(PdfDocument.Page page, Rect rect) {
         Canvas canvas = page.getCanvas();
 
         canvas.drawBitmap(bitmap, null, rect, null);

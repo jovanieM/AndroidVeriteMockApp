@@ -118,7 +118,8 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
                 printer_selected.setText("Searching for printer");
                 checkmark.setVisibility(View.INVISIBLE);
                 progressbar.setVisibility(View.VISIBLE);
-                printer_name.setText("Add Printer");
+                printer_name.setText("Add new printer");
+
 
                 printer_name.setOnClickListener(new View.OnClickListener() {
                     @Override
