@@ -120,6 +120,7 @@ public class HM10_000 extends AppCompatActivity implements Communicator{
                 progressbar.setVisibility(View.VISIBLE);
                 printer_name.setText("Add Printer");
 
+
                 printer_name.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

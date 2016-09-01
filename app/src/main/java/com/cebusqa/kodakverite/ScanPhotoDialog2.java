@@ -18,30 +18,33 @@ import android.widget.Toast;
 /**
  * Created by Cebu SQA on 21/06/2016.
  */
-public class ScanPhotoDialog2 extends DialogFragment{
+public class ScanPhotoDialog2 extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.scan_photo_dialog, null);
-        builder.setTitle("Scan Photo");
+        if (getActivity() instanceof SP_000) {
+            builder.setTitle("Scan Photo");
+        }else if(getActivity() instanceof DocumentScan2){
+            builder.setTitle("Scan Document");
+        }
         builder.setView(view);
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
 
-                new RingDialog(getActivity(),"Canceling...", null, true).run();
+                new RingDialog(getActivity(), "Canceling...", null, true).run();
 
 
-                if(getActivity() instanceof SP_000) {
+                if (getActivity() instanceof SP_000) {
                     ((SP_000) getActivity()).test2 = true;
                 }
-                if(getActivity()instanceof DocumentScan2){
+                if (getActivity() instanceof DocumentScan2) {
                     ((DocumentScan2) getActivity()).dtest2 = true;
                 }
-
 
 
                 //super.onCancel(dialog);

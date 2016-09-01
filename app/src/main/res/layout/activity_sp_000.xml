@@ -106,7 +106,7 @@
         android:layout_above="@+id/relativeLayout2"
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <ImageView
             android:layout_width="match_parent"

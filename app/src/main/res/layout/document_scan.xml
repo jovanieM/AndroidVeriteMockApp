@@ -216,4 +216,24 @@
             android:textColor="#080707" />
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&lt;&lt;previous"
+        android:id="@+id/previous"
+        android:layout_alignTop="@+id/counts"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#fdb700" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="next>>"
+        android:id="@+id/next"
+        android:layout_alignBottom="@+id/counts"
+        android:layout_alignRight="@+id/include4"
+        android:layout_alignEnd="@+id/include4"
+        android:textColor="#fdb700" />
+
 </RelativeLayout>
