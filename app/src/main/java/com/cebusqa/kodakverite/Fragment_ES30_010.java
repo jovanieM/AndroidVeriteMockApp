@@ -56,7 +56,8 @@ public class Fragment_ES30_010 extends Fragment {
 
         items = getResources().getStringArray(R.array.security);
 
-        adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, items);
+        adapter = new ArrayAdapter<>(getActivity(), R.layout.spinner_wifi_item, items);
+        adapter.setDropDownViewResource(R.layout.spinner_wifi_dropdown);
 
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -103,7 +104,6 @@ public class Fragment_ES30_010 extends Fragment {
                                 if (i == EditorInfo.IME_ACTION_DONE) {
                                     Fragment_ES30_050 frag = new Fragment_ES30_050();
                                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
                                     transaction.replace(R.id.my_layout, frag);
                                     transaction.commit();
 
@@ -112,7 +112,6 @@ public class Fragment_ES30_010 extends Fragment {
                                 return false;
                             }
                         });
-
                         break;
 
                     case 2:

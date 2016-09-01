@@ -68,8 +68,6 @@ public class WS00_012 extends Activity {
                 finish();
             }
         });
-
-
     }
 
     public void hideSoftKeyboard() {
@@ -84,9 +82,9 @@ public class WS00_012 extends Activity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (!b)
-                    etPass1.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                else
                     etPass1.setInputType(129);
+                else
+                    etPass1.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
             }
         });
     }

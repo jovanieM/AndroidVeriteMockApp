@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <include layout="@layout/app_bar" />
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/app_bar" />
 
     <TextView
         android:id="@+id/title_wifi_setup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/appBar"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -21,82 +23,74 @@
         android:textSize="@dimen/text_size_20" />
 
     <!-- SSID -->
-    <LinearLayout
-        android:id="@+id/ll_ssid1"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_ssid"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/title_wifi_setup"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="20dp"
+        android:text="@string/ssid"
+        android:textSize="@dimen/text_size" />
+
+    <TextView
+        android:id="@+id/tv_ssid1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tv_ssid"
         android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="50dp"
-            android:text="@string/ssid"
-            android:textIsSelectable="true"
-            android:textSize="13sp" />
-
-        <TextView
-            android:id="@+id/tv_ssid1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp" />
-    </LinearLayout>
+        android:layout_marginBottom="10dp"
+        android:padding="2dp" />
 
     <!-- Password -->
-    <RelativeLayout
-        android:id="@+id/rl_password1"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_password1"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_ssid1"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="20dp"
+        android:layout_marginRight="50dp"
+        android:text="@string/password"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/et_pass10"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/input_password"
+        android:imeOptions="actionDone"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:textSize="@dimen/text_size"
+        android:layout_below="@+id/tv_ssid1"
+        android:layout_alignLeft="@+id/tv_ssid1"
+        android:layout_alignStart="@+id/tv_ssid1"
+        android:layout_marginBottom="10dp"/>
+
+    <CheckBox
+        android:id="@+id/cb_et_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/et_pass10"
+        android:text="@string/show_password"
+        android:button="@drawable/custom_checkbox"
         android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/tv_password1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="50dp"
-            android:text="@string/password"
-            android:textIsSelectable="true"
-            android:textSize="13sp" />
-
-        <EditText
-            android:id="@+id/et_pass10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/tv_password1"
-            android:background="@drawable/edit_text_border"
-            android:hint="@string/input_password"
-            android:imeOptions="actionGo"
-            android:selectAllOnFocus="true"
-            android:singleLine="true" />
-
-        <CheckBox
-            android:id="@+id/cb_et_pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/et_pass10"
-            android:layout_marginRight="10dp"
-            android:text="@string/show_password" />
-
-    </RelativeLayout>
+        android:layout_marginBottom="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/cb_et_pass"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@color/colorPrimary"
         android:gravity="center_vertical|center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
 
         <Button
             android:id="@+id/btn_help2"
@@ -115,4 +109,4 @@
             android:text="@string/other" />
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

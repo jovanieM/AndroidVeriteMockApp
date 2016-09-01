@@ -46,15 +46,16 @@ public class Fragment_ES30_040 extends Fragment {
 
         ssid = Fragment_ES30_001.itemSSID;
         tvSSID.setText(ssid);
-
+        etPass.setCursorVisible(true);
+        etPass.requestFocus();
         showInputMethod();
         checkBox();
 
         etPass.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if(i == EditorInfo.IME_ACTION_DONE) {
-                    showInputMethod();
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    //showInputMethod();
                     checkBox();
 
                     Fragment_ES30_050 frag = new Fragment_ES30_050();
@@ -90,6 +91,7 @@ public class Fragment_ES30_040 extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.my_layout, frag);
+                transaction.addToBackStack(null);
                 transaction.commit();
 
                 hideSoftKeyboard();
@@ -102,8 +104,8 @@ public class Fragment_ES30_040 extends Fragment {
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getAction() == KeyEvent.ACTION_DOWN){
-                    if(keyCode == KeyEvent.KEYCODE_BACK){
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
                         return true;
                     }
                 }
@@ -114,26 +116,26 @@ public class Fragment_ES30_040 extends Fragment {
         return view;
     }
 
-    public void showInputMethod(){
+    public void showInputMethod() {
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
 
-    public void hideSoftKeyboard(){
-        if(getActivity().getCurrentFocus()!=null){
+    public void hideSoftKeyboard() {
+        if (getActivity().getCurrentFocus() != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(imm.HIDE_IMPLICIT_ONLY, 0);
+            imm.toggleSoftInput(imm.HIDE_NOT_ALWAYS, 0);
         }
     }
 
-    public void checkBox(){
+    public void checkBox() {
         cbPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(!b){
-                    etPass.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                }else{
+                if (!b) {
                     etPass.setInputType(129);
+                } else {
+                    etPass.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 }
             }
         });
