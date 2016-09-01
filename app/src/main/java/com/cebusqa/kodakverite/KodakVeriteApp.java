@@ -1,9 +1,14 @@
 package com.cebusqa.kodakverite;
 
+import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -21,6 +26,7 @@ import com.nostra13.universalimageloader.utils.L;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.jar.Manifest;
 
 /**
  * Created by Cebu SQA on 27/06/2016.
@@ -35,6 +41,18 @@ public class KodakVeriteApp extends Application {
     static ArrayList<String> thumbData;
     static ArrayList<String> noOfFiles;
     static String fName;
+    ArrayList<Integer> imagePerFolder;
+    static final int MY_PERMISSION_REQUEST_READ_STORAGE  = 123;
+
+    private String scanSettingQuality;
+    private String scanSettingColor;
+    private String scanDocSettingDocument;
+    private String scanDocSettingSaveAsType;
+    private String scanPhotoSettingDocument;
+
+
+
+
 
     @Override
     public void onCreate() {
@@ -46,10 +64,19 @@ public class KodakVeriteApp extends Application {
         bucketData= new ArrayList<>();
         dirs = new ArrayList<>();
         noOfFiles = new ArrayList<>();
+        imagePerFolder = new ArrayList<>();
         fName = null;
-
+        
+//        int readPermissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE);
+//
+//        if(readPermissionCheck!= PackageManager.PERMISSION_GRANTED){
+//            Toast.makeText(getApplicationContext(), "reading external storage is not permitted", Toast.LENGTH_LONG).show();
+//        }else{
+//            ActivityCompat.requestPermissions(this.getApplicationContext(), new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSION_REQUEST_READ_STORAGE);
+//        }
 
         Cursor cursor = getContentResolver().query(uri, projection, null,null,null);
+
 
 
         if (cursor!=null){
@@ -58,6 +85,8 @@ public class KodakVeriteApp extends Application {
 
                 if(!bucketName.contains(cursor.getString(1)))
                 {
+                    if(imagePerFolder.isEmpty()){}
+
                     if (cursor.getString(0).toLowerCase().endsWith(".jpg")||
                             cursor.getString(0).toLowerCase().endsWith(".jpeg")||
                             cursor.getString(0).toLowerCase().endsWith(".png"))
@@ -68,17 +97,7 @@ public class KodakVeriteApp extends Application {
                             bucketName.add(cursor.getString(1));
                             bucketData.add(cursor.getString(0));
                         }
-//                        if(dirs.contains(cursor.getString(1))){
-//                            counter++;
-//                        }
-
-
-//                        bucketName.add(cursor.getString(0));
-//                        bucketData.add(cursor.getString(2));
-
                     }
-
-
                 }
 
 
@@ -91,8 +110,9 @@ public class KodakVeriteApp extends Application {
             File file = new File(bucketData.get(i));
             String st = file.getParent();
             dirs.add(st);
-            //Toast.makeText(this, st, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, bucketName.get(i), Toast.LENGTH_SHORT).show();
         }
+
 
 
 
@@ -113,6 +133,46 @@ public class KodakVeriteApp extends Application {
         //Toast.makeText(getApplicationContext(), String.valueOf(noOfFiles.get(0)), Toast.LENGTH_SHORT).show();
     }
 
+    public String getScanDocSettingSaveAsType() {
+        return scanDocSettingSaveAsType;
+    }
+
+    public void setScanDocSettingSaveAsType(String scanDocSettingSaveAsType) {
+        this.scanDocSettingSaveAsType = scanDocSettingSaveAsType;
+    }
+
+    public String getScanSettingQuality() {
+        return scanSettingQuality;
+    }
+
+    public void setScanSettingQuality(String scanSettingQuality) {
+        this.scanSettingQuality = scanSettingQuality;
+    }
+
+    public String getScanSettingColor() {
+        return scanSettingColor;
+    }
+
+    public void setScanSettingColor(String scanSettingColor) {
+        this.scanSettingColor = scanSettingColor;
+    }
+
+    public String getScanDocSettingDocument() {
+        return scanDocSettingDocument;
+    }
+
+    public void setScanDocSettingDocument(String scanDocSettingDocument) {
+        this.scanDocSettingDocument = scanDocSettingDocument;
+    }
+
+    public String getScanPhotoSettingDocument() {
+        return scanPhotoSettingDocument;
+    }
+
+    public void setScanPhotoSettingDocument(String scanPhotoSettingDocument) {
+        this.scanPhotoSettingDocument = scanPhotoSettingDocument;
+    }
+
     public ArrayList<String> getThumbData() {
         return thumbData;
     }
@@ -123,4 +183,5 @@ public class KodakVeriteApp extends Application {
     public void clearData(){
         thumbData.clear();
     }
+
 }

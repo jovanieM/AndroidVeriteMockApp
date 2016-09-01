@@ -74,7 +74,8 @@ version: 0
             android:layout_alignParentEnd="true"
             android:layout_marginRight="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_alignParentBottom="true" />
+            android:layout_alignParentBottom="true"
+            android:textColor="#fdb700" />
     </RelativeLayout>
 
     </LinearLayout>
