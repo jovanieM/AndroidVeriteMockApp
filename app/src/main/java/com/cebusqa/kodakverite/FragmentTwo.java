@@ -3,21 +3,20 @@ package com.cebusqa.kodakverite;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.AndroidCharacter;
+import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Button;
-import android.view.View.OnClickListener;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 
 public class FragmentTwo extends Fragment {
@@ -30,6 +29,11 @@ public class FragmentTwo extends Fragment {
     Button btnIncrement, btnDecrement;
     ImageButton btnCopy;
     int ctr = 100;
+
+    private Handler repeatUpdateHandler = new Handler();
+    private boolean mAutoIncrement = false;
+    private boolean mAutoDecrement = false;
+    private final long REP_DELAY = 50;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -153,10 +157,90 @@ public class FragmentTwo extends Fragment {
                             }
                         });
 
+                        class RptUpdater implements Runnable {
+                            public void run() {
+                                if (mAutoIncrement) {
+                                    increment();
+                                    repeatUpdateHandler.postDelayed(new RptUpdater(), REP_DELAY);
+                                } else if (mAutoDecrement) {
+                                    decrement();
+                                    repeatUpdateHandler.postDelayed(new RptUpdater(), REP_DELAY);
+                                }
+                            }
+                        }
+
+
+                        btnIncrement.setOnLongClickListener(
+                                new View.OnLongClickListener() {
+                                    public boolean onLongClick(View arg0) {
+                                        mAutoIncrement = true;
+                                        repeatUpdateHandler.post(new RptUpdater());
+                                        return false;
+                                    }
+                                }
+                        );
+
+
+                        btnIncrement.setOnTouchListener(new View.OnTouchListener() {
+                                                     public boolean onTouch(View v, MotionEvent event) {
+                                                         if ((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)
+                                                                 && mAutoIncrement) {
+                                                             mAutoIncrement = false;
+                                                         }
+                                                         return false;
+                                                     }
+                                                 }
+                        );
+
+                        btnDecrement.setOnLongClickListener(
+                                new View.OnLongClickListener() {
+                                    public boolean onLongClick(View arg0) {
+                                        mAutoDecrement = true;
+                                        repeatUpdateHandler.post(new RptUpdater());
+                                        return false;
+                                    }
+                                }
+                        );
+
+
+                        btnDecrement.setOnTouchListener(new View.OnTouchListener() {
+                                                     public boolean onTouch(View v, MotionEvent event) {
+                                                         if ((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)
+                                                                 && mAutoDecrement) {
+                                                             mAutoDecrement = false;
+                                                         }
+                                                         return false;
+                                                     }
+                                                 }
+                        );
+
+
+
+
+
+
+
                         break;
                     default:
                         break;
                 }
+            }
+
+
+            public void increment() {
+                if (ctr < 400) {
+                    ctr++;
+                    etCustomResize.setText(String.valueOf(ctr));
+                }
+
+            }
+
+            public void decrement() {
+                if (ctr > 25) {
+                    ctr--;
+                    etCustomResize.setText(String.valueOf(ctr));
+                }
+
             }
 
             @Override

@@ -32,7 +32,7 @@ public class Print_Reports extends Activity{
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            Intent intent = new Intent(Print_Reports.this, PU00_0000.class);
+                            Intent intent = new Intent(Print_Reports.this, Print_Reports.class);
                             startActivity(intent);
                         }
                     }, 4000);
