@@ -38,21 +38,27 @@ public class WS00_000 extends Activity {
                 switch (position) {
                     case 0:
                         startActivity(new Intent(WS00_000.this, WS00_010.class));
+                        finish();
                         break;
                     case 1:
                         startActivity(new Intent(WS00_000.this, WS00_020.class));
+                        finish();
                         break;
                     case 2:
                         startActivity(new Intent(WS00_000.this, WS00_030.class));
+                        finish();
                         break;
                     case 3:
                         startActivity(new Intent(WS00_000.this, WS00_040.class));
+                        finish();
                         break;
                     case 4:
                         startActivity(new Intent(WS00_000.this, WS00_050.class));
+                        finish();
                         break;
                     case 5:
                         startActivity(new Intent(WS00_000.this, WS00_060.class));
+                        finish();
                         break;
                     default:
                         break;

@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:weightSum="1">
 
-    <include layout="@layout/app_bar_back_only" />
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/app_bar_back_only" />
 
     <TextView
         android:id="@+id/title_wifi_setup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/appBar"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -20,11 +23,11 @@
         android:text="@string/proxy"
         android:textSize="@dimen/text_size_20" />
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_below="@id/title_wifi_setup"
         android:background="#2e2e2e"
         android:orientation="horizontal"
         android:paddingBottom="5dp"
@@ -42,74 +45,94 @@
             android:id="@+id/tv_on_off"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical" />
-
-        <Switch
-            android:id="@+id/sw_on_off"
-            android:layout_width="58dp"
-            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_ipAdd"
+            android:layout_alignBottom="@+id/tv_ipAdd"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="40dp"
-            android:checked="false" />
+            android:layout_marginEnd="39dp"
+            android:layout_marginRight="39dp"
+            android:layout_toLeftOf="@+id/toggleButton_on_off"
+            android:layout_toStartOf="@+id/toggleButton_on_off"
+            android:textSize="@dimen/text_size" />
 
-    </LinearLayout>
+        <ToggleButton
+            android:id="@+id/toggleButton_on_off"
+            style="@style/Widget.Button.Toggle"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/toggle_selector"
+            android:checked="false"
+            android:textOff=""
+            android:textOn="" />
 
-    <LinearLayout
-        android:id="@+id/ll_address_port"
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_address_port"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout1"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:background="#2e2e2e"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textView_address"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:background="#2e2e2e"
-            android:orientation="horizontal">
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="40dp"
+            android:text="Address:" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="40dp"
-                android:text="Address:" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/editText_address"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:background="#2e2e2e"
-            android:orientation="horizontal">
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="21dp"
+            android:layout_marginRight="21dp"
+            android:textSize="@dimen/text_size"
+            android:hint="Input Address"
+            android:imeOptions="actionDone"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="40dp"
-                android:text="Port:" />
 
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="" />
+        <TextView
+            android:id="@+id/textView_port"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Port:"
+            android:layout_below="@+id/editText_address"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-        </LinearLayout>
-    </LinearLayout>
+
+        <EditText
+            android:id="@+id/editText_port"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:layout_below="@+id/editText_address"
+            android:layout_alignLeft="@+id/editText_address"
+            android:layout_alignStart="@+id/editText_address"
+            android:textSize="@dimen/text_size"
+            android:hint="Input port number"
+            android:inputType="number"/>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btn_save_setting1"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_below="@+id/relativeLayout_address_port"
         android:background="@drawable/oval_background"
         android:text="@string/save_setting" />
 
-</LinearLayout>
+
+</RelativeLayout>
