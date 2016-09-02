@@ -20,7 +20,7 @@ public class FragmentQuickPrint extends Fragment {
 
         photo4x6 = (ImageButton)view.findViewById(R.id.photo4x6);
         photoletter = (ImageButton)view.findViewById(R.id.photoletter);
-        document = (ImageButton)view.findViewById(R.id.document);
+        document = (ImageButton)view.findViewById(R.id.doc_type);
 
         photo4x6.setOnClickListener(new View.OnClickListener() {
             @Override

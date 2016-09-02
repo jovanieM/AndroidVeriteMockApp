@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -31,12 +32,15 @@ public class DocumentScan2 extends Activity {
     boolean dtest2;
     Intent intent, chooser;
     boolean visible2;
-
+    TextView docQuality, docColor, docDocument, docSaveAsType;
+    KodakVeriteApp kodakVeriteApp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.document_scan_2);
+
+        kodakVeriteApp = new KodakVeriteApp();
 
         mback = (Button) findViewById(R.id.back);
         this.scan = (RelativeLayout) findViewById(R.id.scan2);
@@ -48,6 +52,13 @@ public class DocumentScan2 extends Activity {
         this.skyDrive2 = (RelativeLayout) findViewById(R.id.one_box2);
         settings2 = (ImageButton) findViewById(R.id.dscanSettingsIcon);
         iv2 = (ImageView) findViewById(R.id.doc_image);
+
+        docQuality = (TextView) findViewById(R.id.doc_quality);
+        docColor = (TextView) findViewById(R.id.doc_color);
+        docDocument = (TextView) findViewById(R.id.doc_type);
+        docSaveAsType = (TextView) findViewById(R.id.doc_save_as);
+
+
         //context = getApplicationContext();
         //test2 = new PhotoScanMain().test;
         Resources res = getResources();
@@ -207,5 +218,14 @@ public class DocumentScan2 extends Activity {
         super.onBackPressed();
         finish();
         //startActivity(new Intent(DocumentScan2.this, HM10_000.class));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        docQuality.setText(kodakVeriteApp.getScanSettingQuality());
+        docColor.setText(kodakVeriteApp.getScanSettingColor());
+        docDocument.setText(kodakVeriteApp.getScanDocSettingDocument());
+        docSaveAsType.setText(kodakVeriteApp.getScanDocSettingSaveAsType());
     }
 }

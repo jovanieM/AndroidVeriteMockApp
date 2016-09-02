@@ -18,6 +18,10 @@ public class DocumentScan extends Activity {
     ImageButton dScanIb;
     boolean dtest = false;
     private Button mBack;
+    KodakVeriteApp kodakVeriteApp;
+
+    TextView docQuality, docColor, docDocument, docSaveAsType;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +29,16 @@ public class DocumentScan extends Activity {
         dScanRl = (RelativeLayout) findViewById(R.id.dscan);
         dScanTv = (TextView) findViewById(R.id.dtouchScan2);
         dScanIb = (ImageButton) findViewById(R.id.dscanSettingsIcon);
-        mBack  = (Button) findViewById(R.id.back);
+        kodakVeriteApp = new KodakVeriteApp();
+
+
+        docQuality = (TextView) findViewById(R.id.doc_quality);
+        docColor = (TextView) findViewById(R.id.doc_color);
+        docDocument = (TextView) findViewById(R.id.doc_type);
+        docSaveAsType = (TextView) findViewById(R.id.doc_save_as);
+
+
+        mBack = (Button) findViewById(R.id.back);
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,15 +55,15 @@ public class DocumentScan extends Activity {
         dExec();
     }
 
-    public void dtouchScan(View v){
+    public void dtouchScan(View v) {
 
-        if (v.getId()==R.id.dscan){
+        if (v.getId() == R.id.dscan) {
             dtest = false;
             dExec();
         }
     }
 
-    public void dExec () {
+    public void dExec() {
 
         final ScanPhotoDialog dscanDialog = ScanPhotoDialog.newInstance("Scan Document");
         dscanDialog.setCancelable(true);
@@ -68,7 +81,7 @@ public class DocumentScan extends Activity {
 
                 if (dtest) {
 
-                    new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
+                    new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(), "dialog");
 
                     // dscanDialog.dismiss();
                 } else {
@@ -80,7 +93,7 @@ public class DocumentScan extends Activity {
     }
 
 
-    public void dsettingsIcon(View v){
+    public void dsettingsIcon(View v) {
         startActivity(new Intent(getApplicationContext(), Scan_Doc_Settings.class));
     }
 
@@ -91,9 +104,20 @@ public class DocumentScan extends Activity {
         if (dial != null && dial.getDialog().isShowing()) {
             dial.getDialog().dismiss();
             finish();
-        }else {
+        } else {
 
             super.onBackPressed();
+
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        docQuality.setText(kodakVeriteApp.getScanSettingQuality());
+        docColor.setText(kodakVeriteApp.getScanSettingColor());
+        docDocument.setText(kodakVeriteApp.getScanDocSettingDocument());
+        docSaveAsType.setText(kodakVeriteApp.getScanDocSettingSaveAsType());
     }
 }

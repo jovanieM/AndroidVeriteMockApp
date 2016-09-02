@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.Arrays;
 
@@ -16,7 +17,7 @@ public class Scan_Doc_Settings extends AppCompatActivity {
 
 
     public Button back;
-    public Spinner spinner_quality, spinner_document, spinner_type;
+    public Spinner spinner_quality, spinner_document, spinner_type, spinner_color;
 
     Resources res ;
     String[] document, quality, color, saveAsType;
@@ -43,10 +44,10 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         });
 
 
-        Spinner spinner_quality = (Spinner) findViewById(R.id.spinner_quality);
-        Spinner spinner_color = (Spinner) findViewById(R.id.spinner_color);
-        Spinner spinner_document = (Spinner) findViewById(R.id.spinner_document);
-        Spinner spinner_type = (Spinner) findViewById(R.id.spinner_type);
+        spinner_quality = (Spinner) findViewById(R.id.spinner_quality);
+        spinner_color = (Spinner) findViewById(R.id.spinner_color);
+        spinner_document = (Spinner) findViewById(R.id.spinner_document);
+        spinner_type = (Spinner) findViewById(R.id.spinner_type);
 
 
         ArrayAdapter<CharSequence> adapter_quality = ArrayAdapter.createFromResource(this, R.array.Quality_scan,R.layout.spinner_item);

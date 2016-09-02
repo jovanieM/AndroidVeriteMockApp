@@ -22,16 +22,27 @@ public class PhotoScanMain extends Activity{
     ImageButton settingsIcon;
     private Button mBack;
     boolean cancelOK = false;
+    KodakVeriteApp kodakVeriteApp;
+    TextView photoQuality, photoColor, photoDocument;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photo_scan_main);
+
+        kodakVeriteApp= new KodakVeriteApp();
+
         mBack = (Button) findViewById(R.id.back);
         scanTv = (TextView) findViewById(R.id.touchScan);
         scanRelOut = (RelativeLayout) findViewById(R.id.scan);
-        settingsIcon = (ImageButton) findViewById(R.id.scanSettingsIcon);
+        settingsIcon = (ImageButton) findViewById(R.id.pscanSettingsIcon);
+
+
+        photoQuality = (TextView) findViewById(R.id.photo_quality);
+        photoColor = (TextView) findViewById(R.id.photo_color);
+        photoDocument = (TextView) findViewById(R.id.photo_type);
+
         settingsIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +123,12 @@ public class PhotoScanMain extends Activity{
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-
+        photoQuality.setText(kodakVeriteApp.getScanPhotoSettingQuality());
+        photoColor.setText(kodakVeriteApp.getScanPhotoSettingColor());
+        photoDocument.setText(kodakVeriteApp.getScanPhotoSettingDocument());
+    }
 }
