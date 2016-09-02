@@ -1,12 +1,16 @@
 package com.cebusqa.kodakverite;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import java.util.Arrays;
 
 
 public class Scan_Doc_Settings extends AppCompatActivity {
@@ -15,11 +19,19 @@ public class Scan_Doc_Settings extends AppCompatActivity {
     public Button back;
     public Spinner spinner_quality, spinner_color, spinner_document, spinner_type;
 
+    Resources res ;
+    String[] paperSize;
+    KodakVeriteApp kodakVeriteApp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_doc_settings);
+
+        res = getResources();
+        paperSize = res.getStringArray(R.array.Quality_scan);
+        kodakVeriteApp  = new KodakVeriteApp();
 
         back = (Button)findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener(){
@@ -39,6 +51,22 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         adapter_quality.setDropDownViewResource(R.layout.spinner_dropdown_item);
         assert spinner_quality != null;
         spinner_quality.setAdapter(adapter_quality);
+
+        spinner_quality.setSelection(Arrays.asList(paperSize).indexOf(kodakVeriteApp.getScanSettingQuality()));
+
+        spinner_quality.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                for(int i = 0 ; i<paperSize.length;i++){
+                    kodakVeriteApp.setScanSettingQuality(paperSize[position]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
         ArrayAdapter<CharSequence> adapter_color = ArrayAdapter.createFromResource(this, R.array.Color_scan,R.layout.spinner_item);
@@ -60,4 +88,6 @@ public class Scan_Doc_Settings extends AppCompatActivity {
 
 
     }
+
+
 }

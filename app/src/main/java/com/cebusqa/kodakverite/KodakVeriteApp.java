@@ -44,13 +44,14 @@ public class KodakVeriteApp extends Application {
     ArrayList<Integer> imagePerFolder;
     static final int MY_PERMISSION_REQUEST_READ_STORAGE  = 123;
 
-    private String scanSettingQuality;
-    private String scanSettingColor;
-    private String scanDocSettingDocument;
-    private String scanDocSettingSaveAsType;
-    private String scanPhotoSettingDocument;
-
-
+    private static String scanSettingQuality;
+    private static String scanSettingColor;
+    private static String scanDocSettingDocument;
+    private static String scanDocSettingSaveAsType;
+    private static String scanPhotoSettingDocument;
+    private String paperSize;
+    private String paperType;
+    private String printQuality;
 
 
 
@@ -66,6 +67,8 @@ public class KodakVeriteApp extends Application {
         noOfFiles = new ArrayList<>();
         imagePerFolder = new ArrayList<>();
         fName = null;
+
+
         
 //        int readPermissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE);
 //
@@ -133,6 +136,49 @@ public class KodakVeriteApp extends Application {
         //Toast.makeText(getApplicationContext(), String.valueOf(noOfFiles.get(0)), Toast.LENGTH_SHORT).show();
     }
 
+
+
+    public ArrayList<String> getThumbData() {
+        return thumbData;
+    }
+
+    public void setThumbData(ArrayList<String> thumbData2) {
+        thumbData = thumbData2;
+    }
+    public void clearData(){
+        thumbData.clear();
+    }
+
+    public String getPaperType() {
+        return paperType;
+    }
+
+    public void setPaperType(String paperType) {
+        this.paperType = paperType;
+    }
+
+    public String getPaperSize() {
+        if(paperSize == null){
+            setPrintQuality("Best");
+        }
+        return paperSize;
+    }
+
+    public void setPaperSize(String paperSize) {
+        this.paperSize = paperSize;
+    }
+
+    public String getPrintQuality() {
+        if(printQuality == null){
+            setPrintQuality("Best");
+        }
+        return printQuality;
+    }
+
+    public void setPrintQuality(String printQuality) {
+        this.printQuality = printQuality;
+    }
+
     public String getScanDocSettingSaveAsType() {
         return scanDocSettingSaveAsType;
     }
@@ -142,6 +188,9 @@ public class KodakVeriteApp extends Application {
     }
 
     public String getScanSettingQuality() {
+        if(scanSettingQuality == null){
+            setScanSettingQuality("High");
+        }
         return scanSettingQuality;
     }
 
@@ -172,16 +221,4 @@ public class KodakVeriteApp extends Application {
     public void setScanPhotoSettingDocument(String scanPhotoSettingDocument) {
         this.scanPhotoSettingDocument = scanPhotoSettingDocument;
     }
-
-    public ArrayList<String> getThumbData() {
-        return thumbData;
-    }
-
-    public void setThumbData(ArrayList<String> thumbData2) {
-        thumbData = thumbData2;
-    }
-    public void clearData(){
-        thumbData.clear();
-    }
-
 }
