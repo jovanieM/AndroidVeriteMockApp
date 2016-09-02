@@ -1,6 +1,7 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Fragment;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -13,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.Arrays;
 
 public class FragmentDetailPrint extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
@@ -30,12 +33,21 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
     private boolean mAutoDecrement = false;
     private final long REP_DELAY = 50;
 
+    Resources res ;
+    String[] paperSize, paperType,printQuality;
+    KodakVeriteApp kodakVeriteApp;
 
 //    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_detail_print, container, false);
+
+        res = getResources();
+        paperSize = res.getStringArray(R.array.Paper_size_print);
+        paperType = res.getStringArray(R.array.Paper_type);
+        printQuality = res.getStringArray(R.array.Print_quality);
+        kodakVeriteApp = new KodakVeriteApp();
 
         num_copies = (TextView) view.findViewById(R.id.num_copies);
         num_copies.setOnClickListener(this);
@@ -51,13 +63,28 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
         Spinner spin_papersize = (Spinner) view.findViewById(R.id.spin_papersize);
         Spinner spin_color_output = (Spinner) view.findViewById(R.id.spin_color_output);
         Spinner spin_paper_type = (Spinner) view.findViewById(R.id.spin_paper_type);
-        Spinner spin_print_quality = (Spinner) view.findViewById(R.id.spin_print_quality);
+        Spinner spin_print_quality = (Spinner) view.findViewById(R.id.spin_print_qualoity);
 
 
         ArrayAdapter<CharSequence> adapter_papertype = ArrayAdapter.createFromResource(this.getActivity(), R.array.Paper_type, R.layout.spinner_item_print);
         adapter_papertype.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spin_paper_type.setAdapter(adapter_papertype);
 
+        spin_paper_type.setSelection(Arrays.asList(paperType).indexOf(kodakVeriteApp.getPaperType()));
+
+        spin_paper_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                for(int i = 0 ; i< paperType.length;i++){
+                    kodakVeriteApp.setPaperType(paperType[position]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         ArrayAdapter<CharSequence> adapter_papersize = ArrayAdapter.createFromResource(this.getActivity(), R.array.Paper_size_print, R.layout.spinner_item_print);
         adapter_papersize.setDropDownViewResource(R.layout.spinner_dropdown_item);
