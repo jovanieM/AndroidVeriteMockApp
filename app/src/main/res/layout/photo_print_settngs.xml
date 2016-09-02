@@ -21,7 +21,8 @@
         android:textSize="10dp"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/document_txtView"
-        android:layout_alignStart="@+id/document_txtView" />
+        android:layout_alignStart="@+id/document_txtView"
+        android:layout_marginRight="10dp" />
 
     <TextView
         android:id="@+id/document_txtView"
@@ -32,7 +33,8 @@
         android:textSize="10dp"
         android:layout_below="@+id/color_txtView"
         android:layout_alignLeft="@+id/color_txtView"
-        android:layout_alignStart="@+id/color_txtView" />
+        android:layout_alignStart="@+id/color_txtView"
+        android:layout_marginRight="10dp" />
 
     <TextView
         android:id="@+id/color_txtView"
@@ -46,7 +48,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp" />
 
     <TextView
         android:id="@+id/paper_size"
@@ -60,7 +63,7 @@
         android:layout_toEndOf="@+id/quality_txtView" />
 
     <TextView
-        android:id="@+id/paper_typer"
+        android:id="@+id/paper_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
