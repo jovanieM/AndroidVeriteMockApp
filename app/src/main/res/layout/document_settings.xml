@@ -26,7 +26,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textSize="12dp"
-            android:layout_marginBottom="5dp" />
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,7 +39,8 @@
             android:layout_below="@+id/color_txtView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="5dp" />
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -50,43 +52,44 @@
             android:layout_below="@+id/quality_txtView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="5dp" />
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Plain"
-            android:id="@+id/quality"
+            android:id="@+id/doc_quality"
             android:textColor="#fdb700"
-            android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/dscan_save_asTV"
-            android:layout_alignEnd="@+id/dscan_save_asTV"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:text="any"
+            android:layout_alignTop="@+id/quality_txtView"
+            android:layout_toRightOf="@+id/quality_txtView"
+            android:layout_toEndOf="@+id/quality_txtView" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text=" Color"
-            android:id="@+id/color"
+            android:id="@+id/doc_color"
             android:textColor="#fdb700"
-            android:layout_alignTop="@+id/color_txtView"
-            android:layout_alignRight="@+id/quality"
-            android:layout_alignEnd="@+id/quality"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:text="any"
+            android:layout_below="@+id/quality_txtView"
+            android:layout_toRightOf="@+id/color_txtView"
+            android:layout_toEndOf="@+id/color_txtView" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Photo"
-            android:id="@+id/document"
+            android:id="@+id/doc_type"
             android:textColor="#fdb700"
+            android:textSize="12dp"
+            android:text="any"
             android:layout_alignTop="@+id/document_txtView"
-            android:layout_toRightOf="@+id/dscan_save_asTV"
-            android:layout_toEndOf="@+id/dscan_save_asTV"
-            android:textSize="12dp" />
+            android:layout_toRightOf="@+id/document_txtView"
+            android:layout_toEndOf="@+id/document_txtView" />
 
         <ImageButton
             style="?android:attr/buttonStyleSmall"
@@ -98,9 +101,9 @@
             android:src="@mipmap/setting_icon"
             android:adjustViewBounds="false"
             android:background="#00ffffff"
-            android:layout_marginRight="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_centerVertical="true"
+            android:layout_marginRight="28dp"
+            android:layout_marginEnd="28dp"
+            android:layout_alignBottom="@+id/doc_type"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
@@ -113,19 +116,20 @@
             android:textSize="12dp"
             android:layout_below="@+id/document_txtView"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="PDF"
-            android:id="@+id/dscan_save_as"
+            android:id="@+id/doc_save_as"
             android:textColor="#fdb700"
             android:textSize="12dp"
+            android:text="any"
             android:layout_alignTop="@+id/dscan_save_asTV"
-            android:layout_alignRight="@+id/document"
-            android:layout_alignEnd="@+id/document" />
+            android:layout_toRightOf="@+id/dscan_save_asTV"
+            android:layout_toEndOf="@+id/dscan_save_asTV" />
 
 
 
