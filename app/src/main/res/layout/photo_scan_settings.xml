@@ -1,99 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/photoPrintSettings"
+
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_above="@+id/relativeLayout2"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
     android:layout_alignWithParentIfMissing="false"
+    android:id="@+id/relativeLayout"
+    android:background="#783d3c3c"
+    android:layout_above="@+id/relativeLayout2"
     android:layout_marginBottom="43dp"
-    android:background="#f23d3c3c"
+    android:layout_alignParentLeft="false"
+    android:layout_alignParentStart="true"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
     android:paddingTop="5dp"
-    android:paddingBottom="5dp">
+    android:padding="5dp">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Quality : "
         android:id="@+id/quality_txtView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Paper Size : "
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="10dp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/document_txtView"
-        android:layout_alignStart="@+id/document_txtView" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="12dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Document :"
         android:id="@+id/document_txtView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Print Quality :"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="10dp"
+        android:textSize="12dp"
         android:layout_below="@+id/color_txtView"
-        android:layout_alignLeft="@+id/color_txtView"
-        android:layout_alignStart="@+id/color_txtView" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="10dp" />
 
     <TextView
-        android:id="@+id/color_txtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Paper Type :"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="10dp"
+        android:text="Color :"
+        android:id="@+id/color_txtView"
+        android:textSize="12dp"
         android:layout_below="@+id/quality_txtView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp" />
 
     <TextView
-        android:id="@+id/paper_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/quality"
         android:textColor="#fdb700"
-        android:textSize="10dp"
-        android:layout_above="@+id/color_txtView"
+        android:textSize="12dp"
+        android:layout_alignTop="@+id/quality_txtView"
         android:layout_toRightOf="@+id/quality_txtView"
         android:layout_toEndOf="@+id/quality_txtView" />
 
     <TextView
-        android:id="@+id/paper_typer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/color"
         android:textColor="#fdb700"
-        android:textSize="10dp"
-        android:layout_alignTop="@+id/color_txtView"
+        android:textSize="12dp"
+        android:layout_below="@+id/quality_txtView"
         android:layout_toRightOf="@+id/color_txtView"
         android:layout_toEndOf="@+id/color_txtView" />
 
     <TextView
-        android:id="@+id/photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/document"
         android:textColor="#fdb700"
-        android:textSize="10dp"
+        android:textSize="12dp"
         android:layout_alignTop="@+id/document_txtView"
         android:layout_toRightOf="@+id/document_txtView"
         android:layout_toEndOf="@+id/document_txtView" />
 
     <ImageButton
-        android:id="@+id/scanSettingsIcon"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="35dp"
-        android:layout_marginRight="35dp"
+        android:text="Settings"
+        android:id="@+id/dscanSettingsIcon"
+        android:onClick="dsettingsIcon"
+        android:src="@mipmap/setting_icon"
         android:adjustViewBounds="false"
         android:background="#00ffffff"
-        android:src="@mipmap/setting_icon"
-        android:text="Settings"
-        android:layout_centerVertical="true"
+        android:layout_marginRight="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_alignBottom="@+id/document"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
 
 </RelativeLayout>
