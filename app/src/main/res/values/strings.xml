@@ -11,12 +11,12 @@
     <string name="scanning">Scanning...</string>
     <string name="wps">WPS</string>
     <string name="manual">Manual</string>
-    <string name="direct">Direct</string>
+    <string name="direct">Wireless Direct</string>
     <string name="ssid">SSID</string>
     <string name="security">Security</string>
     <string name="password">Password</string>
     <string name="input_password">Input Password</string>
-    <string name="show_password">Show password</string>
+    <string name="show_password">Show Password</string>
     <string name="ssid_name">Input SSID name</string>
     <string name="find_router">Find Router</string>
     <string name="other">other...</string>
@@ -140,7 +140,6 @@
         <item>Photo</item>
     </string-array>
 
-
     <string-array name="Paper_size_print">
         <item>Letter</item>
         <item>Legal</item>
@@ -232,8 +231,6 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
-
     </string-array>
-
 
 </resources>

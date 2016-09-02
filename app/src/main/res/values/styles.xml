@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
     </style>
 
         <!-- Customize your theme here. -->
@@ -23,11 +23,12 @@
         <item name="android:bottomBright">#ffffff</item>
         <item name="android:bottomDark">#ffffff</item>
     </style>
+    <style name="spinnerItemStyle">
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
 
     <style name="Widget.Button.Toggle" parent="android:Widget">
         <item name="android:background">@drawable/toggle_icon_bg</item>
         <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
     </style>
-
-
 </resources>

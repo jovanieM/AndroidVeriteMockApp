@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:state_checked="true"
+    android:drawable="@drawable/check_box_small_on_orange"
+    android:state_focused="false" />
+
+    <item
+        android:state_checked="true"
+        android:drawable="@drawable/check_box_small_on_orange"
+        android:state_focused="true"/>
+
+    <item
+        android:state_checked="false"
+        android:drawable="@drawable/check_box_small_off"
+        android:state_focused="false" />
+
+    <item
+        android:state_checked="false"
+        android:drawable="@drawable/check_box_small_off"
+        android:state_focused="true"/>
+</selector>

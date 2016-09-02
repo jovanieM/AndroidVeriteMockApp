@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <include layout="@layout/app_bar_back_only" />
+    <include
+        android:id="@+id/appBar"
+        layout="@layout/app_bar_back_only" />
 
     <TextView
         android:id="@+id/title_wifi_setup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/appBar"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -20,75 +23,64 @@
         android:textSize="@dimen/text_size_20" />
 
     <!-- SSID -->
-    <LinearLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/lbl_ssid"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/title_wifi_setup"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="20dp"
+        android:text="@string/ssid"
+        android:textSize="@dimen/text_size" />
+
+    <EditText
+        android:id="@+id/et_ssid1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/title_wifi_setup"
         android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="50dp"
-            android:text="@string/ssid"
-            android:textIsSelectable="true"
-            android:textSize="13sp" />
-
-        <EditText
-            android:id="@+id/et_ssid1"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-
-            android:hint="@string/ssid_name"
-            android:imeOptions="actionGo"
-            android:singleLine="true"
-            android:padding="2dp" />
-    </LinearLayout>
+        android:hint="@string/ssid_name"
+        android:imeOptions="actionGo"
+        android:singleLine="true"
+        android:textSize="@dimen/text_size" />
 
     <!-- Select security -->
-    <LinearLayout
-        android:id="@+id/ll_security"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvSecurity"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/et_ssid1"
         android:layout_marginLeft="20dp"
+        android:singleLine="true"
+        android:text="@string/security"
+        android:textSize="@dimen/text_size" />
+
+    <Spinner
+        android:id="@+id/sp_security1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_ssid1"
+        android:layout_alignStart="@+id/et_ssid1"
+        android:layout_alignTop="@+id/tvSecurity"
         android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <TextView
-            android:id="@+id/tvSecurity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
-            android:singleLine="true"
-            android:text="@string/security" />
-
-        <Spinner
-            android:id="@+id/sp_security1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:entries="@array/security" />
-    </LinearLayout>
+        android:entries="@array/security"
+        style="@style/spinnerItemStyle"/>
 
     <!-- Password -->
     <RelativeLayout
         android:id="@+id/rl_password1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/sp_security1"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tv_password"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="50dp"
@@ -98,14 +90,16 @@
 
         <EditText
             android:id="@+id/et_password3"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/tv_password"
-            android:background="@drawable/edit_text_border"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
             android:hint="@string/input_password"
             android:imeOptions="actionGo"
             android:selectAllOnFocus="true"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textSize="@dimen/text_size" />
 
         <CheckBox
             android:id="@+id/checkBox4"
@@ -114,6 +108,8 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/et_password3"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:button="@drawable/custom_checkbox"
             android:text="@string/show_password" />
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

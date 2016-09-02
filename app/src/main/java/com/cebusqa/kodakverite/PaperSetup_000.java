@@ -1,21 +1,15 @@
 package com.cebusqa.kodakverite;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 
 /**
@@ -39,7 +33,7 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
         btnSave = (Button) findViewById(R.id.btnSave);
 
         final ProgressDialog pd = new ProgressDialog(PaperSetup_000.this, ProgressDialog.THEME_HOLO_LIGHT);
-        pd.setMessage("Getting network information...");
+        pd.setMessage("Getting printer setting...");
         pd.setCancelable(true);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override

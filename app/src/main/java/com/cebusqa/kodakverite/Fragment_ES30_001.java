@@ -1,6 +1,7 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.FragmentTransaction;
@@ -8,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -30,6 +32,7 @@ public class Fragment_ES30_001 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_es30_001, container, false);
 
+        hideSoftKeyboard();
         // instantiating buttons
         btnManual = (Button) view.findViewById(R.id.btn_manual);
         btnWPS = (Button) view.findViewById(R.id.btn_wps);
@@ -47,7 +50,7 @@ public class Fragment_ES30_001 extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 //itemSSID = (String) listView.getItemAtPosition(i).toString();
-                switch (i){
+                switch (i) {
                     case 0:
                         //itemPos = adapterView.getSelectedItemPosition();
                         //itemSSID = adapterView.getSelectedItem().toString();
@@ -161,8 +164,8 @@ public class Fragment_ES30_001 extends Fragment {
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getAction() == KeyEvent.ACTION_DOWN){
-                    if(keyCode == KeyEvent.KEYCODE_BACK){
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
                         return true;
                     }
                 }
@@ -173,11 +176,18 @@ public class Fragment_ES30_001 extends Fragment {
         return view;
     }
 
-    public void fragment_ES30_040(){
+    public void fragment_ES30_040() {
         Fragment_ES30_040 frag = new Fragment_ES30_040();
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.my_layout, frag);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    public void hideSoftKeyboard() {
+        if (getActivity().getCurrentFocus() != null) {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.toggleSoftInput(imm.HIDE_IMPLICIT_ONLY, 0);
+        }
     }
 }
