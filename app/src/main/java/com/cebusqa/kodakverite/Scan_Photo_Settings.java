@@ -31,6 +31,7 @@ public class Scan_Photo_Settings extends AppCompatActivity {
         document = res.getStringArray(R.array.Photo_scan);
         quality1 = res.getStringArray(R.array.Quality_scan);
         color = res.getStringArray(R.array.Color_scan);
+        kodakVeriteApp = new KodakVeriteApp();
 
         back = (Button)findViewById(R.id.back);
 
@@ -50,7 +51,10 @@ public class Scan_Photo_Settings extends AppCompatActivity {
         assert spinner_quality != null;
         spinner_quality.setAdapter(adapter_quality);
 
+
+
         spinner_quality.setSelection(Arrays.asList(quality1).indexOf(kodakVeriteApp.getScanPhotoSettingQuality()));
+
 
         spinner_quality.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
