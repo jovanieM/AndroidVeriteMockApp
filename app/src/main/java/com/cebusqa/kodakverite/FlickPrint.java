@@ -50,12 +50,15 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
     Button backIcon, gcp;
     Intent intent;
     Intent chooser;
+    TextView paperSize, paperType, printQuality;
+    KodakVeriteApp kodakVeriteApp;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flick_print);
+        kodakVeriteApp = new KodakVeriteApp();
         view = findViewById(R.id.kodakToolbar);
         view.bringToFront();
         flickImage = (ImageView) findViewById(R.id.flick_image);
@@ -72,6 +75,15 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         tv.bringToFront();
         toggleButton.setChecked(true);
         toggleButton.setOnCheckedChangeListener(this);
+
+        // bring 3 textview from print settings layout
+        paperSize = (TextView) findViewById(R.id.paper_size);
+        paperType = (TextView) findViewById(R.id.paper_type);
+        printQuality = (TextView) findViewById(R.id.photo);
+        paperSize.setText("Letter");
+        paperType.setText(kodakVeriteApp.getPaperType());
+        printQuality.setText(kodakVeriteApp.getPrintQuality());
+
 
         backIcon.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -46,7 +46,8 @@ public class WS00_014 extends Activity {
         btnBack = (Button) findViewById(R.id.back);
 
         items = getResources().getStringArray(R.array.security);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
+        adapter = new ArrayAdapter<>(this, R.layout.spinner_wifi_item, items);
+        adapter.setDropDownViewResource(R.layout.spinner_wifi_dropdown);
 
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

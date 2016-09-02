@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/app_bar"
-        layout="@layout/app_bar" />
+        layout="@layout/app_bar_back_only" />
 
     <TextView
         android:id="@+id/easy_setup"

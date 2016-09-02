@@ -76,7 +76,7 @@
 
     <TextView
         android:id="@+id/textView52"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -88,22 +88,19 @@
 
     <TextView
         android:id="@+id/tv_ssid"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/et_pass1"
-        android:layout_alignStart="@+id/et_pass1"
-        android:layout_below="@+id/frameLayout14"
         android:layout_weight="0.56"
-        android:background="@drawable/edit_text_border"
-        android:layout_alignRight="@+id/et_pass1"
-        android:layout_alignEnd="@+id/et_pass1" />
+        android:layout_below="@+id/frameLayout14"
+        android:layout_alignRight="@+id/frameLayout14"
+        android:layout_alignEnd="@+id/frameLayout14" />
 
     <TextView
         android:id="@+id/tv_password"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="23dp"
         android:text="@string/password"
         android:textIsSelectable="true"
         android:textSize="@dimen/text_size"
@@ -113,18 +110,16 @@
 
     <EditText
         android:id="@+id/et_pass1"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/edit_text_border"
         android:hint="@string/input_password"
         android:imeOptions="actionDone"
         android:inputType="text"
         android:singleLine="true"
+        android:textSize="@dimen/text_size"
         android:layout_alignTop="@+id/tv_password"
-        android:layout_toRightOf="@+id/tv_password"
-        android:layout_toEndOf="@+id/tv_password">
+        android:layout_alignRight="@+id/tv_ssid"
+        android:layout_alignEnd="@+id/tv_ssid">
         <requestFocus />
     </EditText>
 
@@ -135,7 +130,9 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/et_pass1"
         android:layout_marginRight="10dp"
-        android:text="@string/show_password" />
+        android:text="@string/show_password"
+        android:layout_marginBottom="10dp"
+        android:button="@drawable/custom_checkbox"/>
 
     <Button
         android:id="@+id/btn_help1"
@@ -143,9 +140,11 @@
         android:layout_height="30dp"
         android:background="@drawable/oval_background"
         android:text="@string/help"
-        android:layout_below="@+id/checkBox3"
-        android:layout_toRightOf="@+id/tv_password"
-        android:layout_toEndOf="@+id/tv_password" />
+        android:layout_alignTop="@+id/btn_other"
+        android:layout_alignLeft="@+id/frameLayout14"
+        android:layout_alignStart="@+id/frameLayout14"
+        android:layout_marginLeft="42dp"
+        android:layout_marginStart="42dp" />
 
     <Button
         android:id="@+id/btn_other"

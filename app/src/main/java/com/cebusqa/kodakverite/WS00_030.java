@@ -104,4 +104,10 @@ public class WS00_030 extends Activity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WS00_030.this, WS00_000.class));
+        finish();
+    }
 }
