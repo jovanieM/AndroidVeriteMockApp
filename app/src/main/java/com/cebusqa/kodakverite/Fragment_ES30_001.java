@@ -149,7 +149,7 @@ public class Fragment_ES30_001 extends Fragment {
         btnDirect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment_ES30_051 frag = new Fragment_ES30_051();
+                Fragment_ES30_050_A frag = new Fragment_ES30_050_A();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.my_layout, frag);

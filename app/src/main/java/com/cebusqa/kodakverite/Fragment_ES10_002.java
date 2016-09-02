@@ -16,12 +16,16 @@ import android.widget.ProgressBar;
 public class Fragment_ES10_002 extends Fragment {
 
     ProgressBar progressBar;
+    int progressStatus = 0;
+    Thread thread;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_es10_002, container, false);
+
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -36,6 +40,28 @@ public class Fragment_ES10_002 extends Fragment {
                 transaction.commit();
             }
         }, 4000);
+
+        /* thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(progressStatus<100){
+                    progressStatus++;
+                    try{
+                        Thread.sleep(3000);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setProgress(progressStatus);
+                        }
+                    });
+                }
+            }
+        });
+        thread.start(); */
 
         //disable Back key
         view.setFocusableInTouchMode(true);
