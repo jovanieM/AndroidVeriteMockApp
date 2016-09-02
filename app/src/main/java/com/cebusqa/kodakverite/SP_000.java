@@ -63,7 +63,7 @@ public class SP_000 extends AppCompatActivity{
         this.email = (RelativeLayout) findViewById(R.id.email);
         this.drive = (RelativeLayout) findViewById(R.id.drive);
         this.skyDrive = (RelativeLayout) findViewById(R.id.one_box);
-        settings = (ImageButton) findViewById(R.id.scanSettingsIcon);
+        settings = (ImageButton) findViewById(R.id.pscanSettingsIcon);
         iv = (ImageView) findViewById(R.id.imageView);
         context = getApplicationContext();
         test2 = new PhotoScanMain().test;
@@ -255,6 +255,8 @@ public class SP_000 extends AppCompatActivity{
     @Override
     protected void onResume() {
         super.onResume();
-
+        photoQuality.setText(kodakVeriteApp.getScanPhotoSettingQuality());
+        photoColor.setText(kodakVeriteApp.getScanPhotoSettingColor());
+        photoDocument.setText(kodakVeriteApp.getScanPhotoSettingDocument());
     }
 }

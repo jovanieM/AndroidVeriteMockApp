@@ -34,15 +34,10 @@ public class KodakVeriteApp extends Application {
     private static String scanSettingColor;
     private static String scanDocSettingDocument;
     private static String scanDocSettingSaveAsType;
+
     private static String scanPhotoSettingDocument;
-<<<<<<< HEAD
-=======
     private static String scanPhotoSettingQuality;
     private static String scanPhotoSettingColor;
-    private String paperSize;
-    private String paperType;
-    private String printQuality;
->>>>>>> a342cf12f034ed4393ea7da44f88acd3219119f2
 
     private static String paperSize;
     private static String paperType;
@@ -240,6 +235,9 @@ public class KodakVeriteApp extends Application {
     }
 
     public String getScanPhotoSettingColor() {
+        if(scanPhotoSettingColor==null){
+            setScanPhotoSettingColor("Color");
+        }
         return scanPhotoSettingColor;
     }
 
@@ -248,6 +246,9 @@ public class KodakVeriteApp extends Application {
     }
 
     public String getScanPhotoSettingQuality() {
+        if(scanPhotoSettingQuality == null){
+            setScanPhotoSettingQuality("Normal");
+        }
         return scanPhotoSettingQuality;
     }
 
