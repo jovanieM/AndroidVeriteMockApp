@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -29,13 +30,14 @@ public class WS00_040 extends Activity {
         etHostname = (EditText) findViewById(R.id.et_hostname);
 
         etHostname.setText("Kodak-Verite55 Plus");
+        etHostname.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         final ProgressDialog pd = new ProgressDialog(WS00_040.this);
         pd.setMessage("Getting network information...");
-        pd.setCancelable(true);
-        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener(){
+        pd.setCancelable(false);
+        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which){
+            public void onClick(DialogInterface dialog, int which) {
                 startActivity(new Intent(WS00_040.this, WS00_000.class));
                 pd.dismiss();
                 finish();
@@ -45,10 +47,9 @@ public class WS00_040 extends Activity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try{
-
+                try {
                     Thread.sleep(4000);
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 pd.dismiss();
@@ -58,6 +59,7 @@ public class WS00_040 extends Activity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(WS00_040.this, WS00_000.class));
                 finish();
             }
         });
@@ -82,5 +84,11 @@ public class WS00_040 extends Activity {
                 }, 4000);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WS00_040.this, WS00_000.class));
+        finish();
     }
 }

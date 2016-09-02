@@ -6,12 +6,11 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -27,12 +26,12 @@ public class WS00_020 extends Activity {
     String manual = "manual";
     ToggleButton toggleButton_auto_manual;
     Button btnBack, btnSaveSetting;
+    Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ws00_020);
-
 
         llipAddress = (RelativeLayout) findViewById(R.id.ll_ip_address);
         rlipAdd = (RelativeLayout) findViewById(R.id.rl_ipAdd);
@@ -42,14 +41,11 @@ public class WS00_020 extends Activity {
         toggleButton_auto_manual = (ToggleButton) findViewById(R.id.toggleButton2);
 
         tvAutoManual.setText(auto);
-        llipAddress.setVisibility(View.INVISIBLE);
-        // llipAdd.setVisibility(View.INVISIBLE);
-        // btnSaveSetting.setVisibility(View.INVISIBLE);
-
+        llipAddress.setVisibility(View.GONE);
 
         final ProgressDialog pd = new ProgressDialog(WS00_020.this);
         pd.setMessage("Getting network information...");
-        pd.setCancelable(true);
+        pd.setCancelable(false);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -83,7 +79,7 @@ public class WS00_020 extends Activity {
                     llipAddress.setVisibility(View.VISIBLE);
                 } else {
                     tvAutoManual.setText(auto);
-                    llipAddress.setVisibility(View.INVISIBLE);
+                    llipAddress.setVisibility(View.GONE);
                 }
             }
         });
@@ -106,21 +102,25 @@ public class WS00_020 extends Activity {
                 ad.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
                     }
                 });
-
                 AlertDialog adc = ad.create();
                 adc.show();
-
             }
         });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(WS00_020.this, WS00_000.class));
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WS00_020.this, WS00_000.class));
+        finish();
     }
 }

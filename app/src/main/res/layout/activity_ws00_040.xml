@@ -26,37 +26,41 @@
         android:layout_marginLeft="20dp"
         android:text="'Hostname' is the name of the printer in the network." />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:background="#2e2e2e"
         android:orientation="horizontal"
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/textview_hostname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="40dp"
-            android:text="Hostname:" />
+            android:text="Hostname:"
+            android:textSize="@dimen/text_size" />
 
         <EditText
             android:id="@+id/et_hostname"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.56" />
+            android:layout_alignLeft="@+id/textview_hostname"
+            android:layout_alignStart="@+id/textview_hostname"
+            android:layout_below="@+id/textview_hostname"
+            android:singleLine="true"
+            android:textSize="@dimen/text_size" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btn_save_setting2"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:background="@drawable/oval_background"
         android:text="@string/save_setting" />
 

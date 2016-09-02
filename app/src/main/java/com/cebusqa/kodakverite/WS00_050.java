@@ -33,7 +33,8 @@ public class WS00_050 extends Activity {
         btnSaveSetting = (Button) findViewById(R.id.btn_save_setting4);
 
         items = getResources().getStringArray(R.array.direct_time);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
+        adapter = new ArrayAdapter<String>(this, R.layout.spinner_wifi_item, items);
+        adapter.setDropDownViewResource(R.layout.spinner_wifi_dropdown);
 
         spinner.setAdapter(adapter);
 
@@ -65,6 +66,7 @@ public class WS00_050 extends Activity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(WS00_050.this, WS00_000.class));
                 finish();
             }
         });
@@ -89,7 +91,11 @@ public class WS00_050 extends Activity {
                 }, 4000);
             }
         });
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WS00_050.this, WS00_000.class));
+        finish();
     }
 }
