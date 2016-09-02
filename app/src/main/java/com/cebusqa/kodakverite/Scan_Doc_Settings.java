@@ -31,8 +31,8 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         res = getResources();
         quality = res.getStringArray(R.array.Quality_scan);
         color = res.getStringArray(R.array.Color_scan);
-        document = res.getStringArray(R.array.Quality_scan);
-        saveAsType = res.getStringArray(R.array.Document_scan);
+        document = res.getStringArray(R.array.Document_scan);
+        saveAsType = res.getStringArray(R.array.Type_scan);
         kodakVeriteApp  = new KodakVeriteApp();
 
         back = (Button)findViewById(R.id.back);

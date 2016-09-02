@@ -30,6 +30,7 @@ public class Scan_Photo_Settings extends AppCompatActivity {
         document = res.getStringArray(R.array.Photo_scan);
         quality = res.getStringArray(R.array.Quality_scan);
         color = res.getStringArray(R.array.Color_scan);
+        kodakVeriteApp = new KodakVeriteApp();
 
         back = (Button)findViewById(R.id.back);
 
@@ -49,7 +50,7 @@ public class Scan_Photo_Settings extends AppCompatActivity {
         assert spinner_quality != null;
         spinner_quality.setAdapter(adapter_quality);
 
-     /*   spinner_quality.setSelection(Arrays.asList(quality).indexOf(kodakVeriteApp.getScanPhotoSettingQuality()));
+        spinner_quality.setSelection(Arrays.asList(quality).indexOf(kodakVeriteApp.getScanPhotoSettingQuality()));
 
         spinner_quality.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -63,7 +64,7 @@ public class Scan_Photo_Settings extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });*/
+        });
 
         ArrayAdapter<CharSequence> adapter_color = ArrayAdapter.createFromResource(this, R.array.Color_scan,R.layout.spinner_item);
         adapter_color.setDropDownViewResource(R.layout.spinner_dropdown_item);
