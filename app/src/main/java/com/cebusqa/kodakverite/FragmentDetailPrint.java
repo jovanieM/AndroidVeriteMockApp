@@ -63,7 +63,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
         Spinner spin_papersize = (Spinner) view.findViewById(R.id.spin_papersize);
         Spinner spin_color_output = (Spinner) view.findViewById(R.id.spin_color_output);
         Spinner spin_paper_type = (Spinner) view.findViewById(R.id.spin_paper_type);
-        Spinner spin_print_quality = (Spinner) view.findViewById(R.id.spin_print_qualoity);
+        Spinner spin_print_quality = (Spinner) view.findViewById(R.id.spin_print_quality);
 
 
         ArrayAdapter<CharSequence> adapter_papertype = ArrayAdapter.createFromResource(this.getActivity(), R.array.Paper_type, R.layout.spinner_item_print);
@@ -90,6 +90,21 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
         adapter_papersize.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spin_papersize.setAdapter(adapter_papersize);
 
+        spin_papersize.setSelection(Arrays.asList(paperSize).indexOf(kodakVeriteApp.getPaperSize()));
+
+        spin_papersize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                for(int i = 0 ; i< paperSize.length;i++){
+                    kodakVeriteApp.setPaperSize(paperSize[position]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         ArrayAdapter<CharSequence> adapter_color = ArrayAdapter.createFromResource(this.getActivity(), R.array.Color_print, R.layout.spinner_item_print);
         adapter_color.setDropDownViewResource(R.layout.spinner_dropdown_item);
@@ -98,6 +113,22 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
         ArrayAdapter<CharSequence> adapter_quality = ArrayAdapter.createFromResource(this.getActivity(), R.array.Print_quality, R.layout.spinner_item_print);
         adapter_quality.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spin_print_quality.setAdapter(adapter_quality);
+
+        spin_print_quality.setSelection(Arrays.asList(printQuality).indexOf(kodakVeriteApp.getPrintQuality()));
+
+        spin_print_quality.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                for(int i = 0 ; i< printQuality.length;i++){
+                    kodakVeriteApp.setPrintQuality(printQuality[position]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
         incre.setOnClickListener(new View.OnClickListener() {

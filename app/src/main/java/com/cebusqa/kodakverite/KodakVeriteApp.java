@@ -38,13 +38,7 @@ public class KodakVeriteApp extends Application {
     private static String scanPhotoSettingDocument;
     private static String scanPhotoSettingQuality;
     private static String scanPhotoSettingColor;
-<<<<<<< HEAD
 
-    private String paperSize;
-    private String paperType;
-    private String printQuality;
-=======
->>>>>>> 4a19625693426059a0e80e0707455a789dc42d9f
 
     private static String paperSize;
     private static String paperType;

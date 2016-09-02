@@ -51,11 +51,10 @@ public class Scan_Photo_Settings extends AppCompatActivity {
         assert spinner_quality != null;
         spinner_quality.setAdapter(adapter_quality);
 
-<<<<<<< HEAD
-        spinner_quality.setSelection(Arrays.asList(quality).indexOf(kodakVeriteApp.getScanPhotoSettingQuality()));
-=======
+
+
         spinner_quality.setSelection(Arrays.asList(quality1).indexOf(kodakVeriteApp.getScanPhotoSettingQuality()));
->>>>>>> 4a19625693426059a0e80e0707455a789dc42d9f
+
 
         spinner_quality.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
