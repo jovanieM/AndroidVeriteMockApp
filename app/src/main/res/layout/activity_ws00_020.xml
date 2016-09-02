@@ -59,7 +59,7 @@
             android:layout_marginRight="55dp"
             android:layout_toLeftOf="@+id/toggleButton2"
             android:layout_toStartOf="@+id/toggleButton2"
-            android:text="New Text" />
+            android:text="" />
 
         <ToggleButton
             android:id="@+id/toggleButton2"
@@ -351,10 +351,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginRight="40dp"
                 android:layout_marginEnd="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginStart="10dp"
                 android:text="@string/subnet_mask"
                 android:textSize="@dimen/text_size" />
 
@@ -377,9 +377,9 @@
                 android:id="@+id/editText_subnet_byte2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:width="40dp"
                 android:gravity="center_horizontal"
                 android:text="255"
-                android:width="40dp"
                 android:textSize="@dimen/text_size" />
 
             <TextView
@@ -393,9 +393,9 @@
                 android:id="@+id/editText_subnet_byte3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:width="40dp"
                 android:gravity="center_horizontal"
                 android:text="255"
-                android:width="40dp"
                 android:textSize="@dimen/text_size" />
 
             <TextView
@@ -408,9 +408,9 @@
                 android:id="@+id/editText_subnet_byte4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:width="40dp"
                 android:gravity="center_horizontal"
                 android:text="255"
-                android:width="40dp"
                 android:textSize="@dimen/text_size" />
 
         </LinearLayout>

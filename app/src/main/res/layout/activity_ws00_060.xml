@@ -26,37 +26,42 @@
         android:layout_marginLeft="20dp"
         android:text="'Friendly name' is the printer name " />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:background="#2e2e2e"
         android:orientation="horizontal"
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/textview_friendly_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="40dp"
-            android:text="@string/friendly_name" />
+            android:text="@string/friendly_name"
+            android:textSize="@dimen/text_size"/>
 
         <EditText
             android:id="@+id/et_friendly_name"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.56" />
+            android:layout_alignLeft="@+id/textview_friendly_name"
+            android:layout_alignStart="@+id/textview_friendly_name"
+            android:layout_below="@+id/textview_friendly_name"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:textSize="@dimen/text_size"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/btn_save_setting3"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:background="@drawable/oval_background"
         android:text="@string/save_setting" />
 
