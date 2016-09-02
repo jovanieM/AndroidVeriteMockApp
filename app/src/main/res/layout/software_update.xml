@@ -84,16 +84,21 @@
         android:gravity="center_vertical">
 
         <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New ToggleButton"
-            android:id="@+id/toggleButton3" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/check_image"
+            android:textOff=""
+            android:textOn=""
+            android:background="@drawable/toggle_checbox"
+
+            android:layout_marginLeft="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Allow to send information of your printer to our service"
-            android:id="@+id/textView59" />
+            android:id="@+id/textView59"
+            android:layout_marginLeft="10dp" />
     </LinearLayout>
 
     <Button

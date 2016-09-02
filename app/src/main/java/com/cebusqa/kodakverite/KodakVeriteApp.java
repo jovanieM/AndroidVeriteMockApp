@@ -141,7 +141,7 @@ public class KodakVeriteApp extends Application {
 
     public String getPaperType() {
         if(paperType == null){
-            setPaperSize("Glossy Photo");
+            setPaperType("Glossy Photo");
         }
         return paperType;
     }
