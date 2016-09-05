@@ -3,18 +3,21 @@ package com.cebusqa.kodakverite;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
 /**
- * Created by SQA Cebu on 6/23/2016.
+ * Created by Arvin on 6/23/2016.
  */
 public class WS00_050 extends Activity {
 
@@ -22,6 +25,8 @@ public class WS00_050 extends Activity {
     String[] items;
     ArrayAdapter<String> adapter;
     Button btnBack, btnSaveSetting;
+    public static int directChoice;
+    private static String[] direct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +42,37 @@ public class WS00_050 extends Activity {
         adapter.setDropDownViewResource(R.layout.spinner_wifi_dropdown);
 
         spinner.setAdapter(adapter);
+        //spinner.setSelection(directChoice);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                for (int i = 0; i < items.length; i++) {
+                    if (position == i) {
+                        // = items[position];
+                        directChoice = spinner.getSelectedItemPosition();
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        SharedPreferences test = getSharedPreferences("Connect", Context.MODE_PRIVATE);
+        int spinnerValue = test.getInt("spinner", -1);
+        if(spinnerValue!=-1){
+            spinner.setSelection(spinnerValue);
+        }
 
         final ProgressDialog pd = new ProgressDialog(WS00_050.this);
         pd.setMessage("Getting network information...");
         pd.setCancelable(true);
-        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener(){
+        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which){
+            public void onClick(DialogInterface dialog, int which) {
                 startActivity(new Intent(WS00_050.this, WS00_000.class));
                 pd.dismiss();
                 finish();
@@ -53,10 +82,9 @@ public class WS00_050 extends Activity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try{
-
+                try {
                     Thread.sleep(4000);
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 pd.dismiss();
@@ -74,6 +102,7 @@ public class WS00_050 extends Activity {
         btnSaveSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 RingDialog ringDialog = new RingDialog(WS00_050.this, "", "Setting", true);
                 ringDialog.run();
 
@@ -89,6 +118,7 @@ public class WS00_050 extends Activity {
                         finish();
                     }
                 }, 4000);
+
             }
         });
     }
@@ -97,5 +127,14 @@ public class WS00_050 extends Activity {
     public void onBackPressed() {
         startActivity(new Intent(WS00_050.this, WS00_000.class));
         finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        SharedPreferences.Editor prefEditor = getSharedPreferences("Preference", 0).edit();
+        prefEditor.putInt("spinner",spinner.getSelectedItemPosition());
+        prefEditor.apply();
     }
 }

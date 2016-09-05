@@ -28,7 +28,7 @@ public class Fragment_ES30_000 extends Fragment {
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 transaction.replace(R.id.my_layout, frag);
-                transaction.addToBackStack(null);
+                //transaction.addToBackStack(null);
                 transaction.commit();
             }
         }, 4000);
