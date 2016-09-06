@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ShareCompat;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -34,6 +35,8 @@ public class DocumentScan2 extends Activity {
     boolean visible2;
     TextView docQuality, docColor, docDocument, docSaveAsType;
     KodakVeriteApp kodakVeriteApp;
+    WebView webView;
+    boolean saved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class DocumentScan2 extends Activity {
         setContentView(R.layout.document_scan_2);
 
         kodakVeriteApp = new KodakVeriteApp();
+        saved = false;
 
         mback = (Button) findViewById(R.id.back);
         this.scan = (RelativeLayout) findViewById(R.id.scan2);
@@ -52,15 +56,13 @@ public class DocumentScan2 extends Activity {
         this.skyDrive2 = (RelativeLayout) findViewById(R.id.one_box2);
         settings2 = (ImageButton) findViewById(R.id.dscanSettingsIcon);
         iv2 = (ImageView) findViewById(R.id.doc_image);
+        webView = (WebView) findViewById(R.id.webView);
 
         docQuality = (TextView) findViewById(R.id.doc_quality);
         docColor = (TextView) findViewById(R.id.doc_color);
         docDocument = (TextView) findViewById(R.id.doc_type);
         docSaveAsType = (TextView) findViewById(R.id.doc_save_as);
 
-
-        //context = getApplicationContext();
-        //test2 = new PhotoScanMain().test;
         Resources res = getResources();
         email2.bringToFront();
         save2.bringToFront();
@@ -72,7 +74,8 @@ public class DocumentScan2 extends Activity {
         mback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(), HM10_000.class));
+                SaveDocumentDialog.newInstance("Save image to Download").show(getFragmentManager(), "document");
+
             }
         });
 
@@ -107,6 +110,7 @@ public class DocumentScan2 extends Activity {
         save2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saved = true;
                 SaveAsDialog saveAs = new SaveAsDialog();
 
                 saveAs.show(getFragmentManager(), "My dialog");
@@ -145,12 +149,20 @@ public class DocumentScan2 extends Activity {
         skyDrive2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                webView.setVisibility(View.VISIBLE);
+//                String url = "https://login.live.com";
+//                webView.getSettings().setJavaScriptEnabled(true);
+//                webView.loadUrl(url);
+
+                //          intent = new Intent(Intent.ACTION_SEND);
+//                intent.setData(Uri.parse(url));
+//                startActivity(intent);
 
                 Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.docu);
-                intent = ShareCompat.IntentBuilder.from(DocumentScan2.this).setType("image/*").getIntent().setPackage("com.microsoft.skydrive");
-
-                // intent = new Intent(Intent.ACTION_SEND);
-                //intent.setType("image/*");
+                intent = ShareCompat.IntentBuilder.from(DocumentScan2.this).setType("image/*").getIntent().setPackage("com.microsoft.live");
+//
+//                // intent = new Intent(Intent.ACTION_SEND);
+//                //intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_STREAM, imageUri);
                 chooser = Intent.createChooser(intent, "Send Image");
                 startActivity(chooser);
@@ -215,9 +227,12 @@ public class DocumentScan2 extends Activity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-        //startActivity(new Intent(DocumentScan2.this, HM10_000.class));
+        if (!saved) {
+            SaveDocumentDialog.newInstance("Save image to Download").show(getFragmentManager(), "document");
+        } else {
+            super.onBackPressed();
+        }
+
     }
 
     @Override
@@ -227,5 +242,10 @@ public class DocumentScan2 extends Activity {
         docColor.setText(kodakVeriteApp.getScanSettingColor());
         docDocument.setText(kodakVeriteApp.getScanDocSettingDocument());
         docSaveAsType.setText(kodakVeriteApp.getScanDocSettingSaveAsType());
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

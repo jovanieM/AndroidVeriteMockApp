@@ -106,15 +106,14 @@
         android:layout_above="@+id/relativeLayout2"
         android:layout_alignRight="@+id/imageView"
         android:layout_alignEnd="@+id/imageView"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/save_as"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone" />
+            android:layout_alignParentTop="true"
+            android:visibility="visible" />
 
     </RelativeLayout>
     <RelativeLayout
@@ -135,7 +134,8 @@
             android:layout_height="match_parent"
             android:src="@drawable/email"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:visibility="visible" />
 
     </RelativeLayout>
     <RelativeLayout
@@ -155,7 +155,8 @@
             android:layout_height="match_parent"
             android:src="@drawable/google_drive"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:visibility="visible" />
 
     </RelativeLayout>
     <RelativeLayout
@@ -174,7 +175,8 @@
             android:layout_height="match_parent"
             android:src="@drawable/one_drive"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:visibility="visible" />
     </RelativeLayout>
     <include layout="@layout/photo_scan_settings"
         android:id="@+id/photoScanSettings"

@@ -32,6 +32,7 @@ public class ScanPhotoDialog extends DialogFragment{
         Bundle args = new Bundle();
         args.putString("title", title);
         scanPhotoDialog.setArguments(args);
+
         return scanPhotoDialog;
     }
 
