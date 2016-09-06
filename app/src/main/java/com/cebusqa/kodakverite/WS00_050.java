@@ -61,7 +61,7 @@ public class WS00_050 extends Activity {
             }
         });
 
-        SharedPreferences test = getSharedPreferences("Connect", Context.MODE_PRIVATE);
+        final SharedPreferences test = getSharedPreferences("Connect", Context.MODE_PRIVATE);
         int spinnerValue = test.getInt("spinner", -1);
         if(spinnerValue!=-1){
             spinner.setSelection(spinnerValue);
@@ -114,6 +114,7 @@ public class WS00_050 extends Activity {
                         AlertDialog adc = ad.create();
                         adc.show();
 
+                        spinner.setSelection(test.getInt("spinner", 0));
                         startActivity(new Intent(WS00_050.this, WS00_000.class));
                         finish();
                     }
