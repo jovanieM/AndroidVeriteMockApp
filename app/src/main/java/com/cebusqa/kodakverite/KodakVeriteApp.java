@@ -39,10 +39,10 @@ public class KodakVeriteApp extends Application {
     private static String scanPhotoSettingQuality;
     private static String scanPhotoSettingColor;
 
-
     private static String paperSize;
     private static String paperType;
     private static String printQuality;
+    private static String printCopies;
 
 
     @Override
@@ -172,6 +172,27 @@ public class KodakVeriteApp extends Application {
         this.printQuality = printQuality;
     }
 
+    public String getPrintCopies() {
+        if(printCopies == null){
+            setPrintCopies("1");
+        }
+        return printCopies;
+    }
+
+    public void setPrintCopies (String printCopies ){
+        this.printCopies = printCopies;
+    }
+
+    public String getQuickPrint() {
+        if(printCopies == null){
+            setPrintCopies("1");
+        }
+        return printCopies;
+    }
+
+    public void setQuickPrint (String printCopies ){
+        this.printCopies = printCopies;
+    }
 
     public String getScanDocSettingSaveAsType() {
         if(scanDocSettingSaveAsType == null){
@@ -256,5 +277,9 @@ public class KodakVeriteApp extends Application {
     public void setScanPhotoSettingQuality(String scanPhotoSettingQuality) {
         this.scanPhotoSettingQuality = scanPhotoSettingQuality;
     }
+
+
+
+
 
 }

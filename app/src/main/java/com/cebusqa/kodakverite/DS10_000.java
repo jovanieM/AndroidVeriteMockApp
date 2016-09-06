@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 
 public class DS10_000 extends AppCompatActivity {
 
-    ImageButton print_settings, scan_settings, device_settings;
+    RelativeLayout print_settings, scan_settings, device_settings;
     Button back;
 
     @Override
@@ -18,9 +18,9 @@ public class DS10_000 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ds10_000);
 
-        print_settings =(ImageButton)findViewById(R.id.print_settings);
-        scan_settings =(ImageButton)findViewById(R.id.scan_settings);
-        device_settings =(ImageButton)findViewById(R.id.device_settings);
+        print_settings =(RelativeLayout)findViewById(R.id.print_settings);
+        scan_settings =(RelativeLayout) findViewById(R.id.scan_settings);
+        device_settings =(RelativeLayout) findViewById(R.id.device_settings);
         back = (Button)findViewById(R.id.back);
 
 

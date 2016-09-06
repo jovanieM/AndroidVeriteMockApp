@@ -42,34 +42,36 @@
             android:layout_height="match_parent">
 
             <!-- Color -->
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="50dp">
 
                 <TextView
-                    android:layout_width="80dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Color"
                     android:onClick=""
                     android:id="@+id/lblColor"
                     android:layout_gravity="center"
                     android:textColor="#ffffff"
-                    />
-
-                <Space
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent" />
+                    android:layout_alignParentStart="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp" />
 
                 <Spinner
-                    android:layout_width="166dp"
+                    android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dialog"
                     android:id="@+id/sp_color"
                     android:gravity="right"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
         <View
         android:layout_width="match_parent"
@@ -77,34 +79,35 @@
         android:background="@android:color/darker_gray" />
 
             <!-- paper size -->
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="50dp">
 
                 <TextView
-                    android:layout_width="80dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Paper Size"
                     android:onClick=""
                     android:id="@+id/lblPaperSize"
                     android:layout_gravity="center"
                     android:textColor="#ffffff"
-                    />
-
-                <Space
-                    android:layout_width="80dp"
-                    android:layout_height="match_parent" />
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="5dp" />
 
                 <Spinner
-                    android:layout_width="166dp"
+                    android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dialog"
                     android:id="@+id/sp_paper_size"
                     android:gravity="right"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
@@ -112,34 +115,35 @@
             android:background="@android:color/darker_gray" />
 
         <!-- paper type -->
-        <LinearLayout
+        <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="50dp">
 
             <TextView
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Paper Type"
                 android:onClick=""
                 android:id="@+id/lblPaperType"
                 android:layout_gravity="center"
                 android:textColor="#ffffff"
-                />
-
-            <Space
-                android:layout_width="80dp"
-                android:layout_height="match_parent" />
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp" />
 
             <Spinner
-                android:layout_width="166dp"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dialog"
                 android:id="@+id/sp_paper_type"
                 android:gravity="right"
-                android:layout_gravity="right" />
+                android:layout_gravity="right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
@@ -147,34 +151,35 @@
             android:background="@android:color/darker_gray" />
 
         <!-- quality -->
-        <LinearLayout
+        <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="50dp">
 
             <TextView
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quality"
                 android:onClick=""
                 android:id="@+id/lblQuality"
                 android:layout_gravity="center"
                 android:textColor="#ffffff"
-                />
-
-            <Space
-                android:layout_width="80dp"
-                android:layout_height="match_parent" />
+                android:layout_marginLeft="5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true" />
 
             <Spinner
-                android:layout_width="166dp"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dialog"
                 android:id="@+id/sp_quality"
                 android:gravity="right"
-                android:layout_gravity="right" />
+                android:layout_gravity="right"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
@@ -182,20 +187,22 @@
             android:background="@android:color/darker_gray" />
 
         <!-- copy resize -->
-        <LinearLayout
+        <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="100dp">
 
             <TextView
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Copy Resize"
                 android:onClick=""
                 android:id="@+id/lblResize"
                 android:layout_gravity="center"
                 android:textColor="#ffffff"
-                />
+                android:layout_marginLeft="5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true" />
 
             <Space
                 android:layout_width="80dp"
@@ -204,20 +211,24 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true">
                 <Spinner
-                    android:layout_width="166dp"
+                    android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dialog"
                     android:id="@+id/sp_resize"
                     android:gravity="right"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:layout_marginRight="5dp" />
                 <LinearLayout
                     android:layout_width="166dp"
                     android:layout_height="37dp"
                     android:orientation="horizontal"
                     android:weightSum="1"
-                    android:id="@+id/ll_custom_resize">
+                    android:id="@+id/ll_custom_resize"
+                    android:layout_marginRight="5dp">
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -234,23 +245,24 @@
                         android:text="%"
                         android:id="@+id/textView2"
                         android:layout_marginRight="5dp" />
+
                     <Button
-                        android:layout_width="45dp"
-                        android:layout_height="match_parent"
-                        android:background="@mipmap/incre"
-                        android:layout_marginRight="5dp"
-                        android:id="@+id/btn_custom_resize_increment" />
-                    <Button
-                        android:layout_width="39dp"
-                        android:layout_height="match_parent"
-                        android:text="-"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:layout_below="@+id/textView2"
                         android:layout_toEndOf="@+id/editText3"
                         android:id="@+id/btn_custom_resize_decrement"
                         android:background="@mipmap/decre" />
+
+                    <Button
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@mipmap/incre"
+                        android:id="@+id/btn_custom_resize_increment"
+                        android:layout_marginLeft="5dp" />
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
 
         <View
             android:layout_width="match_parent"
@@ -260,10 +272,10 @@
         <!-- pages per side -->
 
             <!-- brightness -->
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="50dp">
 
             <TextView
                 android:layout_width="80dp"
@@ -273,36 +285,41 @@
                 android:id="@+id/lblBrightness"
                 android:layout_gravity="center"
                 android:textColor="#ffffff"
-                />
-
-            <Space
-                android:layout_width="60dp"
-                android:layout_height="match_parent" />
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5dp"
+                android:layout_centerVertical="true" />
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:id="@+id/imageView4"
-                    android:src="@drawable/min" />
+                    android:src="@mipmap/brightness_icon_light"
+                    android:layout_toLeftOf="@+id/seekBar"
+                    android:layout_centerVertical="true" />
 
                 <SeekBar
-                    android:layout_width="wrap_content"
+                    android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/seekBar"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
                     android:max="5"
                     android:layout_marginLeft="3dp"
-                    android:layout_marginRight="3dp" />
+                    android:layout_marginRight="3dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/imageView5" />
 
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:id="@+id/imageView5"
-                    android:src="@drawable/max"
-                    android:layout_gravity="bottom" />
+                    android:src="@mipmap/brightness_icon_dark"
+                    android:layout_gravity="bottom"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
         <View
             android:layout_width="match_parent"

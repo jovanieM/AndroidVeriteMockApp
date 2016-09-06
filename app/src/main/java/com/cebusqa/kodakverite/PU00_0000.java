@@ -4,17 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.RelativeLayout;
 
 /**
  * Created by SQA Cebu on 6/21/2016.
  */
 public class PU00_0000 extends Activity {
 
-    ListView lvPrinterUtilityList;
+    RelativeLayout device_sleep_time, clean_printhead, cartridge_setup, print_reports, paper_setup, restore_default;
     String[] items;
     ArrayAdapter<String> adapter;
     Button btnBack;
@@ -25,43 +24,60 @@ public class PU00_0000 extends Activity {
         setContentView(R.layout.activity_pu00_000);
 
         btnBack = (Button) findViewById(R.id.back);
-        lvPrinterUtilityList = (ListView) findViewById(R.id.lv_print_util_list);
+        device_sleep_time = (RelativeLayout)findViewById(R.id.device_sleep_time);
+        clean_printhead = (RelativeLayout)findViewById(R.id.clean_printhead);
+        cartridge_setup = (RelativeLayout)findViewById(R.id.cartridge_setup);
+        print_reports = (RelativeLayout)findViewById(R.id.print_reports);
+        paper_setup = (RelativeLayout)findViewById(R.id.paper_setup);
+        restore_default = (RelativeLayout)findViewById(R.id.restore_default);
         items = getResources().getStringArray(R.array.printer_utility);
 
-        //adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
-
-        lvPrinterUtilityList.setAdapter(new CustomAdapterPrintUtil(this, items));
-        lvPrinterUtilityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        device_sleep_time.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i){
-                    case 0:
-                        Intent intent0 = new Intent (PU00_0000.this, DeviceSleepTime_000.class);
-                        startActivity(intent0);
-                        break;
-                    case 1:
-                        Intent intent1 = new Intent (PU00_0000.this, Clean_Printhead.class);
-                        startActivity(intent1);
-                        break;
-                    case 2:
-                        Intent intent = new Intent (PU00_0000.this, CS00_000.class);
-                        startActivity(intent);
-                        break;
-                    case 3:
-                        Intent intent3 = new Intent (PU00_0000.this, Print_Reports.class);
-                        startActivity(intent3);
-                        break;
-                    case 4:
-                        Intent intent4 = new Intent (PU00_0000.this, PaperSetup_000.class);
-                        startActivity(intent4);
-                        break;
-                    case 5:
-                        Intent intent5 = new Intent (PU00_0000.this, Restore_Factory.class);
-                        startActivity(intent5);
-                        break;
-                    default:
-                        break;
-                }
+            public void onClick(View v) {
+                Intent intent0 = new Intent (PU00_0000.this, DeviceSleepTime_000.class);
+                startActivity(intent0);
+            }
+        });
+
+        clean_printhead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent (PU00_0000.this, Clean_Printhead.class);
+                startActivity(intent1);
+            }
+        });
+
+        cartridge_setup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (PU00_0000.this, CS00_000.class);
+                startActivity(intent);
+            }
+        });
+
+        print_reports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent3 = new Intent (PU00_0000.this, Print_Reports.class);
+                startActivity(intent3);
+            }
+        });
+
+        paper_setup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent4 = new Intent (PU00_0000.this, PaperSetup_000.class);
+                startActivity(intent4);
+            }
+        });
+
+        restore_default.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent5 = new Intent (PU00_0000.this, Restore_Factory.class);
+                startActivity(intent5);
+
             }
         });
 
