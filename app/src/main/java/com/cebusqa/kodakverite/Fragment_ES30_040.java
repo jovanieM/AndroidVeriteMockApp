@@ -18,6 +18,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by SQA Cebu on 6/16/2016.
@@ -46,29 +47,36 @@ public class Fragment_ES30_040 extends Fragment {
 
         ssid = Fragment_ES30_001.itemSSID;
         tvSSID.setText(ssid);
-        etPass.setCursorVisible(true);
-        etPass.requestFocus();
+        //etPass.setCursorVisible(true);
+
         showInputMethod();
         checkBox();
+
 
         etPass.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == EditorInfo.IME_ACTION_DONE) {
                     //showInputMethod();
-                    checkBox();
+                    if (etPass.length() == 0 || etPass.equals("") || etPass == null) {
+                        Toast.makeText(getActivity(), "Password empty!", Toast.LENGTH_SHORT).show();
+                    } else {
 
-                    Fragment_ES30_050 frag = new Fragment_ES30_050();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                        checkBox();
 
-                    transaction.replace(R.id.my_layout, frag);
-                    transaction.commit();
+                        Fragment_ES30_050 frag = new Fragment_ES30_050();
+                        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                    hideSoftKeyboard();
-                }
-                return false;
+                        transaction.replace(R.id.my_layout, frag);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+
+                        hideSoftKeyboard();
+                    }
+                }return false;
             }
         });
+
 
         btnHelp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +125,8 @@ public class Fragment_ES30_040 extends Fragment {
     }
 
     public void showInputMethod() {
+        etPass.requestFocus();
+        etPass.setFocusableInTouchMode(true);
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
@@ -124,7 +134,8 @@ public class Fragment_ES30_040 extends Fragment {
     public void hideSoftKeyboard() {
         if (getActivity().getCurrentFocus() != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(imm.HIDE_NOT_ALWAYS, 0);
+            //imm.toggleSoftInput(imm.HIDE_NOT_ALWAYS, 0);
+            imm.hideSoftInputFromWindow(etPass.getWindowToken(), 0);
         }
     }
 
