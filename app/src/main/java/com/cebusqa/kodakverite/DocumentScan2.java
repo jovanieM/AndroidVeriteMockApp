@@ -38,6 +38,8 @@ public class DocumentScan2 extends Activity {
     WebView webView;
     boolean saved;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
