@@ -44,7 +44,6 @@ public class WS00_012 extends Activity {
         etPass1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-
                 if (i == EditorInfo.IME_ACTION_GO) {
                     startActivity(new Intent(WS00_012.this, WS00_013.class));
                     hideSoftKeyboard();

@@ -58,7 +58,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
         decre = (ImageButton) view.findViewById(R.id.decre);
         decre.setOnClickListener(this);
 
-        num_copies.setText("1");
+        num_copies.setText(kodakVeriteApp.getPrintCopies());
 
         Spinner spin_papersize = (Spinner) view.findViewById(R.id.spin_papersize);
         Spinner spin_color_output = (Spinner) view.findViewById(R.id.spin_color_output);
@@ -139,7 +139,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
                     num= num+1;
                     val = Integer.toString(num);
                     num_copies.setText(val);
-
+                    kodakVeriteApp.setPrintCopies(val);
                 }
             }
         });
@@ -155,6 +155,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
                     num = num - 1;
                     val = Integer.toString(num);
                     num_copies.setText(val);
+                    kodakVeriteApp.setPrintCopies(val);
                 }
             }
         });

@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by Cebu SQA on 27/06/2016.
  */
 public class KodakVeriteApp extends Application {
-    static int  currentStatusValue = 0;
+    static int currentStatusValue = 0;
     static boolean airprintPrvState = false;
     static boolean gcpPrevState = false;
     static ArrayList<String> bucketName;
@@ -28,7 +28,7 @@ public class KodakVeriteApp extends Application {
     static ArrayList<String> noOfFiles;
     static String fName;
     ArrayList<Integer> imagePerFolder;
-    static final int MY_PERMISSION_REQUEST_READ_STORAGE  = 123;
+    static final int MY_PERMISSION_REQUEST_READ_STORAGE = 123;
 
     private static String scanSettingQuality;
     private static String scanSettingColor;
@@ -39,27 +39,26 @@ public class KodakVeriteApp extends Application {
     private static String scanPhotoSettingQuality;
     private static String scanPhotoSettingColor;
 
-
     private static String paperSize;
     private static String paperType;
     private static String printQuality;
+    private static String printCopies;
 
+    private static String directTime;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
         Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-        String[] projection = {MediaStore.Images.Media.DATA,MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
-        bucketName= new ArrayList<>();
-        bucketData= new ArrayList<>();
+        String[] projection = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
+        bucketName = new ArrayList<>();
+        bucketData = new ArrayList<>();
         dirs = new ArrayList<>();
         noOfFiles = new ArrayList<>();
         imagePerFolder = new ArrayList<>();
         fName = null;
 
-
-        
 //        int readPermissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE);
 //
 //        if(readPermissionCheck!= PackageManager.PERMISSION_GRANTED){
@@ -68,47 +67,32 @@ public class KodakVeriteApp extends Application {
 //            ActivityCompat.requestPermissions(this.getApplicationContext(), new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSION_REQUEST_READ_STORAGE);
 //        }
 
-        Cursor cursor = getContentResolver().query(uri, projection, null,null,null);
+        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                if (!bucketName.contains(cursor.getString(1))) {
+                    if (imagePerFolder.isEmpty()) {
+                    }
 
-
-
-        if (cursor!=null){
-
-            while(cursor.moveToNext()){
-
-                if(!bucketName.contains(cursor.getString(1)))
-                {
-                    if(imagePerFolder.isEmpty()){}
-
-                    if (cursor.getString(0).toLowerCase().endsWith(".jpg")||
-                            cursor.getString(0).toLowerCase().endsWith(".jpeg")||
-                            cursor.getString(0).toLowerCase().endsWith(".png"))
-                    {
-
-
-                        if(!bucketName.contains(cursor.getString(1))){
+                    if (cursor.getString(0).toLowerCase().endsWith(".jpg") ||
+                            cursor.getString(0).toLowerCase().endsWith(".jpeg") ||
+                            cursor.getString(0).toLowerCase().endsWith(".png")) {
+                        if (!bucketName.contains(cursor.getString(1))) {
                             bucketName.add(cursor.getString(1));
                             bucketData.add(cursor.getString(0));
                         }
                     }
                 }
-
-
             }
             cursor.close();
         }
 
-        for(int i = 0; i<bucketData.size(); i++)
-        {
+        for (int i = 0; i < bucketData.size(); i++) {
             File file = new File(bucketData.get(i));
             String st = file.getParent();
             dirs.add(st);
             //Toast.makeText(this, bucketName.get(i), Toast.LENGTH_SHORT).show();
         }
-
-
-
-
 
         ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
                 .threadPriority(Thread.NORM_PRIORITY - 2)
@@ -121,12 +105,8 @@ public class KodakVeriteApp extends Application {
                 .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
                 .build();
         ImageLoader.getInstance().init(configuration);
-
-
         //Toast.makeText(getApplicationContext(), String.valueOf(noOfFiles.get(0)), Toast.LENGTH_SHORT).show();
     }
-
-
 
     public ArrayList<String> getThumbData() {
         return thumbData;
@@ -135,12 +115,13 @@ public class KodakVeriteApp extends Application {
     public void setThumbData(ArrayList<String> thumbData2) {
         thumbData = thumbData2;
     }
-    public void clearData(){
+
+    public void clearData() {
         thumbData.clear();
     }
 
     public String getPaperType() {
-        if(paperType == null){
+        if (paperType == null) {
             setPaperType("Glossy Photo");
         }
         return paperType;
@@ -151,8 +132,8 @@ public class KodakVeriteApp extends Application {
     }
 
     public String getPaperSize() {
-        if(paperSize == null){
-           setPaperSize("4x6 in. Borderless");
+        if (paperSize == null) {
+            setPaperSize("4x6 in. Borderless");
         }
         return paperSize;
     }
@@ -162,7 +143,7 @@ public class KodakVeriteApp extends Application {
     }
 
     public String getPrintQuality() {
-        if(printQuality == null){
+        if (printQuality == null) {
             setPrintQuality("Best");
         }
         return printQuality;
@@ -172,9 +153,30 @@ public class KodakVeriteApp extends Application {
         this.printQuality = printQuality;
     }
 
+    public String getPrintCopies() {
+        if (printCopies == null) {
+            setPrintCopies("1");
+        }
+        return printCopies;
+    }
+
+    public void setPrintCopies(String printCopies) {
+        this.printCopies = printCopies;
+    }
+
+    public String getQuickPrint() {
+        if (printCopies == null) {
+            setPrintCopies("1");
+        }
+        return printCopies;
+    }
+
+    public void setQuickPrint(String printCopies) {
+        this.printCopies = printCopies;
+    }
 
     public String getScanDocSettingSaveAsType() {
-        if(scanDocSettingSaveAsType == null){
+        if (scanDocSettingSaveAsType == null) {
             setScanDocSettingSaveAsType("PDF");
         }
         return scanDocSettingSaveAsType;
@@ -184,9 +186,8 @@ public class KodakVeriteApp extends Application {
         this.scanDocSettingSaveAsType = scanDocSettingSaveAsType;
     }
 
-
     public String getScanSettingQuality() {
-        if(scanSettingQuality == null){
+        if (scanSettingQuality == null) {
             setScanSettingQuality("High");
         }
         return scanSettingQuality;
@@ -197,9 +198,8 @@ public class KodakVeriteApp extends Application {
     }
 
 
-
     public String getScanSettingColor() {
-        if(scanSettingColor == null){
+        if (scanSettingColor == null) {
             setScanSettingColor("Color");
         }
         return scanSettingColor;
@@ -210,9 +210,8 @@ public class KodakVeriteApp extends Application {
     }
 
 
-
     public String getScanDocSettingDocument() {
-        if(scanDocSettingDocument==null){
+        if (scanDocSettingDocument == null) {
             setScanDocSettingDocument("Text/Graphics");
         }
         return scanDocSettingDocument;
@@ -223,9 +222,8 @@ public class KodakVeriteApp extends Application {
     }
 
 
-
     public String getScanPhotoSettingDocument() {
-        if(scanPhotoSettingDocument == null){
+        if (scanPhotoSettingDocument == null) {
             setScanPhotoSettingDocument("Photo");
         }
         return scanPhotoSettingDocument;
@@ -236,7 +234,7 @@ public class KodakVeriteApp extends Application {
     }
 
     public String getScanPhotoSettingColor() {
-        if(scanPhotoSettingColor==null){
+        if (scanPhotoSettingColor == null) {
             setScanPhotoSettingColor("Color");
         }
         return scanPhotoSettingColor;
@@ -247,7 +245,7 @@ public class KodakVeriteApp extends Application {
     }
 
     public String getScanPhotoSettingQuality() {
-        if(scanPhotoSettingQuality == null){
+        if (scanPhotoSettingQuality == null) {
             setScanPhotoSettingQuality("Normal");
         }
         return scanPhotoSettingQuality;
@@ -257,4 +255,14 @@ public class KodakVeriteApp extends Application {
         this.scanPhotoSettingQuality = scanPhotoSettingQuality;
     }
 
+    public void setDirectTime(String directTime) {
+        this.directTime = directTime;
+    }
+
+    public String getDirectTime() {
+        if (directTime == null) {
+            setDirectTime("5 min");
+        }
+        return directTime;
+    }
 }
