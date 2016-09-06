@@ -47,7 +47,7 @@ public class GcpEnableDisable extends Activity implements CompoundButton.OnCheck
                 if (prevState != apStatusChanger.isChecked()){
                     KodakVeriteApp.gcpPrevState = apStatusChanger.isChecked();
                     //Toast.makeText(getApplicationContext(), "yes", Toast.LENGTH_SHORT).show();
-                    /**Recylce Unregistration complete view**/
+                    /**Reusing "Unregistration complete" view**/
 
                     new Thread(new Runnable() {
                         @Override

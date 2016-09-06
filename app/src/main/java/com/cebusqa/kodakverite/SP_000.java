@@ -1,5 +1,6 @@
-package  com.cebusqa.kodakverite;
+package com.cebusqa.kodakverite;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -7,10 +8,12 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -27,11 +30,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SP_000 extends AppCompatActivity{
+public class SP_000 extends AppCompatActivity {
 
     Button back;
     ImageButton settings;
-    RelativeLayout rl_scan, rl_crop, rl_send, save,email,drive,skyDrive;
+    RelativeLayout rl_scan, rl_crop, rl_send, save, email, drive, skyDrive;
     Intent intent, chooser;
     Context context;
     static final int GET_BITMAP_REQUEST = 2;
@@ -46,16 +49,19 @@ public class SP_000 extends AppCompatActivity{
     boolean test2;
     TextView photoQuality, photoColor, photoDocument;
     KodakVeriteApp kodakVeriteApp;
+    boolean saved;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bundle = savedInstanceState;
         setContentView(R.layout.activity_sp_000);
+        saved = false;
 
         kodakVeriteApp = new KodakVeriteApp();
-
-        this.back = (Button)findViewById(R.id.back);
+        final Object objectLock = new Object();
+        this.back = (Button) findViewById(R.id.back);
         this.rl_scan = (RelativeLayout) findViewById(R.id.scan);
         this.rl_crop = (RelativeLayout) findViewById(R.id.crop);
         this.rl_send = (RelativeLayout) findViewById(R.id.send);
@@ -103,9 +109,10 @@ public class SP_000 extends AppCompatActivity{
                 startActivity(new Intent(SP_000.this, Scan_Photo_Settings.class));
             }
         });
-        back.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                startActivity(new Intent(SP_000.this, HM10_000.class));
+        back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                SaveDocumentDialog.newInstance("Save image to ScannedImage").show(getFragmentManager(), "document");
+
             }
         });
         rl_scan.setOnClickListener(new View.OnClickListener() {
@@ -122,9 +129,9 @@ public class SP_000 extends AppCompatActivity{
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        if(test2){
+                        if (test2) {
 
-                            new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
+                            new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(), "dialog");
 
                         }
                         scanPhotoDialog2.dismiss();
@@ -139,26 +146,43 @@ public class SP_000 extends AppCompatActivity{
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SaveAsDialog saveAs = new SaveAsDialog();
+                saved = true;
+                SaveImageDialog.newInstance("Save image to Scanned Image").show(getFragmentManager(), "image");
 
-                saveAs.show(getFragmentManager(), "My dialog");
+                t = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } finally {
+                            if (getFragmentManager().findFragmentByTag("image") != null) {
+                                getFragmentManager().findFragmentByTag("image").onDestroy();
+                            } else {
+                                t.interrupt();
+                            }
+
+                        }
+                    }
+                });
+                t.start();
 
             }
         });
 
-        //Toast.makeText(this, String.valueOf(maxW), Toast.LENGTH_SHORT).show();
-        // working code
+
         drive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
+                Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.sample);
                 intent = ShareCompat.IntentBuilder.from(SP_000.this).setType("image/*").getIntent().setPackage("com.google.android.apps.docs");
 
-               // intent = new Intent(Intent.ACTION_SEND);
+                // intent = new Intent(Intent.ACTION_SEND);
                 //intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-                chooser=Intent.createChooser(intent, "Send Image");
+                chooser = Intent.createChooser(intent, "Send Image");
                 startActivity(chooser);
             }
         });
@@ -168,11 +192,11 @@ public class SP_000 extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
+                Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.sample);
                 intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-                chooser=Intent.createChooser(intent, "Send Image");
+                chooser = Intent.createChooser(intent, "Send Image");
                 startActivity(chooser);
             }
         });
@@ -181,13 +205,13 @@ public class SP_000 extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                Uri imageUri = Uri.parse("android.resource://"+getPackageName()+"/"+R.drawable.sample);
+                Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.sample);
                 intent = ShareCompat.IntentBuilder.from(SP_000.this).setType("image/*").getIntent().setPackage("com.microsoft.skydrive");
 
                 // intent = new Intent(Intent.ACTION_SEND);
                 //intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-                chooser=Intent.createChooser(intent, "Send Image");
+                chooser = Intent.createChooser(intent, "Send Image");
                 startActivity(chooser);
             }
         });
@@ -196,9 +220,9 @@ public class SP_000 extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SP_000.this, ImageCropper.class);
-                intent.putExtra("width", bm.getWidth()+80);
-                intent.putExtra("height", bm.getHeight()+80);
-                startActivityForResult(intent,GET_BITMAP_REQUEST);
+                intent.putExtra("width", bm.getWidth() + 80);
+                intent.putExtra("height", bm.getHeight() + 80);
+                startActivityForResult(intent, GET_BITMAP_REQUEST);
                 //startActivity(intent);
             }
         });
@@ -206,20 +230,19 @@ public class SP_000 extends AppCompatActivity{
         rl_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!visible) {
+                if (!visible) {
                     save.setVisibility(View.VISIBLE);
                     email.setVisibility(View.VISIBLE);
                     drive.setVisibility(View.VISIBLE);
                     skyDrive.setVisibility(View.VISIBLE);
                     visible = true;
-                }else{
+                } else {
                     save.setVisibility(View.GONE);
                     email.setVisibility(View.GONE);
                     drive.setVisibility(View.GONE);
                     skyDrive.setVisibility(View.GONE);
                     visible = false;
                 }
-
 
 
             }
@@ -230,16 +253,16 @@ public class SP_000 extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == 2){
-            int l = data.getIntExtra("left",0);
+        if (resultCode == 2) {
+            int l = data.getIntExtra("left", 0);
             int t = data.getIntExtra("top", 0);
             int r = data.getIntExtra("right", 300);
             int b = data.getIntExtra("bottom", 500);
 
 
-            Bitmap mBitmap = Bitmap.createBitmap(bm, l,t,r,b);
+            Bitmap mBitmap = Bitmap.createBitmap(bm, l, t, r, b);
             iv.setImageBitmap(mBitmap);
-        }else{
+        } else {
             Toast.makeText(this, "no change", Toast.LENGTH_SHORT).show();
         }
     }
@@ -247,9 +270,15 @@ public class SP_000 extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-       // startActivity(new Intent(SP_000.this, HM10_000.class));
+
+        if (!saved) {
+            SaveDocumentDialog.newInstance("Save image to ScannedImage").show(getFragmentManager(), "document");
+        } else {
+            super.onBackPressed();
+        }
+
+
+        // startActivity(new Intent(SP_000.this, HM10_000.class));
     }
 
     @Override
