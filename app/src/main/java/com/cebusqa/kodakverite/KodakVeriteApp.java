@@ -1,32 +1,18 @@
 package com.cebusqa.kodakverite;
 
-import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
-import com.nostra13.universalimageloader.cache.disc.DiskCache;
-import com.nostra13.universalimageloader.cache.disc.impl.BaseDiskCache;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
-import com.nostra13.universalimageloader.cache.disc.impl.ext.LruDiskCache;
-import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
-import com.nostra13.universalimageloader.utils.L;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.jar.Manifest;
 
 /**
  * Created by Cebu SQA on 27/06/2016.
@@ -48,11 +34,15 @@ public class KodakVeriteApp extends Application {
     private static String scanSettingColor;
     private static String scanDocSettingDocument;
     private static String scanDocSettingSaveAsType;
-    private static String scanPhotoSettingDocument;
-    private String paperSize;
-    private String paperType;
-    private String printQuality;
 
+    private static String scanPhotoSettingDocument;
+    private static String scanPhotoSettingQuality;
+    private static String scanPhotoSettingColor;
+
+    private static String paperSize;
+    private static String paperType;
+    private static String printQuality;
+    private static String printCopies;
 
 
     @Override
@@ -150,6 +140,9 @@ public class KodakVeriteApp extends Application {
     }
 
     public String getPaperType() {
+        if(paperType == null){
+            setPaperType("Glossy Photo");
+        }
         return paperType;
     }
 
@@ -159,7 +152,7 @@ public class KodakVeriteApp extends Application {
 
     public String getPaperSize() {
         if(paperSize == null){
-            setPrintQuality("Best");
+           setPaperSize("4x6 in. Borderless");
         }
         return paperSize;
     }
@@ -179,13 +172,39 @@ public class KodakVeriteApp extends Application {
         this.printQuality = printQuality;
     }
 
+    public String getPrintCopies() {
+        if(printCopies == null){
+            setPrintCopies("1");
+        }
+        return printCopies;
+    }
+
+    public void setPrintCopies (String printCopies ){
+        this.printCopies = printCopies;
+    }
+
+    public String getQuickPrint() {
+        if(printCopies == null){
+            setPrintCopies("1");
+        }
+        return printCopies;
+    }
+
+    public void setQuickPrint (String printCopies ){
+        this.printCopies = printCopies;
+    }
+
     public String getScanDocSettingSaveAsType() {
+        if(scanDocSettingSaveAsType == null){
+            setScanDocSettingSaveAsType("PDF");
+        }
         return scanDocSettingSaveAsType;
     }
 
     public void setScanDocSettingSaveAsType(String scanDocSettingSaveAsType) {
         this.scanDocSettingSaveAsType = scanDocSettingSaveAsType;
     }
+
 
     public String getScanSettingQuality() {
         if(scanSettingQuality == null){
@@ -198,7 +217,12 @@ public class KodakVeriteApp extends Application {
         this.scanSettingQuality = scanSettingQuality;
     }
 
+
+
     public String getScanSettingColor() {
+        if(scanSettingColor == null){
+            setScanSettingColor("Color");
+        }
         return scanSettingColor;
     }
 
@@ -206,7 +230,12 @@ public class KodakVeriteApp extends Application {
         this.scanSettingColor = scanSettingColor;
     }
 
+
+
     public String getScanDocSettingDocument() {
+        if(scanDocSettingDocument==null){
+            setScanDocSettingDocument("Text/Graphics");
+        }
         return scanDocSettingDocument;
     }
 
@@ -214,11 +243,43 @@ public class KodakVeriteApp extends Application {
         this.scanDocSettingDocument = scanDocSettingDocument;
     }
 
+
+
     public String getScanPhotoSettingDocument() {
+        if(scanPhotoSettingDocument == null){
+            setScanPhotoSettingDocument("Photo");
+        }
         return scanPhotoSettingDocument;
     }
 
     public void setScanPhotoSettingDocument(String scanPhotoSettingDocument) {
         this.scanPhotoSettingDocument = scanPhotoSettingDocument;
     }
+
+    public String getScanPhotoSettingColor() {
+        if(scanPhotoSettingColor==null){
+            setScanPhotoSettingColor("Color");
+        }
+        return scanPhotoSettingColor;
+    }
+
+    public void setScanPhotoSettingColor(String scanPhotoSettingColor) {
+        this.scanPhotoSettingColor = scanPhotoSettingColor;
+    }
+
+    public String getScanPhotoSettingQuality() {
+        if(scanPhotoSettingQuality == null){
+            setScanPhotoSettingQuality("Normal");
+        }
+        return scanPhotoSettingQuality;
+    }
+
+    public void setScanPhotoSettingQuality(String scanPhotoSettingQuality) {
+        this.scanPhotoSettingQuality = scanPhotoSettingQuality;
+    }
+
+
+
+
+
 }

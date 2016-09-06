@@ -59,52 +59,132 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" >
 
-        <ImageButton
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/gradient_bg"
+            android:clickable="true"
+            android:descendantFocusability="beforeDescendants"
+            android:focusable="true"
             android:id="@+id/print_settings"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/print_settings"
-            android:background="#000000" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp">
 
-        <Space
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Print Settings"
+                android:id="@+id/textView60"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:focusable="false"
+                android:clickable="false"
+                android:layout_centerVertical="true" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton7"
+                android:src="@mipmap/allow_next"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="20dp"
+                android:background="#00ffffff"
+                android:clickable="false"
+                android:focusable="false"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="12dp"
-            android:layout_gravity="center_horizontal" />
-
-        <ImageButton
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
+            android:background="@drawable/gradient_bg"
+            android:clickable="true"
+            android:descendantFocusability="beforeDescendants"
+            android:focusable="true"
             android:id="@+id/scan_settings"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/scan_settings"
-            android:background="#000000" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
 
-        <Space
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan Settings"
+                android:id="@+id/textView61"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:focusable="false"
+                android:clickable="false"
+                android:layout_centerVertical="true" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton8"
+                android:src="@mipmap/allow_next"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="20dp"
+                android:background="#00ffffff"
+                android:clickable="false"
+                android:focusable="false"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="12dp"
-            android:layout_gravity="center_horizontal" />
-
-        <ImageButton
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
+            android:background="@drawable/gradient_bg"
+            android:clickable="true"
+            android:descendantFocusability="beforeDescendants"
+            android:focusable="true"
             android:id="@+id/device_settings"
-            android:layout_gravity="center_horizontal"
-            android:src="@mipmap/device_settings"
-            android:background="#000000" />
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_gravity="center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Device Settings"
+                android:id="@+id/textView62"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:focusable="false"
+                android:clickable="false"
+                android:layout_centerVertical="true" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton9"
+                android:src="@mipmap/allow_next"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="20dp"
+                android:background="#00ffffff"
+                android:clickable="false"
+                android:focusable="false"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
 
         <ImageButton
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/connection"
             android:layout_gravity="center_horizontal"
             android:src="@mipmap/connection"
-            android:background="#000000" />
+            android:background="@drawable/gradient_bg"
+            android:layout_margin="5dp"
+            android:layout_marginTop="10dp" />
     </LinearLayout>
 
 </RelativeLayout>

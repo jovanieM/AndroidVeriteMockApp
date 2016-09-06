@@ -80,9 +80,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         paperSize = (TextView) findViewById(R.id.paper_size);
         paperType = (TextView) findViewById(R.id.paper_type);
         printQuality = (TextView) findViewById(R.id.photo);
-        paperSize.setText("Letter");
-        paperType.setText(kodakVeriteApp.getPaperType());
-        printQuality.setText(kodakVeriteApp.getPrintQuality());
+
 
 
         backIcon.setOnClickListener(new View.OnClickListener() {
@@ -259,5 +257,14 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
             }
             return true;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        paperSize.setText(kodakVeriteApp.getPaperSize());
+        paperType.setText(kodakVeriteApp.getPaperType());
+        printQuality.setText(kodakVeriteApp.getPrintQuality());
+
     }
 }

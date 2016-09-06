@@ -41,7 +41,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/document"
+                android:id="@+id/doc_type"
                 android:background="#000000"
                 android:src="@mipmap/documentletter_uncheck" />
 

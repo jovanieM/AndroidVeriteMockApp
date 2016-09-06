@@ -12,14 +12,15 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 /**
  * Created by SQA Cebu on 6/29/2016.
  */
-public class SoftwareUpdate extends Activity implements View.OnClickListener {
+public class SoftwareUpdate extends Activity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
     Button btnBack, btnUpdate, btnConfirmation;
-    CheckBox cbAllow;
+    ToggleButton toggleButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,9 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener {
         btnBack = (Button) findViewById(R.id.back);
         btnUpdate = (Button) findViewById(R.id.btn_update_printer);
         btnConfirmation = (Button) findViewById(R.id.btn_confirmation);
-        cbAllow = (CheckBox) findViewById(R.id.cb_allow);
+        toggleButton = (ToggleButton) findViewById(R.id.check_image);
+        toggleButton.setOnCheckedChangeListener(this);
+
 
         final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage("Checking software version...");
@@ -58,18 +61,7 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener {
         btnUpdate.setOnClickListener(this);
         btnConfirmation.setOnClickListener(this);
 
-        cbAllow.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(cbAllow.isChecked()){
-                    RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
-                    dialog.run();
-                }else{
-                    RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
-                    dialog.run();
-                }
-            }
-        });
+
     }
 
     public void onClick(View v){
@@ -104,5 +96,23 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener {
 
 
             }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            if (isChecked) {
+                RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
+                dialog.run();
+
+            } else {
+//
+                RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
+                dialog.run();
+
+
+
+        }
+
     }
 }

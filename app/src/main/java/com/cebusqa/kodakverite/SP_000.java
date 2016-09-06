@@ -16,7 +16,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -41,11 +44,16 @@ public class SP_000 extends AppCompatActivity{
     int finalW, finalH;
     Uri resultUri;
     boolean test2;
+    TextView photoQuality, photoColor, photoDocument;
+    KodakVeriteApp kodakVeriteApp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bundle = savedInstanceState;
         setContentView(R.layout.activity_sp_000);
+
+        kodakVeriteApp = new KodakVeriteApp();
 
         this.back = (Button)findViewById(R.id.back);
         this.rl_scan = (RelativeLayout) findViewById(R.id.scan);
@@ -55,13 +63,17 @@ public class SP_000 extends AppCompatActivity{
         this.email = (RelativeLayout) findViewById(R.id.email);
         this.drive = (RelativeLayout) findViewById(R.id.drive);
         this.skyDrive = (RelativeLayout) findViewById(R.id.one_box);
-        settings = (ImageButton) findViewById(R.id.scanSettingsIcon);
+        settings = (ImageButton) findViewById(R.id.pscanSettingsIcon);
         iv = (ImageView) findViewById(R.id.imageView);
         context = getApplicationContext();
         test2 = new PhotoScanMain().test;
         Resources res = getResources();
         email.bringToFront();
         save.bringToFront();
+
+        photoQuality = (TextView) findViewById(R.id.photo_quality);
+        photoColor = (TextView) findViewById(R.id.photo_color);
+        photoDocument = (TextView) findViewById(R.id.photo_type);
 
 
 //        Resources resources = getResources();
@@ -238,5 +250,13 @@ public class SP_000 extends AppCompatActivity{
         super.onBackPressed();
         finish();
        // startActivity(new Intent(SP_000.this, HM10_000.class));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        photoQuality.setText(kodakVeriteApp.getScanPhotoSettingQuality());
+        photoColor.setText(kodakVeriteApp.getScanPhotoSettingColor());
+        photoDocument.setText(kodakVeriteApp.getScanPhotoSettingDocument());
     }
 }

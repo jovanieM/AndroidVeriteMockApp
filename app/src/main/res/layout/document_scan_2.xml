@@ -219,6 +219,26 @@
                 android:src="@drawable/email"/>
         </RelativeLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&lt;&lt;previous"
+            android:id="@+id/previousSD"
+            android:layout_below="@+id/include8"
+            android:layout_alignLeft="@+id/save2"
+            android:layout_alignStart="@+id/save2"
+            android:textColor="#fdb700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="next>>"
+            android:id="@+id/nextSD"
+            android:layout_below="@+id/doc_image"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#fdb700" />
+
     </RelativeLayout>
 
 

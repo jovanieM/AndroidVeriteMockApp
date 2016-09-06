@@ -85,16 +85,16 @@
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/view4"
         android:layout_width="wrap_content"
-        android:layout_height="175dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView34"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="0.14"
-        android:src="@drawable/alignment" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+
+        android:src="@drawable/alignment"
+        android:layout_below="@+id/textView34"
+        android:layout_centerInParent="true" />
 
     <Button
         android:id="@+id/btn_next"
@@ -113,7 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentStart="false"
         android:layout_below="@+id/btn_next"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
@@ -129,6 +129,7 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/oval_background"
         android:text="Use default" />
+
     <!--    </LinearLayout>  -->
 </RelativeLayout>
 

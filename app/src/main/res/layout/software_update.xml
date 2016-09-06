@@ -77,15 +77,29 @@
         android:id="@+id/btn_confirmation"
         android:textSize="15dp" />
 
-    <CheckBox
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Allow to send information of your printer to our server."
-        android:id="@+id/cb_allow"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:textSize="14dp" />
+        android:gravity="center_vertical">
+
+        <ToggleButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/check_image"
+            android:textOff=""
+            android:textOn=""
+            android:background="@drawable/toggle_checbox"
+
+            android:layout_marginLeft="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Allow to send information of your printer to our service"
+            android:id="@+id/textView59"
+            android:layout_marginLeft="10dp" />
+    </LinearLayout>
 
     <Button
         android:layout_width="match_parent"

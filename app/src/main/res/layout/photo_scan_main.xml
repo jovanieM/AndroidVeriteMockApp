@@ -31,8 +31,8 @@
 
 
     <include
-        layout="@layout/photo_print_settngs"
-        android:id="@+id/include9"
+        layout="@layout/photo_scan_settings"
+        android:id="@+id/p_scan_set"
         />
 
     <RelativeLayout
