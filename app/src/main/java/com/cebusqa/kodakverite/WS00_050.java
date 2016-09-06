@@ -16,6 +16,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import java.util.Arrays;
+
 /**
  * Created by Arvin on 6/23/2016.
  */
@@ -25,10 +27,9 @@ public class WS00_050 extends Activity {
     String[] items;
     ArrayAdapter<String> adapter;
     Button btnBack, btnSaveSetting;
-    public static int directChoice;
-    private static String[] direct;
+    int directPos;
+    KodakVeriteApp kodakVeriteApp;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ws00_050);
@@ -36,23 +37,19 @@ public class WS00_050 extends Activity {
         spinner = (Spinner) findViewById(R.id.spinner);
         btnBack = (Button) findViewById(R.id.back);
         btnSaveSetting = (Button) findViewById(R.id.btn_save_setting4);
+        kodakVeriteApp = new KodakVeriteApp();
 
         items = getResources().getStringArray(R.array.direct_time);
         adapter = new ArrayAdapter<String>(this, R.layout.spinner_wifi_item, items);
         adapter.setDropDownViewResource(R.layout.spinner_wifi_dropdown);
-
         spinner.setAdapter(adapter);
-        //spinner.setSelection(directChoice);
+
+        spinner.setSelection(Arrays.asList(items).indexOf(kodakVeriteApp.getDirectTime()));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                for (int i = 0; i < items.length; i++) {
-                    if (position == i) {
-                        // = items[position];
-                        directChoice = spinner.getSelectedItemPosition();
-                    }
-                }
+                directPos = position;
             }
 
             @Override
@@ -61,15 +58,9 @@ public class WS00_050 extends Activity {
             }
         });
 
-        final SharedPreferences test = getSharedPreferences("Connect", Context.MODE_PRIVATE);
-        int spinnerValue = test.getInt("spinner", -1);
-        if(spinnerValue!=-1){
-            spinner.setSelection(spinnerValue);
-        }
-
         final ProgressDialog pd = new ProgressDialog(WS00_050.this);
         pd.setMessage("Getting network information...");
-        pd.setCancelable(true);
+        pd.setCancelable(false);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -91,6 +82,7 @@ public class WS00_050 extends Activity {
             }
         }).start();
 
+        //Back button
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,10 +91,10 @@ public class WS00_050 extends Activity {
             }
         });
 
+        //Save setting button
         btnSaveSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 RingDialog ringDialog = new RingDialog(WS00_050.this, "", "Setting", true);
                 ringDialog.run();
 
@@ -114,12 +106,11 @@ public class WS00_050 extends Activity {
                         AlertDialog adc = ad.create();
                         adc.show();
 
-                        spinner.setSelection(test.getInt("spinner", 0));
+                        kodakVeriteApp.setDirectTime(items[directPos]);
                         startActivity(new Intent(WS00_050.this, WS00_000.class));
                         finish();
                     }
                 }, 4000);
-
             }
         });
     }
@@ -128,14 +119,5 @@ public class WS00_050 extends Activity {
     public void onBackPressed() {
         startActivity(new Intent(WS00_050.this, WS00_000.class));
         finish();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        SharedPreferences.Editor prefEditor = getSharedPreferences("Preference", 0).edit();
-        prefEditor.putInt("spinner",spinner.getSelectedItemPosition());
-        prefEditor.apply();
     }
 }

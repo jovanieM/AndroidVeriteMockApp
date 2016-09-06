@@ -62,7 +62,7 @@ public class WS00_060 extends Activity {
         }).start();
 
         // etFriendlyName.append("Kodak Verite 101");
-        etFriendlyName.setText(savedNotes.getString("tag","Kodak Verite 101"));
+        etFriendlyName.setText(savedNotes.getString("tag", "Kodak Verite 101"));
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,11 +86,11 @@ public class WS00_060 extends Activity {
                         AlertDialog adc = ad.create();
                         adc.show();
 
-                        if(etFriendlyName.getText().length()>0){
+                        if (etFriendlyName.getText().length() > 0) {
                             makeTag(etFriendlyName.getText().toString());
                         }
-
                         ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(etFriendlyName.getWindowToken(), 0);
+
                         startActivity(new Intent(WS00_060.this, WS00_000.class));
                         finish();
                     }
@@ -105,7 +105,7 @@ public class WS00_060 extends Activity {
         finish();
     }
 
-    private void makeTag(String tag){
+    private void makeTag(String tag) {
         String or = savedNotes.getString(tag, null);
         SharedPreferences.Editor preferenceEditor = savedNotes.edit();
         preferenceEditor.putString("tag", tag);
