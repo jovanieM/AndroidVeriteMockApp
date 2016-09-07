@@ -24,59 +24,59 @@ public class PU00_0000 extends Activity {
         setContentView(R.layout.activity_pu00_000);
 
         btnBack = (Button) findViewById(R.id.back);
-        device_sleep_time = (RelativeLayout)findViewById(R.id.device_sleep_time);
-        clean_printhead = (RelativeLayout)findViewById(R.id.clean_printhead);
-        cartridge_setup = (RelativeLayout)findViewById(R.id.cartridge_setup);
-        print_reports = (RelativeLayout)findViewById(R.id.print_reports);
-        paper_setup = (RelativeLayout)findViewById(R.id.paper_setup);
-        restore_default = (RelativeLayout)findViewById(R.id.restore_default);
+        device_sleep_time = (RelativeLayout) findViewById(R.id.device_sleep_time);
+        clean_printhead = (RelativeLayout) findViewById(R.id.clean_printhead);
+        cartridge_setup = (RelativeLayout) findViewById(R.id.cartridge_setup);
+        print_reports = (RelativeLayout) findViewById(R.id.print_reports);
+        paper_setup = (RelativeLayout) findViewById(R.id.paper_setup);
+        restore_default = (RelativeLayout) findViewById(R.id.restore_default);
         items = getResources().getStringArray(R.array.printer_utility);
 
         device_sleep_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent0 = new Intent (PU00_0000.this, DeviceSleepTime_000.class);
-                startActivity(intent0);
+                startActivity(new Intent(PU00_0000.this, DeviceSleepTime_000.class));
+                finish();
             }
         });
 
         clean_printhead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent (PU00_0000.this, Clean_Printhead.class);
-                startActivity(intent1);
+                startActivity(new Intent(PU00_0000.this, Clean_Printhead.class));
+                finish();
             }
         });
 
         cartridge_setup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (PU00_0000.this, CS00_000.class);
-                startActivity(intent);
+                startActivity(new Intent(PU00_0000.this, CS00_000.class));
+                finish();
             }
         });
 
         print_reports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent3 = new Intent (PU00_0000.this, Print_Reports.class);
-                startActivity(intent3);
+                startActivity(new Intent(PU00_0000.this, Print_Reports.class));
+                finish();
             }
         });
 
         paper_setup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent4 = new Intent (PU00_0000.this, PaperSetup_000.class);
-                startActivity(intent4);
+                startActivity(new Intent(PU00_0000.this, PaperSetup_000.class));
+                finish();
             }
         });
 
         restore_default.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent5 = new Intent (PU00_0000.this, Restore_Factory.class);
-                startActivity(intent5);
+                startActivity(new Intent(PU00_0000.this, Restore_Factory.class));
+                finish();
 
             }
         });

@@ -54,7 +54,7 @@ public class DeviceSleepTime_000 extends Activity implements View.OnClickListene
 
         final ProgressDialog pd = new ProgressDialog(DeviceSleepTime_000.this, ProgressDialog.THEME_HOLO_LIGHT);
         pd.setMessage("Getting network information...");
-        pd.setCancelable(true);
+        pd.setCancelable(false);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -120,13 +120,14 @@ public class DeviceSleepTime_000 extends Activity implements View.OnClickListene
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(DeviceSleepTime_000.this, PU00_0000.class);
-                        startActivity(intent);
+                        startActivity(new Intent(DeviceSleepTime_000.this, PU00_0000.class));
+                        finish();
                     }
                 }, 4000);
                 break;
 
             case R.id.back:
+                startActivity(new Intent(DeviceSleepTime_000.this, PU00_0000.class));
                 finish();
                 break;
 
