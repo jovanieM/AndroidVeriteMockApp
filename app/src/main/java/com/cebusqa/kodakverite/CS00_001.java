@@ -23,4 +23,9 @@ public class CS00_001 extends Activity {
             }
         }, 4000);
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }

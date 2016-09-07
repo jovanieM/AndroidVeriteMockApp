@@ -106,7 +106,8 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:text="I have reviewed and accept the agreements and settings" />
+        android:text="I have reviewed and accept the agreements and settings"
+        android:button="@drawable/custom_checkbox"/>
 
     <Button
         android:id="@+id/btn_done"

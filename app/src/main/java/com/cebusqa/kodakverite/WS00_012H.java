@@ -27,4 +27,10 @@ public class WS00_012H extends Activity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WS00_012H.this, WS00_012.class));
+        finish();
+    }
 }

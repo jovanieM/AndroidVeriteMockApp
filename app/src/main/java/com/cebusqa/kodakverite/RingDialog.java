@@ -17,7 +17,7 @@ public class RingDialog implements Runnable {
     boolean bool;
     Context context;
 
-    public RingDialog(Context context, String string, String string2, boolean bool){
+    public RingDialog(Context context, String string, String string2, boolean bool) {
         ringDialog = ProgressDialog.show(context, string, string2, bool);
 
         this.string = string;
@@ -26,6 +26,7 @@ public class RingDialog implements Runnable {
         this.context = context;
 
     }
+
     //public void a(){
     @Override
     public void run() {

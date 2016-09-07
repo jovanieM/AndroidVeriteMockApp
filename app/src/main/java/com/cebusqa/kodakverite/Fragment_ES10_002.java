@@ -1,8 +1,11 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -16,21 +19,44 @@ import android.widget.ProgressBar;
 public class Fragment_ES10_002 extends Fragment {
 
     ProgressBar progressBar;
+    private int progressStatus = 0;
+    Thread thread;
+    private Handler handler = new Handler();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_es10_002, container, false);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                for(int i=0; i<=4000; i++){
+                    final int value = i;
+                    try{
+                        Thread.sleep(35);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                    progressBar.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setProgress(value);
+                        }
+                    });
+                }
+            }
+        };
+        new Thread(runnable).start();
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //EasySetupAppBar appBar = new EasySetupAppBar();
                 Fragment_ES20_000 frag = new Fragment_ES20_000();
-                android.app.FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                //transaction.replace(R.id.layout_app_bar, appBar);
                 transaction.replace(R.id.my_layout, frag);
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -51,7 +77,6 @@ public class Fragment_ES10_002 extends Fragment {
                 return false;
             }
         });
-
         return view;
     }
 }

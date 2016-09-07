@@ -58,5 +58,9 @@ public class ScanPhotoDialog2 extends DialogFragment {
         return scanDialog;
     }
 
-
+    @Override
+    public void onDestroy() {
+        dismiss();
+        super.onDestroy();
+    }
 }

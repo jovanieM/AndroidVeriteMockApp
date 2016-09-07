@@ -1,15 +1,21 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BlurMaskFilter;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ShareCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,14 +23,22 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
+
 /**
  * Created by Cebu SQA on 24/06/2016.
  */
-public class DocumentScan2 extends Activity {
+public class DocumentScan2 extends Activity implements View.OnClickListener {
 
     private Button mback;
     RelativeLayout scan, crop, send, save2, email2, drive2, skyDrive2;
-    ImageView iv2;
+
+    int imgID[] = {R.id.doc_image, R.id.doc_image2, R.id.doc_image3};
+
+
+    ImageView [] imv1;
     //Context context;
     static final int GET_BITMAP_REQUEST2 = 2;
     ImageButton settings2;
@@ -32,8 +46,15 @@ public class DocumentScan2 extends Activity {
     boolean dtest2;
     Intent intent, chooser;
     boolean visible2;
-    TextView docQuality, docColor, docDocument, docSaveAsType;
+    TextView docQuality, docColor, docDocument, docSaveAsType, counter, prv, nxt;
     KodakVeriteApp kodakVeriteApp;
+    WebView webView;
+    boolean saved;
+    int cntr = 0;
+    int cntr2 = 1;
+    Handler handler;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +62,14 @@ public class DocumentScan2 extends Activity {
         setContentView(R.layout.document_scan_2);
 
         kodakVeriteApp = new KodakVeriteApp();
+        saved = false;
+        handler = new Handler();
+
+        imv1 = new ImageView[imgID.length];
+
+        for(int i = 0 ; i < imgID.length ; i++){
+            imv1[i] = (ImageView) findViewById(imgID[i]);
+        }
 
         mback = (Button) findViewById(R.id.back);
         this.scan = (RelativeLayout) findViewById(R.id.scan2);
@@ -51,54 +80,99 @@ public class DocumentScan2 extends Activity {
         this.drive2 = (RelativeLayout) findViewById(R.id.drive2);
         this.skyDrive2 = (RelativeLayout) findViewById(R.id.one_box2);
         settings2 = (ImageButton) findViewById(R.id.dscanSettingsIcon);
-        iv2 = (ImageView) findViewById(R.id.doc_image);
+
+
+//        imv2 = (ImageView) findViewById(R.id.doc_image2);
+//        imv3 = (ImageView) findViewById(R.id.doc_image3);
+
+        webView = (WebView) findViewById(R.id.webView);
+
+        prv = (TextView) findViewById(R.id.previousSD);
+        nxt = (TextView) findViewById(R.id.nextSD);
+        counter = (TextView) findViewById(R.id.countSD);
 
         docQuality = (TextView) findViewById(R.id.doc_quality);
         docColor = (TextView) findViewById(R.id.doc_color);
         docDocument = (TextView) findViewById(R.id.doc_type);
         docSaveAsType = (TextView) findViewById(R.id.doc_save_as);
 
-
-        //context = getApplicationContext();
-        //test2 = new PhotoScanMain().test;
-        Resources res = getResources();
         email2.bringToFront();
         save2.bringToFront();
         dtest2 = new DocumentScan().dtest;
+        //bm2 = BitmapFactory.decodeResource(res, R.drawable.docu);
+        //imv1.setImageBitmap(bm2);
 
-        bm2 = BitmapFactory.decodeResource(res, R.drawable.docu);
-        iv2.setImageBitmap(bm2);
+        imv1[0].setVisibility(View.VISIBLE);
+
+        prv.setOnClickListener(this);
+        nxt.setOnClickListener(this);
+
+        String st = String.valueOf(cntr+1);
+
+        counter.setText(st + "/" + st);
 
         mback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplication(), HM10_000.class));
+                SaveDocumentDialog.newInstance("Save image to Download").show(getFragmentManager(), "document");
+
             }
         });
 
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 dtest2 = false;
+
                 final ScanPhotoDialog2 scanPhotoDialog3 = new ScanPhotoDialog2();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        scanPhotoDialog3.show(getFragmentManager(), "My Progress Dialog");
+                        scanPhotoDialog3.show(getFragmentManager(), "MyProgress");
                         try {
                             Thread.sleep(4000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
+                        //test if the dialog is canceled
                         if (dtest2) {
-
+//                            getFragmentManager().findFragmentByTag("MyProgress").onDestroy();
                             new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(), "dialog");
+                        } else {
 
+                            scanPhotoDialog3.dismiss();
+
+                            if(cntr2!=20) {
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        cntr2++;
+                                        cntr = cntr2;
+
+                                        if (cntr2 == 2) {
+                                            prv.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.gold));
+                                        }
+                                        counter.setText(String.valueOf((cntr2) + "/" + (cntr2)));
+
+                                        for (int i = 0; i < imv1.length; i++) {
+                                            if (i == ((cntr2 - 1) % 3)) {
+                                                imv1[i].setVisibility(View.VISIBLE);
+                                            } else {
+                                                imv1[i].setVisibility(View.GONE);
+                                            }
+                                        }
+
+                                        //imv1.setImageResource(imgID[(cntr2-1) % 3]);
+
+                                    }
+                                });
+                            }
                         }
-                        scanPhotoDialog3.dismiss();
+                        //
                     }
                 }).start();
-
 
             }
 
@@ -107,6 +181,7 @@ public class DocumentScan2 extends Activity {
         save2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saved = true;
                 SaveAsDialog saveAs = new SaveAsDialog();
 
                 saveAs.show(getFragmentManager(), "My dialog");
@@ -145,12 +220,20 @@ public class DocumentScan2 extends Activity {
         skyDrive2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                webView.setVisibility(View.VISIBLE);
+//                String url = "https://login.live.com";
+//                webView.getSettings().setJavaScriptEnabled(true);
+//                webView.loadUrl(url);
+
+                //          intent = new Intent(Intent.ACTION_SEND);
+//                intent.setData(Uri.parse(url));
+//                startActivity(intent);
 
                 Uri imageUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.docu);
-                intent = ShareCompat.IntentBuilder.from(DocumentScan2.this).setType("image/*").getIntent().setPackage("com.microsoft.skydrive");
-
-                // intent = new Intent(Intent.ACTION_SEND);
-                //intent.setType("image/*");
+                intent = ShareCompat.IntentBuilder.from(DocumentScan2.this).setType("image/*").getIntent().setPackage("com.microsoft.live");
+//
+//                // intent = new Intent(Intent.ACTION_SEND);
+//                //intent.setType("image/*");
                 intent.putExtra(Intent.EXTRA_STREAM, imageUri);
                 chooser = Intent.createChooser(intent, "Send Image");
                 startActivity(chooser);
@@ -160,11 +243,11 @@ public class DocumentScan2 extends Activity {
         crop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DocumentScan2.this, ImageCropper.class);
-                intent.putExtra("width", bm2.getWidth() + 80);
-                intent.putExtra("height", bm2.getHeight() + 80);
-                Toast.makeText(getApplicationContext(), String.valueOf(bm2.getWidth()), Toast.LENGTH_SHORT).show();
-                startActivityForResult(intent, GET_BITMAP_REQUEST2);
+                //Intent intent = new Intent(DocumentScan2.this, ImageCropper.class);
+                //intent.putExtra("width", bm2.getWidth() + 80);
+                //intent.putExtra("height", bm2.getHeight() + 80);
+                Toast.makeText(getApplicationContext(),"Temporarily disabled function", Toast.LENGTH_SHORT).show();
+                //startActivityForResult(intent, GET_BITMAP_REQUEST2);
                 //startActivity(intent);
             }
         });
@@ -203,7 +286,7 @@ public class DocumentScan2 extends Activity {
 
 
             Bitmap mBitmap = Bitmap.createBitmap(bm2, l, t, r, b);
-            iv2.setImageBitmap(mBitmap);
+            //imv1.setImageBitmap(mBitmap);
         } else {
             Toast.makeText(this, "no change", Toast.LENGTH_SHORT).show();
         }
@@ -215,9 +298,12 @@ public class DocumentScan2 extends Activity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-        //startActivity(new Intent(DocumentScan2.this, HM10_000.class));
+        if (!saved) {
+            SaveDocumentDialog.newInstance("Save image to Download").show(getFragmentManager(), "document");
+        } else {
+            super.onBackPressed();
+        }
+
     }
 
     @Override
@@ -227,5 +313,75 @@ public class DocumentScan2 extends Activity {
         docColor.setText(kodakVeriteApp.getScanSettingColor());
         docDocument.setText(kodakVeriteApp.getScanDocSettingDocument());
         docSaveAsType.setText(kodakVeriteApp.getScanDocSettingSaveAsType());
+    }
+
+    @Override
+    protected void onDestroy() {
+        for(int i = 0; i<imgID.length ; i++){
+            imv1[i] = null;
+        }
+
+        super.onDestroy();
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.previousSD:
+
+                if (cntr > 1) {
+
+                    cntr--;
+                    if(nxt.getCurrentTextColor()==Color.TRANSPARENT){
+                        nxt.setTextColor(ContextCompat.getColor(getApplication(), R.color.gold));
+                    }
+                    if(cntr==1){
+                        prv.setTextColor(Color.TRANSPARENT);
+
+                    }
+                    counter.setText(String.valueOf(cntr + "/" + cntr2));
+
+                    for (int i = 0 ; i<imv1.length; i++){
+                        if(i==((cntr-1) % 3)){
+                            imv1[i].setVisibility(View.VISIBLE);
+                        }else{
+                            imv1[i].setVisibility(View.GONE);
+                        }
+                    }
+                    //imv1.setImageResource(imgID[(cntr-1) % 3]);
+
+                }
+
+                break;
+            case R.id.nextSD:
+
+                if (cntr < cntr2) {
+
+                cntr++;
+                    if(prv.getCurrentTextColor()==Color.TRANSPARENT){
+                        prv.setTextColor(ContextCompat.getColor(getApplication(), R.color.gold));
+                    }
+                    if(cntr==cntr2) {
+                        nxt.setTextColor(Color.TRANSPARENT);
+                    }
+
+                        counter.setText(String.valueOf(cntr + "/" + cntr2));
+
+                    for (int i = 0 ; i<imv1.length; i++){
+                        if(i==((cntr-1) % 3)){
+                            imv1[i].setVisibility(View.VISIBLE);
+                        }else{
+                            imv1[i].setVisibility(View.GONE);
+                        }
+                    }
+
+
+                   // imv1.setImageResource(imgID[(cntr-1) % 3]);
+
+            }
+
+            break;
+        }
     }
 }

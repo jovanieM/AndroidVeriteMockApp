@@ -17,21 +17,39 @@
             layout="@layout/app_bar_back_only"
             android:id="@+id/toolbar" />
 
-        <ImageView
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/doc_image"
+            android:layout_above="@+id/countSD"
             android:layout_below="@+id/toolbar"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/counts" />
+            android:visibility="visible">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/doc_image"
+                android:visibility="gone"
+                android:src="@drawable/docu"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/doc_image2"
+                android:visibility="gone"
+                android:src="@drawable/supermario_03"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/doc_image3"
+                android:visibility="gone"
+                android:src="@drawable/supermario_06"/>
+        </FrameLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="0/0"
-            android:id="@+id/counts"
+            android:id="@+id/countSD"
             android:textColor="#fdb700"
             android:layout_centerHorizontal="true"
             android:layout_alignWithParentIfMissing="false"
@@ -42,7 +60,7 @@
             layout="@layout/document_settings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/counts"
+            android:layout_above="@+id/countSD"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:id="@+id/include8" />
@@ -131,10 +149,10 @@
             android:layout_height="50dp"
             android:clickable="true"
             android:id="@+id/save2"
-            android:visibility="gone"
             android:layout_above="@+id/relativeLayout2"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
+            android:layout_alignParentEnd="true"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -145,7 +163,9 @@
                 android:textColor="#080707"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/save_as"/>
+                android:src="@drawable/save_as"
+                android:visibility="visible" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -154,11 +174,12 @@
             android:layout_height="50dp"
             android:clickable="true"
             android:id="@+id/drive2"
-            android:visibility="gone"
             android:layout_above="@+id/email2"
-            android:layout_alignRight="@+id/doc_image"
-            android:layout_alignEnd="@+id/doc_image"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="true"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -167,9 +188,10 @@
                 android:text="Drive"
                 android:id="@+id/textView14"
                 android:textColor="#080707"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/google_drive"/>
+                android:src="@drawable/google_drive"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
         </RelativeLayout>
         <RelativeLayout
 
@@ -216,7 +238,7 @@
                 android:textColor="#080707"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/email"/>
+                android:src="@drawable/email" />
         </RelativeLayout>
 
         <TextView
@@ -224,20 +246,32 @@
             android:layout_height="wrap_content"
             android:text="&lt;&lt;previous"
             android:id="@+id/previousSD"
-            android:layout_below="@+id/include8"
-            android:layout_alignLeft="@+id/save2"
-            android:layout_alignStart="@+id/save2"
-            android:textColor="#fdb700" />
+            android:textColor="@android:color/transparent"
+            android:layout_alignTop="@+id/countSD"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="next>>"
             android:id="@+id/nextSD"
-            android:layout_below="@+id/doc_image"
+            android:textColor="@android:color/transparent"
+            android:layout_below="@+id/include8"
+            android:layout_toStartOf="@+id/save2"
+            android:layout_toLeftOf="@+id/save2"
             android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="false"
+            android:layout_marginRight="5dp" />
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/webView"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"
             android:layout_alignParentEnd="true"
-            android:textColor="#fdb700" />
+            android:layout_alignParentRight="true" />
 
     </RelativeLayout>
 

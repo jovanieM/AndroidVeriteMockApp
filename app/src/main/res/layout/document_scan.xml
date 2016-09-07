@@ -28,7 +28,7 @@
         android:layout_marginBottom="114dp" />
 
     <TextView
-        android:id="@+id/counts"
+        android:id="@+id/countSD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -37,14 +37,14 @@
         android:layout_marginBottom="85dp"
         android:text="0/0"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#fdb700"
+        android:textColor="#00fd0000"
         android:textSize="15dp" />
 
 
     <include layout="@layout/document_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/counts"
+        android:layout_above="@+id/countSD"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/include4" />
@@ -215,25 +215,5 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#080707" />
     </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="&lt;&lt;previous"
-        android:id="@+id/previous"
-        android:layout_alignTop="@+id/counts"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#fdb700" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="next>>"
-        android:id="@+id/next"
-        android:layout_alignBottom="@+id/counts"
-        android:layout_alignRight="@+id/include4"
-        android:layout_alignEnd="@+id/include4"
-        android:textColor="#fdb700" />
 
 </RelativeLayout>
