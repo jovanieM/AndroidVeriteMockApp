@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -47,11 +48,9 @@ public class Fragment_ES30_040 extends Fragment {
 
         ssid = Fragment_ES30_001.itemSSID;
         tvSSID.setText(ssid);
-        //etPass.setCursorVisible(true);
-
         showInputMethod();
+        cbPassword.setChecked(true);
         checkBox();
-
 
         etPass.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override

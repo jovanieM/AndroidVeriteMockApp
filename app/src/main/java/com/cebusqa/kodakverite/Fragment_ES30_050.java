@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 /**
  * Created by SQA Cebu on 6/14/2016.
@@ -18,6 +19,7 @@ import android.widget.Button;
 public class Fragment_ES30_050 extends Fragment {
 
     Button btnDone, btnBack;
+    CheckBox cbAgreement;
     Handler updateHandler;
 
     @Nullable
@@ -28,6 +30,8 @@ public class Fragment_ES30_050 extends Fragment {
 
         btnDone = (Button) view.findViewById(R.id.btn_done);
         btnBack = (Button) view.findViewById(R.id.back);
+        cbAgreement = (CheckBox) view.findViewById(R.id.checkBox);
+        cbAgreement.setChecked(true);
         updateHandler = new Handler();
 
         btnDone.setOnClickListener(new View.OnClickListener() {

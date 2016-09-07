@@ -38,7 +38,7 @@ public class WS00_040 extends Activity {
         etHostname.setText(saved.getString("hostname", "Kodak-Verite55 Plus"));
         etHostname.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
-        final ProgressDialog pd = new ProgressDialog(WS00_040.this);
+        final ProgressDialog pd = new ProgressDialog(WS00_040.this, ProgressDialog.THEME_HOLO_LIGHT);
         pd.setMessage("Getting network information...");
         pd.setCancelable(false);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
