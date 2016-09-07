@@ -26,6 +26,7 @@ public class CS00_002 extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CS00_002.this, CS00_003.class));
+                finish();
             }
         });
 
@@ -33,6 +34,7 @@ public class CS00_002 extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CS00_002.this, CS00_002_Help.class));
+                finish();
             }
         });
 
@@ -40,7 +42,14 @@ public class CS00_002 extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(CS00_002.this, CS00_000.class));
+                finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(CS00_002.this, CS00_000.class));
+        finish();
     }
 }

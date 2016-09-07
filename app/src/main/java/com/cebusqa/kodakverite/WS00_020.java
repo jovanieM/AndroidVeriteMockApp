@@ -43,7 +43,7 @@ public class WS00_020 extends Activity {
         tvAutoManual.setText(auto);
         llipAddress.setVisibility(View.GONE);
 
-        final ProgressDialog pd = new ProgressDialog(WS00_020.this);
+        final ProgressDialog pd = new ProgressDialog(WS00_020.this, ProgressDialog.THEME_HOLO_LIGHT);
         pd.setMessage("Getting network information...");
         pd.setCancelable(false);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
@@ -51,7 +51,7 @@ public class WS00_020 extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 startActivity(new Intent(WS00_020.this, WS00_000.class));
                 pd.dismiss();
-                isCanceled = true;
+                isCanceled = false;
                 finish();
             }
         });

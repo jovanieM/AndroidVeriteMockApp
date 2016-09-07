@@ -5,8 +5,7 @@
     android:background="@color/colorPrimary">
 
     <include
-        layout="@layout/app_bar"
-        />
+        layout="@layout/app_bar" />
 
     <TextView
         android:layout_width="match_parent"

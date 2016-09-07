@@ -34,6 +34,7 @@ public class WS00_010 extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(WS00_010.this, WS00_000.class));
+                handler.removeCallbacksAndMessages(null);
                 finish();
             }
         });

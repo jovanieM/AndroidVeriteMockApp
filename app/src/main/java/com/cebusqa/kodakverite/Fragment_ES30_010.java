@@ -105,6 +105,7 @@ public class Fragment_ES30_010 extends Fragment {
                                     Fragment_ES30_050 frag = new Fragment_ES30_050();
                                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                                     transaction.replace(R.id.my_layout, frag);
+                                    transaction.addToBackStack(null);
                                     transaction.commit();
 
                                     hideSoftKeyboard();
@@ -119,6 +120,24 @@ public class Fragment_ES30_010 extends Fragment {
                         itemSecurity = adapterView.getSelectedItem().toString();
                         rlPassword.setVisibility(View.VISIBLE);
                         checkBox.setVisibility(View.VISIBLE);
+                        checkBox();
+
+                        etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                            @Override
+                            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+
+                                if (i == EditorInfo.IME_ACTION_DONE) {
+                                    Fragment_ES30_050 frag = new Fragment_ES30_050();
+                                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                                    transaction.replace(R.id.my_layout, frag);
+                                    transaction.addToBackStack(null);
+                                    transaction.commit();
+
+                                    hideSoftKeyboard();
+                                }
+                                return false;
+                            }
+                        });
                         break;
 
                     case 3:
@@ -126,6 +145,24 @@ public class Fragment_ES30_010 extends Fragment {
                         itemSecurity = adapterView.getSelectedItem().toString();
                         rlPassword.setVisibility(View.VISIBLE);
                         checkBox.setVisibility(View.VISIBLE);
+                        checkBox();
+
+                        etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                            @Override
+                            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+
+                                if (i == EditorInfo.IME_ACTION_DONE) {
+                                    Fragment_ES30_050 frag = new Fragment_ES30_050();
+                                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                                    transaction.replace(R.id.my_layout, frag);
+                                    transaction.addToBackStack(null);
+                                    transaction.commit();
+
+                                    hideSoftKeyboard();
+                                }
+                                return false;
+                            }
+                        });
                         break;
 
                     default:

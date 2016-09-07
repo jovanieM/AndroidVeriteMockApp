@@ -36,7 +36,7 @@ public class WS00_060 extends Activity {
         btnSaveSetting = (Button) findViewById(R.id.btn_save_setting3);
         savedNotes = getSharedPreferences("notes", MODE_PRIVATE);
 
-        final ProgressDialog pd = new ProgressDialog(WS00_060.this);
+        final ProgressDialog pd = new ProgressDialog(WS00_060.this, ProgressDialog.THEME_HOLO_LIGHT);
         pd.setMessage("Getting network information...");
         pd.setCancelable(false);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {

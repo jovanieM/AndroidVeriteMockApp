@@ -10,7 +10,7 @@ import android.widget.Button;
 /**
  * Created by SQA Cebu on 6/21/2016.
  */
-public class Print_Reports extends Activity{
+public class Print_Reports extends Activity {
 
     Button btn_report, btnBack;
 
@@ -26,27 +26,26 @@ public class Print_Reports extends Activity{
             @Override
             public void onClick(View view) {
 
-                    RingDialog ringDialog = new RingDialog(Print_Reports.this, "", "Printing...", true);
-                    ringDialog.run();
+                RingDialog ringDialog = new RingDialog(Print_Reports.this, "", "Printing...", true);
+                ringDialog.run();
 
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent intent = new Intent(Print_Reports.this, Print_Reports.class);
-                            startActivity(intent);
-                        }
-                    }, 4000);
-               }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(Print_Reports.this, Print_Reports.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }, 4000);
+            }
         });
-
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Print_Reports.this, PU00_0000.class));
+                finish();
             }
         });
     }
-
-
 }

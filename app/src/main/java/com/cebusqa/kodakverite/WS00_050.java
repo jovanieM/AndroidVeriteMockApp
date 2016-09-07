@@ -58,7 +58,7 @@ public class WS00_050 extends Activity {
             }
         });
 
-        final ProgressDialog pd = new ProgressDialog(WS00_050.this);
+        final ProgressDialog pd = new ProgressDialog(WS00_050.this, ProgressDialog.THEME_HOLO_LIGHT);
         pd.setMessage("Getting network information...");
         pd.setCancelable(false);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {

@@ -1,5 +1,6 @@
 package com.cebusqa.kodakverite;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,13 +22,20 @@ public class Fragment_ES30_051 extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_es30_051, container, false);
 
-        new Handler().postDelayed(new Runnable() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getActivity(), HM10_000.class);
-                startActivity(intent);
+                startActivity(new Intent(getActivity(), HM10_000.class));
+                getActivity().onBackPressed();
+
+                AlertDialog.Builder ad = new AlertDialog.Builder(getActivity());
+                ad.setMessage("Connection complete");
+                ad.setCancelable(false);
+                AlertDialog adc = ad.create();
+                adc.show();
             }
-        }, 4000);
+        }, 5000);
 
         //disable Back key
         view.setFocusableInTouchMode(true);
@@ -35,8 +43,8 @@ public class Fragment_ES30_051 extends Fragment {
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(event.getAction() == KeyEvent.ACTION_DOWN){
-                    if(keyCode == KeyEvent.KEYCODE_BACK){
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
                         return true;
                     }
                 }
