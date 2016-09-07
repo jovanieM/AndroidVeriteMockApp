@@ -11,12 +11,12 @@ import android.widget.RelativeLayout;
 /**
  * Created by Cebu SQA on 27/06/2016.
  */
-public class GoogleCloudPrint extends Activity implements View.OnClickListener{
-    private RelativeLayout gcp, gcpReg,gcpEnDis;
-    private Button back;
+public class GoogleCloudPrint extends Activity implements View.OnClickListener {
+    RelativeLayout gcp, gcpReg, gcpEnDis;
+    Button back;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.google_cloud_print_main);
         gcp = (RelativeLayout) findViewById(R.id.gcp_status_id);
@@ -33,8 +33,6 @@ public class GoogleCloudPrint extends Activity implements View.OnClickListener{
                 finish();
             }
         });
-
-
     }
 
     /**
@@ -44,15 +42,18 @@ public class GoogleCloudPrint extends Activity implements View.OnClickListener{
      */
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.gcp_status_id:
                 startActivity(new Intent(getApplicationContext(), GcpStatus.class));
+                finish();
                 break;
             case R.id.gcp_reg_unreg:
-               startActivity(new Intent(getApplicationContext(), GcpRegisterUnregister.class));
+                startActivity(new Intent(getApplicationContext(), GcpRegisterUnregister.class));
+                finish();
                 break;
             case R.id.gcp_enable_disable:
                 startActivity(new Intent(getApplicationContext(), GcpEnableDisable.class));
+                finish();
                 break;
         }
     }
