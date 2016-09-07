@@ -14,7 +14,6 @@
         android:xlargeScreens="true" />
 
     <application
-
         android:name=".KodakVeriteApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher1"
@@ -189,8 +188,7 @@
         <activity
             android:name=".MultiplePrintQueue"
             android:screenOrientation="portrait" />
-
-
+        <activity android:name=".PagesPerSideDialog"></activity>
     </application>
 
 </manifest>
