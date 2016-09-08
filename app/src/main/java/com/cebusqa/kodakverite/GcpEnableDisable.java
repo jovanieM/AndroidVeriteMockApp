@@ -1,6 +1,9 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -73,13 +76,36 @@ public class GcpEnableDisable extends Activity implements CompoundButton.OnCheck
 
                         }
                     }).start();
-
-
-
                 }
             }
         });
-        t = new Thread(new Runnable() {
+
+        final ProgressDialog pd = new ProgressDialog(GcpEnableDisable.this, ProgressDialog.THEME_HOLO_LIGHT);
+        pd.setMessage("GCP Status Loading...");
+        pd.setCancelable(false);
+        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(GcpEnableDisable.this, GoogleCloudPrint.class));
+                pd.dismiss();
+                //isCanceled = false;
+                finish();
+            }
+        });
+        pd.show();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(4000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                pd.dismiss();
+            }
+        }).start();
+
+        /* t = new Thread(new Runnable() {
 
             @Override
             public void run() {
@@ -96,7 +122,7 @@ public class GcpEnableDisable extends Activity implements CompoundButton.OnCheck
 
             }
         });
-        t.start();
+        t.start(); */
 
 
 

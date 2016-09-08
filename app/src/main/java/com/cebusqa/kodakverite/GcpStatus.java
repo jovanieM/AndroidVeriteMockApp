@@ -14,6 +14,7 @@ import android.widget.Button;
  */
 public class GcpStatus extends Activity {
     private Button back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
