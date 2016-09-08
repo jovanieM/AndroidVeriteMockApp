@@ -41,12 +41,18 @@ public class WS00_012 extends Activity {
         tvSSID.setText(ssid);
 
         checkBox();
+        cBox.setChecked(true);
+        etPass1.requestFocus();
+        showSoftKeyboard(etPass1);
         etPass1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == EditorInfo.IME_ACTION_GO) {
+                    etPass1.requestFocus();
+                    showSoftKeyboard(etPass1);
                     startActivity(new Intent(WS00_012.this, WS00_013.class));
-                    hideSoftKeyboard();
+                    finish();
+                    hideSoftKeyboard(etPass1);
                 }
                 return false;
             }
@@ -69,11 +75,14 @@ public class WS00_012 extends Activity {
         });
     }
 
-    public void hideSoftKeyboard() {
-        if (this.getCurrentFocus() != null) {
+    public void showSoftKeyboard(EditText editText) {
+        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
+    }
+
+    public void hideSoftKeyboard(EditText editText) {
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(imm.HIDE_IMPLICIT_ONLY, 0);
-        }
+            imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 
     public void checkBox() {

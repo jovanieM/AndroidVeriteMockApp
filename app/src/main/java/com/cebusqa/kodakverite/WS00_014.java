@@ -45,6 +45,7 @@ public class WS00_014 extends Activity {
         cbox = (CheckBox) findViewById(R.id.checkBox4);
         btnBack = (Button) findViewById(R.id.back);
 
+        cbox.setChecked(true);
         items = getResources().getStringArray(R.array.security);
         adapter = new ArrayAdapter<>(this, R.layout.spinner_wifi_item, items);
         adapter.setDropDownViewResource(R.layout.spinner_wifi_dropdown);
@@ -58,12 +59,14 @@ public class WS00_014 extends Activity {
                     case 0:
                         relativeLayout.setVisibility(View.INVISIBLE);
                         checkBox();
+                        showSoftKeyboard(etSSID);
                         etSSID.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                                 if (i == EditorInfo.IME_ACTION_GO) {
                                     startActivity(new Intent(WS00_014.this, WS00_013.class));
-                                    hideSoftKeyboard();
+                                    finish();
+                                    hideSoftKeyboard(etSSID);
                                 }
                                 return false;
                             }
@@ -73,12 +76,15 @@ public class WS00_014 extends Activity {
                     case 1:
                         relativeLayout.setVisibility(View.VISIBLE);
                         checkBox();
+                        etPassword.requestFocus();
+                        showSoftKeyboard(etPassword);
                         etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                                 if (i == EditorInfo.IME_ACTION_GO) {
                                     startActivity(new Intent(WS00_014.this, WS00_013.class));
-                                    hideSoftKeyboard();
+                                    finish();
+                                    hideSoftKeyboard(etPassword);
                                 }
                                 return false;
                             }
@@ -87,11 +93,16 @@ public class WS00_014 extends Activity {
 
                     case 2:
                         relativeLayout.setVisibility(View.VISIBLE);
+                        checkBox();
+                        etPassword.requestFocus();
+                        showSoftKeyboard(etPassword);
                         etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                                 if (i == EditorInfo.IME_ACTION_GO) {
                                     startActivity(new Intent(WS00_014.this, WS00_013.class));
+                                    finish();
+                                    hideSoftKeyboard(etPassword);
                                 }
                                 return false;
                             }
@@ -100,11 +111,16 @@ public class WS00_014 extends Activity {
 
                     case 3:
                         relativeLayout.setVisibility(View.VISIBLE);
+                        checkBox();
+                        etPassword.requestFocus();
+                        showSoftKeyboard(etPassword);
                         etPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
                             @Override
                             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                                 if (i == EditorInfo.IME_ACTION_GO) {
                                     startActivity(new Intent(WS00_014.this, WS00_013.class));
+                                    finish();
+                                    hideSoftKeyboard(etPassword);
                                 }
                                 return false;
                             }
@@ -131,19 +147,15 @@ public class WS00_014 extends Activity {
         });
     }
 
-    public void showSoftKeyboard() {
-        etSSID.requestFocus();
-        if (this.getCurrentFocus() != null) {
-            InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(imm.SHOW_IMPLICIT, 0);
-        }
+    public void showSoftKeyboard(EditText editText) {
+        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
     }
 
-    public void hideSoftKeyboard() {
-        if (this.getCurrentFocus() != null) {
+    public void hideSoftKeyboard(EditText editText) {
             InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.toggleSoftInput(imm.HIDE_NOT_ALWAYS, 0);
-        }
+            imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+
     }
 
     public void checkBox() {

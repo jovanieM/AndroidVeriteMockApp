@@ -111,6 +111,7 @@ public class WS00_011 extends Activity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(WS00_011.this, WS00_000.class));
                 finish();
             }
         });
@@ -118,5 +119,12 @@ public class WS00_011 extends Activity {
 
     public void toWS00_012() {
         startActivity(new Intent(WS00_011.this, WS00_012.class));
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WS00_011.this, WS00_000.class));
+        finish();
     }
 }
