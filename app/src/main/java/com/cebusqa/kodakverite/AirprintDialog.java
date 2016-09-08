@@ -38,6 +38,7 @@ public class AirprintDialog extends DialogFragment{
         return new AlertDialog.Builder(getActivity())
                 //.setMessage(message)
                 .setView(view)
+                .setCancelable(false)
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

@@ -23,8 +23,9 @@ public class DS_scan extends AppCompatActivity {
         back = (Button)findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+                startActivity(new Intent(DS_scan.this, DS10_000.class));
                 finish();
-            }
+                    }
         });
 
         scan_document_settings = (RelativeLayout)findViewById(R.id.scan_document_settings);
@@ -40,7 +41,11 @@ public class DS_scan extends AppCompatActivity {
                 startActivity(new Intent(DS_scan.this, Scan_Photo_Settings.class));
             }
         });
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(DS_scan.this, DS10_000.class));
+        finish();
     }
 }

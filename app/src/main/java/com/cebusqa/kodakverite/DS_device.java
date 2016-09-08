@@ -32,6 +32,7 @@ public class DS_device extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(DS_device.this, DS10_000.class));
                 finish();
             }
         });
@@ -41,6 +42,7 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             startActivity(new Intent(DS_device.this, PU00_0000.class));
+                finish();
             }
         });
 
@@ -49,6 +51,7 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DS_device.this, WS00_000.class));
+                finish();
             }
         });
 
@@ -57,6 +60,7 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DS_device.this, NetworkStatus_details.class));
+                finish();
             }
         });
 
@@ -65,6 +69,7 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), GoogleCloudPrint.class));
+                finish();
             }
         });
 
@@ -73,6 +78,7 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),AirPrint.class));
+                finish();
             }
         });
 
@@ -81,8 +87,14 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DS_device.this, SoftwareUpdate.class));
+                finish();
             }
         });
+    }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(DS_device.this, DS10_000.class));
+        finish();
     }
 }

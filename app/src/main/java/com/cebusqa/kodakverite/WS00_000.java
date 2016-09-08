@@ -29,7 +29,6 @@ public class WS00_000 extends Activity {
         context = this;
         prgItems = getResources().getStringArray(R.array.wifi_setup);
 
-
         lvWifiSetupItems = (ListView) findViewById(R.id.lv_wifi_setup);
         lvWifiSetupItems.setAdapter(new CustomAdapter(this, prgItems));
         lvWifiSetupItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -69,9 +68,16 @@ public class WS00_000 extends Activity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(WS00_000.this, DS_device.class));
                 finish();
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(WS00_000.this, DS_device.class));
+        finish();
     }
 }
