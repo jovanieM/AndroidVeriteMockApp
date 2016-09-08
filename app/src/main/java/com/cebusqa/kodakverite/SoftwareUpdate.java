@@ -1,6 +1,7 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -35,11 +36,13 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
         toggleButton.setOnCheckedChangeListener(this);
 
 
-        final ProgressDialog dialog = new ProgressDialog(this);
+        final ProgressDialog dialog = new ProgressDialog(this, AlertDialog.THEME_HOLO_LIGHT);
         dialog.setMessage("Checking software version...");
+        dialog.setCancelable(false);
         dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                startActivity(new Intent(SoftwareUpdate.this, DS_device.class));
                 finish();
             }
         });
@@ -48,9 +51,9 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try{
+                try {
                     Thread.sleep(4000);
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
                 dialog.dismiss();
@@ -64,55 +67,53 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
 
     }
 
-    public void onClick(View v){
-        if(v == btnBack){
+    public void onClick(View v) {
+        if (v == btnBack) {
+            startActivity(new Intent(SoftwareUpdate.this, DS_device.class));
             finish();
-        }else
-        if (v == btnUpdate){
+        } else if (v == btnUpdate) {
             startActivity(new Intent(SoftwareUpdate.this, UpdatePrinterSoftware.class));
-        }else
-            if(v == btnConfirmation){
-                final ProgressDialog dialog = new ProgressDialog(SoftwareUpdate.this);
-                dialog.setMessage("Checking Software version...");
-                dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialog.dismiss();
+        } else if (v == btnConfirmation) {
+            final ProgressDialog dialog = new ProgressDialog(SoftwareUpdate.this);
+            dialog.setMessage("Checking Software version...");
+            dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialog.dismiss();
+                }
+            });
+            dialog.show();
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(4000);
+                    } catch (Exception e) {
+
                     }
-                });
-                dialog.show();
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try{
-                            Thread.sleep(4000);
-                        }catch (Exception e){
-
-                        }
-                        dialog.dismiss();
-                    }
-                }).start();
+                    dialog.dismiss();
+                }
+            }).start();
 
 
-            }
+        }
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-            if (isChecked) {
-                RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
-                dialog.run();
-
-            } else {
-//
-                RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
-                dialog.run();
-
-
-
+        if (isChecked) {
+            RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
+            dialog.run();
+        } else {
+            RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
+            dialog.run();
         }
+    }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(SoftwareUpdate.this, DS_device.class));
+        finish();
     }
 }

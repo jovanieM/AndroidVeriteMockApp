@@ -3,6 +3,7 @@ package com.cebusqa.kodakverite;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -15,7 +16,7 @@ import android.widget.ToggleButton;
 /**
  * Created by Cebu SQA on 28/06/2016.
  */
-public class AirPrint  extends Activity implements CompoundButton.OnCheckedChangeListener{
+public class AirPrint extends Activity implements CompoundButton.OnCheckedChangeListener {
     private ToggleButton apStatusChanger;
     private TextView textView;
     private TextView saveSettings;
@@ -36,10 +37,11 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
         back = (Button) findViewById(R.id.back);
         apStatusChanger.setChecked(prevState);
 
-        back = (Button)findViewById(R.id.back);
+        back = (Button) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(AirPrint.this, DS_device.class));
                 finish();
             }
         });
@@ -47,7 +49,7 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
         saveSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (prevState != apStatusChanger.isChecked()){
+                if (prevState != apStatusChanger.isChecked()) {
                     KodakVeriteApp.airprintPrvState = apStatusChanger.isChecked();
                     //Toast.makeText(getApplicationContext(), "yes", Toast.LENGTH_SHORT).show();
                     /**Recylce Unregistration complete view**/
@@ -69,40 +71,34 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
                                 Thread.sleep(2000);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
-                            }finally {
+                            } finally {
                                 getFragmentManager().findFragmentByTag("tag3").onDestroy();
                                 finish();
                             }
 
                         }
                     }).start();
-
-
-
                 }
             }
         });
+
         t = new Thread(new Runnable() {
 
             @Override
             public void run() {
                 cancel = false;
-                AirprintDialog.newInstance("Getting Network information").show(getFragmentManager(),"tag4");
+                AirprintDialog.newInstance("Getting Network information").show(getFragmentManager(), "tag4");
                 try {
                     Thread.sleep(4000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                if(!cancel){
+                if (!cancel) {
                     getFragmentManager().findFragmentByTag("tag4").onDestroy();
                 }
-
             }
         });
-                t.start();
-
-
-
+        t.start();
 
 //       new Thread(new Runnable() {
 //           @Override
@@ -128,9 +124,9 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
      */
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if(isChecked){
+        if (isChecked) {
             textView.setText("Enable");
-        }else{
+        } else {
             textView.setText("Disable");
         }
     }
@@ -138,7 +134,6 @@ public class AirPrint  extends Activity implements CompoundButton.OnCheckedChang
     @Override
     protected void onDestroy() {
         t.interrupt();
-
         super.onDestroy();
     }
 }

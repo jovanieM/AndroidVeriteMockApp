@@ -116,16 +116,64 @@ public class FragmentTwo extends Fragment {
         llCustomResize.setVisibility(View.INVISIBLE);
         etCustomResize.setText(Integer.toString(ctr));
 
+        spColor.setSelection(Arrays.asList(colorItems).indexOf(kodakVeriteApp.getCopyColor()));
+        spColor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                kodakVeriteApp.setCopyColor(colorItems[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spPaperSize.setSelection(Arrays.asList(paperSizeItems).indexOf(kodakVeriteApp.getCopyPaperSize()));
+        spPaperSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                kodakVeriteApp.setCopyPaperSize(paperSizeItems[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spPaperType.setSelection(Arrays.asList(paperTypeItems).indexOf(kodakVeriteApp.getCopyPaperType()));
+        spPaperType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                kodakVeriteApp.setCopyPaperType(paperTypeItems[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spQuality.setSelection(Arrays.asList(qualityItems).indexOf(kodakVeriteApp.getCopyQuality()));
+        spQuality.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                kodakVeriteApp.setCopyQuality(qualityItems[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         pagesPerSide_btn.setText(kodakVeriteApp.getPagesPerSide());
-
-
         pagesPerSide_btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
                alert();
-
-
             }
         });
 

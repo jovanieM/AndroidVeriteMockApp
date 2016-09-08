@@ -84,8 +84,15 @@ public class PU00_0000 extends Activity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(PU00_0000.this, DS_device.class));
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(PU00_0000.this, DS_device.class));
+        finish();
     }
 }
