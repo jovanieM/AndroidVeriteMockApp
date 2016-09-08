@@ -39,11 +39,12 @@ public class PhotoPrintPics extends AppCompatActivity {
     ArrayList<String> picPaths = new ArrayList<>();
     ArrayList<String> selectedPic = new ArrayList<>();
     TextView mFolderDir, tvCancel, mCancelPrint, mPrintMulti, tv;
+    TextView paperSize, paperType, printQuality;
     Button back, mGcp;
     RelativeLayout rel;
     static int counter = 0;
     static int counter2 = 0;
-
+    boolean changeSettings = false;
     boolean multiplePrint = false;
     ArrayList<String> labelMem = new ArrayList<>();
     String st;
@@ -51,9 +52,12 @@ public class PhotoPrintPics extends AppCompatActivity {
     ImageView iv_multiple, iv_printer, settingsIcon;
     KodakVeriteApp thumbsData;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.photo_print_pics);
         mFolderDir = (TextView) findViewById(R.id.folder);
         gridView = (GridView) findViewById(R.id.gridView);
@@ -70,6 +74,10 @@ public class PhotoPrintPics extends AppCompatActivity {
         mPrintMulti = (TextView) findViewById(R.id.printMulti);
         settingsIcon = (ImageView) findViewById(R.id.scanSettingsIcon);
         thumbsData = new KodakVeriteApp();
+
+        paperSize = (TextView) findViewById(R.id.paper_size);
+        paperType = (TextView) findViewById(R.id.paper_type);
+        printQuality = (TextView) findViewById(R.id.photo);
 
 
 
@@ -93,8 +101,6 @@ public class PhotoPrintPics extends AppCompatActivity {
 
         mGcp.setOnClickListener(new View.OnClickListener() {
             @Override
-
-
             public void onClick(View v) {
                      doPrint();
 
@@ -231,6 +237,10 @@ public class PhotoPrintPics extends AppCompatActivity {
                     popUpLayout.setVisibility(View.VISIBLE);
                     popUpLayout.bringToFront();
 
+                    paperSize.setText(thumbsData.getPaperSize());
+                    paperType.setText(thumbsData.getPaperType());
+                    printQuality.setText(thumbsData.getPrintQuality());
+
                     thumbsData.setThumbData(selectedPic);
 //                    for(int i = 0 ; i < labelMem.size(); i++){
 //
@@ -252,6 +262,7 @@ public class PhotoPrintPics extends AppCompatActivity {
         settingsIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                changeSettings = true;
                 startActivity(new Intent(getApplicationContext(), DS_print.class));
             }
         });
@@ -284,7 +295,12 @@ public class PhotoPrintPics extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        resetData();
+        if(changeSettings){
+            changeSettings = false;
+        }else{
+            resetData();
+        }
+
     }
 
     public void resetData() {

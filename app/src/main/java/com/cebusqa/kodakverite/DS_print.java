@@ -93,6 +93,6 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
     @Override
     public void onBackPressed() {
         finish();
-        super.onBackPressed();
+        //super.onBackPressed();
     }
 }
