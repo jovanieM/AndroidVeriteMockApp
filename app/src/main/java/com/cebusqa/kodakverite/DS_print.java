@@ -28,10 +28,9 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
         detail = (ImageButton) findViewById(R.id.detail);
         back = (Button)findViewById(R.id.back);
 
-
-
         back.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
+                startActivity(new Intent(DS_print.this, DS10_000.class));
                 finish();
             }
         });
@@ -69,8 +68,6 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
                 quick.setImageResource(R.mipmap.quick_white);
                 detail.setImageResource(R.mipmap.detail_yellow);
 
-
-
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
 
@@ -78,11 +75,8 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
                 ft.replace(R.id.view, details);
                 ft.addToBackStack(null);
                 ft.commit();
-
              }
         });
-
-
     }
 
     @Override
@@ -92,7 +86,7 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
     @Override
     public void onBackPressed() {
+        startActivity(new Intent(DS_print.this, DS10_000.class));
         finish();
-        super.onBackPressed();
     }
 }
