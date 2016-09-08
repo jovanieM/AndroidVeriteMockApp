@@ -30,7 +30,7 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
         back.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(DS_print.this, DS10_000.class));
+                //startActivity(new Intent(DS_print.this, DS10_000.class));
                 finish();
             }
         });
@@ -86,7 +86,7 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(DS_print.this, DS10_000.class));
+        //startActivity(new Intent(DS_print.this, DS10_000.class));
         finish();
     }
 }
