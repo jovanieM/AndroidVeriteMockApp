@@ -35,13 +35,13 @@
                 android:layout_height="match_parent"
                 android:id="@+id/doc_image2"
                 android:visibility="gone"
-                android:src="@drawable/supermario_03"/>
+                />
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/doc_image3"
                 android:visibility="gone"
-                android:src="@drawable/supermario_06"/>
+                />
         </FrameLayout>
 
         <TextView
