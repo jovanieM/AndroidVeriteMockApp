@@ -257,7 +257,7 @@ public class KodakVeriteApp extends Application {
         this.scanPhotoSettingQuality = scanPhotoSettingQuality;
     }
 
-<<<<<<< HEAD
+
     public void setPagesPerSide(String pagesPerSide) {
         this.pagesPerSide = pagesPerSide;
     }
@@ -281,7 +281,7 @@ public class KodakVeriteApp extends Application {
     }
 
 
-=======
+
     public void setDirectTime(String directTime) {
         this.directTime = directTime;
     }
@@ -292,5 +292,5 @@ public class KodakVeriteApp extends Application {
         }
         return directTime;
     }
->>>>>>> 92fbc8b162e024a6dec0136171fbb62dbea3bc5b
+
 }

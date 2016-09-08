@@ -46,14 +46,18 @@ public class Clean_Printhead extends Activity{
                }
         });
 
-
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(Clean_Printhead.this, PU00_0000.class));
                 finish();
             }
         });
     }
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Clean_Printhead.this, PU00_0000.class));
+        finish();
+    }
 }
