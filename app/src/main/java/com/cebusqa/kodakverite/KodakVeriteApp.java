@@ -39,12 +39,21 @@ public class KodakVeriteApp extends Application {
     private static String scanPhotoSettingQuality;
     private static String scanPhotoSettingColor;
 
+    //for Print Settings
     private static String paperSize;
     private static String paperType;
     private static String printQuality;
     private static String printCopies;
-    private static String pagesPerSide;
+
+
+    //for Copy Settings
     private static String copyResize;
+    private static String copyColor;
+    private static String copyPaperSize;
+    private static String copyPaperType;
+    private static String pagesPerSide;
+    private static String copyQuality;
+
 
     private static String directTime;
 
@@ -280,7 +289,41 @@ public class KodakVeriteApp extends Application {
         return copyResize;
     }
 
+    public void setCopyColor (String copyColor) { KodakVeriteApp.copyColor = copyColor; }
 
+    public String getCopyColor(){
+        if(copyColor == null){
+            setCopyColor("Color");
+        }
+        return copyColor;
+    }
+
+    public void setCopyPaperSize (String copyPaperSize) { KodakVeriteApp.copyPaperSize = copyPaperSize; }
+
+    public String getCopyPaperSize(){
+        if (copyPaperSize == "null"){
+            setCopyPaperSize("Letter");
+        }
+        return copyPaperSize;
+    }
+
+    public void setCopyPaperType (String copyPaperType) { KodakVeriteApp.copyPaperType = copyPaperType; }
+
+    public String getCopyPaperType () {
+        if (copyPaperType == "null"){
+            setCopyPaperType("Plain");
+        }
+        return copyPaperType;
+    }
+
+    public void setCopyQuality (String copyQuality) { KodakVeriteApp.copyQuality = copyQuality; }
+
+    public String getCopyQuality () {
+        if (copyQuality == "null"){
+            setCopyQuality("Text");
+        }
+        return copyQuality;
+    }
 
     public void setDirectTime(String directTime) {
         this.directTime = directTime;
