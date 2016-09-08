@@ -68,6 +68,9 @@ public class DocumentScan extends Activity {
         final ScanPhotoDialog dscanDialog = ScanPhotoDialog.newInstance("Scan Document");
         dscanDialog.setCancelable(true);
 
+//        finish();
+//        startActivity(new Intent(getApplicationContext(), DocumentScan2.class));
+
 
         new Thread(new Runnable() {
             @Override

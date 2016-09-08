@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -36,6 +37,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
     RelativeLayout scan, crop, send, save2, email2, drive2, skyDrive2;
 
     int imgID[] = {R.id.doc_image, R.id.doc_image2, R.id.doc_image3};
+    int res[] = {R.drawable.docu, R.drawable.supermario_03, R.drawable.supermario_06};
 
 
     ImageView [] imv1;
@@ -53,6 +55,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
     int cntr = 0;
     int cntr2 = 1;
     Handler handler;
+    DisplayImageOptions dim;
 
 
 
@@ -60,16 +63,25 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.document_scan_2);
+        Log.v("myApp", "onCreate Doc2");
 
         kodakVeriteApp = new KodakVeriteApp();
         saved = false;
         handler = new Handler();
 
         imv1 = new ImageView[imgID.length];
+        dim = new DisplayImageOptions.Builder()
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .displayer(new SimpleBitmapDisplayer())
+                .build();
 
         for(int i = 0 ; i < imgID.length ; i++){
             imv1[i] = (ImageView) findViewById(imgID[i]);
+            ImageLoader.getInstance().displayImage("drawable://" + res[i], imv1[i], dim);
+
         }
+
 
         mback = (Button) findViewById(R.id.back);
         this.scan = (RelativeLayout) findViewById(R.id.scan2);
