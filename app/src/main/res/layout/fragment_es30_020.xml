@@ -88,15 +88,15 @@
 
     <ImageView
         android:id="@+id/imageView14"
-        android:layout_width="280dp"
-        android:layout_height="175dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView51"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        android:src="@drawable/image11" />
+        android:src="@drawable/image11"
+        android:layout_margin="5dp" />
 
     <Button
         android:id="@+id/btnFindRouter"

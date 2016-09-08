@@ -43,6 +43,8 @@ public class KodakVeriteApp extends Application {
     private static String paperType;
     private static String printQuality;
     private static String printCopies;
+    private static String pagesPerSide;
+    private static String copyResize;
 
     private static String directTime;
 
@@ -255,6 +257,31 @@ public class KodakVeriteApp extends Application {
         this.scanPhotoSettingQuality = scanPhotoSettingQuality;
     }
 
+<<<<<<< HEAD
+    public void setPagesPerSide(String pagesPerSide) {
+        this.pagesPerSide = pagesPerSide;
+    }
+
+    public String getPagesPerSide() {
+        if(pagesPerSide == null){
+            setPagesPerSide("One");
+        }
+        return pagesPerSide;
+    }
+
+    public void setCopyResize(String copyResize) {
+        KodakVeriteApp.copyResize = copyResize;
+    }
+
+    public String getCopyResize() {
+        if(copyResize == null){
+            setCopyResize("100% Default");
+        }
+        return copyResize;
+    }
+
+
+=======
     public void setDirectTime(String directTime) {
         this.directTime = directTime;
     }
@@ -265,4 +292,5 @@ public class KodakVeriteApp extends Application {
         }
         return directTime;
     }
+>>>>>>> 92fbc8b162e024a6dec0136171fbb62dbea3bc5b
 }
