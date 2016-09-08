@@ -1,49 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#020202">
+    android:background="#020202"
+    android:orientation="vertical">
 
-    <include layout="@layout/app_bar_back_only"
-        android:id="@+id/include" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/app_bar_back_only" />
 
     <TextView
+        android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:text="If [Start Registration] is touched, the registration home page is opened."
-        android:id="@+id/description"
-        android:textSize="15dp"
-        android:gravity="center_vertical"
-        android:layout_below="@+id/textView29"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_below="@+id/textView29"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:text="If [Start Registration] is touched, the registration home page is opened."
+        android:textSize="15sp" />
 
     <TextView
+        android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:text="GCP Register/Unregister"
-        android:id="@+id/textView29"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/include"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:gravity="center_vertical|center_horizontal"
-        android:textSize="25dp" />
+        android:text="GCP Register/Unregister"
+        android:textSize="20sp" />
 
     <TextView
-        android:layout_width="280dp"
-        android:layout_height="40dp"
-        android:background="@drawable/oval_background"
-        android:text="Start Registration"
         android:id="@+id/start_reg_unreg"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:layout_below="@+id/description"
         android:layout_centerHorizontal="true"
-        android:textColor="#fdb700"
         android:layout_marginTop="20dp"
+        android:background="@drawable/oval_background"
         android:gravity="center_vertical|center_horizontal"
-        android:textSize="20dp" />
+        android:text="Start Registration"
+        android:textColor="#fdb700"
+        android:textSize="15sp" />
 
 
 </RelativeLayout>
