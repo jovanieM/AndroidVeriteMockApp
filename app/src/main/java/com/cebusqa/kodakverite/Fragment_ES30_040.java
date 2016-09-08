@@ -49,11 +49,8 @@ public class Fragment_ES30_040 extends Fragment {
 
         ssid = Fragment_ES30_001.itemSSID;
         tvSSID.setText(ssid);
-        //showInputMethod();
         cbPassword.setChecked(true);
-        //checkBox();
-        etPass.requestFocus();
-
+        checkBox();
 
         etPass.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -63,7 +60,6 @@ public class Fragment_ES30_040 extends Fragment {
                     if (etPass.length() == 0 || etPass.equals("") || etPass == null) {
                         Toast.makeText(getActivity(), "Password empty!", Toast.LENGTH_SHORT).show();
                     } else {
-
                         checkBox();
 
                         Fragment_ES30_050 frag = new Fragment_ES30_050();
@@ -149,17 +145,5 @@ public class Fragment_ES30_040 extends Fragment {
                 }
             }
         });
-    }
-
-    public static void hideKeyboard(Activity activity){
-        if(activity != null){
-            activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        }
-    }
-
-    public static void showKeyboard(Activity activity){
-        if(activity != null){
-            activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-        }
     }
 }

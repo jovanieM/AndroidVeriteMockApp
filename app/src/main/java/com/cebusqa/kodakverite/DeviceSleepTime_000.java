@@ -150,4 +150,10 @@ public class DeviceSleepTime_000 extends Activity implements View.OnClickListene
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(DeviceSleepTime_000.this, PU00_0000.class));
+        finish();
+    }
 }

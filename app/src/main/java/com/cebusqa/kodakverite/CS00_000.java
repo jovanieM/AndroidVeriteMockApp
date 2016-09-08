@@ -9,7 +9,7 @@ import android.widget.Button;
 /**
  * Created by SQA Cebu on 6/21/2016.
  */
-public class CS00_000 extends Activity{
+public class CS00_000 extends Activity {
 
     Button btnStart, btnBack;
 
@@ -32,8 +32,15 @@ public class CS00_000 extends Activity{
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               finish();
+                startActivity(new Intent(CS00_000.this, PU00_0000.class));
+                finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(CS00_000.this, PU00_0000.class));
+        finish();
     }
 }

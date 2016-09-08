@@ -189,11 +189,10 @@
             android:name=".MultiplePrintQueue"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".PagesPerSideDialog"></activity>
+
         <activity android:name=".Fragment_ES30_050_A"
             android:screenOrientation="portrait" />
-
-
-
     </application>
 
 </manifest>
