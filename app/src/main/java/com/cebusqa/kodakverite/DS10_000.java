@@ -1,6 +1,5 @@
 package com.cebusqa.kodakverite;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +21,6 @@ public class DS10_000 extends AppCompatActivity {
         scan_settings =(RelativeLayout) findViewById(R.id.scan_settings);
         device_settings =(RelativeLayout) findViewById(R.id.device_settings);
         back = (Button)findViewById(R.id.back);
-
 
         print_settings.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){

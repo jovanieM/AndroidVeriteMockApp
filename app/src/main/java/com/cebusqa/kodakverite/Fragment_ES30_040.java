@@ -1,5 +1,6 @@
 package com.cebusqa.kodakverite;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
@@ -48,9 +49,11 @@ public class Fragment_ES30_040 extends Fragment {
 
         ssid = Fragment_ES30_001.itemSSID;
         tvSSID.setText(ssid);
-        showInputMethod();
+        //showInputMethod();
         cbPassword.setChecked(true);
-        checkBox();
+        //checkBox();
+        etPass.requestFocus();
+
 
         etPass.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -119,13 +122,10 @@ public class Fragment_ES30_040 extends Fragment {
                 return false;
             }
         });
-
         return view;
     }
 
     public void showInputMethod() {
-        etPass.requestFocus();
-        etPass.setFocusableInTouchMode(true);
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
     }
@@ -149,5 +149,17 @@ public class Fragment_ES30_040 extends Fragment {
                 }
             }
         });
+    }
+
+    public static void hideKeyboard(Activity activity){
+        if(activity != null){
+            activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        }
+    }
+
+    public static void showKeyboard(Activity activity){
+        if(activity != null){
+            activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
     }
 }
