@@ -24,7 +24,7 @@
         android:layout_below="@+id/easy_setup"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 
@@ -85,7 +85,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="208dp"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView34"
