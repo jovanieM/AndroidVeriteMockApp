@@ -20,7 +20,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/pFoldername"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView"
+        android:layout_toRightOf="@+id/customImgView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:singleLine="false"

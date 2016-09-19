@@ -13,6 +13,7 @@ import android.graphics.PathEffect;
 import android.graphics.Rect;
 import android.graphics.Region;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,13 +33,13 @@ public class CropView extends View {
     Paint paint;
     Path path;
     PathEffect pe;
-    //Rect rect;
+    Rect rect2;
     boolean pressed;
     Resources resources;
     Bitmap bitmap;
     Rect rect;
     Bitmap mBitmap;
-    static double mWidth, mHeight;
+    int mWidth, mHeight;
 
 
     public CropView(Context context) {
@@ -58,27 +59,49 @@ public class CropView extends View {
         init(attrs,defStyleAttr);
     }
 
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//
+//    }
+
     private void init(AttributeSet attrs, int defStyleAttr) {
 
-        //Rect rect = new Rect(0,0,400,600);
+        rect2 = new Rect();
 
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.sample);
 
         pressed = false;
         path = new Path();
         paint = new Paint();
-        pe = new DashPathEffect(new float[] {20, 20, 20, 20}, 5);
+        pe = new DashPathEffect(new float[] {10, 10, 10, 10}, 5);
 
         paint.setStyle(Paint.Style.STROKE);
         //paint.setColor(Color.TRANSPARENT);
         paint.setAntiAlias(true);
         paint.setColor(Color.WHITE);
-        paint.setStrokeWidth(5);
+        paint.setStrokeWidth(2);
         paint.getStrokeJoin();
         paint.setPathEffect(pe);
+        Log.v("init", "init" );
 
     }
-/*
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+       // super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        mWidth = MeasureSpec.getSize(widthMeasureSpec);
+        mHeight = MeasureSpec.getSize(heightMeasureSpec);
+        Log.v("onMeasure", String.valueOf(mHeight));
+        Log.v("onMeasure", String.valueOf(mWidth));
+
+
+
+
+
+        setMeasuredDimension(mWidth, mHeight);
+    }
+    /*
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 
@@ -113,7 +136,7 @@ public class CropView extends View {
         //path.addRect(getLeft(),getTop(),getRight(),getBottom(), Path.Direction.CW);
 
         //canvas.drawPath(path, paint);
-
+        Log.v("onMeasure", "ondraw");
         canvas.drawBitmap(bitmap, null, rect, null);
         canvas.drawRect(x,y,right,bottom, paint);
        // Toast.makeText(getContext(), String.valueOf(x)+"/"+String.valueOf(y), Toast.LENGTH_LONG).show();
@@ -162,6 +185,7 @@ public class CropView extends View {
                         x= X;
                         y = Y;
                         invalidate();
+
                     }
                 }
                 // rezise using the top right corner of the rect

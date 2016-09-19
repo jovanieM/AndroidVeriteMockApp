@@ -1,55 +1,55 @@
 package com.cebusqa.kodakverite;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapRegionDecoder;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class SP_000 extends AppCompatActivity {
 
     Button back;
     ImageButton settings;
-    RelativeLayout rl_scan, rl_crop, rl_send, save, email, drive, skyDrive;
+    RelativeLayout rl_scan, rl_crop, rl_send, save, email, drive, skyDrive, ivContain, mRoot;
     Intent intent, chooser;
     Context context;
     static final int GET_BITMAP_REQUEST = 2;
-    ImageView iv;
-    Bitmap bm;
+    CustomImgView iv;
+
+    Bitmap bm, bm2;
     Bundle bundle;
     boolean visible = false;
     float measuredWidth, measuredHeigtt, width, height;
     Thread t;
     int finalW, finalH;
     Uri resultUri;
+    int containerWidth;
     boolean test2;
     TextView photoQuality, photoColor, photoDocument;
     KodakVeriteApp kodakVeriteApp;
     boolean saved;
+    CustomImgView civ;
+    static final double CONTAINER_RATIO = 0.7132;
+    BitmapRegionDecoder bitmapRegionDecoder = null;
+    static byte[] byteArray;
+    Intent intent2;
 
 
     @Override
@@ -60,7 +60,8 @@ public class SP_000 extends AppCompatActivity {
         saved = false;
 
         kodakVeriteApp = new KodakVeriteApp();
-        final Object objectLock = new Object();
+        //myImageView = new MyImageView(this);
+
         this.back = (Button) findViewById(R.id.back);
         this.rl_scan = (RelativeLayout) findViewById(R.id.scan);
         this.rl_crop = (RelativeLayout) findViewById(R.id.crop);
@@ -69,14 +70,47 @@ public class SP_000 extends AppCompatActivity {
         this.email = (RelativeLayout) findViewById(R.id.email);
         this.drive = (RelativeLayout) findViewById(R.id.drive);
         this.skyDrive = (RelativeLayout) findViewById(R.id.one_box);
+        ivContain = (RelativeLayout) findViewById(R.id.ivContainer);
+        mRoot = (RelativeLayout) findViewById(R.id.root);
         settings = (ImageButton) findViewById(R.id.pscanSettingsIcon);
-        iv = (ImageView) findViewById(R.id.imageView);
+        civ = (CustomImgView) findViewById(R.id.customImgView);
         context = getApplicationContext();
         test2 = new PhotoScanMain().test;
         Resources res = getResources();
         email.bringToFront();
         save.bringToFront();
+        intent2 = new Intent(SP_000.this, ImageCropper.class);
 
+//        ViewTreeObserver vto = ivContain.getViewTreeObserver();
+//        vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+//            @Override
+//            public boolean onPreDraw() {
+//
+//                ivContain.getViewTreeObserver().removeOnPreDrawListener(this);
+//                Log.v("onResume", String.valueOf(ivContain.getHeight()));
+//                Log.v("onResume", String.valueOf(ivContain.getMeasuredWidth()));
+//                iv.getLayoutParams().width = (int) (ivContain.getHeight() * 0.6);
+//                iv.getLayoutParams().height = ivContain.getHeight();
+//                iv.requestLayout();
+//                iv.invalidate();
+//
+//                containerWidth = ivContain.getMeasuredWidth();
+//
+//                return true;
+//            }
+//        });
+
+     /*   ivContain.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+
+            @Override
+            public void onGlobalLayout() {
+
+
+
+                //containerRatio = (double) ivContain.getWidth() / ivContain.getHeight();
+            }
+        });
+*/
         photoQuality = (TextView) findViewById(R.id.photo_quality);
         photoColor = (TextView) findViewById(R.id.photo_color);
         photoDocument = (TextView) findViewById(R.id.photo_type);
@@ -102,7 +136,7 @@ public class SP_000 extends AppCompatActivity {
 //
         bm = BitmapFactory.decodeResource(res, R.drawable.sample);
 
-        iv.setImageBitmap(bm);
+
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -219,10 +253,24 @@ public class SP_000 extends AppCompatActivity {
         rl_crop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SP_000.this, ImageCropper.class);
-                intent.putExtra("width", bm.getWidth() + 80);
-                intent.putExtra("height", bm.getHeight() + 80);
-                startActivityForResult(intent, GET_BITMAP_REQUEST);
+
+//
+//                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//                bm.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//                byte[] byteArray = stream.toByteArray();
+
+
+                intent2.putExtra("left", civ.getLeft());
+                //myImageView.setL(iv.getLeft());
+                intent2.putExtra("top", civ.getTop());
+                //myImageView.setT(iv.getTop());
+                intent2.putExtra("right", civ.getRight());
+                //myImageView.setR(iv.getRight() + iv.getLeft());
+                intent2.putExtra("bottom", civ.getBottom());
+                //myImageView.setB(iv.getBottom());
+                intent2.putExtra("image", byteArray);
+
+                startActivityForResult(intent2, GET_BITMAP_REQUEST);
                 //startActivity(intent);
             }
         });
@@ -243,28 +291,62 @@ public class SP_000 extends AppCompatActivity {
                     skyDrive.setVisibility(View.GONE);
                     visible = false;
                 }
-
-
             }
         });
+
 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        int l, r,t,b;
+        byte[] bytes;
+
         if (resultCode == 2) {
-            int l = data.getIntExtra("left", 0);
-            int t = data.getIntExtra("top", 0);
-            int r = data.getIntExtra("right", 300);
-            int b = data.getIntExtra("bottom", 500);
+
+            l = data.getIntExtra("left", 0);
+            t = data.getIntExtra("top", 0);
+            r = data.getIntExtra("right", 0);
+            b = data.getIntExtra("bottom", 0);
+            bytes = data.getByteArrayExtra("bitmap");
+
+            //bm2 = bm;
+//            BitmapFactory.Options options = new BitmapFactory.Options();
+//            options.inJustDecodeBounds = true;
+//            BitmapFactory.
 
 
-            Bitmap mBitmap = Bitmap.createBitmap(bm, l, t, r, b);
-            iv.setImageBitmap(mBitmap);
+            Log.v("Activity result", "activity result");
+            try {
+                bitmapRegionDecoder = BitmapRegionDecoder.newInstance(bytes, 0, bytes.length, false);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            Log.v("Activity result", "before region decoder");
+            bm = bitmapRegionDecoder.decodeRegion(new Rect(l,t,r,b), options);
+            Log.v("Activity result", "after region decoder");
+
+//            bm2 = Bitmap.createBitmap(bm, l+2, t +2 , r-2, b - 2);
+//            bm =bm2;
+
+            int tempWidth = r-l;
+            int tempHeight = b-t;
+
+            double imageRatio = (double) tempWidth/tempHeight;
+            Log.v("result false", String.valueOf(tempWidth));
+            Log.v("result false", String.valueOf(tempHeight));
+            Log.v("result false", String.valueOf(r));
+            Log.v("result false", String.valueOf(b));
+            Log.v("result false", String.valueOf(imageRatio));
+
         } else {
             Toast.makeText(this, "no change", Toast.LENGTH_SHORT).show();
         }
+
     }
 
 
@@ -284,8 +366,58 @@ public class SP_000 extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        double bitmapRatio;
+
+
+
+//        Log.v("onResumed", String.valueOf(iv.getWidth()));
+//        Log.v("onResumed", String.valueOf(iv.getHeight()));
+
+        if (bm.getWidth() > bm.getHeight()) {
+            bitmapRatio = (double) bm.getHeight() / bm.getWidth();
+        } else {
+            bitmapRatio = (double) bm.getWidth() / bm.getHeight();
+        }
+
+        Log.v("onResumed", String.valueOf(bitmapRatio));
+        Log.v("onResumed", String.valueOf(containerWidth));
+
+        civ.setImageBitmap(bm);
+
+        new AsyncTask< Integer, Void,Bitmap>(){
+
+            @Override
+            protected Bitmap doInBackground(Integer... params) {
+                Bitmap bitmap =BitmapFactory.decodeResource(getResources(), params[0]);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bm.compress(Bitmap.CompressFormat.PNG, 100, stream);
+
+                byteArray = stream.toByteArray();
+                return bitmap;
+            }
+
+            @Override
+            protected void onPostExecute(Bitmap aVoid) {
+               bm = aVoid;
+
+            }
+        }.execute(R.drawable.sample);
+
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        bm.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//
+//        byteArray = stream.toByteArray();
+        Log.v("onResumed bm", String.valueOf(bm));
+
         photoQuality.setText(kodakVeriteApp.getScanPhotoSettingQuality());
         photoColor.setText(kodakVeriteApp.getScanPhotoSettingColor());
         photoDocument.setText(kodakVeriteApp.getScanPhotoSettingDocument());
+
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        bm = null;
+        super.onDetachedFromWindow();
     }
 }

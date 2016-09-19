@@ -2,6 +2,7 @@ package com.cebusqa.kodakverite;
 
 import android.app.Application;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by Cebu SQA on 27/06/2016.
  */
-public class KodakVeriteApp extends Application {
+public class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        KodakVeriteApp extends Application {
     static int currentStatusValue = 0;
     static boolean airprintPrvState = false;
     static boolean gcpPrevState = false;
@@ -25,10 +26,9 @@ public class KodakVeriteApp extends Application {
     static ArrayList<String> bucketData;
     static ArrayList<String> dirs;
     static ArrayList<String> thumbData;
-    static ArrayList<String> noOfFiles;
     static String fName;
     ArrayList<Integer> imagePerFolder;
-    static final int MY_PERMISSION_REQUEST_READ_STORAGE = 123;
+
 
     private static String scanSettingQuality;
     private static String scanSettingColor;
@@ -45,7 +45,6 @@ public class KodakVeriteApp extends Application {
     private static String printQuality;
     private static String printCopies;
 
-
     //for Copy Settings
     private static String copyResize;
     private static String copyColor;
@@ -54,8 +53,16 @@ public class KodakVeriteApp extends Application {
     private static String pagesPerSide;
     private static String copyQuality;
 
-
     private static String directTime;
+    byte[] bytes;
+
+    public byte[] getBytes() {
+        return bytes;
+    }
+
+    public void setBytes(byte[] bytes) {
+        this.bytes = bytes;
+    }
 
     @Override
     public void onCreate() {
@@ -66,7 +73,6 @@ public class KodakVeriteApp extends Application {
         bucketName = new ArrayList<>();
         bucketData = new ArrayList<>();
         dirs = new ArrayList<>();
-        noOfFiles = new ArrayList<>();
         imagePerFolder = new ArrayList<>();
         fName = null;
 

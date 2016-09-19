@@ -198,4 +198,13 @@
             android:src="@drawable/one_drive"/>
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/relativeLayout2"
+        android:id="@+id/rootView"
+        android:layout_margin="20dp"></RelativeLayout>
+
 </RelativeLayout>
