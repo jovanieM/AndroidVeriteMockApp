@@ -66,11 +66,13 @@ public class KodakVeriteApp extends Application {
     public String[] projection = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
     public ArrayList imagePerFolder = new ArrayList<>();
 
+    private File[] dirPath;
+
     @Override
     public void onCreate() {
         super.onCreate();
 
-
+        int number ;
         bucketName = new ArrayList<>();
         bucketData = new ArrayList<>();
         dirs = new ArrayList<>();
@@ -82,7 +84,7 @@ public class KodakVeriteApp extends Application {
         int accessStoragePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
         if (accessStoragePermission != PackageManager.PERMISSION_GRANTED) {
 
-            Log.i(TAG, "Permission to record denied");
+            Log.i(TAG, "Permission to read denied");
             return;
         }
 
@@ -90,15 +92,31 @@ public class KodakVeriteApp extends Application {
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     if (!bucketName.contains(cursor.getString(1))) {
-                        if (imagePerFolder.isEmpty()) {
-                        }
+
 
                         if (cursor.getString(0).toLowerCase().endsWith(".jpg") ||
                                 cursor.getString(0).toLowerCase().endsWith(".jpeg") ||
                                 cursor.getString(0).toLowerCase().endsWith(".png")) {
+
+
                             if (!bucketName.contains(cursor.getString(1))) {
                                 bucketName.add(cursor.getString(1));
                                 bucketData.add(cursor.getString(0));
+
+                                number = 0;
+                                File pathName = new File(cursor.getString(0));
+                                String sdPath = pathName.getParent();
+                                dirPath = new File(sdPath).listFiles();
+
+                                for(int y=0; y < dirPath.length; y++ ) {
+
+                                            if (dirPath[y].isFile() && dirPath[y].getName().endsWith(".png") ||
+                                                    dirPath[y].getName().endsWith(".jpg") ||
+                                                    dirPath[y].getName().endsWith(".jpeg") )  {
+                                                          number++;
+                                            }
+                                }   noOfFiles.add(String.valueOf(number));
+
                             }
                         }
                     }
@@ -110,7 +128,8 @@ public class KodakVeriteApp extends Application {
                 File file = new File(bucketData.get(i));
                 String st = file.getParent();
                 dirs.add(st);
-                //Toast.makeText(this, bucketName.get(i), Toast.LENGTH_SHORT).show();
+            //    Toast.makeText(this, bucketName.get(i), Toast.LENGTH_SHORT).show();
+
             }
 
             ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
