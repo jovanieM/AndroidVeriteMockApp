@@ -1,10 +1,13 @@
 package com.cebusqa.kodakverite;
 
+import android.Manifest;
 import android.app.Application;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -18,7 +21,7 @@ import java.util.ArrayList;
 /**
  * Created by Cebu SQA on 27/06/2016.
  */
-public class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        KodakVeriteApp extends Application {
+public class KodakVeriteApp extends Application {
     static int currentStatusValue = 0;
     static boolean airprintPrvState = false;
     static boolean gcpPrevState = false;
@@ -26,9 +29,9 @@ public class                                                                    
     static ArrayList<String> bucketData;
     static ArrayList<String> dirs;
     static ArrayList<String> thumbData;
+    static ArrayList<String> noOfFiles;
     static String fName;
-    ArrayList<Integer> imagePerFolder;
-
+//    ArrayList<Integer> imagePerFolder;
 
     private static String scanSettingQuality;
     private static String scanSettingColor;
@@ -45,6 +48,7 @@ public class                                                                    
     private static String printQuality;
     private static String printCopies;
 
+
     //for Copy Settings
     private static String copyResize;
     private static String copyColor;
@@ -54,76 +58,94 @@ public class                                                                    
     private static String copyQuality;
 
     private static String directTime;
-    byte[] bytes;
 
-    public byte[] getBytes() {
-        return bytes;
-    }
+    private String TAG = "PermisssionDemo";
+    final private int RECORD_REQUEST_CODE = 123;
 
-    public void setBytes(byte[] bytes) {
-        this.bytes = bytes;
-    }
+    public Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+    public String[] projection = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
+    public ArrayList imagePerFolder = new ArrayList<>();
+
+    private File[] dirPath;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-        String[] projection = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
+        int number ;
         bucketName = new ArrayList<>();
         bucketData = new ArrayList<>();
         dirs = new ArrayList<>();
-        imagePerFolder = new ArrayList<>();
+        noOfFiles = new ArrayList<>();
+
         fName = null;
 
-//        int readPermissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE);
-//
-//        if(readPermissionCheck!= PackageManager.PERMISSION_GRANTED){
-//            Toast.makeText(getApplicationContext(), "reading external storage is not permitted", Toast.LENGTH_LONG).show();
-//        }else{
-//            ActivityCompat.requestPermissions(this.getApplicationContext(), new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSION_REQUEST_READ_STORAGE);
-//        }
 
-        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                if (!bucketName.contains(cursor.getString(1))) {
-                    if (imagePerFolder.isEmpty()) {
-                    }
+        int accessStoragePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        if (accessStoragePermission != PackageManager.PERMISSION_GRANTED) {
 
-                    if (cursor.getString(0).toLowerCase().endsWith(".jpg") ||
-                            cursor.getString(0).toLowerCase().endsWith(".jpeg") ||
-                            cursor.getString(0).toLowerCase().endsWith(".png")) {
-                        if (!bucketName.contains(cursor.getString(1))) {
-                            bucketName.add(cursor.getString(1));
-                            bucketData.add(cursor.getString(0));
+            Log.i(TAG, "Permission to read denied");
+            return;
+        }
+
+            Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    if (!bucketName.contains(cursor.getString(1))) {
+
+
+                        if (cursor.getString(0).toLowerCase().endsWith(".jpg") ||
+                                cursor.getString(0).toLowerCase().endsWith(".jpeg") ||
+                                cursor.getString(0).toLowerCase().endsWith(".png")) {
+
+
+                            if (!bucketName.contains(cursor.getString(1))) {
+                                bucketName.add(cursor.getString(1));
+                                bucketData.add(cursor.getString(0));
+
+                                number = 0;
+                                File pathName = new File(cursor.getString(0));
+                                String sdPath = pathName.getParent();
+                                dirPath = new File(sdPath).listFiles();
+
+                                for(int y=0; y < dirPath.length; y++ ) {
+
+                                            if (dirPath[y].isFile() && dirPath[y].getName().endsWith(".png") ||
+                                                    dirPath[y].getName().endsWith(".jpg") ||
+                                                    dirPath[y].getName().endsWith(".jpeg") )  {
+                                                          number++;
+                                            }
+                                }   noOfFiles.add(String.valueOf(number));
+
+                            }
                         }
                     }
                 }
+                cursor.close();
             }
-            cursor.close();
+
+            for (int i = 0; i < bucketData.size(); i++) {
+                File file = new File(bucketData.get(i));
+                String st = file.getParent();
+                dirs.add(st);
+            //    Toast.makeText(this, bucketName.get(i), Toast.LENGTH_SHORT).show();
+
+            }
+
+            ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
+                    .threadPriority(Thread.NORM_PRIORITY - 2)
+                    .threadPoolSize(3)
+                    .diskCache(new UnlimitedDiskCache(getCacheDir()))
+                    .diskCacheExtraOptions(480, 320, null)
+                    //.tasksProcessingOrder(QueueProcessingType.LIFO)
+                    //.memoryCache(new WeakMemoryCache())
+                    .imageDecoder(new BaseImageDecoder(true))
+                    .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
+                    .build();
+            ImageLoader.getInstance().init(configuration);
+            //Toast.makeText(getApplicationContext(), String.valueOf(noOfFiles.get(0)), Toast.LENGTH_SHORT).show();
         }
 
-        for (int i = 0; i < bucketData.size(); i++) {
-            File file = new File(bucketData.get(i));
-            String st = file.getParent();
-            dirs.add(st);
-            //Toast.makeText(this, bucketName.get(i), Toast.LENGTH_SHORT).show();
-        }
-
-        ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .threadPriority(Thread.NORM_PRIORITY - 2)
-                .threadPoolSize(3)
-                .diskCache(new UnlimitedDiskCache(getCacheDir()))
-                .diskCacheExtraOptions(480, 320, null)
-                //.tasksProcessingOrder(QueueProcessingType.LIFO)
-                //.memoryCache(new WeakMemoryCache())
-                .imageDecoder(new BaseImageDecoder(true))
-                .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
-                .build();
-        ImageLoader.getInstance().init(configuration);
-        //Toast.makeText(getApplicationContext(), String.valueOf(noOfFiles.get(0)), Toast.LENGTH_SHORT).show();
-    }
 
     public ArrayList<String> getThumbData() {
         return thumbData;
@@ -341,5 +363,6 @@ public class                                                                    
         }
         return directTime;
     }
+
 
 }
