@@ -268,7 +268,6 @@ public class MyImageView extends ImageView {
 
         final int eventAction = event.getAction();
 
-        if(pressed)dimenStore(x,y,right,bottom);
 
         int X = (int) event.getX();
         int Y = (int) event.getY();
@@ -277,6 +276,8 @@ public class MyImageView extends ImageView {
         switch (eventAction){
             case MotionEvent.ACTION_DOWN:
                 pressed = true;
+                dimenStore(x,y,right,bottom);
+
 
                 break;
             case MotionEvent.ACTION_MOVE:
