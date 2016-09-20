@@ -28,6 +28,7 @@ import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 import com.nostra13.universalimageloader.utils.L;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -36,6 +37,8 @@ import java.util.ArrayList;
 public class PhotoPrintDirs extends Activity {
     ListView mlistView;
     Button back;
+    int count;
+    String strCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +53,7 @@ public class PhotoPrintDirs extends Activity {
             }
         });
 
-        MyAdapter adapter = new MyAdapter(this, KodakVeriteApp.bucketName, KodakVeriteApp.bucketData);
-
+        MyAdapter adapter = new MyAdapter(this, KodakVeriteApp.bucketName, KodakVeriteApp.bucketData, KodakVeriteApp.count);
         mlistView.setAdapter(adapter);
 
         mlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -69,7 +71,7 @@ public class PhotoPrintDirs extends Activity {
         });
     }
 
-    class MyAdapter extends ArrayAdapter<String>{
+    class MyAdapter extends ArrayAdapter<String> {
 
         //fields
         private Context context;
@@ -77,13 +79,15 @@ public class PhotoPrintDirs extends Activity {
         ArrayList<String> folderArray;
         private DisplayImageOptions options;
         ImageLoader imageLoader;
+        int numPerImages;
 
         //constructor
-        MyAdapter(Context c, ArrayList<String> folders,  ArrayList<String>image){
-            super(c, R.layout.photo_print_row,R.id.pFoldername,folders);
+        MyAdapter(Context c, ArrayList<String> folders, ArrayList<String> image, int numPerImage) {
+            super(c, R.layout.photo_print_row, R.id.pFoldername, folders);
             this.context = c;
             this.images = image;
             this.folderArray = folders;
+            this.numPerImages = numPerImage;
             options = new DisplayImageOptions.Builder()
                     .cacheInMemory(true)
                     .cacheOnDisk(true)
@@ -92,15 +96,17 @@ public class PhotoPrintDirs extends Activity {
                     .build();
             imageLoader = ImageLoader.getInstance();
 
-
         }
+
         //inner class
-        class MyViewHolder{
+        class MyViewHolder {
             ImageView myImage;
-            TextView myTextView;
-            MyViewHolder(View v){
+            TextView myTextView, myImagePerFolder;
+
+            MyViewHolder(View v) {
                 myImage = (ImageView) v.findViewById(R.id.pImageView);
                 myTextView = (TextView) v.findViewById(R.id.pFoldername);
+                myImagePerFolder = (TextView) v.findViewById(R.id.txt_imagePerFolder);
             }
         }
 
@@ -108,7 +114,7 @@ public class PhotoPrintDirs extends Activity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            View row =convertView;
+            View row = convertView;
             MyViewHolder holder;
 
             if (row == null) {
@@ -116,15 +122,15 @@ public class PhotoPrintDirs extends Activity {
                 row = inflater.inflate(R.layout.photo_print_row, parent, false);
                 holder = new MyViewHolder(row);
                 row.setTag(holder);
-            }else{
+            } else {
                 holder = (MyViewHolder) row.getTag();
             }
 
             // Toast.makeText(Print.this, images.get(position), Toast.LENGTH_LONG).show();
-            imageLoader.displayImage("file:///"+images.get(position), holder.myImage, options);
+            imageLoader.displayImage("file:///" + images.get(position), holder.myImage, options);
             holder.myTextView.setText(folderArray.get(position));
+            holder.myImagePerFolder.setText(String.valueOf(KodakVeriteApp.count));
             return row;
-
         }
     }
 }

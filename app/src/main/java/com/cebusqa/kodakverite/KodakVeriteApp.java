@@ -3,7 +3,11 @@ package com.cebusqa.kodakverite;
 import android.app.Application;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -13,6 +17,9 @@ import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * Created by Cebu SQA on 27/06/2016.
@@ -27,7 +34,8 @@ public class KodakVeriteApp extends Application {
     static ArrayList<String> thumbData;
     static ArrayList<String> noOfFiles;
     static String fName;
-    ArrayList<Integer> imagePerFolder;
+    static ArrayList<String> imagePerFolder;
+    static int count = 0;
     static final int MY_PERMISSION_REQUEST_READ_STORAGE = 123;
 
     private static String scanSettingQuality;
@@ -45,7 +53,6 @@ public class KodakVeriteApp extends Application {
     private static String printQuality;
     private static String printCopies;
 
-
     //for Copy Settings
     private static String copyResize;
     private static String copyColor;
@@ -56,6 +63,7 @@ public class KodakVeriteApp extends Application {
 
 
     private static String directTime;
+    static String numperfolder;
 
     @Override
     public void onCreate() {
@@ -70,6 +78,12 @@ public class KodakVeriteApp extends Application {
         imagePerFolder = new ArrayList<>();
         fName = null;
 
+        ArrayList<String> imageBucket = new ArrayList<String>();
+        String[] directories = null;
+        ArrayList<String> dirList = new ArrayList<String>();
+        ArrayList<String> result = new ArrayList<String>();
+
+
 //        int readPermissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE);
 //
 //        if(readPermissionCheck!= PackageManager.PERMISSION_GRANTED){
@@ -79,12 +93,14 @@ public class KodakVeriteApp extends Application {
 //        }
 
         Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+
+        //numPerImage = cursor.getCount();
+
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 if (!bucketName.contains(cursor.getString(1))) {
                     if (imagePerFolder.isEmpty()) {
                     }
-
                     if (cursor.getString(0).toLowerCase().endsWith(".jpg") ||
                             cursor.getString(0).toLowerCase().endsWith(".jpeg") ||
                             cursor.getString(0).toLowerCase().endsWith(".png")) {
@@ -95,8 +111,66 @@ public class KodakVeriteApp extends Application {
                     }
                 }
             }
+
+            if (cursor.moveToFirst()) {
+                do {
+                    String tempDir = cursor.getString(1);
+                    try {
+                        dirList.add(tempDir);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } while (cursor.moveToNext());
+
+                directories = new String[dirList.size()];
+                dirList.toArray(directories);
+                Log.d("Hoy", "Result nako" + dirList);
+            }
             cursor.close();
+
+            for (int i = 0; i < dirList.size(); i++) {
+                if (directories != null) {
+                    File f = new File(directories[i]);
+                    File[] files = f.listFiles();
+
+                    if (files != null)
+                        for (File filePath : files) {
+                            try {
+                                count++;
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            if (filePath.isDirectory()) {
+                                getFile(filePath.getAbsolutePath());
+                            } else {
+                                count++;
+                            }
+                        }
+
+                }
+            }
         }
+
+           /* for(int i=0; i<cursor.getCount(); i++){
+               cursor.moveToPosition(i);
+               int bucketCoulumnIndex = cursor.getColumnIndex(MediaStore.Images.Media.BUCKET_DISPLAY_NAME);
+               String bucketDisplayName = cursor.getString(bucketCoulumnIndex);
+               imageBucket.add(bucketDisplayName);
+               Log.d("Hoy", "Result nako" + imageBucket);
+
+           }*/
+
+
+        //for(int j=0; j<imageBucket.size();j++){
+        //    File fileDir = new File(directories[j]);
+
+        //    if (fileDir.listFiles() == null) {
+        //        Toast.makeText(this, "Yes", Toast.LENGTH_SHORT).show();
+        //    } else {
+        //        Toast.makeText(this, "No", Toast.LENGTH_SHORT).show();
+        //    }
+        //}
+
 
         for (int i = 0; i < bucketData.size(); i++) {
             File file = new File(bucketData.get(i));
@@ -117,6 +191,22 @@ public class KodakVeriteApp extends Application {
                 .build();
         ImageLoader.getInstance().init(configuration);
         //Toast.makeText(getApplicationContext(), String.valueOf(noOfFiles.get(0)), Toast.LENGTH_SHORT).show();
+    }
+
+
+    private void getFile(String dirPath) {
+        File f = new File(dirPath);
+        File[] files = f.listFiles();
+
+        if (files != null)
+            for (int i = 0; i < files.length; i++) {
+                count++;
+                File file = files[i];
+
+                if (file.isDirectory()) {
+                    getFile(file.getAbsolutePath());
+                }
+            }
     }
 
     public ArrayList<String> getThumbData() {
@@ -272,7 +362,7 @@ public class KodakVeriteApp extends Application {
     }
 
     public String getPagesPerSide() {
-        if(pagesPerSide == null){
+        if (pagesPerSide == null) {
             setPagesPerSide("One");
         }
         return pagesPerSide;
@@ -283,43 +373,51 @@ public class KodakVeriteApp extends Application {
     }
 
     public String getCopyResize() {
-        if(copyResize == null){
+        if (copyResize == null) {
             setCopyResize("100% Default");
         }
         return copyResize;
     }
 
-    public void setCopyColor (String copyColor) { KodakVeriteApp.copyColor = copyColor; }
+    public void setCopyColor(String copyColor) {
+        KodakVeriteApp.copyColor = copyColor;
+    }
 
-    public String getCopyColor(){
-        if(copyColor == null){
+    public String getCopyColor() {
+        if (copyColor == null) {
             setCopyColor("Color");
         }
         return copyColor;
     }
 
-    public void setCopyPaperSize (String copyPaperSize) { KodakVeriteApp.copyPaperSize = copyPaperSize; }
+    public void setCopyPaperSize(String copyPaperSize) {
+        KodakVeriteApp.copyPaperSize = copyPaperSize;
+    }
 
-    public String getCopyPaperSize(){
-        if (copyPaperSize == "null"){
+    public String getCopyPaperSize() {
+        if (copyPaperSize == "null") {
             setCopyPaperSize("Letter");
         }
         return copyPaperSize;
     }
 
-    public void setCopyPaperType (String copyPaperType) { KodakVeriteApp.copyPaperType = copyPaperType; }
+    public void setCopyPaperType(String copyPaperType) {
+        KodakVeriteApp.copyPaperType = copyPaperType;
+    }
 
-    public String getCopyPaperType () {
-        if (copyPaperType == "null"){
+    public String getCopyPaperType() {
+        if (copyPaperType == "null") {
             setCopyPaperType("Plain");
         }
         return copyPaperType;
     }
 
-    public void setCopyQuality (String copyQuality) { KodakVeriteApp.copyQuality = copyQuality; }
+    public void setCopyQuality(String copyQuality) {
+        KodakVeriteApp.copyQuality = copyQuality;
+    }
 
-    public String getCopyQuality () {
-        if (copyQuality == "null"){
+    public String getCopyQuality() {
+        if (copyQuality == "null") {
             setCopyQuality("Text");
         }
         return copyQuality;
@@ -335,5 +433,4 @@ public class KodakVeriteApp extends Application {
         }
         return directTime;
     }
-
 }
