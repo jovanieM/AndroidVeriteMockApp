@@ -136,7 +136,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView18"
+            android:id="@+id/imageView73"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="50dp"
             android:src="@mipmap/four_l" />
@@ -145,7 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4 in 1 Landscape"
-            android:id="@+id/textView71"
+            android:id="@+id/textView74"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="30dp"
             android:textColor="#010101"
@@ -170,7 +170,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView19"
+            android:id="@+id/imageView75"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="50dp"
             android:src="@mipmap/four_p" />
@@ -179,7 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4 in 1 Portrait"
-            android:id="@+id/textView72"
+            android:id="@+id/textView76"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="50dp"
             android:textColor="#010101"

@@ -3,11 +3,8 @@ package com.cebusqa.kodakverite;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,16 +14,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
-import com.nostra13.universalimageloader.utils.L;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -53,7 +44,12 @@ public class PhotoPrintDirs extends Activity {
             }
         });
 
+<<<<<<< HEAD
         MyAdapter adapter = new MyAdapter(this, KodakVeriteApp.bucketName, KodakVeriteApp.bucketData, KodakVeriteApp.count);
+=======
+        MyAdapter adapter = new MyAdapter(this, KodakVeriteApp.bucketName, KodakVeriteApp.bucketData, KodakVeriteApp.noOfFiles);
+
+>>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
         mlistView.setAdapter(adapter);
 
         mlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -77,17 +73,27 @@ public class PhotoPrintDirs extends Activity {
         private Context context;
         ArrayList<String> images;
         ArrayList<String> folderArray;
+        ArrayList<String> num;
         private DisplayImageOptions options;
         ImageLoader imageLoader;
         int numPerImages;
 
         //constructor
+<<<<<<< HEAD
         MyAdapter(Context c, ArrayList<String> folders, ArrayList<String> image, int numPerImage) {
             super(c, R.layout.photo_print_row, R.id.pFoldername, folders);
             this.context = c;
             this.images = image;
             this.folderArray = folders;
             this.numPerImages = numPerImage;
+=======
+        MyAdapter(Context c, ArrayList<String> folders, ArrayList<String> image, ArrayList<String> noOfFiles){
+            super(c, R.layout.photo_print_row,R.id.pFoldername,folders);
+            this.context = c;
+            this.images = image;
+            this.folderArray = folders;
+            this.num = noOfFiles;
+>>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
             options = new DisplayImageOptions.Builder()
                     .cacheInMemory(true)
                     .cacheOnDisk(true)
@@ -101,12 +107,21 @@ public class PhotoPrintDirs extends Activity {
         //inner class
         class MyViewHolder {
             ImageView myImage;
+<<<<<<< HEAD
             TextView myTextView, myImagePerFolder;
 
             MyViewHolder(View v) {
                 myImage = (ImageView) v.findViewById(R.id.pImageView);
                 myTextView = (TextView) v.findViewById(R.id.pFoldername);
                 myImagePerFolder = (TextView) v.findViewById(R.id.txt_imagePerFolder);
+=======
+            TextView myTextView;
+            TextView numOfImages;
+            MyViewHolder(View v){
+                myImage = (ImageView) v.findViewById(R.id.pImageView);
+                myTextView = (TextView) v.findViewById(R.id.pFoldername);
+                numOfImages = (TextView) v.findViewById(R.id.numOfImages);
+>>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
             }
         }
 
@@ -129,7 +144,11 @@ public class PhotoPrintDirs extends Activity {
             // Toast.makeText(Print.this, images.get(position), Toast.LENGTH_LONG).show();
             imageLoader.displayImage("file:///" + images.get(position), holder.myImage, options);
             holder.myTextView.setText(folderArray.get(position));
+<<<<<<< HEAD
             holder.myImagePerFolder.setText(String.valueOf(KodakVeriteApp.count));
+=======
+            holder.numOfImages.setText("(" + num.get(position) + ")");
+>>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
             return row;
         }
     }
