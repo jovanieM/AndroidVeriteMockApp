@@ -5,16 +5,11 @@ import android.app.Application;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Environment;
 import android.provider.MediaStore;
-<<<<<<< HEAD
-import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.Toast;
-=======
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
->>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
+
+
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -41,13 +36,13 @@ public class KodakVeriteApp extends Application {
     static ArrayList<String> thumbData;
     static ArrayList<String> noOfFiles;
     static String fName;
-<<<<<<< HEAD
+
     static ArrayList<String> imagePerFolder;
     static int count = 0;
     static final int MY_PERMISSION_REQUEST_READ_STORAGE = 123;
-=======
+
 //    ArrayList<Integer> imagePerFolder;
->>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
+
 
     private static String scanSettingQuality;
     private static String scanSettingColor;
@@ -71,16 +66,14 @@ public class KodakVeriteApp extends Application {
     private static String copyPaperType;
     private static String pagesPerSide;
     private static String copyQuality;
-
     private static String directTime;
-    static String numperfolder;
+
 
     private String TAG = "PermisssionDemo";
     final private int RECORD_REQUEST_CODE = 123;
 
     public Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
     public String[] projection = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
-    public ArrayList imagePerFolder = new ArrayList<>();
 
     private File[] dirPath;
 
@@ -88,20 +81,13 @@ public class KodakVeriteApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        int number ;
+        int number;
         bucketName = new ArrayList<>();
         bucketData = new ArrayList<>();
         dirs = new ArrayList<>();
         noOfFiles = new ArrayList<>();
 
         fName = null;
-
-<<<<<<< HEAD
-        ArrayList<String> imageBucket = new ArrayList<String>();
-        String[] directories = null;
-        ArrayList<String> dirList = new ArrayList<String>();
-        ArrayList<String> result = new ArrayList<String>();
-
 
 //        int readPermissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE);
 //
@@ -111,22 +97,6 @@ public class KodakVeriteApp extends Application {
 //            ActivityCompat.requestPermissions(this.getApplicationContext(), new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSION_REQUEST_READ_STORAGE);
 //        }
 
-        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
-
-        //numPerImage = cursor.getCount();
-
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                if (!bucketName.contains(cursor.getString(1))) {
-                    if (imagePerFolder.isEmpty()) {
-                    }
-                    if (cursor.getString(0).toLowerCase().endsWith(".jpg") ||
-                            cursor.getString(0).toLowerCase().endsWith(".jpeg") ||
-                            cursor.getString(0).toLowerCase().endsWith(".png")) {
-                        if (!bucketName.contains(cursor.getString(1))) {
-                            bucketName.add(cursor.getString(1));
-                            bucketData.add(cursor.getString(0));
-=======
 
         int accessStoragePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
         if (accessStoragePermission != PackageManager.PERMISSION_GRANTED) {
@@ -135,102 +105,38 @@ public class KodakVeriteApp extends Application {
             return;
         }
 
-            Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
-            if (cursor != null) {
-                while (cursor.moveToNext()) {
-                    if (!bucketName.contains(cursor.getString(1))) {
+        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                if (!bucketName.contains(cursor.getString(1))) {
+                    if (cursor.getString(0).toLowerCase().endsWith(".jpg") ||
+                            cursor.getString(0).toLowerCase().endsWith(".jpeg") ||
+                            cursor.getString(0).toLowerCase().endsWith(".png")) {
+                        if (!bucketName.contains(cursor.getString(1))) {
+                            bucketName.add(cursor.getString(1));
+                            bucketData.add(cursor.getString(0));
 
+                            number = 0;
+                            File pathName = new File(cursor.getString(0));
+                            String sdPath = pathName.getParent();
+                            dirPath = new File(sdPath).listFiles();
 
-                        if (cursor.getString(0).toLowerCase().endsWith(".jpg") ||
-                                cursor.getString(0).toLowerCase().endsWith(".jpeg") ||
-                                cursor.getString(0).toLowerCase().endsWith(".png")) {
+                            for (int y = 0; y < dirPath.length; y++) {
 
-
-                            if (!bucketName.contains(cursor.getString(1))) {
-                                bucketName.add(cursor.getString(1));
-                                bucketData.add(cursor.getString(0));
-
-                                number = 0;
-                                File pathName = new File(cursor.getString(0));
-                                String sdPath = pathName.getParent();
-                                dirPath = new File(sdPath).listFiles();
-
-                                for(int y=0; y < dirPath.length; y++ ) {
-
-                                            if (dirPath[y].isFile() && dirPath[y].getName().endsWith(".png") ||
-                                                    dirPath[y].getName().endsWith(".jpg") ||
-                                                    dirPath[y].getName().endsWith(".jpeg") )  {
-                                                          number++;
-                                            }
-                                }   noOfFiles.add(String.valueOf(number));
-
+                                if (dirPath[y].isFile() && dirPath[y].getName().endsWith(".png") ||
+                                        dirPath[y].getName().endsWith(".jpg") ||
+                                        dirPath[y].getName().endsWith(".jpeg")) {
+                                    number++;
+                                }
                             }
->>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
+                            noOfFiles.add(String.valueOf(number));
                         }
+
                     }
                 }
-                cursor.close();
-            }
-<<<<<<< HEAD
-
-            if (cursor.moveToFirst()) {
-                do {
-                    String tempDir = cursor.getString(1);
-                    try {
-                        dirList.add(tempDir);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } while (cursor.moveToNext());
-
-                directories = new String[dirList.size()];
-                dirList.toArray(directories);
-                Log.d("Hoy", "Result nako" + dirList);
             }
             cursor.close();
-
-            for (int i = 0; i < dirList.size(); i++) {
-                if (directories != null) {
-                    File f = new File(directories[i]);
-                    File[] files = f.listFiles();
-
-                    if (files != null)
-                        for (File filePath : files) {
-                            try {
-                                count++;
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            if (filePath.isDirectory()) {
-                                getFile(filePath.getAbsolutePath());
-                            } else {
-                                count++;
-                            }
-                        }
-
-                }
-            }
         }
-
-           /* for(int i=0; i<cursor.getCount(); i++){
-               cursor.moveToPosition(i);
-               int bucketCoulumnIndex = cursor.getColumnIndex(MediaStore.Images.Media.BUCKET_DISPLAY_NAME);
-               String bucketDisplayName = cursor.getString(bucketCoulumnIndex);
-               imageBucket.add(bucketDisplayName);
-               Log.d("Hoy", "Result nako" + imageBucket);
-
-           }*/
-
-
-        //for(int j=0; j<imageBucket.size();j++){
-        //    File fileDir = new File(directories[j]);
-
-        //    if (fileDir.listFiles() == null) {
-        //        Toast.makeText(this, "Yes", Toast.LENGTH_SHORT).show();
-        //    } else {
-        //        Toast.makeText(this, "No", Toast.LENGTH_SHORT).show();
-        //    }
-        //}
 
 
         for (int i = 0; i < bucketData.size(); i++) {
@@ -238,46 +144,23 @@ public class KodakVeriteApp extends Application {
             String st = file.getParent();
             dirs.add(st);
             //Toast.makeText(this, bucketName.get(i), Toast.LENGTH_SHORT).show();
-=======
-
-            for (int i = 0; i < bucketData.size(); i++) {
-                File file = new File(bucketData.get(i));
-                String st = file.getParent();
-                dirs.add(st);
-            //    Toast.makeText(this, bucketName.get(i), Toast.LENGTH_SHORT).show();
-
-            }
-
-            ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                    .threadPriority(Thread.NORM_PRIORITY - 2)
-                    .threadPoolSize(3)
-                    .diskCache(new UnlimitedDiskCache(getCacheDir()))
-                    .diskCacheExtraOptions(480, 320, null)
-                    //.tasksProcessingOrder(QueueProcessingType.LIFO)
-                    //.memoryCache(new WeakMemoryCache())
-                    .imageDecoder(new BaseImageDecoder(true))
-                    .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
-                    .build();
-            ImageLoader.getInstance().init(configuration);
-            //Toast.makeText(getApplicationContext(), String.valueOf(noOfFiles.get(0)), Toast.LENGTH_SHORT).show();
->>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
         }
 
 
+        ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
+                .threadPriority(Thread.NORM_PRIORITY - 2)
+                .threadPoolSize(3)
+                .diskCache(new UnlimitedDiskCache(getCacheDir()))
+                .diskCacheExtraOptions(480, 320, null)
+                //.tasksProcessingOrder(QueueProcessingType.LIFO)
+                //.memoryCache(new WeakMemoryCache())
+                .imageDecoder(new BaseImageDecoder(true))
+                .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
+                .build();
+        ImageLoader.getInstance().
 
-    private void getFile(String dirPath) {
-        File f = new File(dirPath);
-        File[] files = f.listFiles();
-
-        if (files != null)
-            for (int i = 0; i < files.length; i++) {
-                count++;
-                File file = files[i];
-
-                if (file.isDirectory()) {
-                    getFile(file.getAbsolutePath());
-                }
-            }
+        init(configuration);
+        //Toast.makeText(getApplicationContext(), String.valueOf(noOfFiles.get(0)), Toast.LENGTH_SHORT).show();
     }
 
     public ArrayList<String> getThumbData() {
@@ -504,9 +387,4 @@ public class KodakVeriteApp extends Application {
         }
         return directTime;
     }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
 }

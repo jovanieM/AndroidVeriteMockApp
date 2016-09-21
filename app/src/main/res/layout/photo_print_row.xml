@@ -16,26 +16,13 @@
         android:scaleType="center" />
 
     <TextView
-<<<<<<< HEAD
-=======
-        android:layout_width="wrap_content"
-        android:layout_height="82dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
->>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
         android:id="@+id/pFoldername"
         android:layout_width="wrap_content"
         android:layout_height="82dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-<<<<<<< HEAD
         android:layout_toRightOf="@+id/imageView"
-=======
-        android:layout_toRightOf="@+id/customImgView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:singleLine="false"
->>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
         android:gravity="fill_horizontal|center_vertical|fill_vertical|fill"
         android:paddingLeft="20dp"
         android:singleLine="false"
@@ -44,27 +31,20 @@
         android:textSize="15dp" />
 
     <TextView
-<<<<<<< HEAD
-        android:id="@+id/txt_imagePerFolder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="(text)"/>
-=======
+        android:id="@+id/numOfImages"
         android:layout_width="wrap_content"
         android:layout_height="82dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/numOfImages"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:singleLine="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@+id/imageView"
         android:gravity="fill_horizontal|center_vertical|fill_vertical|fill"
         android:paddingLeft="20dp"
-        android:text= "0"
-        android:textSize="15dp"
-        android:layout_marginLeft="3dp" />
+        android:singleLine="false"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15dp" />
 
->>>>>>> 608f011e971e3aeac2a441b9992d0d7f11db8711
+
 </LinearLayout>
