@@ -19,6 +19,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -27,6 +28,8 @@ import java.util.ArrayList;
 public class PhotoPrintDirs extends Activity {
     ListView mlistView;
     Button back;
+    int count;
+    String strCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,7 @@ public class PhotoPrintDirs extends Activity {
         });
 
         MyAdapter adapter = new MyAdapter(this, KodakVeriteApp.bucketName, KodakVeriteApp.bucketData, KodakVeriteApp.noOfFiles);
+
 
         mlistView.setAdapter(adapter);
 
@@ -60,7 +64,7 @@ public class PhotoPrintDirs extends Activity {
         });
     }
 
-    class MyAdapter extends ArrayAdapter<String>{
+    class MyAdapter extends ArrayAdapter<String> {
 
         //fields
         private Context context;
@@ -77,6 +81,7 @@ public class PhotoPrintDirs extends Activity {
             this.images = image;
             this.folderArray = folders;
             this.num = noOfFiles;
+
             options = new DisplayImageOptions.Builder()
                     .cacheInMemory(true)
                     .cacheOnDisk(true)
@@ -85,13 +90,14 @@ public class PhotoPrintDirs extends Activity {
                     .build();
             imageLoader = ImageLoader.getInstance();
 
-
         }
+
         //inner class
-        class MyViewHolder{
+        class MyViewHolder {
             ImageView myImage;
             TextView myTextView;
             TextView numOfImages;
+
             MyViewHolder(View v){
                 myImage = (ImageView) v.findViewById(R.id.pImageView);
                 myTextView = (TextView) v.findViewById(R.id.pFoldername);
@@ -103,7 +109,7 @@ public class PhotoPrintDirs extends Activity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            View row =convertView;
+            View row = convertView;
             MyViewHolder holder;
 
             if (row == null) {
@@ -111,16 +117,16 @@ public class PhotoPrintDirs extends Activity {
                 row = inflater.inflate(R.layout.photo_print_row, parent, false);
                 holder = new MyViewHolder(row);
                 row.setTag(holder);
-            }else{
+            } else {
                 holder = (MyViewHolder) row.getTag();
             }
 
             // Toast.makeText(Print.this, images.get(position), Toast.LENGTH_LONG).show();
-            imageLoader.displayImage("file:///"+images.get(position), holder.myImage, options);
+            imageLoader.displayImage("file:///" + images.get(position), holder.myImage, options);
             holder.myTextView.setText(folderArray.get(position));
             holder.numOfImages.setText("(" + num.get(position) + ")");
-            return row;
 
+            return row;
         }
     }
 }

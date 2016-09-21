@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
     <ImageView
+        android:id="@+id/pImageView"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/pImageView"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:padding="5dp"
+        android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
-        android:scaleType="center"/>
+        android:padding="5dp"
+        android:scaleType="center" />
 
     <TextView
+        android:id="@+id/pFoldername"
         android:layout_width="wrap_content"
         android:layout_height="82dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/pFoldername"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/customImgView"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:singleLine="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageView"
         android:gravity="fill_horizontal|center_vertical|fill_vertical|fill"
         android:paddingLeft="20dp"
+        android:singleLine="false"
         android:text="asd"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="15dp" />
 
     <TextView
+        android:id="@+id/numOfImages"
         android:layout_width="wrap_content"
         android:layout_height="82dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/numOfImages"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:singleLine="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@+id/imageView"
         android:gravity="fill_horizontal|center_vertical|fill_vertical|fill"
         android:paddingLeft="20dp"
-        android:text= "0"
-        android:textSize="15dp"
-        android:layout_marginLeft="3dp" />
+        android:singleLine="false"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="15dp" />
+
 
 </LinearLayout>
