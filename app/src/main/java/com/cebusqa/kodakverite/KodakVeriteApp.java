@@ -67,6 +67,15 @@ public class KodakVeriteApp extends Application {
     public ArrayList imagePerFolder = new ArrayList<>();
 
     private File[] dirPath;
+    static byte[] bitmapData;
+
+    public byte[] getBitmapData() {
+        return bitmapData;
+    }
+
+    public void setBitmapData(byte[] bitmap) {
+        bitmapData = bitmap;
+    }
 
     @Override
     public void onCreate() {

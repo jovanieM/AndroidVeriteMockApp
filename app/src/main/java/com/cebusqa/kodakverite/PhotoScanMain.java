@@ -94,6 +94,7 @@ public class PhotoScanMain extends Activity{
                     new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
                     //scanDialog.dismiss();
                 }else{
+
                     finish();
                     startActivity(new Intent(PhotoScanMain.this, SP_000.class));
                 }
