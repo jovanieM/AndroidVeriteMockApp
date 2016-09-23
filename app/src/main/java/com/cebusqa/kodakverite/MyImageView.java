@@ -24,26 +24,30 @@ public class MyImageView extends ImageView {
 
     boolean mAdjustViewBounds;
     static int l, t, r, b;
+    int x, y, right, bottom;
 
-    int x, y, right,bottom;
+    int upLX, upLY;
 
-    int upLX,upLY;
 
-    Drawable drawable;
-
-    int prevX,prevY,prevR, prevB;
+    int prevX, prevY, prevR, prevB;
     //int deltaX, deltaY, deltaR, deltaB;
     int newX, newY, newR, newB;
 
     Paint paint;
     Path path;
     PathEffect pe;
-    boolean pressed;
+    boolean pressed, touched;
     Resources resources;
     Bitmap bitmap;
-    Rect rect, rbl,rtl,rtr,rbr;
-    Bitmap bl,tl,tr,br;
-    int mWidth, mHeight;
+    Rect rect, rbl, rtl, rtr, rbr;
+    Bitmap bl, tl, tr, br;
+    Drawable drawable;
+    int mDrawableWidth;
+    int mDrawableHeight;
+    int mWidth;
+    int mHeight;
+    float containerRatio;
+    float drawableRatio;
 
 
     public MyImageView(Context context) {
@@ -60,8 +64,9 @@ public class MyImageView extends ImageView {
 
     public MyImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs,defStyleAttr);
+        init(attrs, defStyleAttr);
     }
+
     public int getB() {
         return b;
     }
@@ -97,20 +102,27 @@ public class MyImageView extends ImageView {
 
     private void init(AttributeSet attrs, int defStyleAttr) {
 
+        mDrawableWidth = 0;
+        mDrawableHeight = 0;
+        mWidth = 0;
+        mHeight = 0;
+        containerRatio = 0.06f;
+        drawableRatio = 0.06f;
+
         rect = new Rect();
         //rtl = new Rect(upLX,upLY,60,60);
 
 
         Log.v("init", String.valueOf(getT()));
-        tl= BitmapFactory.decodeResource(getResources(), R.drawable.scale_tl);
-        tr= BitmapFactory.decodeResource(getResources(), R.drawable.scale_ur);
+        tl = BitmapFactory.decodeResource(getResources(), R.drawable.scale_tl);
+        tr = BitmapFactory.decodeResource(getResources(), R.drawable.scale_ur);
         bl = BitmapFactory.decodeResource(getResources(), R.drawable.scale_bl);
-        br= BitmapFactory.decodeResource(getResources(), R.drawable.scale_br);
-
+        br = BitmapFactory.decodeResource(getResources(), R.drawable.scale_br);
+        touched = false;
         pressed = false;
         path = new Path();
         paint = new Paint();
-        pe = new DashPathEffect(new float[] {10, 10, 10, 10}, 5);
+        pe = new DashPathEffect(new float[]{10, 10, 10, 10}, 5);
 
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(Color.TRANSPARENT);
@@ -120,7 +132,7 @@ public class MyImageView extends ImageView {
         paint.getStrokeJoin();
         paint.setPathEffect(pe);
 
-        Log.v("init", "init" );
+        Log.v("init", "init");
 
     }
 
@@ -137,84 +149,55 @@ public class MyImageView extends ImageView {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        Log.v("MyView","onMeasure method");
+        Log.v("MyView", "onMeasure method");
         drawable = getDrawable();
-        //mDrawableBounds = drawable.getBounds();
-        int mDrawableWidth = drawable.getIntrinsicWidth();
-        int mDrawableHeight = drawable.getIntrinsicHeight();
-        int mWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int mHeight = MeasureSpec.getSize(heightMeasureSpec);
 
-        float containerRatio = (float)mWidth / mHeight;
-        float drawableRatio = (float)mDrawableWidth / mDrawableHeight;
+        if (drawable != null) {
+            mDrawableWidth = drawable.getIntrinsicWidth();
+            mDrawableHeight = drawable.getIntrinsicHeight();
+            mWidth = MeasureSpec.getSize(widthMeasureSpec);
+            mHeight = MeasureSpec.getSize(heightMeasureSpec);
 
-        if(drawableRatio > containerRatio && mDrawableWidth < mDrawableHeight){
-            //fix the width and adjust the height if image is portrait
-            float ratio = (float)mDrawableHeight / mDrawableWidth;
-            int newHeight = (int) (mWidth * ratio);
-            Log.v("1st newWidth", String.valueOf(newHeight));
-            setMeasuredDimension(mWidth, newHeight);
-        }else if(drawableRatio < containerRatio && mDrawableWidth < mDrawableHeight){
-            // fix height and adjust width if image is portrait
-            int newWidth = (int)((double) mHeight * drawableRatio);
-            Log.v("2nd newWidth", String.valueOf(newWidth));
-            setMeasuredDimension(newWidth, mHeight);
-        }else{
-            //fix the width if image is landscape
-            float ratio = (float)mDrawableHeight / mDrawableWidth;
-            int newHeight = (int) (mWidth * ratio);
-            Log.v("3rd newWidth", String.valueOf(ratio));
-            setMeasuredDimension(mWidth, newHeight);
+            //mDrawableBounds = drawable.getBounds();
+            float containerRatio = (float) mWidth / mHeight;
+            float drawableRatio = (float) mDrawableWidth / mDrawableHeight;
+
+
+            if (drawableRatio > containerRatio && mDrawableWidth < mDrawableHeight) {
+                //fix the width and adjust the height if image is portrait
+                float ratio = (float) mDrawableHeight / mDrawableWidth;
+                int newHeight = (int) (mWidth * ratio);
+                Log.v("1st newWidth", String.valueOf(newHeight));
+                setMeasuredDimension(mWidth, newHeight);
+            } else if (drawableRatio < containerRatio && mDrawableWidth < mDrawableHeight) {
+                // fix height and adjust width if image is portrait
+                int newWidth = (int) ((double) mHeight * drawableRatio);
+                Log.v("2nd newWidth", String.valueOf(newWidth));
+                setMeasuredDimension(newWidth, mHeight);
+            } else {
+                //fix the width if image is landscape
+                float ratio = (float) mDrawableHeight / mDrawableWidth;
+                int newHeight = (int) (mWidth * ratio);
+                Log.v("3rd newWidth", String.valueOf(ratio));
+                setMeasuredDimension(mWidth, newHeight);
+            }
+            Log.v("onMeasure", String.valueOf(mDrawableWidth) + ", " + String.valueOf(mDrawableHeight) + ", " + String.valueOf(mWidth)
+                    + ", " + String.valueOf(mHeight) + ", " + String.valueOf(containerRatio) + ", " + String.valueOf(drawableRatio));
+
+        } else {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         }
-        Log.v("onMeasure",String.valueOf(mDrawableWidth)+", "+ String.valueOf(mDrawableHeight)+", "+String.valueOf(mWidth)
-                + ", "+ String.valueOf(mHeight)+", "+ String.valueOf(containerRatio)+ ", "+String.valueOf(drawableRatio));
 
 
-        Log.v("onMeasure", "init" );
+        Log.v("onMeasure", "init");
     }
 
-    /*@Override
-        protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-            Drawable mDrawable = getDrawable();
-
-            if(mDrawable == null){
-                super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-                return;
-            }
-
-            if(mAdjustViewBounds){
-                int mDrawableWidth = mDrawable.getIntrinsicWidth();
-                int mDrawableHeight = mDrawable.getIntrinsicHeight();
-                int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-                int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-                int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-                int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-
-                if(heightMode == MeasureSpec.EXACTLY && widthMode != MeasureSpec.EXACTLY){
-                    // fixed height and adjustable width
-                    int height = heightSize;
-                    int width = height * mDrawableWidth / mDrawableHeight;
-                    setMeasuredDimension(width, height);
-                }else if( widthMode == MeasureSpec.EXACTLY && heightMode != MeasureSpec.EXACTLY){
-                    // fixed width and adjustable height
-                    int width = widthSize;
-                    int height = width * mDrawableHeight / mDrawableWidth;
-                    setMeasuredDimension(width, height);
-                }else {
-                    setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
-                }
-
-            }else {
-                super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-            }
-        }
-    */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
 
-        if(!pressed){
+        if (!pressed && !touched) {
             x = getL();
             y = getT();
             right = getR();
@@ -222,12 +205,10 @@ public class MyImageView extends ImageView {
         }
 
 
-
-        canvas.drawBitmap(tl, x,y, null);
-        canvas.drawBitmap(tr, right-tl.getWidth(),y, null);
-        canvas.drawBitmap(bl, x,bottom-tl.getWidth(), null);
-        canvas.drawBitmap(br, right-tl.getWidth(),bottom-tl.getWidth(), null);
-
+        canvas.drawBitmap(tl, x, y, null);
+        canvas.drawBitmap(tr, right - tl.getWidth(), y, null);
+        canvas.drawBitmap(bl, x, bottom - tl.getWidth(), null);
+        canvas.drawBitmap(br, right - tl.getWidth(), bottom - tl.getWidth(), null);
 
 
         //Rect rect = new Rect();
@@ -240,26 +221,16 @@ public class MyImageView extends ImageView {
         //canvas.drawBitmap(bitmap, null, rect, null);
 
 
-
-
         canvas.drawRect(x, y, right, bottom, paint);
         // Toast.makeText(getContext(), String.valueOf(x)+"/"+String.valueOf(y), Toast.LENGTH_LONG).show();
 
     }
 
-    public void dimenStore(int x, int y, int right, int bottom){
-        if (prevX == 0) {
-            prevX = x;
-        }
-        if(prevY==0){
-            prevY = y;
-        }
-        if(prevR==0){
-            prevR = right;
-        }
-        if(prevB==0){
-            prevB = bottom;
-        }
+    public void dimenStore(int x, int y, int right, int bottom, int xTouch, int yTouch) {
+        prevX = xTouch - x;
+        prevY = yTouch - y;
+        prevR = right - xTouch;
+        prevB = bottom - yTouch;
         //Toast.makeText(getContext(),String.valueOf(prevX)+"/"+String.valueOf(prevY)+"/"+String.valueOf(prevR)+"/"+String.valueOf(prevB), Toast.LENGTH_SHORT).show();
     }
 
@@ -272,68 +243,118 @@ public class MyImageView extends ImageView {
         int X = (int) event.getX();
         int Y = (int) event.getY();
 
-
-        switch (eventAction){
+        switch (eventAction) {
             case MotionEvent.ACTION_DOWN:
-                pressed = true;
-                dimenStore(x,y,right,bottom);
+                //pressed = true;
+                dimenStore(x, y, right, bottom, X, Y);
 
+                touched = true;
+                if (X < x && X >(x - tl.getWidth()/2) && Y < y && Y > (y  - tl.getWidth()/2))
+                //if (X > (x - tl.getWidth()) && X < (x + tl.getWidth()) && Y > (y - tl.getWidth()) && Y < (y + tl.getWidth()))
+                    pressed = true;
+                if (X > right && X < ( right + tl.getWidth()/2) && Y < y && Y > (y - tl.getWidth()/2))
+                //if (X > (right - tl.getWidth()) && X < (right + tl.getWidth()) && Y > (y - tl.getWidth()) && Y < (y + tl.getWidth()))
+                    pressed = true;
+                if (X < x && X >(x - tl.getWidth()/2) && Y > y && Y <(y + tl.getWidth() /2 ))
+                //if (X > (x - tl.getWidth()) && X < (x + tl.getWidth()) && Y > (bottom - tl.getWidth()) && Y < (bottom + tl.getWidth()))
+                    pressed = true;
+                if (X > right && X < (x + tl.getWidth() /2) && Y > y && Y < (y + bl.getWidth() /2))
+                //if (X > (right - tl.getWidth()) && X < (right + tl.getWidth()) && Y > (bottom - tl.getWidth()) && Y < (bottom + tl.getWidth()))
+                    pressed = true;
+                if (X > x && X < right && Y > y && Y < bottom) {
+               // if (X > (x + tl.getWidth()) && X < (right - tl.getWidth()) && Y > (y + bl.getHeight()) && Y < (bottom - bl.getHeight())) {
+                    pressed = true;
+                    dimenStore(x, y, right, bottom, X, Y);
+
+                }
 
                 break;
             case MotionEvent.ACTION_MOVE:
                 // rezise using the top left corner of the rect
-                if(((X > (x-tl.getWidth()) ) && (X < (x+tl.getWidth()))) && (( Y > (y-tl.getWidth()) ) && ( Y < (y+tl.getWidth()))) ){
-                    if (X < (right - tl.getWidth()) && Y <(bottom - 45)){
-                        x= X;
-                        y = Y;
-                        requestLayout();
-                        invalidate();
-                        //Toast.makeText(getContext(),String.valueOf(X)+"/"+String.valueOf(Y), Toast.LENGTH_SHORT).show();
-                        Log.v("top left", String.valueOf(X));
-                        Log.v("top left", String.valueOf(Y));
-                        Log.v("prevX", String.valueOf(prevX));
-                    }
-                }
-                // rezise using the top right corner of the rect
-                if(((X > (right - tl.getWidth()) ) && (X < (right + tl.getWidth()))) && (( Y > (y - tl.getWidth()) ) && ( Y < (y + tl.getWidth()))) ){
+                if (pressed) {
 
-                    if (X > (x + 45) && Y < (bottom - 45)){
-                        right= X;
-                        y = Y;
-                        requestLayout();
-                        invalidate();
-                    }
-                }
-                // rezise using the lower left corner of the rect
-                if(((X > (x - tl.getWidth()) ) && (X < (x + tl.getWidth()))) && (( Y > (bottom - tl.getWidth()) ) && ( Y < (bottom + tl.getWidth()))) ){
+                    if (((X > (x - tl.getWidth())) && (X < (x + tl.getWidth()))) && ((Y > (y - tl.getWidth())) && (Y < (y + tl.getWidth())))) {
 
-                    if (X < (right - 45) && Y > (y + 45)){
-                        x= X;
-                        bottom = Y;
-                        requestLayout();
-                        invalidate();
-                    }
-                }
-                // rezise using the lower right corner of the rect
-                if(((X > (right - tl.getWidth()) ) && (X < (right + tl.getWidth()))) && (( Y > (bottom - tl.getWidth()) ) && ( Y < (bottom + tl.getWidth()))) ){
 
-                    if (X > (x + 45)&& Y > (y + 45)){
-                        right= X;
-                        bottom = Y;
+                        if (X < (right - tl.getWidth()) && Y < (bottom - tl.getWidth())) {
+                            x = X;
+                            y = Y;
+                            requestLayout();
+                            invalidate();
+                            //Toast.makeText(getContext(),String.valueOf(X)+"/"+String.valueOf(Y), Toast.LENGTH_SHORT).show();
+                            Log.v("top left", String.valueOf(X));
+                            Log.v("top left", String.valueOf(Y));
+                            Log.v("prevX", String.valueOf(prevX));
+                        }
+
+
+                    }
+                    // rezise using the top right corner of the rect
+                    if (((X > (right - tl.getWidth())) && (X < (right + tl.getWidth()))) && ((Y > (y - tl.getWidth())) && (Y < (y + tl.getWidth())))) {
+
+
+                        if (X > (x + tl.getWidth()) && Y < (bottom - tl.getWidth())) {
+                            right = X;
+                            y = Y;
+                            requestLayout();
+                            invalidate();
+                        }
+
+                    }
+                    // rezise using the lower left corner of the rect
+                    if (((X > (x - tl.getWidth())) && (X < (x + tl.getWidth()))) && ((Y > (bottom - tl.getWidth())) && (Y < (bottom + tl.getWidth())))) {
+
+
+                        if (X < (right - tl.getWidth()) && Y > (y + tl.getWidth())) {
+                            x = X;
+                            bottom = Y;
+                            requestLayout();
+                            invalidate();
+                        }
+
+                    }
+                    // rezise using the lower right corner of the rect
+                    if (((X > (right - tl.getWidth())) && (X < (right + tl.getWidth()))) && ((Y > (bottom - tl.getWidth())) && (Y < (bottom + tl.getWidth())))) {
+
+
+                        if (X > (x + tl.getWidth()) && Y > (y + tl.getWidth())) {
+                            right = X;
+                            bottom = Y;
+                            requestLayout();
+                            invalidate();
+                        }
+
+                    }
+
+                    if (X > (x + tl.getWidth()) && X < right - tl.getWidth() && Y > (y + bl.getHeight()) && Y < (bottom - bl.getHeight())) {
+                        x = X - prevX;
+                        y = Y - prevY;
+                        right = X + prevR;
+                        bottom = Y + prevB;
                         requestLayout();
                         invalidate();
                     }
+
                 }
 
                 break;
             case MotionEvent.ACTION_UP:
+
+                setL(x);
+                setT(y);
+                setR(right);
+                setB(bottom);
+                prevB = 0;
+                prevR = 0;
+                prevY = 0;
+                prevX = 0;
                 pressed = false;
 
-
-                newX = x;
-                newY = y;
-                newR = right;
-                newB = bottom;
+//
+//                newX = x;
+//                newY = y;
+//                newR = right;
+//                newB = bottom;
 
 
                 break;
@@ -343,4 +364,6 @@ public class MyImageView extends ImageView {
         return true;
 
     }
+
+
 }

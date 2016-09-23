@@ -76,6 +76,15 @@ public class KodakVeriteApp extends Application {
     public String[] projection = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
 
     private File[] dirPath;
+    static byte[] bitmapData;
+
+    public byte[] getBitmapData() {
+        return bitmapData;
+    }
+
+    public void setBitmapData(byte[] bitmap) {
+        bitmapData = bitmap;
+    }
 
     @Override
     public void onCreate() {
