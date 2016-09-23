@@ -99,20 +99,21 @@
         android:textSize="@dimen/text_size" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBox_a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView55"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
-        android:text="I have reviewed and accept the agreements and settings" />
+        android:text="I have reviewed and accept the agreements and settings"
+        android:button="@drawable/custom_checkbox"/>
 
     <Button
         android:id="@+id/btn_done"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_below="@+id/checkBox"
+        android:layout_below="@+id/checkBox_a"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"

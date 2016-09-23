@@ -1,68 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:orientation="vertical"
     android:weightSum="1">
 
-    <include
-        layout="@layout/app_bar_back_only"
-        />
+    <include layout="@layout/app_bar_back_only" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:text="Paper Setup"
-        android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
+        android:layout_weight="0.11"
         android:gravity="center_horizontal"
-        android:layout_weight="0.11" />
+        android:text="Paper Setup"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The size and type are used in Google Cloud Print, AirPrint and Copy Setting"
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
         android:singleLine="false"
-        android:textSize="15dp"
-        android:textColor="#ffffff" />
+        android:text="The size and type are used in Google Cloud Print, AirPrint and Copy Setting"
+        android:textColor="#ffffff"
+        android:textSize="15dp" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="20dp" />
 
     <RelativeLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:weightSum="1"
-        android:background="#342e2e">
+        android:background="#342e2e"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Paper Size"
-            android:layout_margin="5dp"
-            android:textSize="15dp"
             android:layout_alignParentLeft="true"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:padding="5dp"
-            android:textColor="#ffffff" />
+            android:text="Paper Size"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
 
         <Spinner
+            android:id="@+id/spin_paper_size"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spin_paper_size"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:spinnerMode="dialog"
-            android:layout_centerVertical="true" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:spinnerMode="dialog" />
 
     </RelativeLayout>
 
@@ -71,30 +68,30 @@
         android:layout_height="5dp" />
 
     <RelativeLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:weightSum="1"
-        android:background="#342e2e" >
+        android:background="#342e2e"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Paper Type"
-            android:layout_margin="5dp"
-            android:textSize="15dp"
             android:layout_alignParentLeft="true"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:padding="5dp"
+            android:text="Paper Type"
             android:textColor="#ffffff"
-            android:id="@+id/textView3" />
+            android:textSize="15dp" />
 
         <Spinner
+            android:id="@+id/spin_paper_type"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spin_paper_type"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:spinnerMode="dialog" />
 
@@ -105,10 +102,10 @@
         android:layout_height="30dp" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save setting"
-        android:background="@drawable/oval_background"
         android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/oval_background"
+        android:text="Save setting"
         android:textColor="#ffffff" />
 </LinearLayout>

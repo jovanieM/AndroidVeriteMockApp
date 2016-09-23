@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:orientation="vertical"
     android:weightSum="1">
 
-    <include
-        layout="@layout/app_bar_back_only"
-        />
+    <include layout="@layout/app_bar_back_only" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:text="Print Report"
-        android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
+        android:layout_weight="0.10"
         android:gravity="center_horizontal"
-        android:layout_weight="0.10" />
+        android:text="Print Report"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please load Letter or A4 paper in tray and press [Start Printing]."
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.07"
         android:singleLine="false"
-        android:textSize="15dp"
+        android:text="Please load Letter or A4 paper in tray and press [Start Printing]."
         android:textColor="#ffffff"
-        android:layout_weight="0.07" />
+        android:textSize="15dp" />
+
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Start Printing"
-        android:background="@drawable/oval_background"
         android:id="@+id/btn_report"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/oval_background"
+        android:text="Start Printing"
         android:textColor="#ffffff" />
 </LinearLayout>

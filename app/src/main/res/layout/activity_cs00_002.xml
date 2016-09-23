@@ -5,37 +5,36 @@
     android:background="@color/colorPrimary">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <include
-            layout="@layout/app_bar_back_only"
-            />
+        <include layout="@layout/app_bar_back_only" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cartridge Setup"
-            android:textSize="20sp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:text="Cartridge Setup"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:id="@+id/content"
-            android:layout_below="@+id/status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@color/colorPrimary">
+            android:layout_below="@+id/status"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Place the calibration sheet face down and align to the upper left corner of the scanner, then press [Start(Scan)]."
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginRight="20dp"
+                android:text="Place the calibration sheet face down and align to the upper left corner of the scanner, then press [Start(Scan)]." />
         </LinearLayout>
 
         <RelativeLayout
@@ -46,8 +45,8 @@
             <pl.droidsonroids.gif.GifImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/scan"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:src="@drawable/scan" />
 
         </RelativeLayout>
 
@@ -55,19 +54,19 @@
             android:id="@+id/btn_start_scan1"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="Start (Scan)"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:background="@drawable/oval_background"
-            android:layout_gravity="center_horizontal" />
+            android:text="Start (Scan)" />
 
         <Button
             android:id="@+id/btn_help1"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="Help"
-            android:background="@drawable/oval_background"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal" />
+            android:background="@drawable/oval_background"
+            android:text="Help" />
     </LinearLayout>
 
     <!--Content -->
