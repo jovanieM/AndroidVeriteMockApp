@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -27,14 +26,7 @@ public class SaveDocumentDialog extends DialogFragment{
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Log.v("DialogFragment", "onCreateDialog runs");
         String title = getArguments().getString("title");
-        AlertDialog.Builder builder = null;//new AlertDialog.Builder(getActivity());
-
-        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB){
-            builder = new AlertDialog.Builder(getActivity());
-        }else{
-            builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
-        }
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(title);
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override

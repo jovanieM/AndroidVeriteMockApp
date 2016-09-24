@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/google_drive"
+            android:src="@drawable/googledrive"
             android:text="Drive"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#080707" />
@@ -125,15 +125,6 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#080707" />
     </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rootView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/relativeLayout2"
-        android:layout_below="@+id/toolbar"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"></RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"

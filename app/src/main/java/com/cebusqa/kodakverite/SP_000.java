@@ -16,7 +16,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,8 +34,6 @@ public class SP_000 extends AppCompatActivity {
     Context context;
     static final int GET_BITMAP_REQUEST = 2;
 
-    ImageView img_send;
-
     Bitmap bm;
     Bundle bundle;
     boolean visible = false;
@@ -53,6 +50,7 @@ public class SP_000 extends AppCompatActivity {
     Intent intent2;
     InputStream is;
     ByteArrayOutputStream stream;
+
 
 
     @Override
@@ -73,8 +71,6 @@ public class SP_000 extends AppCompatActivity {
         this.email = (RelativeLayout) findViewById(R.id.email);
         this.drive = (RelativeLayout) findViewById(R.id.drive);
         this.skyDrive = (RelativeLayout) findViewById(R.id.one_box);
-        this.img_send = (ImageView) findViewById(R.id.send_icon);
-
         ivContain = (RelativeLayout) findViewById(R.id.ivContainer);
         mRoot = (RelativeLayout) findViewById(R.id.root);
         settings = (ImageButton) findViewById(R.id.pscanSettingsIcon);
@@ -237,24 +233,24 @@ public class SP_000 extends AppCompatActivity {
                     drive.setVisibility(View.VISIBLE);
                     skyDrive.setVisibility(View.VISIBLE);
                     visible = true;
-                    img_send.setImageResource(R.mipmap.send_icon);
                 } else {
                     save.setVisibility(View.GONE);
                     email.setVisibility(View.GONE);
                     drive.setVisibility(View.GONE);
                     skyDrive.setVisibility(View.GONE);
                     visible = false;
-                    img_send.setImageResource(R.mipmap.close_icon);
                 }
             }
         });
+
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        int l, r, t, b;
+        int l, r,t,b;
 
         if (resultCode == GET_BITMAP_REQUEST) {
 
@@ -279,14 +275,14 @@ public class SP_000 extends AppCompatActivity {
             Log.v("Activity result", "before region decoder");
 
             try {
-                bm = bitmapRegionDecoder.decodeRegion(new Rect(l, t, r, b), options);
+                bm = bitmapRegionDecoder.decodeRegion(new Rect(l,t,r,b), options);
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
             civ.setImageBitmap(bm);
 
-            new AsyncTask<Void, Void, Bitmap>() {
+            new AsyncTask <Void, Void, Bitmap> (){
 
                 @Override
                 protected Bitmap doInBackground(Void... params) {
@@ -332,7 +328,7 @@ public class SP_000 extends AppCompatActivity {
         super.onResume();
         Log.d("onResume", "starts");
 
-        if (kodakVeriteApp.getBitmapData() == null) {
+        if(kodakVeriteApp.getBitmapData() == null){
             t2 = new Thread(new Runnable() {
                 @Override
                 public void run() {

@@ -48,10 +48,4 @@ public class Print_Reports extends Activity {
             }
         });
     }
-
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(Print_Reports.this, PU00_0000.class));
-        finish();
-    }
 }

@@ -8,7 +8,6 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -23,12 +22,7 @@ public class ScanPhotoDialog2 extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog.Builder builder = null; //new AlertDialog.Builder(getActivity());
-        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB){
-            builder = new AlertDialog.Builder(getActivity());
-        }else{
-            builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
-        }
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         final LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.scan_photo_dialog, null);
         if (getActivity() instanceof SP_000) {

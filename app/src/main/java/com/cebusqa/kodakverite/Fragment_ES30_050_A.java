@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 
 /**
  * Created by anarte on 02/09/2016.
@@ -20,7 +19,6 @@ public class Fragment_ES30_050_A extends Fragment {
 
     Button btnDone;
     Handler updateHandler;
-    CheckBox cbAgreement;
 
     @Nullable
     @Override
@@ -30,8 +28,6 @@ public class Fragment_ES30_050_A extends Fragment {
 
         btnDone = (Button) view.findViewById(R.id.btn_done);
         updateHandler = new Handler();
-        cbAgreement = (CheckBox) view.findViewById(R.id.checkBox_a);
-        cbAgreement.setChecked(true);
 
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
