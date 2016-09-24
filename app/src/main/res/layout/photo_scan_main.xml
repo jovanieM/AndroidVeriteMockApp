@@ -4,207 +4,258 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#010101"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.cebusqa.kodakverite.PhotoScanMain"
-    android:background="#010101">
+    tools:context="com.cebusqa.kodakverite.PhotoScanMain">
 
     <include
-        layout="@layout/app_bar_back_only"
-        android:id="@+id/toolbar" />
+        android:id="@+id/toolbar"
+        layout="@layout/app_bar_back_only" />
 
     <TextView
+        android:id="@+id/touchScan"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="Touch to Scan"
-        android:id="@+id/touchScan"
-        android:textSize="30dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:textColor="#fdb700"
-        android:onClick="touchScan"
-        android:layout_marginTop="98dp"
-        android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="98dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:onClick="touchScan"
+        android:text="Touch to Scan"
+        android:textColor="#fdb700"
+        android:textSize="30sp" />
 
 
     <include
-        layout="@layout/photo_scan_settings"
         android:id="@+id/p_scan_set"
-        />
+        layout="@layout/photo_scan_settings" />
 
     <RelativeLayout
+        android:id="@+id/save"
+        style="@android:style/Widget.Button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/relativeLayout2"
+        android:layout_alignEnd="@+id/email"
+        android:layout_alignRight="@+id/email"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/save_as"
+            android:text="Save"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#080707" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/email"
+        style="@android:style/Widget.Button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/save"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/email"
+            android:text="e-mail"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#080707" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/drive"
+        style="@android:style/Widget.Button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/google_drive"
+            android:text="Drive"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#080707" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/one_box"
+        style="@android:style/Widget.Button"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/drive"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/one_drive"
+            android:text="One Box"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#080707" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relativeLayout2"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"></RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:background="#030303"
-        android:id="@+id/relativeLayout2">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#030303">
 
         <RelativeLayout
-            android:layout_width="110dp"
-            android:layout_height="50dp"
-            android:id="@+id/scan"
-            android:clickable="true"
-            style="@android:style/Widget.Button"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:onClick="touchScan">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Scan"
-                android:id="@+id/textView9"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:textColor="#080707" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="110dp"
-            android:layout_height="50dp"
-            android:clickable="true"
             android:id="@+id/crop"
             style="@android:style/Widget.Button"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/main_button"
+            android:clickable="true">
 
-            <TextView
+            <ImageView
+                android:id="@+id/trim_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Crop"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/trim_icon"
+                android:visibility="invisible"/>
+
+            <TextView
                 android:id="@+id/textView10"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:textColor="#080707"
-                android:visibility="gone" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:text="Crop"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#b3b3b3"
+                android:visibility="invisible"/>
+            <!--
+             android:visibility="gone"
+             -->
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/scan"
+            style="@android:style/Widget.Button"
             android:layout_width="110dp"
             android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@mipmap/main_button"
             android:clickable="true"
+            android:onClick="touchScan"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/crop"
+            android:layout_toStartOf="@+id/crop">
+
+            <ImageView
+                android:id="@+id/scan_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/scan_icon" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scan"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#b3b3b3"
+                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/send"
             style="@android:style/Widget.Button"
-            android:layout_alignTop="@+id/crop"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:clickable="true"
+            android:background="@mipmap/main_button"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/crop"
+            android:layout_toEndOf="@+id/crop">
+
+            <ImageView
+                android:id="@+id/send_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/close_icon"
+                android:visibility="invisible"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Send"
-                android:id="@+id/textView11"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:textColor="#080707"
-                android:visibility="gone" />
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:text="send"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#b3b3b3"
+                android:visibility="invisible"/>
         </RelativeLayout>
 
     </RelativeLayout>
-
-    <RelativeLayout
-        style="@android:style/Widget.Button"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:clickable="true"
-        android:id="@+id/save"
-        android:layout_above="@+id/relativeLayout2"
-        android:visibility="gone"
-        android:layout_alignRight="@+id/email"
-        android:layout_alignEnd="@+id/email">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Save"
-            android:id="@+id/textView12"
-            android:textColor="#080707"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/save_as"/>
-    </RelativeLayout>
-    <RelativeLayout
-        style="@android:style/Widget.Button"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:clickable="true"
-        android:id="@+id/email"
-        android:layout_above="@+id/save"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone"
-        android:layout_centerHorizontal="true">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="e-mail"
-            android:id="@+id/textView13"
-            android:textColor="#080707"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/email"/>
-    </RelativeLayout>
-    <RelativeLayout
-        style="@android:style/Widget.Button"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:clickable="true"
-        android:id="@+id/drive"
-        android:layout_above="@+id/email"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone"
-        android:layout_centerHorizontal="true">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Drive"
-            android:id="@+id/textView14"
-            android:textColor="#080707"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/google_drive"/>
-    </RelativeLayout>
-    <RelativeLayout
-        style="@android:style/Widget.Button"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:clickable="true"
-        android:id="@+id/one_box"
-        android:layout_above="@+id/drive"
-        android:visibility="gone"
-        android:layout_marginBottom="20dp"
-        android:layout_centerHorizontal="true">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="One Box"
-            android:id="@+id/one"
-            android:textColor="#080707"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/one_drive"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/relativeLayout2"
-        android:id="@+id/rootView"
-        android:layout_margin="20dp"></RelativeLayout>
 
 </RelativeLayout>

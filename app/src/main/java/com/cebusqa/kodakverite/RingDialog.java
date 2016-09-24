@@ -20,10 +20,10 @@ public class RingDialog implements Runnable {
     Context context;
 
     public RingDialog(Context context, String string, String string2, boolean bool) {
-        if(Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB){
-            ringDialog = new ProgressDialog(new ContextThemeWrapper(context, android.R.style.Theme_Holo_Light_Dialog));
-        }else{
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB){
             ringDialog = new ProgressDialog(context);
+        }else{
+            ringDialog = new ProgressDialog(new ContextThemeWrapper(context, android.R.style.Theme_Holo_Light));
         }
         ringDialog = ProgressDialog.show(context, string, string2, bool);
 

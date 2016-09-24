@@ -81,7 +81,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="Alignment is skipped. You can run Alignment using [Settings > Device Settings > Printer Utitlity > Cartridge Setup] on the top screen."
+        android:text="Alignment is skipped. You can run Alignment using [Settings > Device Settings > Printer Utility > Cartridge Setup] on the top screen."
         android:textSize="15sp" />
 
     <ImageView

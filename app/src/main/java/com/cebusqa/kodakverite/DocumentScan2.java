@@ -2,13 +2,8 @@ package com.cebusqa.kodakverite;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BlurMaskFilter;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -39,24 +34,24 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
     int imgID[] = {R.id.doc_image, R.id.doc_image2, R.id.doc_image3};
     int res[] = {R.drawable.docu, R.drawable.supermario_03, R.drawable.supermario_06};
 
-
-    ImageView [] imv1;
+    ImageView[] imv1;
     //Context context;
     static final int GET_BITMAP_REQUEST2 = 2;
-    ImageButton settings2;
-    Bitmap bm2;
     boolean dtest2;
-    Intent intent, chooser;
     boolean visible2;
-    TextView docQuality, docColor, docDocument, docSaveAsType, counter, prv, nxt;
-    KodakVeriteApp kodakVeriteApp;
-    WebView webView;
     boolean saved;
     int cntr = 0;
     int cntr2 = 1;
+    ImageButton settings2;
+    Bitmap bm2;
+    Intent intent, chooser;
+    TextView docQuality, docColor, docDocument, docSaveAsType, counter, prv, nxt;
+    KodakVeriteApp kodakVeriteApp;
+    WebView webView;
     Handler handler;
     DisplayImageOptions dim;
 
+    ImageView img_send;
 
 
     @Override
@@ -76,7 +71,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
                 .displayer(new SimpleBitmapDisplayer())
                 .build();
 
-        for(int i = 0 ; i < imgID.length ; i++){
+        for (int i = 0; i < imgID.length; i++) {
             imv1[i] = (ImageView) findViewById(imgID[i]);
             ImageLoader.getInstance().displayImage("drawable://" + res[i], imv1[i], dim);
 
@@ -91,6 +86,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
         this.email2 = (RelativeLayout) findViewById(R.id.email2);
         this.drive2 = (RelativeLayout) findViewById(R.id.drive2);
         this.skyDrive2 = (RelativeLayout) findViewById(R.id.one_box2);
+        this.img_send = (ImageView) findViewById(R.id.send_icon);
         settings2 = (ImageButton) findViewById(R.id.dscanSettingsIcon);
 
 
@@ -119,7 +115,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
         prv.setOnClickListener(this);
         nxt.setOnClickListener(this);
 
-        String st = String.valueOf(cntr+1);
+        String st = String.valueOf(cntr + 1);
 
         counter.setText(st + "/" + st);
 
@@ -156,7 +152,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
 
                             scanPhotoDialog3.dismiss();
 
-                            if(cntr2!=20) {
+                            if (cntr2 != 20) {
                                 handler.post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -258,7 +254,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
                 //Intent intent = new Intent(DocumentScan2.this, ImageCropper.class);
                 //intent.putExtra("width", bm2.getWidth() + 80);
                 //intent.putExtra("height", bm2.getHeight() + 80);
-                Toast.makeText(getApplicationContext(),"Temporarily disabled function", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Temporarily disabled function", Toast.LENGTH_SHORT).show();
                 //startActivityForResult(intent, GET_BITMAP_REQUEST2);
                 //startActivity(intent);
             }
@@ -273,12 +269,16 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
                     drive2.setVisibility(View.VISIBLE);
                     skyDrive2.setVisibility(View.VISIBLE);
                     visible2 = true;
+
+                    img_send.setImageResource(R.mipmap.send_icon);
                 } else {
                     save2.setVisibility(View.GONE);
                     email2.setVisibility(View.GONE);
                     drive2.setVisibility(View.GONE);
                     skyDrive2.setVisibility(View.GONE);
                     visible2 = false;
+
+                    img_send.setImageResource(R.mipmap.close_icon);
                 }
 
 
@@ -329,7 +329,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
 
     @Override
     protected void onDestroy() {
-        for(int i = 0; i<imgID.length ; i++){
+        for (int i = 0; i < imgID.length; i++) {
             imv1[i] = null;
         }
 
@@ -345,19 +345,19 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
                 if (cntr > 1) {
 
                     cntr--;
-                    if(nxt.getCurrentTextColor()==Color.TRANSPARENT){
+                    if (nxt.getCurrentTextColor() == Color.TRANSPARENT) {
                         nxt.setTextColor(ContextCompat.getColor(getApplication(), R.color.gold));
                     }
-                    if(cntr==1){
+                    if (cntr == 1) {
                         prv.setTextColor(Color.TRANSPARENT);
 
                     }
                     counter.setText(String.valueOf(cntr + "/" + cntr2));
 
-                    for (int i = 0 ; i<imv1.length; i++){
-                        if(i==((cntr-1) % 3)){
+                    for (int i = 0; i < imv1.length; i++) {
+                        if (i == ((cntr - 1) % 3)) {
                             imv1[i].setVisibility(View.VISIBLE);
-                        }else{
+                        } else {
                             imv1[i].setVisibility(View.GONE);
                         }
                     }
@@ -370,30 +370,30 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
 
                 if (cntr < cntr2) {
 
-                cntr++;
-                    if(prv.getCurrentTextColor()==Color.TRANSPARENT){
+                    cntr++;
+                    if (prv.getCurrentTextColor() == Color.TRANSPARENT) {
                         prv.setTextColor(ContextCompat.getColor(getApplication(), R.color.gold));
                     }
-                    if(cntr==cntr2) {
+                    if (cntr == cntr2) {
                         nxt.setTextColor(Color.TRANSPARENT);
                     }
 
-                        counter.setText(String.valueOf(cntr + "/" + cntr2));
+                    counter.setText(String.valueOf(cntr + "/" + cntr2));
 
-                    for (int i = 0 ; i<imv1.length; i++){
-                        if(i==((cntr-1) % 3)){
+                    for (int i = 0; i < imv1.length; i++) {
+                        if (i == ((cntr - 1) % 3)) {
                             imv1[i].setVisibility(View.VISIBLE);
-                        }else{
+                        } else {
                             imv1[i].setVisibility(View.GONE);
                         }
                     }
 
 
-                   // imv1.setImageResource(imgID[(cntr-1) % 3]);
+                    // imv1.setImageResource(imgID[(cntr-1) % 3]);
 
-            }
+                }
 
-            break;
+                break;
         }
     }
 }
