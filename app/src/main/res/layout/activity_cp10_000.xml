@@ -111,13 +111,10 @@
                 android:layout_alignParentEnd="false"
                 android:layout_alignParentStart="false"
                 android:layout_alignParentLeft="true"
-<<<<<<< HEAD
                 android:layout_alignParentRight="false"
                 android:layout_centerVertical="true" />
 
-=======
-                android:layout_alignParentRight="false" />
->>>>>>> 7965fee939bd53fc43a7d58f5af2550185e34c00
+
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -136,14 +133,11 @@
                 android:background="#000000"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="false"
-<<<<<<< HEAD
+
                 android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_centerVertical="true" />
 
-=======
-                android:layout_marginRight="10dp" />
->>>>>>> 7965fee939bd53fc43a7d58f5af2550185e34c00
         </RelativeLayout>
 
      <!--   <RelativeLayout
