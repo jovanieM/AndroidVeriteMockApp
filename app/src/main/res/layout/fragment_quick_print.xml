@@ -4,22 +4,23 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#000000">
+            android:background="#000000"
+            android:orientation="vertical">
 
             <ImageButton
+                android:id="@+id/photo4x6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/photo4x6"
-                android:src="@mipmap/photo4x6borderless_uncheck"
-                android:background="#000000" />
+                android:background="#000000"
+                android:onClick="selectQuickPrint"
+                android:src="@mipmap/photo4x6borderless_uncheck" />
 
             <View
                 android:layout_width="match_parent"
@@ -27,10 +28,11 @@
                 android:background="#6b6666" />
 
             <ImageButton
+                android:id="@+id/photoletter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/photoletter"
                 android:background="#000000"
+                android:onClick="selectQuickPrint"
                 android:src="@mipmap/photoletterborderless_uncheck" />
 
             <View
@@ -39,10 +41,11 @@
                 android:background="#6b6666" />
 
             <ImageButton
+                android:id="@+id/doc_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/doc_type"
                 android:background="#000000"
+                android:onClick="selectQuickPrint"
                 android:src="@mipmap/documentletter_uncheck" />
 
             <View

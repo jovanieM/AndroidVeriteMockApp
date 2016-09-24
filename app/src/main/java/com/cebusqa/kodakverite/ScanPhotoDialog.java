@@ -13,6 +13,7 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -39,15 +40,22 @@ public class ScanPhotoDialog extends DialogFragment{
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         String title = getArguments().getString("title");
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = null; //new AlertDialog.Builder(getActivity());
+
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB){
+            builder = new AlertDialog.Builder(getActivity());
+        }else{
+            builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
+        }
+
         final LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.scan_photo_dialog, null);
         builder.setTitle(title);
         builder.setView(view);
+
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
                 new RingDialog(getActivity(), "Canceling", null, true).run();
 
                 if(getActivity() instanceof PhotoScanMain) {
@@ -56,17 +64,9 @@ public class ScanPhotoDialog extends DialogFragment{
                 if(getActivity()instanceof DocumentScan){
                     ((DocumentScan) getActivity()).dtest = true;
                 }
-
-
-
         }});
 
-
         Dialog scanDialog = builder.create();
-
         return scanDialog;
-
         }
-
-
 }

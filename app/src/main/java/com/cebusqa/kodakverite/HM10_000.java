@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 public class HM10_000 extends AppCompatActivity implements Communicator {
 
-    ImageButton  scanphoto, scandocument, photoprint, ecomode, setting_icon, search_icon, printer;
+    ImageButton scanphoto, scandocument, photoprint, ecomode, setting_icon, search_icon, printer;
     LinearLayout photo_print, ink_level, copy_icon, scan_document, scan_photo;
     private int currentImage = 0;
     int[] images = {R.mipmap.ecomode_off, R.mipmap.ecomode1, R.mipmap.ecomode2};
@@ -32,7 +32,6 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
         setContentView(R.layout.activity_hm10_000);
 
         drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.rectangular_bg);
-
 
         copy = (ImageView) findViewById(R.id.copy);
         ecomode = (ImageButton) findViewById(R.id.ecomode);
@@ -57,7 +56,6 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
                 startActivity(new Intent(HM10_000.this, DocumentScan.class));
             }
         });
-
 
         ink_level.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -95,7 +93,6 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
         ecomode.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-
                 //Increase Counter to move to next Image
                 currentImage++;
                 currentImage = currentImage % images.length;
@@ -109,11 +106,7 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
                         ecomode.setImageResource(images[currentImage]);
                     }
                 }, 4000);
-
-
             }
-
-
         });
 
         search_icon.setOnClickListener(new View.OnClickListener() {
@@ -160,11 +153,11 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
 
     @Override
     public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() == 0) {
+        /* if (getFragmentManager().getBackStackEntryCount() == 0) {
             this.finish();
         } else {
             getFragmentManager().popBackStack();
             super.onBackPressed();
-        }
+        }*/
     }
 }

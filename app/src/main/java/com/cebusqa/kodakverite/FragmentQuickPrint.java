@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 
-public class FragmentQuickPrint extends Fragment  {
+public class FragmentQuickPrint extends Fragment{
 
     ImageButton photo4x6, photoletter, document;
     boolean isPressed = false;
@@ -24,6 +24,8 @@ public class FragmentQuickPrint extends Fragment  {
         photoletter = (ImageButton)view.findViewById(R.id.photoletter);
         document = (ImageButton)view.findViewById(R.id.doc_type);
         kodakVeriteApp = new KodakVeriteApp();
+
+        photo4x6.setImageResource(R.mipmap.photo4x6borderless_check);
 
         photo4x6.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,5 +62,7 @@ public class FragmentQuickPrint extends Fragment  {
 
         return view;
     }
+
+
 
  }

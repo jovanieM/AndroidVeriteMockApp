@@ -63,10 +63,6 @@ public class PhotoScanMain extends Activity{
             }
         });
         exec();
-
-
-
-
     }
     public void touchScan(View v){
 
@@ -77,24 +73,19 @@ public class PhotoScanMain extends Activity{
     }
 
     public void exec (){
-
         final ScanPhotoDialog scanDialog = ScanPhotoDialog.newInstance("Scan Photo");
-        scanDialog.setCancelable(true);
+        scanDialog.setCancelable(false);
         scanDialog.show(getFragmentManager(),"scan");
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 if(test){
-
                     Thread.currentThread().interrupt();
-                   //
-
+                    //
                     new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
                     //scanDialog.dismiss();
                 }else{
-
                     finish();
                     startActivity(new Intent(PhotoScanMain.this, SP_000.class));
                 }
@@ -121,7 +112,6 @@ public class PhotoScanMain extends Activity{
 //        });
 //        t.start();
 //
-
     }
 
     @Override

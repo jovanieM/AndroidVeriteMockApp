@@ -7,15 +7,206 @@
     tools:context="com.cebusqa.kodakverite.IL10_000">
 
     <include
-        layout="@layout/app_bar_back_only"
-        android:id="@+id/toolbar" />
+        android:id="@+id/toolbar"
+        layout="@layout/app_bar_back_only" />
 
-    <ImageView
+    <!-- <ImageView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/customImgView"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src="@mipmap/inklevel_details"/>
+        android:src="@mipmap/inklevel_details"/> -->
+
+    <TextView
+        android:id="@+id/printer_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/printer"
+        android:layout_alignStart="@+id/printer"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginBottom="24dp"
+        android:text="Selected Printer"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="15sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_ink_percentage"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/printer_name"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/gradient_bg"
+        android:layout_height="100dp">
+
+        <TextView
+            android:id="@+id/tv_ink_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ink Level"
+            android:textSize="@dimen/text_size"
+            android:layout_above="@+id/imageView20"
+            android:layout_alignRight="@+id/imageView21"
+            android:layout_alignEnd="@+id/imageView21"
+            android:layout_marginRight="11dp"
+            android:layout_marginEnd="11dp" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="29%"
+            android:textSize="@dimen/text_size"
+            android:layout_below="@+id/imageView20"
+            android:layout_toLeftOf="@+id/tv_ink_level"
+            android:layout_toStartOf="@+id/tv_ink_level" />
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/black_ink_normal"
+            android:layout_alignTop="@+id/imageView21"
+            android:layout_alignLeft="@+id/textView25"
+            android:layout_alignStart="@+id/textView25" />
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/color_ink_full"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="95%"
+            android:textSize="@dimen/text_size"
+            android:layout_below="@+id/imageView21"
+            android:layout_alignRight="@+id/imageView21"
+            android:layout_alignEnd="@+id/imageView21" />
+
+        <TextView
+            android:id="@+id/textView59"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textColor="#ffae42"
+            android:layout_marginLeft="55dp"
+            android:layout_marginStart="55dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageView21"
+            android:layout_toEndOf="@+id/imageView21" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_printed_pages"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/gradient_bg"
+        android:layout_below="@+id/rl_ink_percentage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Printed Pages"
+            android:id="@+id/textView75"
+            android:layout_marginLeft="77dp"
+            android:layout_marginStart="77dp"
+            android:layout_alignBaseline="@+id/textView73"
+            android:layout_alignBottom="@+id/textView73"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:id="@+id/textView73"
+            android:layout_marginRight="91dp"
+            android:layout_marginEnd="91dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_scanned_pages"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/gradient_bg"
+        android:layout_below="@+id/rl_printed_pages"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scanned Pages"
+            android:id="@+id/textView77"
+            android:layout_marginLeft="74dp"
+            android:layout_marginStart="74dp"
+            android:layout_alignBaseline="@+id/textView76"
+            android:layout_alignBottom="@+id/textView76"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100"
+            android:id="@+id/textView76"
+            android:layout_marginRight="92dp"
+            android:layout_marginEnd="92dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/printer"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:background="#000000"
+        android:longClickable="true"
+        android:src="@mipmap/printer_icon_large"
+        android:layout_below="@+id/printer_selected"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/printer_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#000000"
+        android:clickable="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:src="@mipmap/kodak_name"
+        android:text="KODAK VERITE 55 PLUS"
+        android:textColor="#fdb700"
+        android:textSize="18sp"
+        android:layout_below="@+id/printer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="version 1.00.00"
+        android:textSize="@dimen/text_size"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/rl_scanned_pages"
+        android:layout_alignRight="@+id/printer_selected"
+        android:layout_alignEnd="@+id/printer_selected" />
+
 </RelativeLayout>
