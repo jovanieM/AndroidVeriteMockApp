@@ -1,12 +1,7 @@
 package com.cebusqa.kodakverite;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.view.View;
 
 /**
  * Created by SQA Cebu on 6/21/2016.
@@ -19,7 +14,7 @@ public class RingDialog implements Runnable {
 
     public RingDialog(Context context, String string, String string2, boolean bool) {
         ringDialog = ProgressDialog.show(context, string, string2, bool);
-
+        ringDialog.setProgressStyle(R.style.MyTheme);
         this.string = string;
         this.string2 = string2;
         this.bool = bool;

@@ -101,6 +101,7 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
                 currentImage = currentImage % images.length;
 
                 RingDialog ringDialog = new RingDialog(HM10_000.this, "", "Confirming...", true);
+
                 ringDialog.run();
 
                 new Handler().postDelayed(new Runnable() {

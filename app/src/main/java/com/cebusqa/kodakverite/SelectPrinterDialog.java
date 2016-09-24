@@ -15,7 +15,7 @@ public class SelectPrinterDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         communicator = (Communicator) getActivity();
         final String[]printers = getResources().getStringArray(R.array.printer_select);
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(),AlertDialog.THEME_HOLO_LIGHT);
         builder.setTitle("Select Printer");
         builder.setItems(R.array.printer_select, new DialogInterface.OnClickListener() {
             @Override

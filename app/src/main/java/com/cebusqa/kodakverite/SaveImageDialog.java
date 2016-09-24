@@ -25,7 +25,7 @@ public class SaveImageDialog extends DialogFragment{
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         Log.v("DialogFragment", "onCreateDialog runs");
         String title = getArguments().getString("title");
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
         builder.setMessage(title);
         builder.setNeutralButton("Next", new DialogInterface.OnClickListener() {
             @Override
