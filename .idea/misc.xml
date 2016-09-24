@@ -27,9 +27,6 @@
       </value>
     </option>
   </component>
-<<<<<<< HEAD
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK" />
-=======
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
@@ -61,5 +58,4 @@
       </state>
     </states>
   </component>
->>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
 </project>
