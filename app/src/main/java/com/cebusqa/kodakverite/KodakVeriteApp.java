@@ -74,14 +74,7 @@ public class KodakVeriteApp extends Application {
     private File[] dirPath;
     static byte[] bitmapData;
 
-    public byte[] getBitmapData() {
-        return bitmapData;
-    }
 
-
-    public void setBitmapData(byte[] bitmap) {
-        bitmapData = bitmap;
-    }
 
     @Override
     public void onCreate() {
@@ -179,6 +172,10 @@ public class KodakVeriteApp extends Application {
 
     public void clearData() {
         thumbData.clear();
+
+    }
+    public void clearByteData(){
+        if (bitmapData != null)
         bitmapData = null;
     }
 
@@ -371,6 +368,10 @@ public class KodakVeriteApp extends Application {
 
     public String getCopyPaperSize(){
         if (copyPaperSize == null){
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7965fee939bd53fc43a7d58f5af2550185e34c00
 
             setCopyPaperSize("Letter");
         }
@@ -396,9 +397,15 @@ public class KodakVeriteApp extends Application {
     }
 
 
+<<<<<<< HEAD
+    public String getCopyQuality () {
+        if (copyQuality == null){
+
+=======
 
     public String getCopyQuality () {
         if (copyQuality == null){
+>>>>>>> 7965fee939bd53fc43a7d58f5af2550185e34c00
 
             setCopyQuality("Text");
         }
@@ -414,5 +421,14 @@ public class KodakVeriteApp extends Application {
             setDirectTime("5 min");
         }
         return directTime;
+    }
+
+    public byte[] getBitmapData() {
+        return bitmapData;
+    }
+
+
+    public void setBitmapData(byte[] bitmap) {
+        bitmapData = bitmap;
     }
 }
