@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_quality"
                 android:layout_gravity="center"
-                android:spinnerMode="dialog"
+                android:spinnerMode="dropdown"
                 android:popupBackground="#FFFFFF"/>
         </LinearLayout>
 
@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_color"
                 android:layout_gravity="center"
-                android:spinnerMode="dialog" />
+                android:spinnerMode="dropdown" />
 
         </LinearLayout>
 
@@ -164,7 +164,7 @@
                 android:id="@+id/spinner_document"
                 android:layout_gravity="center"
                 android:focusableInTouchMode="false"
-                android:spinnerMode="dialog" />
+                android:spinnerMode="dropdown" />
 
         </LinearLayout>
 
@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_type"
                 android:layout_gravity="center"
-                android:spinnerMode="dialog" />
+                android:spinnerMode="dropdown" />
 
         </LinearLayout>
 

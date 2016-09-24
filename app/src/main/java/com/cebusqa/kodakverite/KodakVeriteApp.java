@@ -47,6 +47,7 @@ public class KodakVeriteApp extends Application {
     private static String paperType;
     private static String printQuality;
     private static String printCopies;
+    private static String printColor;
 
 
     //for Copy Settings
@@ -59,12 +60,13 @@ public class KodakVeriteApp extends Application {
 
     private static String directTime;
 
+
+
     private String TAG = "PermisssionDemo";
     final private int RECORD_REQUEST_CODE = 123;
 
     public Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
     public String[] projection = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
-    public ArrayList imagePerFolder = new ArrayList<>();
 
     private File[] dirPath;
 
@@ -169,6 +171,18 @@ public class KodakVeriteApp extends Application {
     public void setPaperType(String paperType) {
         this.paperType = paperType;
     }
+
+    public String getPrintColor() {
+        if (printColor == null) {
+            setPrintColor("Color");
+        }
+        return printColor;
+    }
+
+    public void setPrintColor(String printColor) {
+        this.printColor = printColor;
+    }
+
 
     public String getPaperSize() {
         if (paperSize == null) {
@@ -329,7 +343,7 @@ public class KodakVeriteApp extends Application {
     public void setCopyPaperSize (String copyPaperSize) { KodakVeriteApp.copyPaperSize = copyPaperSize; }
 
     public String getCopyPaperSize(){
-        if (copyPaperSize == "null"){
+        if (copyPaperSize == null){
             setCopyPaperSize("Letter");
         }
         return copyPaperSize;
@@ -338,7 +352,7 @@ public class KodakVeriteApp extends Application {
     public void setCopyPaperType (String copyPaperType) { KodakVeriteApp.copyPaperType = copyPaperType; }
 
     public String getCopyPaperType () {
-        if (copyPaperType == "null"){
+        if (copyPaperType == null){
             setCopyPaperType("Plain");
         }
         return copyPaperType;
@@ -347,7 +361,7 @@ public class KodakVeriteApp extends Application {
     public void setCopyQuality (String copyQuality) { KodakVeriteApp.copyQuality = copyQuality; }
 
     public String getCopyQuality () {
-        if (copyQuality == "null"){
+        if (copyQuality == null){
             setCopyQuality("Text");
         }
         return copyQuality;

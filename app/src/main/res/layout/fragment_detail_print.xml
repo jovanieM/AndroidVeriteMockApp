@@ -23,7 +23,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="62dp"
                 android:weightSum="1"
-                android:paddingLeft="5dp">
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -81,7 +82,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:weightSum="1"
-                android:paddingLeft="10dp">
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
 
 
             <TextView
@@ -94,12 +96,19 @@
                 android:gravity="center_vertical"
                 android:paddingTop="10dp" />
 
-                <Spinner
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="25dp"
                     android:id="@+id/spin_papersize"
                     android:gravity="center_vertical|left"
-                    android:spinnerMode="dialog" />
+                    android:spinnerMode="dialog"
+                    android:text="Letter"
+                    android:background="@drawable/selector_text_border"
+                    android:paddingStart="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="10dp" />
 
                 <TextView
                 android:layout_width="wrap_content"
@@ -109,13 +118,20 @@
                 android:layout_weight="0.03"
                 android:gravity="center_vertical" />
 
-                <Spinner
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/spin_color_output"
                     android:gravity="center_vertical|left"
                     android:spinnerMode="dialog"
-                    android:layout_weight="0.03" />
+                    android:layout_weight="0.03"
+                    android:text="Color"
+                    android:background="@drawable/selector_text_border"
+                    android:paddingStart="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="10dp" />
 
                 <TextView
                 android:layout_width="wrap_content"
@@ -123,16 +139,22 @@
                 android:text="Paper Type :"
                 android:id="@+id/textView25"
                 android:layout_weight="0.03"
-                android:gravity="center_vertical"
-                android:paddingTop="10dp" />
+                android:gravity="center_vertical" />
 
-                <Spinner
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/spin_paper_type"
                     android:gravity="center_vertical|left"
                     android:spinnerMode="dialog"
-                    android:layout_weight="0.03" />
+                    android:layout_weight="0.03"
+                    android:text="Plain"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/selector_text_border"
+                    android:layout_marginBottom="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp" />
 
                 <TextView
                 android:layout_width="wrap_content"
@@ -140,16 +162,22 @@
                 android:text="Print Quality :"
                 android:id="@+id/textView27"
                 android:layout_weight="0.03"
-                android:gravity="center_vertical"
-                android:paddingTop="10dp" />
+                android:gravity="center_vertical" />
 
-                <Spinner
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/spin_print_quality"
                     android:gravity="center_vertical|left"
                     android:spinnerMode="dialog"
-                    android:layout_weight="0.03" />
+                    android:layout_weight="0.03"
+                    android:text="Normal"
+                    android:background="@drawable/selector_text_border"
+                    android:paddingStart="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:paddingLeft="10dp" />
 
 
             </LinearLayout>

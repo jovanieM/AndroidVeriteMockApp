@@ -3,6 +3,7 @@ package com.cebusqa.kodakverite;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
@@ -23,17 +24,20 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener {
     Fragment fr;
     FragmentManager fm;
     FragmentTransaction fragmentTransaction;
+    Context context;
 
     private Handler repeatUpdateHandler = new Handler();
     private boolean mAutoIncrement = false;
     private boolean mAutoDecrement = false;
     private final long REP_DELAY = 50;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cp10_000);
 
+        context = this;
         num_copies = (TextView) findViewById(R.id.num_copies);
         incre = (ImageButton) findViewById(R.id.incre);
         decre = (ImageButton) findViewById(R.id.decre);
