@@ -321,8 +321,10 @@ public class SP_000 extends AppCompatActivity {
 
         if (!saved) {
             SaveDocumentDialog.newInstance("Save image to ScannedImage").show(getFragmentManager(), "document");
+            kodakVeriteApp.clearByteData();
         } else {
             super.onBackPressed();
+            kodakVeriteApp.clearByteData();
         }
 
     }
