@@ -1,24 +1,12 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
-import com.jakewharton.disklrucache.DiskLruCache;
-import com.nostra13.universalimageloader.core.decode.ImageDecoder;
-
-import java.io.File;
-import java.io.IOException;
-
-import static android.os.Environment.isExternalStorageRemovable;
 
 /**
  * Created by jmolas on 22/09/2016.

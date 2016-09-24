@@ -6,10 +6,8 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.support.v4.content.ContextCompat;
-
-
+import android.util.Log;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -19,9 +17,6 @@ import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 /**
  * Created by Cebu SQA on 27/06/2016.
@@ -70,10 +65,6 @@ public class KodakVeriteApp extends Application {
     private static String directTime;
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
     private String TAG = "PermisssionDemo";
     final private int RECORD_REQUEST_CODE = 123;
 
@@ -376,29 +367,23 @@ public class KodakVeriteApp extends Application {
         KodakVeriteApp.copyPaperSize = copyPaperSize;
     }
 
-<<<<<<< HEAD
+
     public String getCopyPaperSize(){
         if (copyPaperSize == null){
-=======
-    public String getCopyPaperSize() {
-        if (copyPaperSize == "null") {
->>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
+
             setCopyPaperSize("Letter");
         }
         return copyPaperSize;
     }
 
-    public void setCopyPaperType(String copyPaperType) {
+    public void setCopyPaperType (String copyPaperType) {
         KodakVeriteApp.copyPaperType = copyPaperType;
     }
 
-<<<<<<< HEAD
+
     public String getCopyPaperType () {
         if (copyPaperType == null){
-=======
-    public String getCopyPaperType() {
-        if (copyPaperType == "null") {
->>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
+
             setCopyPaperType("Plain");
         }
         return copyPaperType;
@@ -408,13 +393,10 @@ public class KodakVeriteApp extends Application {
         KodakVeriteApp.copyQuality = copyQuality;
     }
 
-<<<<<<< HEAD
+
     public String getCopyQuality () {
         if (copyQuality == null){
-=======
-    public String getCopyQuality() {
-        if (copyQuality == "null") {
->>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
+
             setCopyQuality("Text");
         }
         return copyQuality;
