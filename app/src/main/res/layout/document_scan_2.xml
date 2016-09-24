@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.cebusqa.kodakverite.DocumentScan2"
-        android:background="#010101"
-        android:id="@+id/root2">
 
         <include
             layout="@layout/app_bar_back_only"
             android:id="@+id/toolbar" />
 
-        <FrameLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/countSD"
@@ -24,27 +15,18 @@
             android:visibility="visible"
             android:layout_margin="20dp"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:id="@+id/custom_parent_view">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/doc_image"
-                android:visibility="gone"
-                android:src="@drawable/docu" />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/doc_image2"
-                android:visibility="gone"
-                />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/doc_image3"
-                android:visibility="gone"
-                />
-        </FrameLayout>
+            <com.cebusqa.kodakverite.CustomImgView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/customImgView"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:adjustViewBounds="true" />
+
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,10 +35,10 @@
             android:text="0/0"
             android:id="@+id/countSD"
             android:textColor="#fdb700"
-            android:layout_centerHorizontal="true"
             android:layout_alignWithParentIfMissing="false"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="85dp" />
+            android:layout_marginBottom="85dp"
+            android:layout_centerHorizontal="true" />
 
         <include
             layout="@layout/document_settings"
@@ -248,34 +230,25 @@
             android:layout_height="wrap_content"
             android:text="&lt;&lt;previous"
             android:id="@+id/previousSD"
-            android:textColor="@android:color/transparent"
+            android:textColor="#fdb700"
             android:layout_alignTop="@+id/countSD"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:visibility="invisible" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="next>>"
             android:id="@+id/nextSD"
-            android:textColor="@android:color/transparent"
+            android:textColor="#fdb700"
             android:layout_below="@+id/include8"
             android:layout_toStartOf="@+id/save2"
             android:layout_toLeftOf="@+id/save2"
             android:layout_alignParentRight="true"
             android:layout_alignParentLeft="false"
-            android:layout_marginRight="5dp" />
-
-        <WebView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/webView"
-            android:layout_alignParentTop="true"
-            android:visibility="gone"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true" />
-
-    </RelativeLayout>
+            android:layout_marginRight="5dp"
+            android:visibility="invisible" />
 
 
 </RelativeLayout>

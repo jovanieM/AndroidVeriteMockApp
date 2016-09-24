@@ -82,6 +82,7 @@ public class KodakVeriteApp extends Application {
         return bitmapData;
     }
 
+
     public void setBitmapData(byte[] bitmap) {
         bitmapData = bitmap;
     }
@@ -182,6 +183,7 @@ public class KodakVeriteApp extends Application {
 
     public void clearData() {
         thumbData.clear();
+        bitmapData = null;
     }
 
     public String getPaperType() {

@@ -21,16 +21,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.nostra13.universalimageloader.cache.disc.DiskCache;
+import com.nostra13.universalimageloader.cache.disc.impl.ext.LruDiskCache;
+import com.nostra13.universalimageloader.cache.disc.naming.FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
+import com.nostra13.universalimageloader.utils.IoUtils;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by Cebu SQA on 29/06/2016.
  */
-public class FlickPrint extends Activity implements CompoundButton.OnCheckedChangeListener {
+public class FlickPrint extends Activity implements CompoundButton.OnCheckedChangeListener{
 
     ImageView imDisplay;
     static String fullImage = null;
@@ -150,6 +156,8 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
                 .displayer(new SimpleBitmapDisplayer())
                 .build());
 
+
+
         gcp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -233,6 +241,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
 
         }
     }
+
 
 
     class MyGestureListener extends GestureDetector.SimpleOnGestureListener {

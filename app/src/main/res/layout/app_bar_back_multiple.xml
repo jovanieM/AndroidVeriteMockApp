@@ -32,7 +32,7 @@ version: 0
             android:text="&lt; back"
             android:id="@+id/back"
             android:background="#000000"
-            android:textColor="#ffcf33" />
+            android:textColor="#fdb700" />
 
         <Space
             android:layout_width="wrap_content"

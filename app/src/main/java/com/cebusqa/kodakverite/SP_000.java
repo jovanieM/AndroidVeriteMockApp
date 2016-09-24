@@ -252,7 +252,7 @@ public class SP_000 extends AppCompatActivity {
 
         int l, r,t,b;
 
-        if (resultCode == 2) {
+        if (resultCode == GET_BITMAP_REQUEST) {
 
             l = data.getIntExtra("left", 0);
             t = data.getIntExtra("top", 0);
@@ -264,6 +264,8 @@ public class SP_000 extends AppCompatActivity {
             Log.v("Activity result", "activity result");
             try {
                 bitmapRegionDecoder = BitmapRegionDecoder.newInstance(kodakVeriteApp.getBitmapData(), 0, kodakVeriteApp.getBitmapData().length, false);
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -289,7 +291,7 @@ public class SP_000 extends AppCompatActivity {
                     stream = new ByteArrayOutputStream();
                     bm.compress(Bitmap.CompressFormat.PNG, 100, stream);
 
-                        kodakVeriteApp.setBitmapData(stream.toByteArray());
+                    kodakVeriteApp.setBitmapData(stream.toByteArray());
 
 
                     return bm;
@@ -305,8 +307,6 @@ public class SP_000 extends AppCompatActivity {
             }.execute();
 
 
-        } else {
-            Toast.makeText(this, "no change", Toast.LENGTH_SHORT).show();
         }
 
     }
