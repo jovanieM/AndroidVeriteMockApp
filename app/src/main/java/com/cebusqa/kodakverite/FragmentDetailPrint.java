@@ -1,5 +1,6 @@
 package com.cebusqa.kodakverite;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -9,20 +10,17 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Spinner;
+import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.Arrays;
 
 public class FragmentDetailPrint extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
 
     public ImageButton incre, decre;
     public TextView num_copies, color_output_print, envelope_print, print_quality_print;
-    public Spinner spin_papersize;
+    public TextView spin_papersize, spin_color_output, spin_paper_type, spin_print_quality;
     public int num = 0;
     public String val;
     boolean flag = true;
@@ -32,9 +30,10 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
     private boolean mAutoIncrement = false;
     private boolean mAutoDecrement = false;
     private final long REP_DELAY = 50;
+    String item_selected;
 
     Resources res ;
-    String[] paperSize, paperType,printQuality;
+    String[] paperSize, paperType,printQuality, printColor;
     KodakVeriteApp kodakVeriteApp;
 
 //    @Override
@@ -47,6 +46,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
         paperSize = res.getStringArray(R.array.Paper_size_print);
         paperType = res.getStringArray(R.array.Paper_type);
         printQuality = res.getStringArray(R.array.Print_quality);
+        printColor = res.getStringArray(R.array.Color_print);
         kodakVeriteApp = new KodakVeriteApp();
 
         num_copies = (TextView) view.findViewById(R.id.num_copies);
@@ -60,73 +60,156 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
 
         num_copies.setText(kodakVeriteApp.getPrintCopies());
 
-        Spinner spin_papersize = (Spinner) view.findViewById(R.id.spin_papersize);
-        Spinner spin_color_output = (Spinner) view.findViewById(R.id.spin_color_output);
-        Spinner spin_paper_type = (Spinner) view.findViewById(R.id.spin_paper_type);
-        Spinner spin_print_quality = (Spinner) view.findViewById(R.id.spin_print_quality);
+        spin_papersize = (TextView) view.findViewById(R.id.spin_papersize);
+        spin_color_output = (TextView) view.findViewById(R.id.spin_color_output);
+        spin_paper_type = (TextView) view.findViewById(R.id.spin_paper_type);
+        spin_print_quality = (TextView) view.findViewById(R.id.spin_print_quality);
 
 
-        ArrayAdapter<CharSequence> adapter_papertype = ArrayAdapter.createFromResource(this.getActivity(), R.array.Paper_type, R.layout.spinner_item_print);
-        adapter_papertype.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spin_paper_type.setAdapter(adapter_papertype);
+        spin_color_output.setText(kodakVeriteApp.getPrintColor());
 
-        spin_paper_type.setSelection(Arrays.asList(paperType).indexOf(kodakVeriteApp.getPaperType()));
-
-        spin_paper_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spin_color_output.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                for(int i = 0 ; i< paperType.length;i++){
-                    kodakVeriteApp.setPaperType(paperType[position]);
-                }
-            }
+            public void onClick(View v) {
+                final AlertDialog builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT).create();
+                LayoutInflater inflater = getActivity().getLayoutInflater();
+                v = (View) inflater.inflate(R.layout.listview_layout, null);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+                builder.setView(v);
+                builder.setTitle("Color");
+                final ListView list = (ListView)v.findViewById(R.id.selection_list);
 
-            }
-        });
+                PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, printColor);
+                list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+                list.setAdapter(array_adapter);
 
-        ArrayAdapter<CharSequence> adapter_papersize = ArrayAdapter.createFromResource(this.getActivity(), R.array.Paper_size_print, R.layout.spinner_item_print);
-        adapter_papersize.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spin_papersize.setAdapter(adapter_papersize);
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        spin_papersize.setSelection(Arrays.asList(paperSize).indexOf(kodakVeriteApp.getPaperSize()));
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 
-        spin_papersize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                for(int i = 0 ; i< paperSize.length;i++){
-                    kodakVeriteApp.setPaperSize(paperSize[position]);
-                }
-            }
+                        item_selected = printColor[pos].toString();
+                        spin_color_output.setText(item_selected);
+                        kodakVeriteApp.setPrintColor(item_selected);
+                        builder.dismiss();
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+                    }
 
+                });
+
+                builder.show();
             }
         });
 
-        ArrayAdapter<CharSequence> adapter_color = ArrayAdapter.createFromResource(this.getActivity(), R.array.Color_print, R.layout.spinner_item_print);
-        adapter_color.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spin_color_output.setAdapter(adapter_color);
 
-        ArrayAdapter<CharSequence> adapter_quality = ArrayAdapter.createFromResource(this.getActivity(), R.array.Print_quality, R.layout.spinner_item_print);
-        adapter_quality.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spin_print_quality.setAdapter(adapter_quality);
+        spin_paper_type.setText(kodakVeriteApp.getPaperType());
 
-        spin_print_quality.setSelection(Arrays.asList(printQuality).indexOf(kodakVeriteApp.getPrintQuality()));
-
-        spin_print_quality.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spin_paper_type.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                for(int i = 0 ; i< printQuality.length;i++){
-                    kodakVeriteApp.setPrintQuality(printQuality[position]);
-                }
+            public void onClick(View v) {
+                final AlertDialog builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT).create();
+                LayoutInflater inflater = getActivity().getLayoutInflater();
+                v = (View) inflater.inflate(R.layout.listview_layout, null);
+
+                builder.setView(v);
+                builder.setTitle("Paper Type");
+                final ListView list = (ListView)v.findViewById(R.id.selection_list);
+
+                PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, paperType);
+                list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+                list.setAdapter(array_adapter);
+
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+
+                        item_selected = paperType[pos].toString();
+                        spin_paper_type.setText(item_selected);
+                        kodakVeriteApp.setPaperType(item_selected);
+                        builder.dismiss();
+
+                    }
+
+                });
+
+                builder.show();
             }
+        });
 
+
+
+        spin_papersize.setText(kodakVeriteApp.getPaperSize());
+
+        spin_papersize.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onClick(View v) {
+                final AlertDialog builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT).create();
+                LayoutInflater inflater = getActivity().getLayoutInflater();
+                v = (View) inflater.inflate(R.layout.listview_layout, null);
 
+                builder.setView(v);
+                builder.setTitle("Paper Size");
+                final ListView list = (ListView)v.findViewById(R.id.selection_list);
+
+                PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, paperSize);
+                //    ArrayAdapter<String> array_adapter = new ArrayAdapter<String>(FragmentTwo.this.getActivity(), R.layout.component, R.id.content, paperSizeItems);
+
+                list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+                list.setAdapter(array_adapter);
+
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+
+                        item_selected = paperSize[pos].toString();
+                        spin_papersize.setText(item_selected);
+                        kodakVeriteApp.setPaperSize(item_selected);
+                        builder.dismiss();
+                    }
+
+                });
+
+                builder.show();
+            }
+        });
+
+
+        spin_print_quality.setText(kodakVeriteApp.getPrintQuality());
+
+        spin_print_quality.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final AlertDialog builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT).create();
+                LayoutInflater inflater = getActivity().getLayoutInflater();
+                v = (View) inflater.inflate(R.layout.listview_layout, null);
+
+                builder.setView(v);
+                builder.setTitle("Quality");
+                final ListView list = (ListView)v.findViewById(R.id.selection_list);
+
+                PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, printQuality);
+                //    ArrayAdapter<String> array_adapter = new ArrayAdapter<String>(FragmentTwo.this.getActivity(), R.layout.component, R.id.content, paperSizeItems);
+
+                list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+                list.setAdapter(array_adapter);
+
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+
+                        item_selected = printQuality[pos].toString();
+                        spin_print_quality.setText(item_selected);
+                        kodakVeriteApp.setPrintQuality(item_selected);
+                        builder.dismiss();
+
+                    }
+
+                });
+
+                builder.show();
             }
         });
 

@@ -58,6 +58,7 @@ public class KodakVeriteApp extends Application {
     private static String paperType;
     private static String printQuality;
     private static String printCopies;
+    private static String printColor;
 
     //for Copy Settings
     private static String copyResize;
@@ -69,6 +70,10 @@ public class KodakVeriteApp extends Application {
     private static String directTime;
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
     private String TAG = "PermisssionDemo";
     final private int RECORD_REQUEST_CODE = 123;
 
@@ -196,6 +201,18 @@ public class KodakVeriteApp extends Application {
     public void setPaperType(String paperType) {
         this.paperType = paperType;
     }
+
+    public String getPrintColor() {
+        if (printColor == null) {
+            setPrintColor("Color");
+        }
+        return printColor;
+    }
+
+    public void setPrintColor(String printColor) {
+        this.printColor = printColor;
+    }
+
 
     public String getPaperSize() {
         if (paperSize == null) {
@@ -359,8 +376,13 @@ public class KodakVeriteApp extends Application {
         KodakVeriteApp.copyPaperSize = copyPaperSize;
     }
 
+<<<<<<< HEAD
+    public String getCopyPaperSize(){
+        if (copyPaperSize == null){
+=======
     public String getCopyPaperSize() {
         if (copyPaperSize == "null") {
+>>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
             setCopyPaperSize("Letter");
         }
         return copyPaperSize;
@@ -370,8 +392,13 @@ public class KodakVeriteApp extends Application {
         KodakVeriteApp.copyPaperType = copyPaperType;
     }
 
+<<<<<<< HEAD
+    public String getCopyPaperType () {
+        if (copyPaperType == null){
+=======
     public String getCopyPaperType() {
         if (copyPaperType == "null") {
+>>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
             setCopyPaperType("Plain");
         }
         return copyPaperType;
@@ -381,8 +408,13 @@ public class KodakVeriteApp extends Application {
         KodakVeriteApp.copyQuality = copyQuality;
     }
 
+<<<<<<< HEAD
+    public String getCopyQuality () {
+        if (copyQuality == null){
+=======
     public String getCopyQuality() {
         if (copyQuality == "null") {
+>>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
             setCopyQuality("Text");
         }
         return copyQuality;

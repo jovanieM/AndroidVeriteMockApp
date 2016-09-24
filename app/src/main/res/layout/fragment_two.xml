@@ -60,8 +60,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="5dp" />
 
-                <Spinner
-                    android:layout_width="170dp"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dialog"
                     android:id="@+id/sp_color"
@@ -69,7 +69,9 @@
                     android:layout_gravity="right"
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="5dp" />
+                    android:layout_marginRight="15dp"
+                    android:text="Color"
+                    android:textColor="#ffffc000" />
 
             </RelativeLayout>
 
@@ -96,8 +98,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="5dp" />
 
-                <Spinner
-                    android:layout_width="170dp"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dialog"
                     android:id="@+id/sp_paper_size"
@@ -105,7 +107,9 @@
                     android:layout_gravity="right"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="5dp" />
+                    android:layout_marginRight="15dp"
+                    android:textColor="#ffffc000"
+                    android:text="Letter" />
 
             </RelativeLayout>
 
@@ -132,16 +136,17 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="5dp" />
 
-            <Spinner
-                android:layout_width="170dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:spinnerMode="dialog"
                 android:id="@+id/sp_paper_type"
                 android:gravity="right"
                 android:layout_gravity="right"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="5dp" />
+                android:layout_marginRight="15dp"
+                android:textColor="#ffffc000"
+                android:text="Plain" />
 
         </RelativeLayout>
 
@@ -168,7 +173,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true" />
 
-            <Spinner
+            <TextView
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:spinnerMode="dialog"
@@ -177,7 +182,9 @@
                 android:layout_gravity="right"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="5dp" />
+                android:layout_marginRight="15dp"
+                android:text="Text"
+                android:textColor="#ffffc000" />
 
         </RelativeLayout>
 
@@ -214,21 +221,22 @@
                 android:orientation="vertical"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true">
-                <Spinner
+                <TextView
                     android:layout_width="170dp"
                     android:layout_height="wrap_content"
-                    android:spinnerMode="dialog"
                     android:id="@+id/sp_resize"
                     android:gravity="right"
                     android:layout_gravity="right"
-                    android:layout_marginRight="5dp" />
+                    android:layout_marginRight="15dp"
+                    android:textColor="#ffffc000"
+                    android:text="100% Default" />
                 <LinearLayout
-                    android:layout_width="166dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="37dp"
                     android:orientation="horizontal"
-                    android:weightSum="1"
                     android:id="@+id/ll_custom_resize"
-                    android:layout_marginRight="5dp">
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="right">
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -238,20 +246,23 @@
                         android:layout_weight="0.25"
                         android:layout_marginRight="5dp"
                         android:editable="false"
-                        android:inputType="none" />
+                        android:inputType="none"
+                        android:textColor="#ffffc000" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="%"
                         android:id="@+id/textView2"
-                        android:layout_marginRight="5dp" />
+                        android:layout_marginRight="5dp"
+                        android:textColor="#ffffc000" />
 
                     <Button
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_below="@+id/textView2"
                         android:id="@+id/btn_custom_resize_decrement"
-                        android:background="@mipmap/decre" />
+                        android:background="@mipmap/decre"
+                        android:textColor="#ffffc000" />
 
                     <Button
                         android:layout_width="35dp"
@@ -274,7 +285,7 @@
             <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_above="@+id/lblBrightness"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true">
@@ -291,7 +302,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="5dp" />
 
-                <Button
+                <TextView
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -300,9 +311,9 @@
                     android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginRight="15dp"
                     android:background="#00ffffff"
-                    android:textColor="#ffcf33" />
+                    android:textColor="#ffffc000"
+                    android:layout_marginRight="10dp" />
 
             </RelativeLayout>
 

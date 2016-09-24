@@ -117,7 +117,14 @@
                 android:layout_marginStart="10dp"
                 android:background="#000000"
                 android:onClick="setListFooter"
+<<<<<<< HEAD
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true" />
+=======
                 android:src="@mipmap/standardcolor_yellow" />
+>>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
 
             <ImageButton
                 android:id="@+id/custom"
@@ -137,7 +144,14 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:background="#000000"
+<<<<<<< HEAD
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="false"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true" />
+=======
                 android:src="@mipmap/standardbw_white" />
+>>>>>>> 5b11daa843b3b3b8c36ad201c1a351c175fc472e
         </RelativeLayout>
 
         <fragment

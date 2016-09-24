@@ -10,6 +10,9 @@
     <color name="yellow">#FFFF00</color>
     <color name="text_shadow">#7F000000</color>
     <color name="gold">#fdb700</color>
+    <color name="gray">#ffbebebe</color>
+    <color name="transparent">#00000000</color>
+
 
 
 </resources>
