@@ -65,10 +65,6 @@ public class KodakVeriteApp extends Application {
     private static String directTime;
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> d76ccb70d9d1acfddefd0b0ea13cc9a50da873c7
     private String TAG = "PermisssionDemo";
     final private int RECORD_REQUEST_CODE = 123;
 
@@ -78,14 +74,7 @@ public class KodakVeriteApp extends Application {
     private File[] dirPath;
     static byte[] bitmapData;
 
-    public byte[] getBitmapData() {
-        return bitmapData;
-    }
 
-
-    public void setBitmapData(byte[] bitmap) {
-        bitmapData = bitmap;
-    }
 
     @Override
     public void onCreate() {
@@ -183,6 +172,10 @@ public class KodakVeriteApp extends Application {
 
     public void clearData() {
         thumbData.clear();
+
+    }
+    public void clearByteData(){
+        if (bitmapData != null)
         bitmapData = null;
     }
 
@@ -372,15 +365,10 @@ public class KodakVeriteApp extends Application {
     }
 
 
-<<<<<<< HEAD
+
     public String getCopyPaperSize(){
         if (copyPaperSize == null){
-=======
 
-
-    public String getCopyPaperSize() {
-        if (copyPaperSize == "null") {
->>>>>>> d76ccb70d9d1acfddefd0b0ea13cc9a50da873c7
 
             setCopyPaperSize("Letter");
         }
@@ -392,14 +380,9 @@ public class KodakVeriteApp extends Application {
     }
 
 
-<<<<<<< HEAD
+
     public String getCopyPaperType () {
         if (copyPaperType == null){
-=======
-
-    public String getCopyPaperType() {
-        if (copyPaperType == "null") {
->>>>>>> d76ccb70d9d1acfddefd0b0ea13cc9a50da873c7
 
             setCopyPaperType("Plain");
         }
@@ -411,13 +394,9 @@ public class KodakVeriteApp extends Application {
     }
 
 
-<<<<<<< HEAD
     public String getCopyQuality () {
         if (copyQuality == null){
-=======
-    public String getCopyQuality() {
-        if (copyQuality == "null") {
->>>>>>> d76ccb70d9d1acfddefd0b0ea13cc9a50da873c7
+
 
             setCopyQuality("Text");
         }
@@ -433,5 +412,14 @@ public class KodakVeriteApp extends Application {
             setDirectTime("5 min");
         }
         return directTime;
+    }
+
+    public byte[] getBitmapData() {
+        return bitmapData;
+    }
+
+
+    public void setBitmapData(byte[] bitmap) {
+        bitmapData = bitmap;
     }
 }

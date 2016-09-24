@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 /**
  * Created by jmolas on 22/09/2016.
@@ -14,7 +15,7 @@ import android.widget.Button;
 
 public class ImageCropper2 extends Activity implements View.OnClickListener {
     MyImageView mv2;
-    Button okDocScan, cancelDocScan;
+    LinearLayout okDocScan, cancelDocScan;
 
     Bundle extras1;
     Bitmap crop;
@@ -37,8 +38,8 @@ public class ImageCropper2 extends Activity implements View.OnClickListener {
 
         extras1 = getIntent().getExtras();
 
-        okDocScan = (Button) findViewById(R.id.ok_doc_scan);
-        cancelDocScan = (Button) findViewById(R.id.cancel_doc_scan);
+        okDocScan = (LinearLayout) findViewById(R.id.scan_crop_ok2);
+        cancelDocScan = (LinearLayout) findViewById(R.id.scan_crop_cancel2);
         okDocScan.setOnClickListener(this);
         cancelDocScan.setOnClickListener(this);
         kodak2 = new KodakVeriteApp();
@@ -85,7 +86,7 @@ public class ImageCropper2 extends Activity implements View.OnClickListener {
         Log.v("onClick_IC","starts");
         int newLeft, newTop, newRight, newBottom;
 
-        if(v.getId() == R.id.ok_doc_scan){
+        if(v.getId() == R.id.scan_crop_ok2){
             int left = mv2.x;
             int top = mv2.y;
             int right = mv2.right;
@@ -150,7 +151,7 @@ public class ImageCropper2 extends Activity implements View.OnClickListener {
             Log.v("onClick_IC","ends");
         }
 
-        if (v.getId() == R.id.cancel_doc_scan){
+        if (v.getId() == R.id.scan_crop_cancel2){
             finish();
         }
     }
