@@ -1,42 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:orientation="vertical"
     android:weightSum="1">
 
-    <include
-        layout="@layout/app_bar_back_only"
-        />
+    <include layout="@layout/app_bar_back_only" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:text="Clean Printhead"
-        android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
+        android:layout_weight="0.11"
         android:gravity="center_horizontal"
-        android:layout_weight="0.11" />
+        android:text="Clean Printhead"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Please load Letter or A4 paper in tray and press [Clean Printhead]."
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.09"
         android:singleLine="false"
-        android:textColor="#ffffff"
-        android:layout_weight="0.09" />
+        android:text="Please load Letter or A4 paper in tray and press [Clean Printhead]."
+        android:textColor="#ffffff" />
+
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Clean Printhead"
-        android:background="@drawable/oval_background"
         android:id="@+id/btn_clean"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/oval_background"
+        android:text="Clean Printhead"
         android:textColor="#ffffff" />
 </LinearLayout>

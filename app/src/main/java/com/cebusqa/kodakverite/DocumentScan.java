@@ -66,6 +66,7 @@ public class DocumentScan extends Activity {
     public void dExec() {
 
         final ScanPhotoDialog dscanDialog = ScanPhotoDialog.newInstance("Scan Document");
+
         dscanDialog.setCancelable(true);
 
 //        finish();

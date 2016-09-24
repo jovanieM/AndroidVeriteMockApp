@@ -53,6 +53,15 @@ public class FragmentTwo extends Fragment {
 
 //    public static final Integer[] pagesPerSide = {R.mipmap.onepage, R.mipmap.two_l, R.mipmap.two_p, R.mipmap.four_l, R.mipmap.four_p  };
 
+<<<<<<< .mine
+
+
+
+=======
+
+    String[] pagesPerSide = {"1", "2", "3"};
+
+>>>>>>> .theirs
     private Handler repeatUpdateHandler = new Handler();
     private boolean mAutoIncrement = false;
     private boolean mAutoDecrement = false;
@@ -68,14 +77,14 @@ public class FragmentTwo extends Fragment {
         res = getResources();
     //    context = this;
 
-        onePage = (LinearLayout)view.findViewById(R.id.onePage);
-        twoL = (LinearLayout)view.findViewById(R.id.twoL);
-        twoP = (LinearLayout)view.findViewById(R.id.twoP);
-        fourL = (LinearLayout)view.findViewById(R.id.fourL);
-        fourP = (LinearLayout)view.findViewById(R.id.fourP);
+        onePage = (LinearLayout) view.findViewById(R.id.onePage);
+        twoL = (LinearLayout) view.findViewById(R.id.twoL);
+        twoP = (LinearLayout) view.findViewById(R.id.twoP);
+        fourL = (LinearLayout) view.findViewById(R.id.fourL);
+        fourP = (LinearLayout) view.findViewById(R.id.fourP);
 
         //init
-     //   listViewPagesPerSide = (ListView)view.findViewById(R.id.listViewPagesPerSide);
+        //   listViewPagesPerSide = (ListView)view.findViewById(R.id.listViewPagesPerSide);
         spColor = (TextView) view.findViewById(R.id.sp_color);
         spPaperSize = (TextView) view.findViewById(R.id.sp_paper_size);
         spPaperType = (TextView) view.findViewById(R.id.sp_paper_type);
@@ -98,15 +107,35 @@ public class FragmentTwo extends Fragment {
         resizeItems = getResources().getStringArray(R.array.Copy_Resize);
         pagesPerSideItems = getResources().getStringArray(R.array.Pages_per_side);
 
+<<<<<<< .mine
         llCustomResize.setVisibility(View.INVISIBLE);
         etCustomResize.setText(Integer.toString(ctr));
 
+
+
+
+=======
+        //init adapter
+        adColor = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, colorItems);
+        adPaperSize = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, paperSizeItems);
+        adPaperType = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, paperTypeItems);
+        adQuality = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, qualityItems);
+        adResize = new ArrayAdapter<>(getActivity(), R.layout.spinner_item, resizeItems);
+>>>>>>> .theirs
+
         spColor.setText(kodakVeriteApp.getCopyColor());
 
+<<<<<<< .mine
         spColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+=======
+
+
+
+
+>>>>>>> .theirs
                 final AlertDialog builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT).create();
                 LayoutInflater inflater = getActivity().getLayoutInflater();
                 v = (View) inflater.inflate(R.layout.listview_layout, null);
@@ -123,8 +152,21 @@ public class FragmentTwo extends Fragment {
 
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+<<<<<<< .mine
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+
+
+
+
+=======
+        spColor.setSelection(Arrays.asList(colorItems).indexOf(kodakVeriteApp.getCopyColor()));
+        /*spColor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                kodakVeriteApp.setCopyColor(colorItems[position]);
+            }
+>>>>>>> .theirs
 
                         item_selected = colorItems[pos].toString();
                         spColor.setText(item_selected);
@@ -137,7 +179,7 @@ public class FragmentTwo extends Fragment {
 
                 builder.show();
             }
-        });
+        });*/
 
 
         spPaperSize.setText(kodakVeriteApp.getCopyPaperSize());
@@ -293,6 +335,7 @@ public class FragmentTwo extends Fragment {
             @Override
             public void onClick(View v) {
 
+<<<<<<< .mine
                 final AlertDialog builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT).create();
                 LayoutInflater inflater = getActivity().getLayoutInflater();
                 v = (View) inflater.inflate(R.layout.listview_layout, null);
@@ -328,6 +371,43 @@ public class FragmentTwo extends Fragment {
 
                 builder.show();
 
+=======
+                alert();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
             }
         });
 
@@ -349,9 +429,9 @@ public class FragmentTwo extends Fragment {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        try{
+                        try {
                             Thread.sleep(4000);
-                        }catch (Exception e){
+                        } catch (Exception e) {
 
                         }
                         dialog.dismiss();
@@ -360,13 +440,60 @@ public class FragmentTwo extends Fragment {
             }
         });
 
+<<<<<<< .mine
         spResize.setText(kodakVeriteApp.getCopyResize());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+        spResize.setSelection(Arrays.asList(resizeItems).indexOf(kodakVeriteApp.getCopyResize()));
+        spResize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i) {
+                    case 0:
+                        llCustomResize.setVisibility(View.INVISIBLE);
+                        break;
+                    case 1:
+                        llCustomResize.setVisibility(View.INVISIBLE);
+                        break;
+                    case 2:
+                        llCustomResize.setVisibility(View.INVISIBLE);
+                        break;
+                    case 3:
+                        llCustomResize.setVisibility(View.INVISIBLE);
+                        break;
+                    case 4:
+                        llCustomResize.setVisibility(View.INVISIBLE);
+                        break;
+                    case 5:
+                        llCustomResize.setVisibility(View.VISIBLE);
+>>>>>>> .theirs
 
         if((spResize.getText().equals(resizeItems[5]))){
             llCustomResize.setVisibility(View.VISIBLE);
             customized();
         }
 
+<<<<<<< .mine
         spResize.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -374,9 +501,41 @@ public class FragmentTwo extends Fragment {
                 LayoutInflater inflater = getActivity().getLayoutInflater();
                 v = (View) inflater.inflate(R.layout.listview_layout, null);
 
+
+
+=======
+                        btnIncrement.setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (ctr < 400) {
+                                    ctr += 1;
+                                    etCustomResize.setText(Integer.toString(ctr));
+                                }
+                            }
+                        });
+>>>>>>> .theirs
+
+<<<<<<< .mine
                 builder.setView(v);
                 builder.setTitle("Resize");
                 final ListView list = (ListView) v.findViewById(R.id.selection_list);
+
+
+
+
+
+
+=======
+                        btnDecrement.setOnClickListener(new OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                if (ctr > 25) {
+                                    ctr -= 1;
+                                    etCustomResize.setText(Integer.toString(ctr));
+                                }
+                            }
+                        });
+>>>>>>> .theirs
 
                 ComponentAdapter array_adapter = new ComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, resizeItems);
 
@@ -388,9 +547,29 @@ public class FragmentTwo extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 
+<<<<<<< .mine
                         item_selected = resizeItems[pos].toString();
                         spResize.setText(item_selected);
                         kodakVeriteApp.setCopyResize(item_selected);
+
+
+
+
+
+
+
+=======
+                        btnIncrement.setOnTouchListener(new View.OnTouchListener() {
+                                                            public boolean onTouch(View v, MotionEvent event) {
+                                                                if ((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)
+                                                                        && mAutoIncrement) {
+                                                                    mAutoIncrement = false;
+                                                                }
+                                                                return false;
+                                                            }
+                                                        }
+                        );
+>>>>>>> .theirs
 
                         if (item_selected != resizeItems[0]) {
                             pagesPerSide_btn.setText(pagesPerSideItems[0]);
@@ -400,6 +579,7 @@ public class FragmentTwo extends Fragment {
 
                         builder.dismiss();
 
+<<<<<<< .mine
                         if((item_selected.equals(resizeItems[5]))){
                             llCustomResize.setVisibility(View.VISIBLE);
                             customized();
@@ -408,6 +588,23 @@ public class FragmentTwo extends Fragment {
                         }
 
 
+
+
+=======
+                        btnDecrement.setOnTouchListener(new View.OnTouchListener() {
+                                                            public boolean onTouch(View v, MotionEvent event) {
+                                                                if ((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)
+                                                                        && mAutoDecrement) {
+                                                                    mAutoDecrement = false;
+                                                                }
+                                                                return false;
+                                                            }
+                                                        }
+                        );
+>>>>>>> .theirs
+
+
+<<<<<<< .mine
 
                     }
 
@@ -426,7 +623,42 @@ public class FragmentTwo extends Fragment {
                 if(ctr < 400){
                     ctr += 1;
                     etCustomResize.setText(Integer.toString(ctr));
+=======
+                        break;
+                    default:
+                        break;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
                 }
+<<<<<<< .mine
+
+
+
+
+
+
+=======
+
+                if (spResize.getSelectedItem() != resizeItems[0]) {
+                    pagesPerSide_btn.setText("One");
+                }
+                kodakVeriteApp.setCopyResize(resizeItems[i]);
+
+>>>>>>> .theirs
             }
         });
 
@@ -475,6 +707,7 @@ public class FragmentTwo extends Fragment {
                                         }
         );
 
+<<<<<<< .mine
         btnDecrement.setOnLongClickListener(
                 new View.OnLongClickListener() {
                     public boolean onLongClick(View arg0) {
@@ -484,8 +717,27 @@ public class FragmentTwo extends Fragment {
                     }
                 }
         );
+=======
+    public Dialog alert() {
+        AlertDialog.Builder alertPages = new AlertDialog.Builder(getActivity());
+        alertPages.setTitle("Select Pages Per Side");
+        alertPages.setItems(R.array.Pages_per_side, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                //    int position = Arrays.asList(R.array.Pages_per_side).indexOf(which);
 
 
+
+>>>>>>> .theirs
+
+<<<<<<< .mine
+
+
+=======
+                kodakVeriteApp.setPagesPerSide(pages[which]);
+                pagesPerSide_btn.setText(pages[which]);
+>>>>>>> .theirs
+
+<<<<<<< .mine
         btnDecrement.setOnTouchListener(new View.OnTouchListener() {
                                             public boolean onTouch(View v, MotionEvent event) {
                                                 if ((event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL)
@@ -496,9 +748,26 @@ public class FragmentTwo extends Fragment {
                                             }
                                         }
         );
+=======
+                if (pagesPerSide_btn.getText() != "One") {
+                    spResize.setSelection(0);
+                    kodakVeriteApp.setCopyResize(resizeItems[0]);
+                }
+
+
+
+
+
+
+>>>>>>> .theirs
 
     }
 
+<<<<<<< .mine
+
+=======
+            }
+>>>>>>> .theirs
 
     public void increment() {
         if (ctr < 400) {
@@ -506,7 +775,11 @@ public class FragmentTwo extends Fragment {
             etCustomResize.setText(String.valueOf(ctr));
         }
 
+<<<<<<< .mine
     }
+=======
+        });
+>>>>>>> .theirs
 
     public void decrement() {
         if (ctr > 25) {
@@ -514,9 +787,25 @@ public class FragmentTwo extends Fragment {
             etCustomResize.setText(String.valueOf(ctr));
         }
 
+<<<<<<< .mine
     }
 
+=======
+        alertPages.show();
+        Dialog dialog = alertPages.create();
+>>>>>>> .theirs
 
+<<<<<<< .mine
+
+=======
+        return dialog;
+>>>>>>> .theirs
+
+<<<<<<< .mine
+
+=======
+    }
+>>>>>>> .theirs
 
 
 }

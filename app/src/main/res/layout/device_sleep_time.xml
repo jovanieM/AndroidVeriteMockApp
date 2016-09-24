@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
+    android:orientation="vertical"
     android:weightSum="1">
 
-    <include
-        layout="@layout/app_bar_back_only"
-        />
+    <include layout="@layout/app_bar_back_only" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:text="Device Sleep Time"
-        android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
+        android:layout_weight="0.12"
         android:gravity="center_horizontal"
-        android:layout_weight="0.12" />
+        android:text="Device Sleep Time"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The print switches to sleep mode when idle for a given time."
-        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
         android:singleLine="false"
+        android:text="The print switches to sleep mode when idle for a given time."
         android:textColor="#ffffff" />
 
     <Space
@@ -37,21 +34,21 @@
         android:layout_height="20dp" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:weightSum="1"
-        android:background="#363434">
+        android:background="#363434"
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <TextView
+            android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Device Sleep Time"
-            android:id="@+id/textView15"
-            android:layout_margin="5dp"
-            android:textSize="15dp"
             android:layout_gravity="center"
-            android:textColor="#ffffff" />
+            android:layout_margin="5dp"
+            android:text="Device Sleep Time"
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
 
         <Space
             android:layout_width="wrap_content"
@@ -61,12 +58,12 @@
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:weightSum="1"
+        android:layout_gravity="center_horizontal"
         android:background="#363434"
-        android:layout_gravity="center_horizontal">
+        android:orientation="horizontal"
+        android:weightSum="1">
 
         <Space
             android:layout_width="wrap_content"
@@ -74,55 +71,55 @@
             android:layout_weight="0.61" />
 
         <EditText
+            android:id="@+id/num_min"
             android:layout_width="56dp"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:ems="10"
-            android:id="@+id/num_min"
             android:layout_gravity="center"
-            android:textAlignment="center"
+            android:ems="10"
+            android:inputType="number"
+            android:maxLength="3"
             android:text="10"
-            android:textColor="#ffffff"
-            android:maxLength="3" />
+            android:textAlignment="center"
+            android:textColor="#ffffff" />
 
         <Space
             android:layout_width="5dp"
             android:layout_height="match_parent" />
 
         <TextView
+            android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="min"
-            android:id="@+id/textView18"
             android:layout_gravity="center|right"
-            android:textColor="#ffcf33"
-            android:singleLine="false" />
+            android:singleLine="false"
+            android:text="min"
+            android:textColor="#ffcf33" />
 
         <Button
+            android:id="@+id/decre"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:text="-"
-            android:id="@+id/decre"
+            android:layout_gravity="center"
             android:layout_marginLeft="40dp"
             android:background="#a09d9d"
-            android:textColor="#000000"
+            android:gravity="center|center_vertical|center_horizontal"
             android:src="@mipmap/decre"
-            android:layout_gravity="center"
+            android:text="-"
             android:textAlignment="center"
-            android:gravity="center|center_vertical|center_horizontal" />
+            android:textColor="#000000" />
 
         <Button
+            android:id="@+id/incre"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:text="+"
-            android:id="@+id/incre"
-            android:layout_marginLeft="15dp"
-            android:background="#a09d9d"
-            android:textColor="#000000"
-            android:src="@mipmap/incre"
             android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
             android:allowUndo="true"
-            android:gravity="center|center_vertical|center_horizontal" />
+            android:background="#a09d9d"
+            android:gravity="center|center_vertical|center_horizontal"
+            android:src="@mipmap/incre"
+            android:text="+"
+            android:textColor="#000000" />
     </LinearLayout>
 
     <Space
@@ -130,10 +127,10 @@
         android:layout_height="30dp" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save setting"
-        android:background="@drawable/oval_background"
         android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/oval_background"
+        android:text="Save setting"
         android:textColor="#ffffff" />
 </LinearLayout>

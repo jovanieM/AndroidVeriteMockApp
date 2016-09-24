@@ -16,56 +16,54 @@ import java.io.ByteArrayOutputStream;
  * Created by Cebu SQA on 10/06/2016.
  */
 public class ImageCropper extends Activity implements View.OnClickListener{
+
     MyImageView mv;
     Button ok, cancel;
-    int left, top, right, bottom;
-    Bundle extras;
-    RelativeLayout relativeLayout, containerMain;
-    Bitmap bitmap;
-    MyImageView mv2;
 
+    Bundle extras1;
+    Bitmap crop;
+    KodakVeriteApp kodak;
+    //MyImageView mv2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.image_crop);
 
-        Log.v("onCreate","onCreate");
+        Log.v("onCreate","start");
 
-        mv2 = new MyImageView(this);
+        //mv2 = new MyImageView(this);
 
-        extras = getIntent().getExtras();
-        relativeLayout = (RelativeLayout) findViewById(R.id.viewContainer);
-        containerMain = (RelativeLayout) findViewById(R.id.container);
+        extras1 = getIntent().getExtras();
 
         ok = (Button) findViewById(R.id.button);
         cancel = (Button) findViewById(R.id.button2);
         ok.setOnClickListener(this);
         cancel.setOnClickListener(this);
+        kodak = new KodakVeriteApp();
 
         //bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.sample);
         mv = (MyImageView) findViewById(R.id.my_view);
-
 
         Log.v("mv left", String.valueOf(mv.getLeft()));
         Log.v("mv top", String.valueOf(mv.getTop()));
         Log.v("mv right", String.valueOf(mv.getRight()));
         Log.v("mv bottom", String.valueOf(mv.getBottom()));
 
-        left = extras.getInt("left");
-        top = extras.getInt("top");
-        right = extras.getInt("right");
-        bottom = extras.getInt("bottom");
+        int left1, top1, right1, bottom1;
+        left1 = extras1.getInt("left");
+        top1 = extras1.getInt("top");
+        right1 = extras1.getInt("right");
+        bottom1 = extras1.getInt("bottom");
 
-        byte[] byteArray = getIntent().getByteArrayExtra("image");
+        byte[] byteArray = kodak.getBitmapData();
 
-        bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        crop = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
-
-        mv2.setL(0);
-        mv2.setT(0);
-        mv2.setR(right - left);
-        mv2.setB(bottom - top);
+        mv.setL(0);
+        mv.setT(0);
+        mv.setR(right1 - left1);
+        mv.setB(bottom1 - top1);
 
 //        if(width > height){
 //            double viewAR = (double) height / width;
@@ -85,7 +83,9 @@ public class ImageCropper extends Activity implements View.OnClickListener{
 //
 //            }
 //        }
-        mv.setImageBitmap(bitmap);
+        mv.setImageBitmap(crop);
+
+
 
         Log.v("mv dimension", String.valueOf(mv.getWidth()));
         Log.v("mv dimension", String.valueOf(mv.getHeight()));
@@ -107,6 +107,7 @@ public class ImageCropper extends Activity implements View.OnClickListener{
 //        cv.rect = new Rect(cv.x,cv.y,cv.right,cv.bottom);
 //        le = cv.newX;
 //        ri = cv.newY;
+        Log.v("onCreate","end");
 
     }
 
@@ -129,6 +130,7 @@ public class ImageCropper extends Activity implements View.OnClickListener{
      */
     @Override
     public void onClick(View v) {
+        Log.v("onClick_IC","starts");
         int newLeft, newTop, newRight, newBottom;
 
         if(v.getId() == R.id.button){
@@ -139,40 +141,40 @@ public class ImageCropper extends Activity implements View.OnClickListener{
 
             if(left > 0 && left < mv.getWidth()){
                 double ratio = (double)left / mv.getWidth();
-                newLeft = (int) (bitmap.getWidth() * ratio);
+                newLeft = (int) (crop.getWidth() * ratio);
             }else{
                 newLeft = 0;
             }
 
             if(top > 0 && top < mv.getHeight()){
                 double ratio = (double) top / mv.getHeight();
-                newTop = (int) (bitmap.getHeight() * ratio);
+                newTop = (int) (crop.getHeight() * ratio);
             }else{
                 newTop = 0;
             }
 
             if (right < mv.getWidth() && right > 0 ){
                 double ratio = (double) right / mv.getWidth();
-                newRight = (int) (bitmap.getWidth() * ratio);
+                newRight = (int) (crop.getWidth() * ratio);
             }else{
-                newRight = bitmap.getWidth();
+                newRight =crop.getWidth();
             }
 
             if (bottom < mv.getHeight() && bottom > 0 ){
                 double ratio = (double) bottom / mv.getHeight();
-                newBottom = (int) (bitmap.getHeight() * ratio);
+                newBottom = (int) (crop.getHeight() * ratio);
             }else{
-                newBottom = bitmap.getHeight();
+                newBottom = crop.getHeight();
             }
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-            byte[] byteArray = stream.toByteArray();
+//            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+//            byte[] byteArray = stream.toByteArray();
 
 
             Log.v("mv dimension", String.valueOf(mv.getWidth()));
             Log.v("mv dimension", String.valueOf(mv.getHeight()));
-            Log.v("mv dimension", String.valueOf(bitmap.getWidth()));
-            Log.v("mv dimension", String.valueOf(bitmap.getHeight()));
+            Log.v("mv dimension", String.valueOf(crop.getWidth()));
+            Log.v("mv dimension", String.valueOf(crop.getHeight()));
             Log.v("mv dimension", String.valueOf(newLeft));
             Log.v("mv dimension", String.valueOf(newTop));
             Log.v("mv dimension", String.valueOf(newRight));
@@ -188,16 +190,18 @@ public class ImageCropper extends Activity implements View.OnClickListener{
             intent.putExtra("top", newTop);
             intent.putExtra("right",newRight);
             intent.putExtra("bottom",newBottom);
-            intent.putExtra("bitmap", byteArray);
+            //intent.putExtra("bitmap", byteArray);
             setResult(2, intent);
             Log.v("ImageCropper", "before finish");
             finish();
             Log.v("ImageCropper", "after finish");
+            Log.v("onClick_IC","ends");
         }
 
         if (v.getId() == R.id.button2){
 //            Intent intent = new Intent();
 //            setResult(1,intent);
+
             finish();
         }
     }
