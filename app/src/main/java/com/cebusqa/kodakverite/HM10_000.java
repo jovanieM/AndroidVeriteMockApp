@@ -161,11 +161,6 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
 
     @Override
     public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() == 0) {
-            this.finish();
-        } else {
-            getFragmentManager().popBackStack();
-            super.onBackPressed();
-        }
+
     }
 }
