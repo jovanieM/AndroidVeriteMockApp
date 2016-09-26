@@ -22,6 +22,7 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
 
     Button btnBack, btnUpdate, btnConfirmation;
     ToggleButton toggleButton;
+    CheckBox checkBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,13 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
         //init
         btnBack = (Button) findViewById(R.id.back);
         btnUpdate = (Button) findViewById(R.id.btn_update_printer);
-        toggleButton = (ToggleButton) findViewById(R.id.check_image);
-        toggleButton.setOnCheckedChangeListener(this);
+        //btnConfirmation = (Button) findViewById(R.id.btn_confirmation);
+        //toggleButton = (ToggleButton) findViewById(R.id.check_image);
+        //toggleButton.setOnCheckedChangeListener(this);
+        checkBox = (CheckBox) findViewById(R.id.check_image);
+        checkBox.setChecked(true);
+        checkBox.setOnCheckedChangeListener(this);
+
 
 
         final ProgressDialog dialog = new ProgressDialog(this, AlertDialog.THEME_HOLO_LIGHT);
@@ -61,7 +67,7 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
 
         btnBack.setOnClickListener(this);
         btnUpdate.setOnClickListener(this);
-        btnConfirmation.setOnClickListener(this);
+        //btnConfirmation.setOnClickListener(this);
 
 
     }
@@ -72,7 +78,9 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
             finish();
         } else if (v == btnUpdate) {
             startActivity(new Intent(SoftwareUpdate.this, UpdatePrinterSoftware.class));
-        } else if (v == btnConfirmation) {
+        }
+        // remove confirmation button in layout
+        /* else if (v == btnConfirmation) {
             final ProgressDialog dialog = new ProgressDialog(SoftwareUpdate.this);
             dialog.setMessage("Checking Software version...");
             dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
@@ -94,9 +102,7 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
                     dialog.dismiss();
                 }
             }).start();
-
-
-        }
+        }*/
     }
 
     @Override
