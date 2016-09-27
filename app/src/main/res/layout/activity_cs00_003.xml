@@ -46,14 +46,11 @@
         android:gravity="center_horizontal">
 
         <pl.droidsonroids.gif.GifImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:src="@drawable/scanning" />
+            android:src="@drawable/scanning"
+            android:layout_centerInParent="true" />
 
         <ProgressBar
             android:id="@+id/progressBar3"

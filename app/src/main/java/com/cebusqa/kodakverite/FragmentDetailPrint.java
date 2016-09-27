@@ -218,7 +218,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
             @Override
             public void onClick(View v) {
 
-                if (num < 100) {
+                if (num < 99) {
                     num= num+1;
                     val = Integer.toString(num);
                     num_copies.setText(val);
@@ -307,7 +307,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
     }
 
     public void increment() {
-        if (num < 100) {
+        if (num < 99) {
             num++;
             num_copies.setText(String.valueOf(num));
         }
