@@ -31,7 +31,7 @@
     <RelativeLayout
         android:id="@+id/product_image"
         android:layout_width="match_parent"
-        android:layout_height="245dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/content"
         android:layout_margin="10dp"
         android:background="@color/colorPrimary"
@@ -44,7 +44,8 @@
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
             android:adjustViewBounds="true"
-            android:src="@drawable/image5" />
+            android:src="@drawable/image5"
+            android:layout_alignParentRight="false" />
 
         <ProgressBar
             android:id="@+id/progressBar2"
