@@ -28,6 +28,7 @@ public class FragmentQuickPrint extends Fragment {
     ArrayAdapter<String> arrayAdapter;
     ImageView check;
     String item_selected;
+    int[] img = {R.drawable.checkmark_list, R.drawable.checkmark_list, R.drawable.checkmark_list};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,27 +39,10 @@ public class FragmentQuickPrint extends Fragment {
         //photoletter = (ImageButton)view.findViewById(R.id.photoletter);
         //document = (ImageButton)view.findViewById(R.id.doc_type);
 
-        quick_print_list = (ListView) view.findViewById(R.id.quick_print_list);
-        kodakVeriteApp = new KodakVeriteApp();
         //check.setImageResource(R.drawable.checkmark_list);
 
-        quick_list = getResources().getStringArray(R.array.quick_print);
-
-         //adapter = new QuickPrintAdapter(getActivity(), R.layout.quick_print_item, R.id.tv_list, quick_list);
-
+        //adapter = new QuickPrintAdapter(getActivity(), R.layout.quick_print_item, R.id.tv_list, quick_list);
         // arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, quick_list);
-
-        ComponentAdapter array_adapter = new ComponentAdapter(getActivity(), R.layout.component, R.id.content, quick_list);
-        quick_print_list.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
-        quick_print_list.setAdapter(array_adapter);
-        quick_print_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                item_selected = quick_list[position].toString();
-                kodakVeriteApp.setQuickPrint(item_selected);
-            }
-        });
-
 
         /* photo4x6.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +75,29 @@ public class FragmentQuickPrint extends Fragment {
                 kodakVeriteApp.setPaperType("Plain");
                 kodakVeriteApp.setPaperSize("Letter");
             }
-        }); */
+        });
+        ComponentAdapter array_adapter = new ComponentAdapter(getActivity(), R.layout.component, R.id.content, quick_list);
+        */
+
+        quick_print_list = (ListView) view.findViewById(R.id.quick_print_list);
+        quick_print_list.setSelected(true);
+        kodakVeriteApp = new KodakVeriteApp();
+
+        quick_list = getResources().getStringArray(R.array.quick_print);
+
+        quick_print_list.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+
+        final QuickPrintAdapter adapter = new QuickPrintAdapter(getActivity(),quick_list,img);
+        quick_print_list.setAdapter(adapter);
+
+        quick_print_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                item_selected = quick_list[position];
+                kodakVeriteApp.setQuickPrintItem(item_selected);
+                adapter.notifyDataSetChanged();
+            }
+        });
 
         return view;
     }

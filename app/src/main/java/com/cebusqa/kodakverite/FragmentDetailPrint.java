@@ -19,7 +19,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
 
 
     public ImageButton incre, decre;
-    public TextView num_copies, color_output_print, envelope_print, print_quality_print;
+    public TextView num_copies,color_output_print, envelope_print, print_quality_print;
     public TextView spin_papersize, spin_color_output, spin_paper_type, spin_print_quality;
     public int num = 0;
     public String val;
@@ -48,9 +48,9 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
         printQuality = res.getStringArray(R.array.Print_quality);
         printColor = res.getStringArray(R.array.Color_print);
         kodakVeriteApp = new KodakVeriteApp();
-
         num_copies = (TextView) view.findViewById(R.id.num_copies);
-        num_copies.setOnClickListener(this);
+
+        //num_copies.setOnClickListener(this);
 
         incre = (ImageButton) view.findViewById(R.id.incre);
         incre.setOnClickListener(this);
