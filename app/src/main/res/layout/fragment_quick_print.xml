@@ -1,60 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#000000">
 
-    <LinearLayout
+    <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#000000"
-            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"
+        android:orientation="vertical">
 
-            <ImageButton
-                android:id="@+id/photo4x6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#000000"
-                android:onClick="selectQuickPrint"
-                android:src="@mipmap/photo4x6borderless_uncheck" />
+    <ImageButton
+        android:id="@+id/photo4x6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:onClick="selectQuickPrint"
+        android:src="@mipmap/photo4x6borderless_uncheck" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#6b6666" />
+    <TextView
+        android:id="@+id/quick_print_item1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photo 4x6 in. Borderless"
+        android:textColor="#ffffff" />
 
-            <ImageButton
-                android:id="@+id/photoletter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#000000"
-                android:onClick="selectQuickPrint"
-                android:src="@mipmap/photoletterborderless_uncheck" />
+    <View
+        android:id="@+id/divider_1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/quick_print_item1"
+        android:background="#6b6666" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#6b6666" />
+    <ImageButton
+        android:id="@+id/photoletter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:onClick="selectQuickPrint"
+        android:src="@mipmap/photoletterborderless_uncheck" />
 
-            <ImageButton
-                android:id="@+id/doc_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#000000"
-                android:onClick="selectQuickPrint"
-                android:src="@mipmap/documentletter_uncheck" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#6b6666" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#6b6666" />
-        </LinearLayout>
+    <ImageButton
+        android:id="@+id/doc_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:onClick="selectQuickPrint"
+        android:src="@mipmap/documentletter_uncheck" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#6b6666" />
     </LinearLayout>
 
+     </LinearLayout> -->
 
-</LinearLayout>
+    <ListView
+        android:id="@+id/quick_print_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:divider="@color/gray"
+        android:dividerHeight="2dp"
+        android:entries="@array/quick_print"
+
+        />
+
+
+</RelativeLayout>
