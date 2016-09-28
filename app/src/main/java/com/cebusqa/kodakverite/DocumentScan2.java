@@ -33,7 +33,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
     RelativeLayout scan, crop, send;
 
     CustomImgView civ2;
-    ImageView save2, email2, drive2,skyDrive2;
+    ImageView save2, email2, drive2,skyDrive2, sendIcon;
 
     static final int GET_BITMAP_REQUEST2 = 2;
     ImageButton settings2;
@@ -84,6 +84,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
         this.drive2 = (ImageView) findViewById(R.id.drive2);
         this.skyDrive2 = (ImageView) findViewById(R.id.one_box2);
         settings2 = (ImageButton) findViewById(R.id.dscanSettingsIcon);
+        sendIcon = (ImageView) findViewById(R.id.send_icon);
 
         prv = (TextView) findViewById(R.id.previousSD);
         nxt = (TextView) findViewById(R.id.nextSD);
@@ -120,7 +121,29 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
                 if (cntr2 < 20) {
 
                     final ScanPhotoDialog2 scanPhotoDialog3 = new ScanPhotoDialog2();
-                    new Thread(new Runnable() {
+                    scanPhotoDialog3.setCancelable(false);
+                    scanPhotoDialog3.show(getFragmentManager(), "scanningDoc");
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(!dtest2){
+                                getFragmentManager().findFragmentByTag("scanningDoc").onDestroy();
+                                cntr2++;
+                                keyStrings = cntr2;
+
+                                if (cntr2 > 1) {
+                                    prv.setVisibility(View.VISIBLE);
+                                }
+                                nxt.setVisibility(View.INVISIBLE);
+                                counter.setText(String.valueOf((cntr2) + "/" + (cntr2)));
+
+                                loadBitmap(R.drawable.docu, cntr2);
+
+                            }
+                        }
+                    }, 4000);
+
+                    /*new Thread(new Runnable() {
                         @Override
                         public void run() {
                             scanPhotoDialog3.show(getFragmentManager(), "MyProgress");
@@ -165,7 +188,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
                             //
                         }
                     }).start();
-
+*/
                 }
 
 
@@ -245,12 +268,14 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
                     drive2.setVisibility(View.VISIBLE);
                     skyDrive2.setVisibility(View.VISIBLE);
                     visible2 = true;
+                    sendIcon.setImageResource(R.mipmap.send_icon);
                 } else {
                     save2.setVisibility(View.GONE);
                     email2.setVisibility(View.GONE);
                     drive2.setVisibility(View.GONE);
                     skyDrive2.setVisibility(View.GONE);
                     visible2 = false;
+                    sendIcon.setImageResource(R.mipmap.close_icon);
                 }
 
             }
@@ -314,16 +339,6 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
 
                     civ2.setImageBitmap(getBitmapFromMemoryCache(String.valueOf(keyStrings)));
 
-
-//                    ImageLoader.getInstance().displayImage("drawable://" + resID[(cntr2-1) % 3], civ2, new DisplayImageOptions.Builder()
-//                            .cacheInMemory(true)
-//                            .cacheOnDisk(true)
-//                            .displayer(new SimpleBitmapDisplayer())
-//                            .build());
-                    //ImageLoader.getInstance().displayImage("drawable://" + resID[(cntr - 1) % 3], civ2, dim);
-                    //Picasso.with(getApplicationContext()).load(resID[(cntr - 1) % 3]).memoryPolicy(MemoryPolicy.NO_STORE, MemoryPolicy.NO_CACHE).into(civ2);
-                    //civ2.setImageURI(bitmapArrayList.get((cntr - 1)% 3));
-                    //imv1.setImageResource(imgID[(cntr-1) % 3]);
                 }
 
                 break;
@@ -477,6 +492,24 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
         BitmapWorkerTask task = new BitmapWorkerTask(keyStrings);
         task.execute(resId);
     }
+    public void scanCanceledDoc(){
+
+        final AirprintSavingSettings airprintSavingSettings = new AirprintSavingSettings();
+        airprintSavingSettings.show(getFragmentManager(), "canceling");
+        airprintSavingSettings.setCancelable(false);
+        final Handler handler = new Handler();
+        final Runnable run = new Runnable() {
+            @Override
+            public void run() {
+                getFragmentManager().findFragmentByTag("canceling").onDestroy();
+                final ScanCanceledAlert scanCanceledAlert =new ScanCanceledAlert();
+                scanCanceledAlert.setCancelable(false);
+                scanCanceledAlert.show(getFragmentManager(), "docu2");
+            }
+        };
+        handler.postDelayed(run, 4000);
+    }
+
 
 
 }

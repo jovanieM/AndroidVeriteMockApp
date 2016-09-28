@@ -93,8 +93,8 @@ public class WS00_030 extends Activity {
         btnSaveSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RingDialog ringDialog = new RingDialog(WS00_030.this, "", "Setting", true);
-                ringDialog.run();
+//                RingDialog ringDialog = new RingDialog(WS00_030.this, "", "Setting", true);
+//                ringDialog.run();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override

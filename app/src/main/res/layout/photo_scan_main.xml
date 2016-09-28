@@ -39,7 +39,7 @@
         style="@android:style/Widget.Button"
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/relativeLayout2"
+        android:layout_above="@+id/button_container"
         android:layout_alignEnd="@+id/email"
         android:layout_alignRight="@+id/email"
         android:clickable="true"
@@ -127,7 +127,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout2"
+        android:id="@+id/button_container"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"

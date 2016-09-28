@@ -30,7 +30,7 @@ public class PhotoScanMain extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photo_scan_main);
-
+        this.setFinishOnTouchOutside(false);
         kodakVeriteApp= new KodakVeriteApp();
 
         mBack = (Button) findViewById(R.id.back);
@@ -79,48 +79,22 @@ public class PhotoScanMain extends Activity{
     public void exec (){
 
         final ScanPhotoDialog scanDialog = ScanPhotoDialog.newInstance("Scan Photo");
-        scanDialog.setCancelable(true);
+        scanDialog.setCancelable(false);
         scanDialog.show(getFragmentManager(),"scan");
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
-                if(test){
-
-                    Thread.currentThread().interrupt();
-                   //
-
-                    new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
-                    //scanDialog.dismiss();
-                }else{
+                if(!test) {
 
                     finish();
                     startActivity(new Intent(PhotoScanMain.this, SP_000.class));
                 }
+
             }
         },4000);
-//        Thread t = new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                scanDialog.show(getFragmentManager(),"scan");
-//                try {
-//                    Thread.sleep(4000);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                if(test){
-//                    new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(),"dialog");
-//
-//                    scanDialog.dismiss();
-//                }else{
-//                    startActivity(new Intent(PhotoScanMain.this, SP_000.class));
-//                }
-//            }
-//        });
-//        t.start();
-//
+
 
     }
 
@@ -132,4 +106,24 @@ public class PhotoScanMain extends Activity{
         photoColor.setText(kodakVeriteApp.getScanPhotoSettingColor());
         photoDocument.setText(kodakVeriteApp.getScanPhotoSettingDocument());
     }
+
+    public void scanCanceled1(){
+        final AirprintSavingSettings airprintSavingSettings = new AirprintSavingSettings();
+        airprintSavingSettings.show(getFragmentManager(), "canceling");
+        airprintSavingSettings.setCancelable(false);
+        final Handler handler = new Handler();
+        final Runnable run = new Runnable() {
+            @Override
+            public void run() {
+                getFragmentManager().findFragmentByTag("canceling").onDestroy();
+                final ScanCanceledAlert scanCanceledAlert =new ScanCanceledAlert();
+                scanCanceledAlert.setCancelable(false);
+                scanCanceledAlert.show(getFragmentManager(), "photo");
+            }
+        };
+        handler.postDelayed(run, 4000);
+    }
+
+
+
 }

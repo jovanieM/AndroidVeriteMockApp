@@ -38,8 +38,8 @@ public class Fragment_ES30_050 extends Fragment {
             @Override
             public void onClick(View view) {
 
-                RingDialog ringDialog = new RingDialog(getActivity(), "", "Setting", true);
-                ringDialog.run();
+//                RingDialog ringDialog = new RingDialog(getActivity(), "", "Setting", true);
+//                ringDialog.run();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override

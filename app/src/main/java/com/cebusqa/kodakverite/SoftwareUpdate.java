@@ -68,7 +68,7 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
 
     public void onClick(View v) {
         if (v == btnBack) {
-            startActivity(new Intent(SoftwareUpdate.this, DS_device.class));
+            //startActivity(new Intent(SoftwareUpdate.this, DS_device.class));
             finish();
         } else if (v == btnUpdate) {
             startActivity(new Intent(SoftwareUpdate.this, UpdatePrinterSoftware.class));
@@ -102,11 +102,11 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
-            RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
-            dialog.run();
+//            RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
+//            dialog.run();
         } else {
-            RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
-            dialog.run();
+//            RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
+//            dialog.run();
         }
     }
 

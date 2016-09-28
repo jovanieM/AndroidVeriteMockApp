@@ -32,7 +32,7 @@ public class DS_device extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DS_device.this, DS10_000.class));
+                //startActivity(new Intent(DS_device.this, DS10_000.class));
                 finish();
             }
         });
@@ -42,7 +42,7 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View view) {
             startActivity(new Intent(DS_device.this, PU00_0000.class));
-                finish();
+                //finish();
             }
         });
 
@@ -51,7 +51,7 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DS_device.this, WS00_000.class));
-                finish();
+                //finish();
             }
         });
 
@@ -60,7 +60,7 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DS_device.this, NetworkStatus_details.class));
-                finish();
+                //finish();
             }
         });
 
@@ -68,8 +68,8 @@ public class DS_device extends AppCompatActivity {
         google_cloud.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), GoogleCloudPrint.class));
-                finish();
+                startActivity(new Intent(DS_device.this, GoogleCloudPrint.class));
+                //finish();
             }
         });
 
@@ -77,8 +77,9 @@ public class DS_device extends AppCompatActivity {
         air_print.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),AirPrint.class));
-                finish();
+                Intent intent = new Intent(DS_device.this,AirPrint.class);
+                startActivity(intent);
+
             }
         });
 
@@ -87,14 +88,14 @@ public class DS_device extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DS_device.this, SoftwareUpdate.class));
-                finish();
+                //finish();
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(DS_device.this, DS10_000.class));
+        //startActivity(new Intent(DS_device.this, DS10_000.class));
         finish();
     }
 }

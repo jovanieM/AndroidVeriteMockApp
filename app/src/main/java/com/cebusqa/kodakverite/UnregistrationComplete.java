@@ -12,28 +12,22 @@ import android.widget.TextView;
 /**
  * Created by Cebu SQA on 28/06/2016.
  */
-public class UnregistrationComplete extends DialogFragment {
+public class UnregistrationComplete extends DialogFragment{
 
-    public static UnregistrationComplete newInstance(String message){
-        UnregistrationComplete unregistrationComplete = new UnregistrationComplete();
-        Bundle args = new Bundle();
-        args.putString("message", message);
-        unregistrationComplete.setArguments(args);
-        return unregistrationComplete;
-    }
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        String message = getArguments().getString("message");
 
-      AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        final LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.unregistration_complete, null);
-        TextView tv = (TextView) view.findViewById(R.id.unreg_comp_alert);
-        tv.setText(message);
-        builder.setView(view);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
+        builder.setMessage("Settings is saved");
 
+        return builder.create();
 
-        Dialog scanDialog = builder.create();
-        return scanDialog;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        dismiss();
     }
 }

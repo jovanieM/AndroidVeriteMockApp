@@ -175,8 +175,7 @@ public class KodakVeriteApp extends Application {
 
     }
     public void clearByteData(){
-        if (bitmapData != null)
-        bitmapData = null;
+        if (bitmapData != null) bitmapData = null;
     }
 
     public String getPaperType() {

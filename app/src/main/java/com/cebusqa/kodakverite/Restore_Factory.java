@@ -35,8 +35,8 @@ public class Restore_Factory extends Activity{
                         .setPositiveButton("Restore", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
 
-                                RingDialog ringDialog = new RingDialog(Restore_Factory.this, "", "Please wait...", true);
-                                ringDialog.run();
+//                                RingDialog ringDialog = new RingDialog(Restore_Factory.this, "", "Please wait...", true);
+//                                ringDialog.run();
 
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Restore_Factory.this, AlertDialog.THEME_HOLO_LIGHT);
                                 builder.setTitle("Printer rebooting...");

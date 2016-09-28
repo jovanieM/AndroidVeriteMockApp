@@ -28,15 +28,19 @@ public class ScanPhotoDialog2 extends DialogFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-
-                new RingDialog(getActivity(), "Canceling...", null, true).run();
-
+                //new RingDialog(getActivity(), "Canceling...", null, true).run();
+                //AirprintSavingSettings.newInstance("Canceling...").show(getFragmentManager(), "cancel");
 
                 if (getActivity() instanceof SP_000) {
                     ((SP_000) getActivity()).test2 = true;
+                    ((SP_000) getActivity()).scanCanceled();
+
+
+
                 }
                 if (getActivity() instanceof DocumentScan2) {
                     ((DocumentScan2) getActivity()).dtest2 = true;
+                    ((DocumentScan2) getActivity()).scanCanceledDoc();
                 }
 
 
@@ -56,4 +60,6 @@ public class ScanPhotoDialog2 extends DialogFragment {
         dismiss();
         super.onDestroy();
     }
+
+
 }
