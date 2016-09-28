@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
@@ -13,17 +11,6 @@
         android:src="@drawable/checkmark_list_none"
         android:background="@drawable/item_selector"
         android:id="@+id/iv_checkmark"
-=======
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <ImageView
-        android:id="@+id/check_mark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/checkmark_list"
->>>>>>> f329655456eed3d80ee1867da253af13ae00a2af
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -32,24 +19,11 @@
         android:id="@+id/expanded_list_document_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="start"
-        android:paddingBottom="10dp"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
         android:paddingTop="10dp"
-<<<<<<< HEAD
         android:paddingBottom="10dp"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/iv_checkmark"
         android:layout_toStartOf="@+id/iv_checkmark" />
-=======
-        android:textColor="@color/yellow"
-        android:text="item 1"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/check_mark"
-        android:layout_toStartOf="@+id/check_mark"
-        android:layout_marginRight="17dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginTop="11dp" />
->>>>>>> f329655456eed3d80ee1867da253af13ae00a2af
 
 </RelativeLayout>
