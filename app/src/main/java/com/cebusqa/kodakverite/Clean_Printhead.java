@@ -3,6 +3,7 @@ package com.cebusqa.kodakverite;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -34,6 +35,10 @@ public class Clean_Printhead extends Activity{
 //                    RingDialog ringDialog = new RingDialog(Clean_Printhead.this, "", "Printhead Cleaning...", true);
 //                    ringDialog.run();
 
+                final ProgressDialog pd = new ProgressDialog(Clean_Printhead.this, ProgressDialog.THEME_HOLO_LIGHT);
+                pd.setMessage("Printhead Cleaning...");
+                pd.setCancelable(false);
+                pd.show();
 
                     new Handler().postDelayed(new Runnable() {
                         @Override

@@ -78,7 +78,20 @@ public class WS00_060 extends Activity {
 //                RingDialog ringDialog = new RingDialog(WS00_060.this, "", "Setting", true);
 //                ringDialog.run();
 
+                final ProgressDialog pd = new ProgressDialog(WS00_060.this, ProgressDialog.THEME_HOLO_LIGHT);
+                pd.setMessage("Setting...");
+                pd.setCancelable(false);
+                pd.show();
+
                 new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        pd.dismiss();
+                        close();
+                    }
+                }, 4000);
+
+                /* new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         AlertDialog.Builder ad = new AlertDialog.Builder(WS00_060.this);
@@ -94,7 +107,7 @@ public class WS00_060 extends Activity {
                         startActivity(new Intent(WS00_060.this, WS00_000.class));
                         finish();
                     }
-                }, 4000);
+                }, 4000); */
             }
         });
     }
@@ -110,5 +123,29 @@ public class WS00_060 extends Activity {
         SharedPreferences.Editor preferenceEditor = savedNotes.edit();
         preferenceEditor.putString("tag", tag);
         preferenceEditor.commit();
+    }
+
+    public void close(){
+        final UnregistrationComplete unregistrationComplete = new UnregistrationComplete();
+        unregistrationComplete.show(getFragmentManager(), "tag");
+        unregistrationComplete.setCancelable(false);
+        final Handler handler = new Handler();
+        final Runnable run =new Runnable() {
+            @Override
+            public void run() {
+                if (etFriendlyName.getText().length() > 0) {
+                    makeTag(etFriendlyName.getText().toString());
+                }
+                ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(etFriendlyName.getWindowToken(), 0);
+
+                startActivity(new Intent(WS00_060.this, WS00_000.class));
+                getFragmentManager().findFragmentByTag("tag").onDestroy();
+                finish();
+
+
+            }
+        };
+
+        handler.postDelayed(run, 4000);
     }
 }

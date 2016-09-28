@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -98,7 +99,20 @@ public class WS00_050 extends Activity {
 //                RingDialog ringDialog = new RingDialog(WS00_050.this, "", "Setting", true);
 //                ringDialog.run();
 
+                final ProgressDialog pd = new ProgressDialog(WS00_050.this, ProgressDialog.THEME_HOLO_LIGHT);
+                pd.setMessage("Setting...");
+                pd.setCancelable(false);
+                pd.show();
+
                 new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        pd.dismiss();
+                        close();
+                    }
+                }, 4000);
+
+                /* new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         AlertDialog.Builder ad = new AlertDialog.Builder(WS00_050.this);
@@ -110,7 +124,7 @@ public class WS00_050 extends Activity {
                         startActivity(new Intent(WS00_050.this, WS00_000.class));
                         finish();
                     }
-                }, 4000);
+                }, 4000); */
             }
         });
     }
@@ -119,5 +133,23 @@ public class WS00_050 extends Activity {
     public void onBackPressed() {
         startActivity(new Intent(WS00_050.this, WS00_000.class));
         finish();
+    }
+
+    public void close(){
+        final UnregistrationComplete unregistrationComplete = new UnregistrationComplete();
+        unregistrationComplete.show(getFragmentManager(), "tag");
+        unregistrationComplete.setCancelable(false);
+        final Handler handler = new Handler();
+        final Runnable run =new Runnable() {
+            @Override
+            public void run() {
+                kodakVeriteApp.setDirectTime(items[directPos]);
+                startActivity(new Intent(WS00_050.this, WS00_000.class));
+                getFragmentManager().findFragmentByTag("tag").onDestroy();
+                finish();
+            }
+        };
+
+        handler.postDelayed(run, 4000);
     }
 }

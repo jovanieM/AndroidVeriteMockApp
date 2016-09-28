@@ -1,6 +1,7 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,6 +29,11 @@ public class Print_Reports extends Activity {
 
 //                RingDialog ringDialog = new RingDialog(Print_Reports.this, "", "Printing...", true);
 //                ringDialog.run();
+
+                final ProgressDialog pd = new ProgressDialog(Print_Reports.this, ProgressDialog.THEME_HOLO_LIGHT);
+                pd.setMessage("Printing...");
+                pd.setCancelable(false);
+                pd.show();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override

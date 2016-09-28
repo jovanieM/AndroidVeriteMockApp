@@ -60,8 +60,6 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
                     KodakVeriteApp.airprintPrvState = apStatusChanger.isChecked();
                     //Toast.makeText(getApplicationContext(), "yes", Toast.LENGTH_SHORT).show();
 
-
-
                     final ProgressDialog pd1 = new ProgressDialog(AirPrint.this, ProgressDialog.THEME_HOLO_LIGHT);
                     pd1.setMessage("Setting...");
                     pd1.setCancelable(false);
@@ -76,15 +74,10 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
                         @Override
                         public void run() {
                             if(pd1.isShowing())pd1.dismiss();
-
                             //getFragmentManager().findFragmentByTag("settingAP").onDestroy();
                             close();
-
                         }
                     }, 4000);
-
-
-
                 }
             }
         });
@@ -109,9 +102,6 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
             @Override
             public void run() {
                 cancel = false;
-
-
-
 //                AirprintDialog alertDialog  = AirprintDialog.newInstance("Getting Network information");
 //                alertDialog.setCancelable(false);
 //                alertDialog.show(getFragmentManager(), "tag4");

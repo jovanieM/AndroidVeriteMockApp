@@ -45,10 +45,10 @@ public class GcpRegisterUnregister extends Activity {
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(GcpRegisterUnregister.this, GoogleCloudPrint.class));
+                //startActivity(new Intent(GcpRegisterUnregister.this, GoogleCloudPrint.class));
                 pd.dismiss();
                 //isCanceled = false;
-                finish();
+                //finish();
             }
         });
         pd.show();

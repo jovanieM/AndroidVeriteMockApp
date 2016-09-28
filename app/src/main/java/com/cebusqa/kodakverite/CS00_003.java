@@ -21,7 +21,7 @@ public class CS00_003 extends Activity {
             @Override
             public void run() {
 
-                final AlertDialog.Builder dialog = new AlertDialog.Builder(CS00_003.this).setMessage("Cartridge Setup complete");
+                final AlertDialog.Builder dialog = new AlertDialog.Builder(CS00_003.this, AlertDialog.THEME_HOLO_LIGHT).setMessage("Cartridge Setup complete");
                 final AlertDialog alert = dialog.create();
 
                 alert.show();

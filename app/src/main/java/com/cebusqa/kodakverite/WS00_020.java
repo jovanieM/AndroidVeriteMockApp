@@ -87,7 +87,7 @@ public class WS00_020 extends Activity {
         btnSaveSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder ad = new AlertDialog.Builder(WS00_020.this);
+                AlertDialog.Builder ad = new AlertDialog.Builder(WS00_020.this, AlertDialog.THEME_HOLO_LIGHT);
                 ad.setMessage("If [OK] is touched, IP address setting is modified, and this app is closed.");
                 ad.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override

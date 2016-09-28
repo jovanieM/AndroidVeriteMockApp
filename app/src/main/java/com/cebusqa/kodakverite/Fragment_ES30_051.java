@@ -1,6 +1,7 @@
 package com.cebusqa.kodakverite;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,16 +27,19 @@ public class Fragment_ES30_051 extends Fragment {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getActivity(), HM10_000.class));
+
+                close();
+
+                /* startActivity(new Intent(getActivity(), HM10_000.class));
                 getActivity().onBackPressed();
 
-                AlertDialog.Builder ad = new AlertDialog.Builder(getActivity());
+                 AlertDialog.Builder ad = new AlertDialog.Builder(getActivity());
                 ad.setMessage("Connection complete");
                 ad.setCancelable(false);
                 AlertDialog adc = ad.create();
-                adc.show();
+                adc.show(); */
             }
-        }, 5000);
+        }, 4000);
 
         //disable Back key
         view.setFocusableInTouchMode(true);
@@ -53,5 +57,24 @@ public class Fragment_ES30_051 extends Fragment {
         });
 
         return view;
+    }
+
+    public void close() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
+        builder.setMessage("Connection complete.");
+        builder.setCancelable(false);
+        final Dialog dialog = builder.create();
+        dialog.show();
+        final Handler handler = new Handler();
+        final Runnable run = new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(getActivity(), HM10_000.class));
+                getActivity().onBackPressed();
+                //getFragmentManager().findFragmentByTag("tag").onDestroy();
+                dialog.dismiss();
+            }
+        };
+        handler.postDelayed(run, 4000);
     }
 }

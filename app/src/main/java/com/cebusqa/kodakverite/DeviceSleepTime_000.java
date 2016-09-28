@@ -117,6 +117,11 @@ public class DeviceSleepTime_000 extends Activity implements View.OnClickListene
 //                RingDialog ringDialog = new RingDialog(DeviceSleepTime_000.this, "", "Setting is saved...", true);
 //                ringDialog.run();
 
+                final ProgressDialog pd = new ProgressDialog(DeviceSleepTime_000.this, ProgressDialog.THEME_HOLO_LIGHT);
+                pd.setMessage("Setting...");
+                pd.setCancelable(false);
+                pd.show();
+
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

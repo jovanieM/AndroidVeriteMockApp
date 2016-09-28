@@ -96,16 +96,16 @@ public class WS00_030 extends Activity {
 //                RingDialog ringDialog = new RingDialog(WS00_030.this, "", "Setting", true);
 //                ringDialog.run();
 
+                final ProgressDialog pd = new ProgressDialog(WS00_030.this, ProgressDialog.THEME_HOLO_LIGHT);
+                pd.setMessage("Setting...");
+                pd.setCancelable(false);
+                pd.show();
+
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        AlertDialog.Builder ad = new AlertDialog.Builder(WS00_030.this);
-                        ad.setMessage("Setting saved");
-                        AlertDialog adc = ad.create();
-                        //adc.show();
-
-                        startActivity(new Intent(WS00_030.this, WS00_000.class));
-                        finish();
+                        pd.dismiss();
+                        close();
                     }
                 }, 4000);
             }
@@ -116,5 +116,23 @@ public class WS00_030 extends Activity {
     public void onBackPressed() {
         startActivity(new Intent(WS00_030.this, WS00_000.class));
         finish();
+    }
+
+    public void close() {
+        final UnregistrationComplete unregistrationComplete = new UnregistrationComplete();
+        unregistrationComplete.show(getFragmentManager(), "tag");
+        unregistrationComplete.setCancelable(false);
+        final Handler handler = new Handler();
+        final Runnable run = new Runnable() {
+            @Override
+            public void run() {
+
+                startActivity(new Intent(WS00_030.this, WS00_000.class));
+                getFragmentManager().findFragmentByTag("tag").onDestroy();
+                finish();
+            }
+        };
+
+        handler.postDelayed(run, 4000);
     }
 }
