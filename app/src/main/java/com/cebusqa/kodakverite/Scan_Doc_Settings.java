@@ -54,12 +54,17 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int prev_item = -1;
             @Override
             public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List expanded.", Toast.LENGTH_SHORT).show();
+                if(groupPosition != prev_item){
+                    expandableListView.collapseGroup(prev_item);
+                    prev_item = groupPosition;
+                }
+                //Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List expanded.", Toast.LENGTH_SHORT).show();
             }
         });
-        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+        /*expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
             @Override
             public void onGroupCollapse(int groupPosition) {
                 Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List collapse.", Toast.LENGTH_SHORT).show();
@@ -71,7 +76,7 @@ public class Scan_Doc_Settings extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "->" + expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
                 return false;
             }
-        });
+        });*/
     }
 }
 
