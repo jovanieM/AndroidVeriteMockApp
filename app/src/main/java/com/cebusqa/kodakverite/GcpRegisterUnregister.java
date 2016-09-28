@@ -64,7 +64,6 @@ public class GcpRegisterUnregister extends Activity {
             }
         }).start();
 
-
         regUnreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,16 +97,17 @@ public class GcpRegisterUnregister extends Activity {
                             if (!Canceled) {
                                 KodakVeriteApp.currentStatusValue = 1;
                                 finish();
-
                             }
-
                         }
                     }).start();
                 }
-
             }
         });
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(GcpRegisterUnregister.this, GoogleCloudPrint.class));
+        finish();
     }
 }

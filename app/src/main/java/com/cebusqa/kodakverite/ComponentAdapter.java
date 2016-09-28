@@ -94,7 +94,6 @@ public class ComponentAdapter extends ArrayAdapter {
 
 
             if (objects[position].equals(kodakVeriteApp.getCopyPaperSize())){
-
                 holder.check_mark.setSelected(true);
             }
             else if (objects[position].equals(kodakVeriteApp.getCopyColor())){
@@ -116,12 +115,17 @@ public class ComponentAdapter extends ArrayAdapter {
                 holder.check_mark.setSelected(true);
             }
             else if(objects[position].equals(kodakVeriteApp.getQuickPrintItem())) {
-                holder.content.setTextColor(Color.WHITE);
                 holder.check_mark.setSelected(true);
             }
             else if(objects[position].equals(kodakVeriteApp.getDirectTime())){
                 holder.check_mark.setSelected(true);
             }
+            /* else if(objects[position].equals(kodakVeriteApp.getPaperSize())){
+                holder.check_mark.setSelected(true);
+            }
+            else if(objects[position].equals(kodakVeriteApp.getPaperType())){
+                holder.check_mark.setSelected(true);
+            }*/
             else{
                 holder.check_mark.setSelected(false);
             }

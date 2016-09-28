@@ -26,10 +26,6 @@ public class Print_Reports extends Activity {
         btn_report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-//                RingDialog ringDialog = new RingDialog(Print_Reports.this, "", "Printing...", true);
-//                ringDialog.run();
-
                 final ProgressDialog pd = new ProgressDialog(Print_Reports.this, ProgressDialog.THEME_HOLO_LIGHT);
                 pd.setMessage("Printing...");
                 pd.setCancelable(false);
@@ -38,7 +34,7 @@ public class Print_Reports extends Activity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(Print_Reports.this, Print_Reports.class);
+                        Intent intent = new Intent(Print_Reports.this, PU00_0000.class);
                         startActivity(intent);
                         finish();
                     }
@@ -53,5 +49,11 @@ public class Print_Reports extends Activity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Print_Reports.this, PU00_0000.class));
+        finish();
     }
 }

@@ -11,7 +11,7 @@ import android.widget.Button;
 /**
  * Created by SQA Cebu on 6/21/2016.
  */
-public class Restore_Factory extends Activity{
+public class Restore_Factory extends Activity {
 
     Button btn_restore, btnBack;
 
@@ -26,40 +26,23 @@ public class Restore_Factory extends Activity{
         btn_restore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 AlertDialog.Builder builder = new AlertDialog.Builder(Restore_Factory.this, AlertDialog.THEME_HOLO_LIGHT);
                 builder.setMessage("Are you sure you want to restore factory default?")
                         .setCancelable(false)
                         .setPositiveButton("Restore", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-
-//                                RingDialog ringDialog = new RingDialog(Restore_Factory.this, "", "Please wait...", true);
-//                                ringDialog.run();
-
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Restore_Factory.this, AlertDialog.THEME_HOLO_LIGHT);
                                 builder.setTitle("Printer rebooting...");
                                 builder.setMessage("Press [OK] to close this app. Please restart this app after rebooting the printer.")
-                                .setCancelable(false)
+                                        .setCancelable(false)
                                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
-    //                                            new KodakVeriteApp().onTerminate();
-    //                                            moveTaskToBack(true);
-    //                                            android.os.Process.killProcess(android.os.Process.myPid());
-//                                                System.exit(1);
                                                 startActivity(new Intent(Restore_Factory.this, Splash.class));
-
+                                                finish();
                                             }
-                                                });
-
-
+                                        });
                                 AlertDialog alert = builder.create();
                                 alert.show();
-
-
-
-
-
-
                             }
                         })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -69,11 +52,8 @@ public class Restore_Factory extends Activity{
                         });
                 AlertDialog alert = builder.create();
                 alert.show();
-
-
-               }
+            }
         });
-
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,5 +64,9 @@ public class Restore_Factory extends Activity{
         });
     }
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(Restore_Factory.this, PU00_0000.class));
+        finish();
+    }
 }

@@ -30,6 +30,7 @@ public class GoogleCloudPrint extends Activity implements View.OnClickListener {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(GoogleCloudPrint.this, DS_device.class));
                 finish();
             }
         });
@@ -58,4 +59,9 @@ public class GoogleCloudPrint extends Activity implements View.OnClickListener {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(GoogleCloudPrint.this, DS_device.class));
+        finish();
+    }
 }

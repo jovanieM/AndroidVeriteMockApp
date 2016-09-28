@@ -77,7 +77,6 @@ public class PU00_0000 extends Activity {
             public void onClick(View v) {
                 startActivity(new Intent(PU00_0000.this, Restore_Factory.class));
                 finish();
-
             }
         });
 

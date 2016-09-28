@@ -40,6 +40,7 @@ public class GcpEnableDisable extends Activity implements CompoundButton.OnCheck
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(GcpEnableDisable.this, GoogleCloudPrint.class));
                 finish();
             }
         });
@@ -160,6 +161,11 @@ public class GcpEnableDisable extends Activity implements CompoundButton.OnCheck
         }else{
             textView.setText("Disable");
         }
+    }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(GcpEnableDisable.this, GoogleCloudPrint.class));
+        finish();
     }
 }

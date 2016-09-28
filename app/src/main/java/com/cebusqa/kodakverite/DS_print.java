@@ -28,10 +28,9 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
         detail = (ImageButton) findViewById(R.id.detail);
         back = (Button)findViewById(R.id.back);
 
-
-
         back.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
+                startActivity(new Intent(DS_print.this, DS10_000.class));
                 finish();
             }
         });
@@ -92,6 +91,7 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
     @Override
     public void onBackPressed() {
+        startActivity(new Intent(DS_print.this, DS10_000.class));
         finish();
         //super.onBackPressed();
     }

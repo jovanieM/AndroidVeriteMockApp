@@ -46,7 +46,7 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(AirPrint.this, DS_device.class));
+                startActivity(new Intent(AirPrint.this, DS_device.class));
                 finish();
             }
         });
@@ -54,7 +54,7 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
         saveSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), String.valueOf(prevState)+ String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), String.valueOf(prevState)+ String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
 
                 if (prevState != apStatusChanger.isChecked()) {
                     KodakVeriteApp.airprintPrvState = apStatusChanger.isChecked();
@@ -64,10 +64,6 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
                     pd1.setMessage("Setting...");
                     pd1.setCancelable(false);
                     pd1.show();
-
-//                    final AirprintSavingSettings airprintSavingSettings = new AirprintSavingSettings();
-//                    airprintSavingSettings.show(getFragmentManager(), "settingAP");
-//                    airprintSavingSettings.setCancelable(false);
 
                     final Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
@@ -95,7 +91,6 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
             }
         });
         pd.show();
-
 
         t = new Thread(new Runnable() {
 
@@ -146,11 +141,11 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
         if (isChecked) {
             textView.setText("Enable");
 
-            Toast.makeText(getApplicationContext(), String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
         } else {
             textView.setText("Disable");
 
-            Toast.makeText(getApplicationContext(), String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -168,12 +163,17 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
         final Runnable run =new Runnable() {
             @Override
             public void run() {
+                startActivity(new Intent(AirPrint.this, DS_device.class));
                 getFragmentManager().findFragmentByTag("tag").onDestroy();
                 finish();
             }
         };
+        handler.postDelayed(run, 4000);
+    }
 
-
-        handler.postDelayed(run, 2000);
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(AirPrint.this, DS_device.class));
+        finish();
     }
 }

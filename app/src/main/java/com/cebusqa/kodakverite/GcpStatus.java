@@ -68,7 +68,11 @@ public class GcpStatus extends Activity {
 
             }
         }).start(); */
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(GcpStatus.this, GoogleCloudPrint.class));
+        finish();
     }
 }

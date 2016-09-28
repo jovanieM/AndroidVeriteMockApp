@@ -38,7 +38,6 @@ public class KodakVeriteApp extends Application {
 
 //    ArrayList<Integer> imagePerFolder;
 
-
     private static String scanSettingQuality;
     private static String scanSettingColor;
     private static String scanDocSettingDocument;
@@ -64,7 +63,6 @@ public class KodakVeriteApp extends Application {
     private static String copyQuality;
     private static String directTime;
 
-
     private String TAG = "PermisssionDemo";
     final private int RECORD_REQUEST_CODE = 123;
 
@@ -75,8 +73,6 @@ public class KodakVeriteApp extends Application {
     static byte[] bitmapData;
 
     private static String quickPrint;
-
-
 
     @Override
     public void onCreate() {
@@ -281,7 +277,6 @@ public class KodakVeriteApp extends Application {
         this.scanSettingColor = scanSettingColor;
     }
 
-
     public String getScanDocSettingDocument() {
         if (scanDocSettingDocument == null) {
             setScanDocSettingDocument("Text/Graphics");
@@ -327,7 +322,6 @@ public class KodakVeriteApp extends Application {
         this.scanPhotoSettingQuality = scanPhotoSettingQuality;
     }
 
-
     public void setPagesPerSide(String pagesPerSide) {
         this.pagesPerSide = pagesPerSide;
     }
@@ -365,12 +359,8 @@ public class KodakVeriteApp extends Application {
         KodakVeriteApp.copyPaperSize = copyPaperSize;
     }
 
-
-
     public String getCopyPaperSize(){
         if (copyPaperSize == null){
-
-
             setCopyPaperSize("Letter");
         }
         return copyPaperSize;
@@ -380,11 +370,8 @@ public class KodakVeriteApp extends Application {
         KodakVeriteApp.copyPaperType = copyPaperType;
     }
 
-
-
     public String getCopyPaperType () {
         if (copyPaperType == null){
-
             setCopyPaperType("Plain");
         }
         return copyPaperType;
@@ -394,12 +381,8 @@ public class KodakVeriteApp extends Application {
         KodakVeriteApp.copyQuality = copyQuality;
     }
 
-
-
     public String getCopyQuality () {
         if (copyQuality == null){
-
-
             setCopyQuality("Text");
         }
         return copyQuality;
@@ -419,7 +402,6 @@ public class KodakVeriteApp extends Application {
     public byte[] getBitmapData() {
         return bitmapData;
     }
-
 
     public void setBitmapData(byte[] bitmap) {
         bitmapData = bitmap;
