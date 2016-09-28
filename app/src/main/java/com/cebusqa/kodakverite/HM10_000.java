@@ -1,22 +1,29 @@
 package com.cebusqa.kodakverite;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class HM10_000 extends AppCompatActivity implements Communicator {
 
-    ImageButton  scanphoto, scandocument, photoprint, ecomode, setting_icon, search_icon, printer;
+    ImageButton scanphoto, scandocument, photoprint, ecomode, setting_icon, search_icon, printer;
     LinearLayout photo_print, ink_level, copy_icon, scan_document, scan_photo;
     private int currentImage = 0;
     int[] images = {R.mipmap.ecomode_off, R.mipmap.ecomode1, R.mipmap.ecomode2};
@@ -25,6 +32,8 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
     ProgressBar progressbar;
     Drawable drawable;
     private static final String ADDPRINTER = "Add new printer";
+    KodakVeriteApp kodakVeriteApp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +42,7 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
 
         drawable = ContextCompat.getDrawable(getApplicationContext(), R.drawable.rectangular_bg);
 
-
+        kodakVeriteApp = new KodakVeriteApp();
         copy = (ImageView) findViewById(R.id.copy);
         ecomode = (ImageButton) findViewById(R.id.ecomode);
         scanphoto = (ImageButton) findViewById(R.id.scanphoto);
@@ -87,8 +96,21 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
 
         photo_print.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                int myVersion = Build.VERSION.SDK_INT;
+                if (myVersion > Build.VERSION_CODES.LOLLIPOP_MR1) {
 
-                startActivity(new Intent(HM10_000.this, PhotoPrintDirs.class));
+                    if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        requestPermissionToReadStorage();
+                    }else{
+
+                        startActivity(new Intent(HM10_000.this, PhotoPrintDirs.class));
+                    }
+                }else{
+
+                    startActivity(new Intent(HM10_000.this, PhotoPrintDirs.class));
+                }
+
+
             }
         });
 
@@ -151,10 +173,31 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
 
     }
 
+    private void requestPermissionToReadStorage() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET}, 101);
+
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case 101:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED){
+
+
+                    startActivity(new Intent(HM10_000.this, PhotoPrintDirs.class));
+                }else{
+                    Toast.makeText(getApplicationContext(), "Read/Write external storage and Internet permissions are needed to be allowed for viewing images", Toast.LENGTH_LONG).show();
+                }
+        }
+
+    }
+
     @Override
     public void respond(String printer, boolean cancel) {
 
-        if(cancel){
+        if (cancel) {
             progressbar.setVisibility(View.INVISIBLE);
             checkmark.setVisibility(View.VISIBLE);
             checkmark.setImageResource(R.drawable.notfound);
@@ -169,7 +212,7 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
             scan_document.setClickable(false);
             scan_photo.setClickable(false);
 
-        }else {
+        } else {
             checkmark.setVisibility(View.VISIBLE);
             checkmark.setImageResource(R.mipmap.checkmark_large);
             printer_name.setText(printer);
@@ -184,7 +227,6 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
             copy_icon.setClickable(true);
             scan_document.setClickable(true);
             scan_photo.setClickable(true);
-
 
 
         }
