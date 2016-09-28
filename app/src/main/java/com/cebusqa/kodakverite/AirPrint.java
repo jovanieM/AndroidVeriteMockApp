@@ -54,8 +54,8 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
         saveSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getApplicationContext(), String.valueOf(prevState)+ String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
 
+                //Toast.makeText(getApplicationContext(), String.valueOf(prevState)+ String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
                 if (prevState != apStatusChanger.isChecked()) {
                     KodakVeriteApp.airprintPrvState = apStatusChanger.isChecked();
                     //Toast.makeText(getApplicationContext(), "yes", Toast.LENGTH_SHORT).show();
@@ -140,12 +140,8 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
             textView.setText("Enable");
-
-            //Toast.makeText(getApplicationContext(), String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
         } else {
             textView.setText("Disable");
-
-            //Toast.makeText(getApplicationContext(), String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
         }
     }
 

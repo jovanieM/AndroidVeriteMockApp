@@ -32,6 +32,7 @@ import com.nostra13.universalimageloader.utils.IoUtils;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 /**
  * Created by Cebu SQA on 29/06/2016.
@@ -58,6 +59,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
     Intent chooser;
     TextView paperSize, paperType, printQuality;
     KodakVeriteApp kodakVeriteApp;
+    ArrayList <String> pic;
 
 
     @Override
@@ -81,6 +83,10 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         tv.bringToFront();
         toggleButton.setChecked(true);
         toggleButton.setOnCheckedChangeListener(this);
+        pic = new ArrayList<>();
+        pic.add(fullImage);
+
+        kodakVeriteApp.setThumbData(pic);
 
         // bring 3 textview from print settings layout
         paperSize = (TextView) findViewById(R.id.paper_size);
@@ -131,7 +137,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
                                                      if (prevY - event.getRawY() > 200) {
                                                          imDisplay.setY(0 - imDisplay.getHeight());
 
-                                                         startActivity(new Intent(getApplication(), FlickPrintOut.class));
+                                                         startActivity(new Intent(getApplication(), MultiplePrintQueue.class));
                                                          finish();
                                                      } else {
                                                          imDisplay.setY(displayYcoor);
