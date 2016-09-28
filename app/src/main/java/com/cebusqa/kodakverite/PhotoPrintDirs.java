@@ -1,9 +1,11 @@
 package com.cebusqa.kodakverite;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +33,7 @@ public class PhotoPrintDirs extends Activity {
     int count;
     String strCount;
 
+    @TargetApi(Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,8 @@ public class PhotoPrintDirs extends Activity {
                 startActivity(new Intent(PhotoPrintDirs.this, PhotoPrintPics.class));
             }
         });
+
+
     }
 
     class MyAdapter extends ArrayAdapter<String> {

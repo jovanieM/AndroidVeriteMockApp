@@ -11,31 +11,27 @@ import android.os.Bundle;
  */
 public class ScanCanceledAlert extends DialogFragment {
 
-    public ScanCanceledAlert newInstance(String title) {
-        ScanCanceledAlert frag = new ScanCanceledAlert();
-        Bundle args = new Bundle();
-        args.putString("title", title);
-        frag.setArguments(args);
-        return frag;
-    }
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        String title = getArguments().getString("title");
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
+        if(getActivity() instanceof PhotoScanMain
+                || getActivity() instanceof SP_000
+                || getActivity() instanceof DocumentScan
+                || getActivity() instanceof DocumentScan2)builder.setMessage("Scan Canceled");
+        builder.setPositiveButton("OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //((SP_000)getActivity()).test2 = true;
 
-        return new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT)
-                .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                //((SP_000)getActivity()).test2 = true;
+                        dialog.dismiss();
+                    }
+                }
+        );
 
-                                dialog.dismiss();
 
-                            }
-                        }
-                )
-                .setMessage(title)
-                .create();
+        return builder.create();
     }
 
 }

@@ -35,7 +35,7 @@ public class AirprintDialog extends DialogFragment{
         TextView tv = (TextView) view.findViewById(R.id.message);
         tv.setText(message);
 
-        return new AlertDialog.Builder(getActivity())
+        return new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT)
                 //.setMessage(message)
                 .setView(view)
                 .setCancelable(false)

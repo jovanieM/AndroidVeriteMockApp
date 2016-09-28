@@ -16,7 +16,7 @@
         android:id="@+id/ivContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/relativeLayout2"
+        android:layout_above="@+id/button_container"
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp">
@@ -30,12 +30,29 @@
             android:adjustViewBounds="true" />
     </RelativeLayout>
 
+    <include
+        android:id="@+id/photoScanSettings"
+        layout="@layout/photo_scan_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_container"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp" />
+
     <RelativeLayout
-        android:id="@+id/relativeLayout2"
+        android:id="@+id/button_container"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:background="#030303"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:layout_alignParentBottom="true"
-        android:background="#030303">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <RelativeLayout
             android:id="@+id/crop"
@@ -45,7 +62,10 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:clickable="true"
-            android:background="@mipmap/main_button">
+            android:background="@mipmap/main_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/trim_icon"
@@ -75,13 +95,12 @@
             style="@android:style/Widget.Button"
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp"
             android:background="@mipmap/main_button"
             android:clickable="true"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/crop"
-            android:layout_toStartOf="@+id/crop">
+            android:layout_toStartOf="@+id/crop"
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/scan_icon"
@@ -111,13 +130,12 @@
             style="@android:style/Widget.Button"
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
             android:clickable="true"
             android:background="@mipmap/main_button"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/crop"
-            android:layout_toEndOf="@+id/crop">
+            android:layout_toEndOf="@+id/crop"
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/send_icon"
@@ -148,19 +166,21 @@
         android:id="@+id/save"
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/relativeLayout2"
-        android:layout_alignEnd="@+id/ivContainer"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="false"
-        android:layout_alignRight="@+id/ivContainer"
         android:clickable="true"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:layout_above="@+id/button_container"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:src="@drawable/save_as" />
+            android:src="@drawable/save_as"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:adjustViewBounds="false" />
 
     </RelativeLayout>
 
@@ -169,12 +189,13 @@
         android:id="@+id/email"
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/save"
-        android:layout_alignEnd="@+id/ivContainer"
-        android:layout_alignRight="@+id/ivContainer"
-        android:layout_marginBottom="20dp"
         android:clickable="true"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:layout_above="@+id/save"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp">
 
         <ImageView
             android:layout_width="match_parent"
@@ -190,13 +211,14 @@
         android:id="@+id/drive"
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/email"
-        android:layout_alignEnd="@+id/ivContainer"
-        android:layout_alignRight="@+id/ivContainer"
-        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:visibility="gone"
-        android:background="@mipmap/main_button">
+        android:background="@mipmap/main_button"
+        android:layout_above="@+id/email"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp">
 
         <ImageView
             android:layout_width="match_parent"
@@ -212,29 +234,21 @@
         android:id="@+id/one_box"
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/drive"
-        android:layout_alignEnd="@+id/ivContainer"
-        android:layout_alignRight="@+id/ivContainer"
-        android:layout_marginBottom="20dp"
         android:clickable="true"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:layout_above="@+id/drive"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="15dp">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/one_drive" />
+            android:src="@drawable/one_drive"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </RelativeLayout>
-
-    <include
-        android:id="@+id/photoScanSettings"
-        layout="@layout/photo_scan_settings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/relativeLayout2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="40dp" />
 
 </RelativeLayout>

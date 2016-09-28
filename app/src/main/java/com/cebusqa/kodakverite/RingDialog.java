@@ -1,26 +1,37 @@
 package com.cebusqa.kodakverite;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 
 /**
  * Created by SQA Cebu on 6/21/2016.
  */
-public class RingDialog implements Runnable {
-    final ProgressDialog ringDialog;
+public class RingDialog extends DialogFragment implements Runnable {
+
     String string, string2;
     boolean bool;
     Context context;
 
-    public RingDialog(Context context, String string, String string2, boolean bool) {
-        ringDialog = ProgressDialog.show(context, string, string2, bool);
-        ringDialog.setProgressStyle(R.style.MyTheme);
-        this.string = string;
-        this.string2 = string2;
-        this.bool = bool;
-        this.context = context;
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
+        final LayoutInflater inflater = getActivity().getLayoutInflater();
+        View view = inflater.inflate(R.layout.gcp_loading, null);
 
+        builder.setView(view);
+        Dialog scanDialog = builder.create();
+
+        return scanDialog;
     }
+
+
 
     //public void a(){
     @Override
@@ -33,7 +44,7 @@ public class RingDialog implements Runnable {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                ringDialog.dismiss();
+                //ringDialog.dismiss();
             }
         }).start();
     }

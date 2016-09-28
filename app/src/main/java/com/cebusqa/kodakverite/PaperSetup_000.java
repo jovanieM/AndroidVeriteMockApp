@@ -173,8 +173,8 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
                 //        RingDialog ringDialog = new RingDialog(PaperSetup_000.this, "", "Setting...", true);
                 //        ringDialog.run();
 
-                RingDialog ringDialog = new RingDialog(PaperSetup_000.this, "", "Setting is saved...", true);
-                ringDialog.run();
+//                RingDialog ringDialog = new RingDialog(PaperSetup_000.this, "", "Setting is saved...", true);
+//                ringDialog.run();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override

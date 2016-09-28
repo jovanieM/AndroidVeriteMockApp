@@ -114,8 +114,8 @@ public class DeviceSleepTime_000 extends Activity implements View.OnClickListene
 
         switch (v.getId()) {
             case R.id.btnSave:
-                RingDialog ringDialog = new RingDialog(DeviceSleepTime_000.this, "", "Setting is saved...", true);
-                ringDialog.run();
+//                RingDialog ringDialog = new RingDialog(DeviceSleepTime_000.this, "", "Setting is saved...", true);
+//                ringDialog.run();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override

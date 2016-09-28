@@ -36,13 +36,16 @@ public class ScanPhotoDialog extends DialogFragment{
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                new RingDialog(getActivity(), "Canceling", null, true).run();
+               // new RingDialog(getActivity(), "Canceling", null, true).run();
+
 
                 if(getActivity() instanceof PhotoScanMain) {
                     ((PhotoScanMain) getActivity()).test = true;
+                    ((PhotoScanMain) getActivity()).scanCanceled1();
                 }
                 if(getActivity()instanceof DocumentScan){
                     ((DocumentScan) getActivity()).dtest = true;
+                    ((DocumentScan) getActivity()).scanCanceledDoc1();
                 }
 
 
@@ -55,6 +58,7 @@ public class ScanPhotoDialog extends DialogFragment{
         return scanDialog;
 
         }
+
 
 
 }

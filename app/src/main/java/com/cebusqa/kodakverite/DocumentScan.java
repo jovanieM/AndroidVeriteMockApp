@@ -3,6 +3,7 @@ package com.cebusqa.kodakverite;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -19,6 +20,7 @@ public class DocumentScan extends Activity {
     boolean dtest = false;
     private Button mBack;
     KodakVeriteApp kodakVeriteApp;
+    Handler handler;
 
     TextView docQuality, docColor, docDocument, docSaveAsType;
 
@@ -66,33 +68,24 @@ public class DocumentScan extends Activity {
     public void dExec() {
 
         final ScanPhotoDialog dscanDialog = ScanPhotoDialog.newInstance("Scan Document");
-        dscanDialog.setCancelable(true);
+        dscanDialog.setCancelable(false);
+        dscanDialog.show(getFragmentManager(),"scan");
 
 //        finish();
 //        startActivity(new Intent(getApplicationContext(), DocumentScan2.class));
 
-
-        new Thread(new Runnable() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                dscanDialog.show(getFragmentManager(), "scan");
-                try {
-                    Thread.sleep(4000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
 
-                if (dtest) {
-
-                    new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(), "dialog");
-
-                    // dscanDialog.dismiss();
-                } else {
+                if(!dtest){
                     finish();
                     startActivity(new Intent(getApplicationContext(), DocumentScan2.class));
                 }
+
             }
-        }).start();
+        }, 4000);
+
     }
 
 
@@ -122,5 +115,21 @@ public class DocumentScan extends Activity {
         docColor.setText(kodakVeriteApp.getScanSettingColor());
         docDocument.setText(kodakVeriteApp.getScanDocSettingDocument());
         docSaveAsType.setText(kodakVeriteApp.getScanDocSettingSaveAsType());
+    }
+    public void scanCanceledDoc1(){
+        final AirprintSavingSettings airprintSavingSettings = new AirprintSavingSettings();
+        airprintSavingSettings.show(getFragmentManager(), "canceling");
+        airprintSavingSettings.setCancelable(false);
+        final Handler handler = new Handler();
+        final Runnable run = new Runnable() {
+            @Override
+            public void run() {
+                getFragmentManager().findFragmentByTag("canceling").onDestroy();
+                final ScanCanceledAlert scanCanceledAlert =new ScanCanceledAlert();
+                scanCanceledAlert.setCancelable(false);
+                scanCanceledAlert.show(getFragmentManager(), "docu");
+            }
+        };
+        handler.postDelayed(run, 4000);
     }
 }

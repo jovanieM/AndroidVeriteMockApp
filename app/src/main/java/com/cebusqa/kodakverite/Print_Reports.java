@@ -26,8 +26,8 @@ public class Print_Reports extends Activity {
             @Override
             public void onClick(View view) {
 
-                RingDialog ringDialog = new RingDialog(Print_Reports.this, "", "Printing...", true);
-                ringDialog.run();
+//                RingDialog ringDialog = new RingDialog(Print_Reports.this, "", "Printing...", true);
+//                ringDialog.run();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
