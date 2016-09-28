@@ -1,19 +1,22 @@
 package com.cebusqa.kodakverite;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
+import android.widget.ListView;
+import android.widget.TextView;
 
-import java.util.Arrays;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 
 /**
@@ -23,26 +26,36 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
 
     private boolean isCanceled;
     Button btnBack, btnSave;
-    Spinner spin_paper_type, spin_paper_size;
+    TextView spin_paper_type, spin_paper_size;
     public boolean clicked = false;
     int pos_size, pos_type;
 
     Resources res;
     String[] paper_setup_size, paper_setup_type;
     KodakVeriteApp kodakVeriteApp;
+    ComponentAdapter array_adapter;
+    Context context;
+    String item_selected_size, item_selected_type;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.papersetup_000);
 
+        context = this;
         res = getResources();
         paper_setup_size = res.getStringArray(R.array.Paper_size_print);
         paper_setup_type = res.getStringArray(R.array.Paper_type);
         kodakVeriteApp = new KodakVeriteApp();
 
-        spin_paper_size = (Spinner) findViewById(R.id.spin_paper_size);
-        spin_paper_type = (Spinner) findViewById(R.id.spin_paper_type);
+        spin_paper_size = (TextView) findViewById(R.id.spin_paper_size);
+        spin_paper_type = (TextView) findViewById(R.id.spin_paper_type);
 
         btnBack = (Button) findViewById(R.id.back);
         btnSave = (Button) findViewById(R.id.btnSave);
@@ -72,37 +85,84 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
             }
         }).start();
 
-        ArrayAdapter<CharSequence> adapter_type = ArrayAdapter.createFromResource(this, R.array.Paper_type, R.layout.spinner_item_print);
-        adapter_type.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spin_paper_type.setAdapter(adapter_type);
 
-        spin_paper_type.setSelection(Arrays.asList(paper_setup_type).indexOf(kodakVeriteApp.getPaperType()));
+        spin_paper_type.setText(kodakVeriteApp.getPaperType());
 
-        spin_paper_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spin_paper_type.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pos_type = position;
-            }
+            public void onClick(View v) {
 
-            public void onNothingSelected(AdapterView<?> parent) {
+                final AlertDialog builder = new AlertDialog.Builder(PaperSetup_000.this, AlertDialog.THEME_HOLO_LIGHT).create();
+           //     LayoutInflater inflater = getApplicationContext().getLayoutInflater();
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                v = (View) inflater.inflate(R.layout.listview_layout, null);
+
+                builder.setView(v);
+                builder.setTitle("Paper Type");
+                final ListView list = (ListView) v.findViewById(R.id.selection_list);
+
+                ComponentAdapter array_adapter = new ComponentAdapter(getApplicationContext(), R.layout.component, R.id.content, paper_setup_type);
+
+                list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+                list.setAdapter(array_adapter);
+
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+
+                        item_selected_type = paper_setup_type[pos].toString();
+                        spin_paper_type.setText(item_selected_type);
+                    //    kodakVeriteApp.setPaperType(item_selected_type);
+                        builder.dismiss();
+
+                    }
+
+                });
+
+                builder.show();
 
             }
         });
 
-        ArrayAdapter<CharSequence> adapter_size = ArrayAdapter.createFromResource(this, R.array.Paper_size_print, R.layout.spinner_item_print);
-        adapter_size.setDropDownViewResource(R.layout.spinner_dropdown_item);
-        spin_paper_size.setAdapter(adapter_size);
 
-        spin_paper_size.setSelection(Arrays.asList(paper_setup_size).indexOf(kodakVeriteApp.getPaperSize()));
+        spin_paper_size.setText(kodakVeriteApp.getPaperSize());
+        spin_paper_size.setOnClickListener(new View.OnClickListener() {
 
-        spin_paper_size.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pos_size = position;
-            }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onClick(View v) {
+
+                final AlertDialog builder = new AlertDialog.Builder(PaperSetup_000.this, AlertDialog.THEME_HOLO_LIGHT).create();
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                v = (View) inflater.inflate(R.layout.listview_layout, null);
+
+                builder.setView(v);
+                builder.setTitle("Paper Size");
+                final ListView list = (ListView)v.findViewById(R.id.selection_list);
+
+                ComponentAdapter array_adapter = new ComponentAdapter(getApplicationContext().getApplicationContext(), R.layout.component, R.id.content, paper_setup_size);
+
+                list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+                list.setAdapter(array_adapter);
+
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+
+                        item_selected_size = paper_setup_size[pos].toString();
+                        spin_paper_size.setText(item_selected_size);
+                    //    kodakVeriteApp.setPaperSize(item_selected_size);
+                        builder.dismiss();
+
+                    }
+
+                });
+
+                builder.show();
 
             }
         });
@@ -119,8 +179,8 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        kodakVeriteApp.setPaperType(paper_setup_type[pos_type]);
-                        kodakVeriteApp.setPaperSize(paper_setup_size[pos_size]);
+                        kodakVeriteApp.setPaperType(item_selected_type);
+                        kodakVeriteApp.setPaperSize(item_selected_size);
                         Intent intent = new Intent(PaperSetup_000.this, PU00_0000.class);
                         startActivity(intent);
                         finish();
@@ -139,6 +199,9 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
             }
         });
         return;
+     /*   // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();*/
     }
 
     @Override
@@ -151,6 +214,7 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
         startActivity(new Intent(PaperSetup_000.this, PU00_0000.class));
         finish();
     }
+
 }
 
 

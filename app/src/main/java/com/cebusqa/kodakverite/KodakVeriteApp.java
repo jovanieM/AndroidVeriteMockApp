@@ -74,6 +74,8 @@ public class KodakVeriteApp extends Application {
     private File[] dirPath;
     static byte[] bitmapData;
 
+    private static String quickPrint;
+
 
 
     @Override
@@ -421,5 +423,14 @@ public class KodakVeriteApp extends Application {
 
     public void setBitmapData(byte[] bitmap) {
         bitmapData = bitmap;
+    }
+
+    public void setQuickPrintItem(String quickPrintItem){ KodakVeriteApp.quickPrint = quickPrintItem; }
+
+    public String getQuickPrintItem(){
+        if(quickPrint == null){
+            setQuickPrint("Photo 4x6 in. Borderless");
+        }
+        return quickPrint;
     }
 }

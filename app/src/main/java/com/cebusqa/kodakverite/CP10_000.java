@@ -12,11 +12,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class CP10_000 extends FragmentActivity implements View.OnClickListener {
 
-    public ImageButton incre, decre, standardcolor, standardbw, custom;
+    public ImageButton incre, decre;
+    public RelativeLayout standardcolor, standardbw, custom;
     public TextView num_copies, color_txtview;
     public int num = 0;
     public String val;
@@ -41,9 +43,9 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener {
         num_copies = (TextView) findViewById(R.id.num_copies);
         incre = (ImageButton) findViewById(R.id.incre);
         decre = (ImageButton) findViewById(R.id.decre);
-        standardcolor = (ImageButton) findViewById(R.id.standardcolor);
-        standardbw = (ImageButton) findViewById(R.id.standardbw);
-        custom = (ImageButton) findViewById(R.id.custom);
+        standardcolor = (RelativeLayout) findViewById(R.id.standardcolor);
+        standardbw = (RelativeLayout) findViewById(R.id.standardbw);
+        custom = (RelativeLayout) findViewById(R.id.custom);
         //color_btn = (Button)findViewById(R.id.color_btn);
         back = (Button) findViewById(R.id.back);
 
@@ -54,7 +56,7 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener {
             @Override
             public void onClick(View v) {
 
-                if (num < 100) {
+                if (num < 99) {
                     num= num+1;
                     val = Integer.toString(num);
                     num_copies.setText(val);
@@ -152,9 +154,9 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener {
 
                                              public void onClick(View v) {
 
-                                                 standardcolor.setImageResource(R.mipmap.standardcolor_yellow);
-                                                 standardbw.setImageResource(R.mipmap.standardbw_white);
-                                                 custom.setImageResource(R.mipmap.custom_white);
+                                                 standardcolor.setBackgroundResource(R.drawable.copysetting_select);
+                                                 standardbw.setBackgroundResource(R.drawable.copysetting_unselect);
+                                                 custom.setBackgroundResource(R.drawable.copysetting_unselect);
 
                                                  fr = new FragmentOne();
                                                  fm = getFragmentManager();
@@ -171,9 +173,9 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener {
 
                                           public void onClick(View v) {
 
-                                              standardbw.setImageResource(R.mipmap.standardbw_yellow);
-                                              standardcolor.setImageResource(R.mipmap.standardcolor_white);
-                                              custom.setImageResource(R.mipmap.custom_white);
+                                              standardbw.setBackgroundResource(R.drawable.copysetting_select);
+                                              standardcolor.setBackgroundResource(R.drawable.copysetting_unselect);
+                                              custom.setBackgroundResource(R.drawable.copysetting_unselect);
 
                                               fr = new FragmentOne();
 
@@ -193,9 +195,9 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener {
 
                                       public void onClick(View v) {
 
-                                          custom.setImageResource(R.mipmap.custom_yellow);
-                                          standardcolor.setImageResource(R.mipmap.standardcolor_white);
-                                          standardbw.setImageResource(R.mipmap.standardbw_white);
+                                          custom.setBackgroundResource(R.drawable.copysetting_select);
+                                          standardcolor.setBackgroundResource(R.drawable.copysetting_unselect);
+                                          standardbw.setBackgroundResource(R.drawable.copysetting_unselect);
 
                                           fr = new FragmentTwo();
 
@@ -213,7 +215,7 @@ public class CP10_000 extends FragmentActivity implements View.OnClickListener {
     }
 
         public void increment() {
-            if (num < 100) {
+            if (num < 99) {
                 num++;
                 num_copies.setText(String.valueOf(num));
             }

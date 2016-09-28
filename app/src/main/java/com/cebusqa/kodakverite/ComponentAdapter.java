@@ -1,6 +1,7 @@
 package com.cebusqa.kodakverite;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -112,6 +113,10 @@ public class ComponentAdapter extends ArrayAdapter {
                 holder.check_mark.setSelected(true);
             }
             else if (objects[position].equals(kodakVeriteApp.getCopyPaperType())) {
+                holder.check_mark.setSelected(true);
+            }
+            else if(objects[position].equals(kodakVeriteApp.getQuickPrintItem())) {
+                holder.content.setTextColor(Color.WHITE);
                 holder.check_mark.setSelected(true);
             }
             else{

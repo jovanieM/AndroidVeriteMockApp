@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -28,12 +27,7 @@ import android.widget.Toast;
 
 public class FragmentTwo extends Fragment {
 
-    ArrayAdapter<String> adColor;
-    ComponentAdapter adPaperSize;
-    ArrayAdapter<String> adPaperType;
-    ArrayAdapter<String> adQuality;
-    ArrayAdapter<String> adResize;
-    ArrayAdapter<String> adBrightness;
+
     String[] colorItems, paperSizeItems, paperTypeItems, qualityItems, resizeItems, brightnessItems, pagesPerSideItems;
     LinearLayout llCustomResize, onePage, twoL, twoP, fourL, fourP;
     EditText etCustomResize;
@@ -48,7 +42,7 @@ public class FragmentTwo extends Fragment {
     Context context;
     Bitmap image = null;
     String item_selected;
-
+    Integer [] pages_icons = {R.drawable.one, R.drawable.two_portrait, R.drawable.two_landscape, R.drawable.four_portrait, R.drawable.four_landscape};
     int ctr = 100;
 
 //    public static final Integer[] pagesPerSide = {R.mipmap.onepage, R.mipmap.two_l, R.mipmap.two_p, R.mipmap.four_l, R.mipmap.four_p  };
@@ -67,12 +61,6 @@ public class FragmentTwo extends Fragment {
         kodakVeriteApp = new KodakVeriteApp();
         res = getResources();
     //    context = this;
-
-        onePage = (LinearLayout)view.findViewById(R.id.onePage);
-        twoL = (LinearLayout)view.findViewById(R.id.twoL);
-        twoP = (LinearLayout)view.findViewById(R.id.twoP);
-        fourL = (LinearLayout)view.findViewById(R.id.fourL);
-        fourP = (LinearLayout)view.findViewById(R.id.fourP);
 
         //init
      //   listViewPagesPerSide = (ListView)view.findViewById(R.id.listViewPagesPerSide);
@@ -97,6 +85,7 @@ public class FragmentTwo extends Fragment {
         qualityItems = getResources().getStringArray(R.array.Quality_copy);
         resizeItems = getResources().getStringArray(R.array.Copy_Resize);
         pagesPerSideItems = getResources().getStringArray(R.array.Pages_per_side);
+
 
         llCustomResize.setVisibility(View.INVISIBLE);
         etCustomResize.setText(Integer.toString(ctr));
@@ -301,7 +290,7 @@ public class FragmentTwo extends Fragment {
                 builder.setTitle("Pages Per Side");
                 final ListView list = (ListView)v.findViewById(R.id.selection_list);
 
-                ComponentAdapter array_adapter = new ComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, pagesPerSideItems);
+                CustomPagesPerSideAdapter array_adapter = new CustomPagesPerSideAdapter(getActivity().getApplicationContext(), pages_icons, pagesPerSideItems);
 
                 list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
                 list.setAdapter(array_adapter);
