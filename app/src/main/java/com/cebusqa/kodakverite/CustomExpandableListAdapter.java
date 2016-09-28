@@ -74,8 +74,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = inflater.inflate(R.layout.list_scan_document_group, null);
         }
         TextView listTitleTextView = (TextView) convertView.findViewById(R.id.list_scan_document_title);
-        TextView subMenuSelected = (TextView) convertView.findViewById(R.id.sub_menu_selected);
-        //subMenuSelected.setText(kodakVeriteApp.getScanSettingQuality());
+
         listTitleTextView.setTypeface(null, Typeface.BOLD);
         listTitleTextView.setText(listTitle);
 

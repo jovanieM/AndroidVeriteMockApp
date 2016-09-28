@@ -81,7 +81,8 @@
         <ExpandableListView
             android:id="@+id/elv_photo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:groupIndicator="@null"/>
 
         <!-- <TextView
             android:layout_width="80dp"
