@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 
 public class Scan_Doc_Settings extends AppCompatActivity {
@@ -47,7 +48,7 @@ public class Scan_Doc_Settings extends AppCompatActivity {
             }
         });
 
-        expandableListView = (ExpandableListView) findViewById(R.id.elv_quality);
+        expandableListView = (ExpandableListView) findViewById(R.id.elv_doc);
         expandableListDetail = ExpandableListDatPump.getData();
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
         expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);

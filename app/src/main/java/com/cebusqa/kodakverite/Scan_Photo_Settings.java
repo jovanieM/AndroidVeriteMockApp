@@ -7,9 +7,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class Scan_Photo_Settings extends AppCompatActivity {
@@ -21,13 +26,44 @@ public class Scan_Photo_Settings extends AppCompatActivity {
     String[] document, quality1, color;
     KodakVeriteApp kodakVeriteApp;
 
+    ExpandableListView expandableListView;
+    ExpandableListAdapter expandablePhotoAdapter;
+    List<String> expandablePhotoTitle;
+    HashMap<String, List<String>> expandablePhotoDetail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_photo_settings);
         kodakVeriteApp = new KodakVeriteApp();
 
-        res = getResources();
+        back = (Button)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                finish();
+            }
+        });
+
+        expandableListView = (ExpandableListView) findViewById(R.id.elv_photo);
+        expandablePhotoDetail = ExpandablePhotoData.getData();
+        expandablePhotoTitle = new ArrayList<>(expandablePhotoDetail.keySet());
+        expandablePhotoAdapter = new CustomExpandableListAdapter(this, expandablePhotoTitle, expandablePhotoDetail);
+        expandableListView.setAdapter(expandablePhotoAdapter);
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int prev_item = -1;
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                if(groupPosition != prev_item){
+                    expandableListView.collapseGroup(prev_item);
+                    prev_item = groupPosition;
+                }
+            }
+        });
+
+
+
+        /* res = getResources();
         document = res.getStringArray(R.array.Photo_scan);
         quality1 = res.getStringArray(R.array.Quality_scan);
         color = res.getStringArray(R.array.Color_scan);
@@ -110,7 +146,7 @@ public class Scan_Photo_Settings extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
 
     }
 }

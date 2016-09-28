@@ -3,12 +3,14 @@ package com.cebusqa.kodakverite;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 /**
  * Created by anarte on 28/09/2016.
  */
 
 public class ExpandableListDatPump {
+
     public static HashMap<String, List<String>> getData(){
         HashMap<String, List<String>> expandableListDetail = new HashMap<String, List<String>>();
 
@@ -30,10 +32,10 @@ public class ExpandableListDatPump {
         saveAsType.add("PDF");
         saveAsType.add("JPG");
 
-        expandableListDetail.put("Quality", quality);
+        expandableListDetail.put("Save as Type", saveAsType);
         expandableListDetail.put("Color", color);
         expandableListDetail.put("Document", document);
-        expandableListDetail.put("Save as Type", saveAsType);
+        expandableListDetail.put("Quality", quality);
 
         return expandableListDetail;
     }
