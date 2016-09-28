@@ -426,11 +426,13 @@ public class KodakVeriteApp extends Application {
         bitmapData = bitmap;
     }
 
-    public void setQuickPrintItem(String quickPrintItem){ KodakVeriteApp.quickPrint = quickPrintItem; }
+    public void setQuickPrintItem(String quickPrintItem){
+        KodakVeriteApp.quickPrint = quickPrintItem;
+    }
 
     public String getQuickPrintItem(){
         if(quickPrint == null){
-            setQuickPrint("Photo 4x6 in. Borderless");
+            setQuickPrintItem("Photo 4x6 in. Borderless");
         }
         return quickPrint;
     }
