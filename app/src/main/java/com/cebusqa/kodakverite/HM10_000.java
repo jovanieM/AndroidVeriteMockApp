@@ -1,5 +1,7 @@
 package com.cebusqa.kodakverite;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -94,8 +96,6 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
 
         ecomode.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-
                 //Increase Counter to move to next Image
                 currentImage++;
                 currentImage = currentImage % images.length;
@@ -103,14 +103,30 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
 //                RingDialog ringDialog = new RingDialog(HM10_000.this, "", "Confirming...", true);
 //                ringDialog.run();
 
-                new Handler().postDelayed(new Runnable() {
+                final ProgressDialog pd = new ProgressDialog(HM10_000.this, ProgressDialog.THEME_HOLO_LIGHT);
+                pd.setMessage("Confirming...");
+                pd.setCancelable(false);
+                pd.show();
+                ecomode.setImageResource(images[currentImage]);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(4000);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        pd.dismiss();
+                    }
+                }).start();
+
+
+                /* new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         ecomode.setImageResource(images[currentImage]);
                     }
-                }, 4000);
-
-
+                }, 4000); */
             }
 
 

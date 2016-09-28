@@ -119,6 +119,9 @@ public class ComponentAdapter extends ArrayAdapter {
                 holder.content.setTextColor(Color.WHITE);
                 holder.check_mark.setSelected(true);
             }
+            else if(objects[position].equals(kodakVeriteApp.getDirectTime())){
+                holder.check_mark.setSelected(true);
+            }
             else{
                 holder.check_mark.setSelected(false);
             }

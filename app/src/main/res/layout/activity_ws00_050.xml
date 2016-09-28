@@ -28,13 +28,17 @@
         android:text="'Direct Connect Time' is the timeout time of Wireless direct connection. " />
 
     <RelativeLayout
+        android:id="@+id/rl_direct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="#2e2e2e"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/label_direct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -44,13 +48,33 @@
             android:layout_marginStart="22dp"
             android:text="@string/direct_connect_time" />
 
-        <Spinner
+        <!-- <Spinner
             android:id="@+id/spinner"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true" />
+            android:layout_alignParentTop="true"
+            android:spinnerMode="dialog" /> -->
+
+        <ImageView
+            android:id="@+id/ic_dropdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/down_allow"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/tv_minutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5 mins"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/ic_dropdown"
+            android:layout_toStartOf="@+id/ic_dropdown"
+            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp" />
 
     </RelativeLayout>
 
