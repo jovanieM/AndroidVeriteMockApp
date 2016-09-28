@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 /**
  * Created by anarte on 28/09/2016.
@@ -70,6 +71,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         String listTitle = (String) getGroup(groupPosition);
 
+<<<<<<< HEAD
 
         LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.list_scan_document_group, null);
@@ -87,7 +89,17 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 //            selectedQuality.setText(kodakVeriteApp.getScanPhotoSettingColor());
 
 
+=======
+        if(convertView == null){
+            LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.list_scan_document_group, null);
+        }
+        TextView listTitleTextView = (TextView) convertView.findViewById(R.id.list_scan_document_title);
+
+        listTitleTextView.setTypeface(null, Typeface.BOLD);
+>>>>>>> f329655456eed3d80ee1867da253af13ae00a2af
         listTitleTextView.setText(listTitle);
+
         return convertView;
     }
 

@@ -8,166 +8,172 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout_printer"
         android:layout_width="fill_parent"
         android:layout_height="150dp"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout_printer"
-        android:background="#000000">
+        android:layout_alignParentTop="true"
+        android:background="#000000"
+        android:orientation="vertical">
 
         <include
-            layout="@layout/app_bar_back_only"
-            android:id="@+id/toolbar" />
+            android:id="@+id/toolbar"
+            layout="@layout/app_bar_back_only" />
 
         <ImageButton
+            android:id="@+id/imageButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/imageButton"
             android:background="#000000"
             android:src="@mipmap/printer1" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/linearLayout_printername"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linearLayout_printer"
-        android:id="@+id/linearLayout_printername"
-        android:background="#00000000"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
+        android:layout_below="@+id/linearLayout_printer"
+        android:background="#00000000"
+        android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/printer_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/printer_name"
-            android:background="#000000"
             android:layout_gravity="top"
+            android:background="#000000"
             android:src="@mipmap/kodak_name" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/linearLayout_printername"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#000000">
+        android:layout_below="@+id/linearLayout_printername"
+        android:background="#000000"
+        android:orientation="vertical">
 
 
-        <TextView
-            android:layout_width="fill_parent"
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:text="Scan Photo Settings"
+        android:textSize="15sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:layout_gravity="center_horizontal" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="#424141"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <ExpandableListView
+            android:id="@+id/elv_photo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#000000"
-            android:text="Scan Photo Settings"
-            android:textSize="15dp" />
+            android:groupIndicator="@null"/>
+
+        <!-- <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Quality"
+            android:id="@+id/textView12"
+            android:textSize="13dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp" />
 
         <Space
-            android:layout_width="match_parent"
+            android:layout_width="20dp"
             android:layout_height="12dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center"
+            android:layout_weight="0.45" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+        <Spinner
+            android:layout_width="166dp"
             android:layout_height="wrap_content"
-            android:weightSum="1"
-            android:background="#424141"
-            android:layout_margin="3dp">
+            android:id="@+id/spinner_quality"
+            android:layout_gravity="center"
+            android:spinnerMode="dialog" />
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="Quality"
-                android:id="@+id/textView12"
-                android:textSize="13dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:weightSum="1"
+        android:background="#424141" >
 
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="12dp"
-                android:layout_gravity="center"
-                android:layout_weight="0.45" />
-
-            <Spinner
-                android:layout_width="166dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinner_quality"
-                android:layout_gravity="center"
-                android:spinnerMode="dialog" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:weightSum="1"
-            android:background="#424141" >
+            android:text="Color"
+            android:id="@+id/Color"
+            android:textSize="13dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp" />
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="Color"
-                android:id="@+id/Color"
-                android:textSize="13dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp" />
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.45" />
 
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="12dp"
-                android:layout_gravity="center"
-                android:layout_weight="0.45" />
-
-            <Spinner
-                android:layout_width="166dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinner_color"
-                android:layout_gravity="center"
-                android:spinnerMode="dialog" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+        <Spinner
+            android:layout_width="166dp"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:weightSum="1"
-            android:background="#424141" >
+            android:id="@+id/spinner_color"
+            android:layout_gravity="center"
+            android:spinnerMode="dialog" />
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="Document"
-                android:id="@+id/textView13"
-                android:textSize="13dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp" />
+    </LinearLayout>
 
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="12dp"
-                android:layout_gravity="center"
-                android:layout_weight="0.45" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:weightSum="1"
+        android:background="#424141" >
 
-            <Spinner
-                android:layout_width="166dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinner_photo"
-                android:layout_gravity="center"
-                android:focusableInTouchMode="false"
-                android:spinnerMode="dialog" />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Document"
+            android:id="@+id/textView13"
+            android:textSize="13dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp" />
 
-        </LinearLayout>
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.45" />
+
+        <Spinner
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_photo"
+            android:layout_gravity="center"
+            android:focusableInTouchMode="false"
+            android:spinnerMode="dialog" />
+
+    </LinearLayout> -->
 
 
+    </RelativeLayout>
     </LinearLayout>
 
 

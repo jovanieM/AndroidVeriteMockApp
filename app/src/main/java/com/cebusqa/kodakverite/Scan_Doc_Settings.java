@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 
 public class Scan_Doc_Settings extends AppCompatActivity {
@@ -34,9 +35,13 @@ public class Scan_Doc_Settings extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
     HashMap<String, List<String>> expandableListDetail;
+<<<<<<< HEAD
     TextView textView;
     TextView tv;
     int pos;
+=======
+    TextView sub_menu;
+>>>>>>> f329655456eed3d80ee1867da253af13ae00a2af
 
 
     @Override
@@ -52,7 +57,8 @@ public class Scan_Doc_Settings extends AppCompatActivity {
             }
         });
 
-        expandableListView = (ExpandableListView) findViewById(R.id.elv_quality);
+        sub_menu = (TextView) findViewById(R.id.sub_menu_selected);
+        expandableListView = (ExpandableListView) findViewById(R.id.elv_doc);
         expandableListDetail = ExpandableListDatPump.getData();
 
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
@@ -60,12 +66,18 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int prev_item = -1;
             @Override
             public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List expanded.", Toast.LENGTH_SHORT).show();
+                if(groupPosition != prev_item){
+                    expandableListView.collapseGroup(prev_item);
+                    prev_item = groupPosition;
+                }
+                //Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List expanded.", Toast.LENGTH_SHORT).show();
             }
         });
-        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+        /*expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
             @Override
             public void onGroupCollapse(int groupPosition) {
                 Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List collapse.", Toast.LENGTH_SHORT).show();
@@ -94,8 +106,12 @@ public class Scan_Doc_Settings extends AppCompatActivity {
                 tv = (TextView) parent.findViewById(R.id.selected_quality);
                 return false;
             }
+<<<<<<< HEAD
         });
 
+=======
+        });*/
+>>>>>>> f329655456eed3d80ee1867da253af13ae00a2af
     }
 }
 
