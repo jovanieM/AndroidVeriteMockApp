@@ -54,22 +54,15 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
         saveSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), String.valueOf(prevState)+ String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
 
                 if (prevState != apStatusChanger.isChecked()) {
                     KodakVeriteApp.airprintPrvState = apStatusChanger.isChecked();
                     //Toast.makeText(getApplicationContext(), "yes", Toast.LENGTH_SHORT).show();
 
-
-
                     final ProgressDialog pd1 = new ProgressDialog(AirPrint.this, ProgressDialog.THEME_HOLO_LIGHT);
                     pd1.setMessage("Setting...");
                     pd1.setCancelable(false);
                     pd1.show();
-
-//                    final AirprintSavingSettings airprintSavingSettings = new AirprintSavingSettings();
-//                    airprintSavingSettings.show(getFragmentManager(), "settingAP");
-//                    airprintSavingSettings.setCancelable(false);
 
                     final Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
@@ -77,7 +70,6 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
                         public void run() {
                             if(pd1.isShowing())pd1.dismiss();
 
-                            //getFragmentManager().findFragmentByTag("settingAP").onDestroy();
                             close();
 
                         }
@@ -156,11 +148,9 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
         if (isChecked) {
             textView.setText("Enable");
 
-            Toast.makeText(getApplicationContext(), String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
         } else {
             textView.setText("Disable");
 
-            Toast.makeText(getApplicationContext(), String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
         }
     }
 

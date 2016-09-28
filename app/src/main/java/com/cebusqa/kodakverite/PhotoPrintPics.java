@@ -99,6 +99,7 @@ public class PhotoPrintPics extends AppCompatActivity {
         ImageAdapter adapter = new ImageAdapter(this, picPaths);
         gridView.setAdapter(adapter);
 
+
         mGcp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,6 +167,7 @@ public class PhotoPrintPics extends AppCompatActivity {
                     for (int i = 0; i < picPaths.size(); i++) {
                         if (i == position) {
                             FlickPrint.fullImage = picPaths.get(position);
+                            thumbsData.clearData();
 
                         }
                     }
@@ -207,7 +209,7 @@ public class PhotoPrintPics extends AppCompatActivity {
                 startActivity(intent);
             }
         });*/
-
+        //multiple print button
         iv_multiple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -228,6 +230,7 @@ public class PhotoPrintPics extends AppCompatActivity {
 
             }
         });
+        //print button in multiple mode
         iv_printer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

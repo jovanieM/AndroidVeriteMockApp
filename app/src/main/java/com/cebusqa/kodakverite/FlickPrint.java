@@ -81,6 +81,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
         tv.bringToFront();
         toggleButton.setChecked(true);
         toggleButton.setOnCheckedChangeListener(this);
+        kodakVeriteApp.getThumbData();
 
         // bring 3 textview from print settings layout
         paperSize = (TextView) findViewById(R.id.paper_size);
@@ -131,7 +132,7 @@ public class FlickPrint extends Activity implements CompoundButton.OnCheckedChan
                                                      if (prevY - event.getRawY() > 200) {
                                                          imDisplay.setY(0 - imDisplay.getHeight());
 
-                                                         startActivity(new Intent(getApplication(), FlickPrintOut.class));
+                                                         startActivity(new Intent(getApplication(), MultiplePrintQueue.class));
                                                          finish();
                                                      } else {
                                                          imDisplay.setY(displayYcoor);

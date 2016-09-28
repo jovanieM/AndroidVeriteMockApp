@@ -136,7 +136,9 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                new SelectPrinterDialog().show(getFragmentManager(), "select");
+                                SelectPrinterDialog sp = new SelectPrinterDialog();
+                                sp.setCancelable(false);
+                                sp.show(getFragmentManager(), "select");
                             }
                         }, 3700);
 
@@ -150,12 +152,43 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
     }
 
     @Override
-    public void respond(String printer) {
-        printer_name.setText(printer);
-        printer_name.setOnClickListener(null);
-        printer_selected.setText("Selected Printer");
-        progressbar.setVisibility(View.INVISIBLE);
-        checkmark.setVisibility(View.VISIBLE);
+    public void respond(String printer, boolean cancel) {
+
+        if(cancel){
+            progressbar.setVisibility(View.INVISIBLE);
+            checkmark.setVisibility(View.VISIBLE);
+            checkmark.setImageResource(R.drawable.notfound);
+            printer_name.setText(ADDPRINTER);
+            printer_name.setBackground(drawable);
+            ink_level.findViewById(R.id.ink_level_tv).setVisibility(View.INVISIBLE);
+            ink_level.findViewById(R.id.inks).setVisibility(View.INVISIBLE);
+            ink_level.findViewById(R.id.ok_tv).setVisibility(View.INVISIBLE);
+            ink_level.setClickable(false);
+            photo_print.setClickable(false);
+            copy_icon.setClickable(false);
+            scan_document.setClickable(false);
+            scan_photo.setClickable(false);
+
+        }else {
+            checkmark.setVisibility(View.VISIBLE);
+            checkmark.setImageResource(R.mipmap.checkmark_large);
+            printer_name.setText(printer);
+            printer_name.setOnClickListener(null);
+            printer_selected.setText("Selected Printer");
+            progressbar.setVisibility(View.INVISIBLE);
+            ink_level.findViewById(R.id.ink_level_tv).setVisibility(View.VISIBLE);
+            ink_level.findViewById(R.id.inks).setVisibility(View.VISIBLE);
+            ink_level.findViewById(R.id.ok_tv).setVisibility(View.VISIBLE);
+            ink_level.setClickable(true);
+            photo_print.setClickable(true);
+            copy_icon.setClickable(true);
+            scan_document.setClickable(true);
+            scan_photo.setClickable(true);
+
+
+
+        }
+
     }
 
     @Override

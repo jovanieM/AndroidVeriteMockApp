@@ -173,6 +173,7 @@ public class KodakVeriteApp extends Application {
     }
 
     public void clearData() {
+        if(thumbData != null)
         thumbData.clear();
 
     }

@@ -20,13 +20,13 @@ public class SelectPrinterDialog extends DialogFragment {
         builder.setItems(R.array.printer_select, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                communicator.respond(printers[which]);
+                communicator.respond(printers[which], false);
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                communicator.respond("", true);
             }
         });
         Dialog dialog = builder.create();

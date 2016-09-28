@@ -50,7 +50,6 @@ public class AirprintDialog extends DialogFragment{
                         //onDestroy();
                     }
                 })
-
            .create();
 
     }
