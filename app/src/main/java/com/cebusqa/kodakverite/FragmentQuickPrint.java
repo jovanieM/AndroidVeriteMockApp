@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import static android.widget.AbsListView.CHOICE_MODE_SINGLE;
+
 
 public class FragmentQuickPrint extends Fragment {
 
@@ -28,6 +30,7 @@ public class FragmentQuickPrint extends Fragment {
     ArrayAdapter<String> arrayAdapter;
     ImageView check;
     String item_selected;
+    int item_choice;
     int[] img = {R.drawable.checkmark_list, R.drawable.checkmark_list, R.drawable.checkmark_list};
 
     @Override
@@ -80,12 +83,13 @@ public class FragmentQuickPrint extends Fragment {
         */
 
         quick_print_list = (ListView) view.findViewById(R.id.quick_print_list);
-        quick_print_list.setSelected(true);
         kodakVeriteApp = new KodakVeriteApp();
 
         quick_list = getResources().getStringArray(R.array.quick_print);
 
-        quick_print_list.setChoiceMode(AbsListView.CHOICE_MODE_SINGLE);
+        quick_print_list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        quick_print_list.setItemChecked(item_choice, true);
+
 
         final QuickPrintAdapter adapter = new QuickPrintAdapter(getActivity(),quick_list,img);
         quick_print_list.setAdapter(adapter);
@@ -95,10 +99,12 @@ public class FragmentQuickPrint extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 item_selected = quick_list[position];
                 kodakVeriteApp.setQuickPrintItem(item_selected);
+                item_choice = quick_print_list.getSelectedItemPosition();
                 adapter.notifyDataSetChanged();
             }
         });
 
+        //adapter.notifyDataSetChanged();
         return view;
     }
 }

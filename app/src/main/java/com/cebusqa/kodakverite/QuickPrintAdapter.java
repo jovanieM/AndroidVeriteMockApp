@@ -60,6 +60,9 @@ public class QuickPrintAdapter extends BaseAdapter{
         final ItemHolder itemHolder;
         View rowView = convertView;
 
+        //((ListView)parent).setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+        //((ListView)parent).setItemChecked(position, true);
+
         if(rowView == null){
         rowView = inflater.inflate(R.layout.quick_print_item, null);
             itemHolder = new ItemHolder();
@@ -71,6 +74,7 @@ public class QuickPrintAdapter extends BaseAdapter{
         }
 
         itemHolder.tv.setText(result[position]);
+
         //itemHolder.iv.setImageResource(imgid[position]);
 
         if(result[position].equals(kodakVeriteApp.getQuickPrintItem())){
@@ -78,6 +82,8 @@ public class QuickPrintAdapter extends BaseAdapter{
         }else{
             itemHolder.iv.setSelected(false);
         }
+
+        //itemHolder.iv.setTag(position);
 
         //itemHolder.iv.setVisibility(View.INVISIBLE);
 
