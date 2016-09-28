@@ -7,10 +7,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 
 public class Scan_Doc_Settings extends AppCompatActivity {
@@ -19,9 +25,14 @@ public class Scan_Doc_Settings extends AppCompatActivity {
     public Button back;
     public Spinner spinner_quality, spinner_document, spinner_type, spinner_color;
 
-    Resources res ;
+    Resources res;
     String[] document, quality, color, saveAsType;
     KodakVeriteApp kodakVeriteApp;
+
+    ExpandableListView expandableListView;
+    ExpandableListAdapter expandableListAdapter;
+    List<String> expandableListTitle;
+    HashMap<String, List<String>> expandableListDetail;
 
 
     @Override
@@ -29,26 +40,51 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_doc_settings);
 
-        res = getResources();
+        back = (Button) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        expandableListView = (ExpandableListView) findViewById(R.id.elv_quality);
+        expandableListDetail = ExpandableListDatPump.getData();
+        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+        expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
+        expandableListView.setAdapter(expandableListAdapter);
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List expanded.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List collapse.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "->" + expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+    }
+}
+
+        /* res = getResources();
         quality = res.getStringArray(R.array.Quality_scan);
         color = res.getStringArray(R.array.Color_scan);
         document = res.getStringArray(R.array.Document_scan);
         saveAsType = res.getStringArray(R.array.Type_scan);
         kodakVeriteApp  = new KodakVeriteApp();
 
-        back = (Button)findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                finish();
-                            }
-        });
-
-
         spinner_quality = (Spinner) findViewById(R.id.spinner_quality);
         spinner_color = (Spinner) findViewById(R.id.spinner_color);
         spinner_document = (Spinner) findViewById(R.id.spinner_document);
         spinner_type = (Spinner) findViewById(R.id.spinner_type);
-
 
         ArrayAdapter<CharSequence> adapter_quality = ArrayAdapter.createFromResource(this, R.array.Quality_scan,R.layout.spinner_item);
         adapter_quality.setDropDownViewResource(R.layout.spinner_dropdown_item);
@@ -137,7 +173,7 @@ public class Scan_Doc_Settings extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
 
-}
+
