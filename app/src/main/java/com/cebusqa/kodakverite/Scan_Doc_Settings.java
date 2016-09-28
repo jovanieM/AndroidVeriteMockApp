@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,12 +34,16 @@ public class Scan_Doc_Settings extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
     HashMap<String, List<String>> expandableListDetail;
+    TextView textView;
+    TextView tv;
+    int pos;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_doc_settings);
+        kodakVeriteApp = new KodakVeriteApp();
 
         back = (Button) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +54,9 @@ public class Scan_Doc_Settings extends AppCompatActivity {
 
         expandableListView = (ExpandableListView) findViewById(R.id.elv_quality);
         expandableListDetail = ExpandableListDatPump.getData();
+
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+
         expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -67,10 +74,28 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "->" + expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
+
+
+
+                    //parent.collapseGroup(groupPosition);
+                    tv.setText(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+                    kodakVeriteApp.setScanSettingQuality(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+                
+
+
+                //Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "->" + expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
+        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                pos = groupPosition;
+                tv = (TextView) parent.findViewById(R.id.selected_quality);
+                return false;
+            }
+        });
+
     }
 }
 

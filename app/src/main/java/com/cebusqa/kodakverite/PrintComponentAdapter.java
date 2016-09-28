@@ -69,13 +69,12 @@ public class PrintComponentAdapter extends ArrayAdapter {
 
         ((ListView) parent).setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
-
         final List_holder holder;
         //    List_holder currItem = getItem(position);
 
         if (v == null) {
             LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = vi.inflate(R.layout.component, null);
+             v= vi.inflate(R.layout.component, null);
 
             holder = new List_holder(v);
             v.setTag(holder);

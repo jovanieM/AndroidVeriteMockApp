@@ -83,7 +83,7 @@
                 android:layout_height="match_parent"
                 android:divider="@color/gray"
                 android:dividerHeight="0.5dp"
-                android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" />
+                android:groupIndicator="@null"/>
 
             <!-- <TextView
                 android:layout_width="80dp"
