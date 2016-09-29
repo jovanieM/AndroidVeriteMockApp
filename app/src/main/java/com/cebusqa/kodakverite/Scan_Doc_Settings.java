@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.TreeMap;
 
 
 public class Scan_Doc_Settings extends AppCompatActivity {
@@ -35,12 +34,10 @@ public class Scan_Doc_Settings extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
     HashMap<String, List<String>> expandableListDetail;
-
     TextView textView;
     TextView tv;
-    int pos;
 
-    TextView sub_menu;
+
 
 
 
@@ -57,8 +54,6 @@ public class Scan_Doc_Settings extends AppCompatActivity {
             }
         });
 
-        sub_menu = (TextView) findViewById(R.id.sub_menu_selected);
-        expandableListView = (ExpandableListView) findViewById(R.id.elv_quality);
         expandableListDetail = ExpandableListDatPump.getData();
 
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
@@ -66,18 +61,12 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            int prev_item = -1;
             @Override
             public void onGroupExpand(int groupPosition) {
-                if(groupPosition != prev_item){
-                    expandableListView.collapseGroup(prev_item);
-                    prev_item = groupPosition;
-                }
-                //Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List expanded.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List expanded.", Toast.LENGTH_SHORT).show();
             }
         });
-
-        /*expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
             @Override
             public void onGroupCollapse(int groupPosition) {
                 Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List collapse.", Toast.LENGTH_SHORT).show();
@@ -89,12 +78,9 @@ public class Scan_Doc_Settings extends AppCompatActivity {
 
 
 
-                    //parent.collapseGroup(groupPosition);
-                    tv.setText(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
-                    kodakVeriteApp.setScanSettingQuality(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
-                
-
-
+                parent.collapseGroup(groupPosition);
+                tv.setText(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+                kodakVeriteApp.setScanSettingQuality(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
                 //Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "->" + expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
                 return false;
             }
@@ -102,15 +88,11 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                pos = groupPosition;
-                tv = (TextView) parent.findViewById(R.id.selected_quality);
+                tv = (TextView) parent.findViewById(R.id.sub_menu_selected);
                 return false;
             }
-
         });
 
-
-        });*/
 
     }
 }
