@@ -78,15 +78,11 @@
             android:weightSum="1">
 
             <ExpandableListView
-                android:id="@+id/elv_doc"
+                android:id="@+id/elv_quality"
                 android:layout_width="match_parent"
-<<<<<<< HEAD
                 android:layout_height="match_parent"
                 android:divider="@color/gray"
                 android:dividerHeight="0.5dp"
-=======
-                android:layout_height="wrap_content"
->>>>>>> f329655456eed3d80ee1867da253af13ae00a2af
                 android:groupIndicator="@null"/>
 
             <!-- <TextView

@@ -13,7 +13,7 @@
         android:layout_marginBottom="5dp">
 
         <TextView
-            android:id="@+id/list_scan_document_title"
+            android:id="@+id/list_scan_photo_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
@@ -25,8 +25,8 @@
             android:id="@+id/sub_menu_selected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/list_scan_document_title"
-            android:layout_alignBottom="@+id/list_scan_document_title"
+            android:layout_alignBaseline="@+id/list_scan_photo_title"
+            android:layout_alignBottom="@+id/list_scan_photo_title"
             android:layout_marginEnd="21dp"
             android:layout_marginRight="21dp"
             android:layout_toLeftOf="@+id/allow_down"

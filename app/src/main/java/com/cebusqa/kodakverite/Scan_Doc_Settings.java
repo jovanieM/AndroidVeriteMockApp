@@ -35,13 +35,13 @@ public class Scan_Doc_Settings extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
     HashMap<String, List<String>> expandableListDetail;
-<<<<<<< HEAD
+
     TextView textView;
     TextView tv;
     int pos;
-=======
+
     TextView sub_menu;
->>>>>>> f329655456eed3d80ee1867da253af13ae00a2af
+
 
 
     @Override
@@ -58,7 +58,7 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         });
 
         sub_menu = (TextView) findViewById(R.id.sub_menu_selected);
-        expandableListView = (ExpandableListView) findViewById(R.id.elv_doc);
+        expandableListView = (ExpandableListView) findViewById(R.id.elv_quality);
         expandableListDetail = ExpandableListDatPump.getData();
 
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
@@ -106,12 +106,12 @@ public class Scan_Doc_Settings extends AppCompatActivity {
                 tv = (TextView) parent.findViewById(R.id.selected_quality);
                 return false;
             }
-<<<<<<< HEAD
+
         });
 
-=======
+
         });*/
->>>>>>> f329655456eed3d80ee1867da253af13ae00a2af
+
     }
 }
 

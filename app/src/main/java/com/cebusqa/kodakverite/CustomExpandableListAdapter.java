@@ -71,7 +71,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         String listTitle = (String) getGroup(groupPosition);
 
-<<<<<<< HEAD
+
 
         LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.list_scan_document_group, null);
@@ -89,15 +89,15 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 //            selectedQuality.setText(kodakVeriteApp.getScanPhotoSettingColor());
 
 
-=======
-        if(convertView == null){
-            LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.list_scan_document_group, null);
-        }
-        TextView listTitleTextView = (TextView) convertView.findViewById(R.id.list_scan_document_title);
+
+//        if(convertView == null){
+//            LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//            convertView = inflater.inflate(R.layout.list_scan_document_group, null);
+//        }
+//        TextView listTitleTextView = (TextView) convertView.findViewById(R.id.list_scan_document_title);
 
         listTitleTextView.setTypeface(null, Typeface.BOLD);
->>>>>>> f329655456eed3d80ee1867da253af13ae00a2af
+
         listTitleTextView.setText(listTitle);
 
         return convertView;
@@ -109,9 +109,6 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
         LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.list_scan_document_item, null);
-        if(String.valueOf(getChild(groupPosition, childPosition)).equals(kodakVeriteApp.getScanSettingQuality())){
-            convertView.findViewById(R.id.iv_checkmark).setSelected(true);
-        }
 
         TextView expandedListTextView = (TextView) convertView.findViewById(R.id.expanded_list_document_item);
         expandedListTextView.setText(expandedListText);
