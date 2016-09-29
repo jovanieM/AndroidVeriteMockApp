@@ -8,15 +8,14 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:background="@drawable/gradient_bg"
-        android:layout_marginBottom="5dp"
-        android:paddingLeft="10dp">
+        android:layout_marginBottom="5dp">
 
         <TextView
-            android:id="@+id/list_scan_document_title"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:id="@+id/list_scan_photo_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:text="Title"
@@ -25,9 +24,9 @@
         <TextView
             android:id="@+id/sub_menu_selected"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignBaseline="@+id/list_scan_document_title"
-            android:layout_alignBottom="@+id/list_scan_document_title"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/list_scan_photo_title"
+            android:layout_alignBottom="@+id/list_scan_photo_title"
             android:layout_marginEnd="21dp"
             android:layout_marginRight="21dp"
             android:layout_toLeftOf="@+id/allow_down"
@@ -37,14 +36,13 @@
         <ImageView
             android:id="@+id/allow_down"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/sub_menu_selected"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="15dp"
             android:layout_marginRight="15dp"
-            android:src="@drawable/down_allow"
-            />
+            android:src="@drawable/down_allow" />
     </RelativeLayout>
 
 

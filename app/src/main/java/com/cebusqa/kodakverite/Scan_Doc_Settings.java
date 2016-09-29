@@ -59,37 +59,33 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
         expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            int prev = -1;
             @Override
             public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List expanded.", Toast.LENGTH_SHORT).show();
+                if(groupPosition != prev){
+                    expandableListView.collapseGroup(prev);
+                    prev = groupPosition;
+                }
+                //Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List expanded.", Toast.LENGTH_SHORT).show();
             }
         });
-        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
-            @Override
-            public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "List collapse.", Toast.LENGTH_SHORT).show();
-            }
-        });
+
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
-
-
                 parent.collapseGroup(groupPosition);
-                tv.setText(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
-                kodakVeriteApp.setScanSettingQuality(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+                if(groupPosition == 0) kodakVeriteApp.setScanSettingQuality(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+                if(groupPosition == 1) kodakVeriteApp.setScanDocSettingDocument(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+                if(groupPosition == 2) kodakVeriteApp.setScanDocSettingSaveAsType(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+                if(groupPosition == 3) kodakVeriteApp.setScanSettingColor(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+               // tv.setText(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+                parent.collapseGroup(groupPosition);
                 //Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "->" + expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
-        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                tv = (TextView) parent.findViewById(R.id.sub_menu_selected);
-                return false;
-            }
-        });
+
 
     }
 }
