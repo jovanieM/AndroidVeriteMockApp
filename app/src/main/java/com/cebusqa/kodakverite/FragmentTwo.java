@@ -325,7 +325,7 @@ public class FragmentTwo extends Fragment {
         btnCopy.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                final ProgressDialog dialog = new ProgressDialog(getActivity());
+                final ProgressDialog dialog = new ProgressDialog(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
                 dialog.setMessage("Copying");
                 dialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
                     @Override
