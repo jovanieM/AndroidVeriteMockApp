@@ -73,17 +73,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
-            android:background="#424141"
-            android:orientation="horizontal"
-            android:weightSum="1">
+            android:background="#424141">
 
             <ExpandableListView
                 android:id="@+id/elv_quality"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:divider="@color/gray"
-                android:dividerHeight="0.5dp"
-                android:groupIndicator="@null"/>
+                android:childDivider="@color/darkGray"
+                android:groupIndicator="@null"
+                android:background="@color/black"/>
 
             <!-- <TextView
                 android:layout_width="80dp"
