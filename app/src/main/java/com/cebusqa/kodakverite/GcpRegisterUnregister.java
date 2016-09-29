@@ -45,10 +45,10 @@ public class GcpRegisterUnregister extends Activity {
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(GcpRegisterUnregister.this, GoogleCloudPrint.class));
+                //startActivity(new Intent(GcpRegisterUnregister.this, GoogleCloudPrint.class));
                 pd.dismiss();
                 //isCanceled = false;
-                finish();
+                //finish();
             }
         });
         pd.show();
@@ -64,37 +64,6 @@ public class GcpRegisterUnregister extends Activity {
             }
         }).start();
 
-        /* new Thread(new Runnable() {
-            @Override
-            public void run() {
-                final DialogFragment gcpStatusLoadingDialog2 = GcpStatusLoadingDialog.newInstance("GCP Status Loading...");
-                gcpStatusLoadingDialog2.show(getFragmentManager(), "my tag");
-                try {
-                    Thread.sleep(4000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-
-                }
-                gcpStatusLoadingDialog2.dismiss();
-                if (test) {
-                    Thread.currentThread().interrupt();
-                    finish();
-                } else {
-                    regUnreg.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            regUnreg.setText("Start " + status[KodakVeriteApp.currentStatusValue]);
-                            tvDescription.setText("If [Start " + status[KodakVeriteApp.currentStatusValue] + "] is touched, the registration home page is opened.");
-                            Thread.currentThread().interrupt();
-                        }
-                    });
-                }
-            }
-        }).start(); */
-
-
-        //regUnreg = (TextView) findViewById(R.id.start_reg_unreg);
-        //regUnreg.setText("hello");
         regUnreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,7 +72,9 @@ public class GcpRegisterUnregister extends Activity {
                 if (KodakVeriteApp.currentStatusValue == 1) {
 
                     KodakVeriteApp.currentStatusValue = 0;
-                    UnregistrationComplete.newInstance("Unregistration complete").show(getFragmentManager(), "tag");
+                    final UnregistrationComplete unregistrationComplete = new UnregistrationComplete();
+                    unregistrationComplete.setCancelable(false);
+                    unregistrationComplete.show(getFragmentManager(), "tag3");
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -126,16 +97,17 @@ public class GcpRegisterUnregister extends Activity {
                             if (!Canceled) {
                                 KodakVeriteApp.currentStatusValue = 1;
                                 finish();
-
                             }
-
                         }
                     }).start();
                 }
-
             }
         });
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(GcpRegisterUnregister.this, GoogleCloudPrint.class));
+        finish();
     }
 }

@@ -37,7 +37,7 @@ public class GcpStatusLoadingDialog extends DialogFragment {
         TextView tv = (TextView) view.findViewById(R.id.message);
         tv.setText(message);
 
-        return new AlertDialog.Builder(getActivity())
+        return new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT)
                 //.setMessage(message)
                 .setView(view)
 
@@ -49,7 +49,7 @@ public class GcpStatusLoadingDialog extends DialogFragment {
                         if(getActivity() instanceof GcpStatus) {
                             getActivity().finish();
                         }
-                        if(getActivity()instanceof GcpRegisterUnregister) {
+                        if(getActivity() instanceof GcpRegisterUnregister) {
                             ((GcpRegisterUnregister) getActivity()).Canceled = true;
                             if (!((GcpRegisterUnregister) getActivity()).test) {
                                 getActivity().finish();

@@ -32,11 +32,11 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
     private final long REP_DELAY = 50;
     String item_selected;
 
-    Resources res ;
-    String[] paperSize, paperType,printQuality, printColor;
+    Resources res;
+    String[] paperSize, paperType, printQuality, printColor;
     KodakVeriteApp kodakVeriteApp;
 
-//    @Override
+    //    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -48,9 +48,9 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
         printQuality = res.getStringArray(R.array.Print_quality);
         printColor = res.getStringArray(R.array.Color_print);
         kodakVeriteApp = new KodakVeriteApp();
-
         num_copies = (TextView) view.findViewById(R.id.num_copies);
-        num_copies.setOnClickListener(this);
+
+        //num_copies.setOnClickListener(this);
 
         incre = (ImageButton) view.findViewById(R.id.incre);
         incre.setOnClickListener(this);
@@ -77,7 +77,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
 
                 builder.setView(v);
                 builder.setTitle("Color");
-                final ListView list = (ListView)v.findViewById(R.id.selection_list);
+                final ListView list = (ListView) v.findViewById(R.id.selection_list);
 
                 PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, printColor);
                 list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -113,7 +113,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
 
                 builder.setView(v);
                 builder.setTitle("Paper Type");
-                final ListView list = (ListView)v.findViewById(R.id.selection_list);
+                final ListView list = (ListView) v.findViewById(R.id.selection_list);
 
                 PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, paperType);
                 list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
@@ -138,7 +138,6 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
         });
 
 
-
         spin_papersize.setText(kodakVeriteApp.getPaperSize());
 
         spin_papersize.setOnClickListener(new View.OnClickListener() {
@@ -150,11 +149,12 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
 
                 builder.setView(v);
                 builder.setTitle("Paper Size");
-                final ListView list = (ListView)v.findViewById(R.id.selection_list);
+                final ListView list = (ListView) v.findViewById(R.id.selection_list);
 
-                PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, paperSize);
+                //PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, paperSize);
                 //    ArrayAdapter<String> array_adapter = new ArrayAdapter<String>(FragmentTwo.this.getActivity(), R.layout.component, R.id.content, paperSizeItems);
 
+                ComponentAdapter array_adapter = new ComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, paperSize);
                 list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
                 list.setAdapter(array_adapter);
 
@@ -187,7 +187,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
 
                 builder.setView(v);
                 builder.setTitle("Quality");
-                final ListView list = (ListView)v.findViewById(R.id.selection_list);
+                final ListView list = (ListView) v.findViewById(R.id.selection_list);
 
                 PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, printQuality);
                 //    ArrayAdapter<String> array_adapter = new ArrayAdapter<String>(FragmentTwo.this.getActivity(), R.layout.component, R.id.content, paperSizeItems);
@@ -219,7 +219,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
             public void onClick(View v) {
 
                 if (num < 99) {
-                    num= num+1;
+                    num = num + 1;
                     val = Integer.toString(num);
                     num_copies.setText(val);
                     kodakVeriteApp.setPrintCopies(val);
@@ -232,9 +232,9 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
             @Override
             public void onClick(View v) {
 
-                if(num_copies.getText().equals("0")){
+                if (num_copies.getText().equals("0")) {
                     num_copies.setText("1");
-                }else if(num>1) {
+                } else if (num > 1) {
                     num = num - 1;
                     val = Integer.toString(num);
                     num_copies.setText(val);
@@ -242,7 +242,6 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
                 }
             }
         });
-
 
 
         class RptUpdater implements Runnable {

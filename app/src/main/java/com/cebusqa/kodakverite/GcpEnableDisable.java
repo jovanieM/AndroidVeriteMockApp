@@ -40,6 +40,7 @@ public class GcpEnableDisable extends Activity implements CompoundButton.OnCheck
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(GcpEnableDisable.this, GoogleCloudPrint.class));
                 finish();
             }
         });
@@ -55,17 +56,21 @@ public class GcpEnableDisable extends Activity implements CompoundButton.OnCheck
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            AirprintSavingSettings.newInstance("Setting...").show(getFragmentManager(), "tag2");
+                            final AirprintSavingSettings airprintSavingSettings = new AirprintSavingSettings();
+                            airprintSavingSettings.show(getFragmentManager(), "settingGCP");
+                            airprintSavingSettings.setCancelable(false);
                             try {
                                 Thread.sleep(4000);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            getFragmentManager().findFragmentByTag("tag2").onDestroy();
+                            getFragmentManager().findFragmentByTag("settingGCP").onDestroy();
                             //Thread.currentThread().interrupt();
 
                             try {
-                                UnregistrationComplete.newInstance("Settings is saved").show(getFragmentManager(), "tag3");
+                                final UnregistrationComplete unregistrationComplete = new UnregistrationComplete();
+                                unregistrationComplete.setCancelable(false);
+                                unregistrationComplete.show(getFragmentManager(), "tag3");
                                 Thread.sleep(2000);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
@@ -156,6 +161,11 @@ public class GcpEnableDisable extends Activity implements CompoundButton.OnCheck
         }else{
             textView.setText("Disable");
         }
+    }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(GcpEnableDisable.this, GoogleCloudPrint.class));
+        finish();
     }
 }

@@ -183,9 +183,6 @@
             android:name=".FlickPrint"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FlickPrintOut"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".MultiplePrintQueue"
             android:screenOrientation="portrait" />
 

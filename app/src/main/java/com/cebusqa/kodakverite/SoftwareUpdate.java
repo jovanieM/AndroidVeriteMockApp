@@ -20,8 +20,7 @@ import android.widget.ToggleButton;
  */
 public class SoftwareUpdate extends Activity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
-    Button btnBack, btnUpdate, btnConfirmation;
-    ToggleButton toggleButton;
+    Button btnBack, btnUpdate;
     CheckBox checkBox;
 
     @Override
@@ -32,13 +31,9 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
         //init
         btnBack = (Button) findViewById(R.id.back);
         btnUpdate = (Button) findViewById(R.id.btn_update_printer);
-        //btnConfirmation = (Button) findViewById(R.id.btn_confirmation);
-        //toggleButton = (ToggleButton) findViewById(R.id.check_image);
-        //toggleButton.setOnCheckedChangeListener(this);
         checkBox = (CheckBox) findViewById(R.id.check_image);
         checkBox.setChecked(true);
         checkBox.setOnCheckedChangeListener(this);
-
 
 
         final ProgressDialog dialog = new ProgressDialog(this, AlertDialog.THEME_HOLO_LIGHT);
@@ -68,8 +63,6 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
         btnBack.setOnClickListener(this);
         btnUpdate.setOnClickListener(this);
         //btnConfirmation.setOnClickListener(this);
-
-
     }
 
     public void onClick(View v) {
@@ -78,6 +71,7 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
             finish();
         } else if (v == btnUpdate) {
             startActivity(new Intent(SoftwareUpdate.this, UpdatePrinterSoftware.class));
+            finish();
         }
         // remove confirmation button in layout
         /* else if (v == btnConfirmation) {
@@ -108,11 +102,37 @@ public class SoftwareUpdate extends Activity implements View.OnClickListener, Co
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (isChecked) {
-            RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
-            dialog.run();
+            final ProgressDialog pd = new ProgressDialog(SoftwareUpdate.this, ProgressDialog.THEME_HOLO_LIGHT);
+            pd.setMessage("Setting...");
+            pd.setCancelable(false);
+            pd.show();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(4000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    pd.dismiss();
+                }
+            }).start();
         } else {
-            RingDialog dialog = new RingDialog(SoftwareUpdate.this, "", "Setting", true);
-            dialog.run();
+            final ProgressDialog pd = new ProgressDialog(SoftwareUpdate.this, ProgressDialog.THEME_HOLO_LIGHT);
+            pd.setMessage("Setting...");
+            pd.setCancelable(false);
+            pd.show();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(4000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    pd.dismiss();
+                }
+            }).start();
         }
     }
 

@@ -10,6 +10,7 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -41,28 +42,29 @@ public class SP_000 extends AppCompatActivity {
     Bundle bundle;
     boolean visible = false;
 
-    Thread t, t2;
+    Thread t, t2, t3;
 
     boolean test2;
     TextView photoQuality, photoColor, photoDocument;
     KodakVeriteApp kodakVeriteApp;
     boolean saved;
     CustomImgView civ;
-    static final double CONTAINER_RATIO = 0.7132;
     BitmapRegionDecoder bitmapRegionDecoder = null;
     Intent intent2;
     InputStream is;
     ByteArrayOutputStream stream;
+    Handler handler;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bundle = savedInstanceState;
         setContentView(R.layout.activity_sp_000);
         saved = false;
 
         kodakVeriteApp = new KodakVeriteApp();
+        handler = new Handler();
         //myImageView = new MyImageView(this);
 
         this.back = (Button) findViewById(R.id.back);
@@ -88,8 +90,8 @@ public class SP_000 extends AppCompatActivity {
         photoColor = (TextView) findViewById(R.id.photo_color);
         photoDocument = (TextView) findViewById(R.id.photo_type);
 
-        bm = BitmapFactory.decodeResource(getResources(), R.drawable.sample);
-        civ.setImageBitmap(bm);
+        //bm = BitmapFactory.decodeResource(getResources(), R.drawable.sample);
+        civ.setImageResource(R.drawable.sample);
 
 
         settings.setOnClickListener(new View.OnClickListener() {
@@ -109,24 +111,18 @@ public class SP_000 extends AppCompatActivity {
             public void onClick(View v) {
                 test2 = false;
                 final ScanPhotoDialog2 scanPhotoDialog2 = new ScanPhotoDialog2();
-                new Thread(new Runnable() {
+                scanPhotoDialog2.setCancelable(false);
+                scanPhotoDialog2.show(getFragmentManager(), "scanning");
+                handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        scanPhotoDialog2.show(getFragmentManager(), "My Progress Dialog");
-                        try {
-                            Thread.sleep(4000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                        if(!test2){
+                            kodakVeriteApp.clearByteData();
+                            new BitmapWorker().execute(R.drawable.sample);
                         }
-                        if (test2) {
 
-                            new ScanCanceledAlert().newInstance("Scan Canceled").show(getFragmentManager(), "dialog");
-
-                        }
-                        scanPhotoDialog2.dismiss();
                     }
-                }).start();
-
+                }, 4000);
 
             }
 
@@ -315,6 +311,27 @@ public class SP_000 extends AppCompatActivity {
 
     }
 
+    public class BitmapWorker extends AsyncTask<Integer, Void, Bitmap>{
+        @Override
+        protected Bitmap doInBackground(Integer... params) {
+            return BitmapFactory.decodeResource(getResources(),params[0]);
+
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap aVoid) {
+            bm = aVoid;
+            civ.setImageBitmap(aVoid);
+            getFragmentManager().findFragmentByTag("scanning").onDestroy();
+            onResume();
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        bm = BitmapFactory.decodeResource(getResources(), R.drawable.sample);
+    }
 
     @Override
     public void onBackPressed() {
@@ -365,6 +382,23 @@ public class SP_000 extends AppCompatActivity {
     public void onDetachedFromWindow() {
         bm = null;
         super.onDetachedFromWindow();
+    }
+
+    public void scanCanceled(){
+        final AirprintSavingSettings airprintSavingSettings = new AirprintSavingSettings();
+        airprintSavingSettings.show(getFragmentManager(), "canceling");
+        airprintSavingSettings.setCancelable(false);
+        final Handler handler = new Handler();
+        final Runnable run = new Runnable() {
+            @Override
+            public void run() {
+                getFragmentManager().findFragmentByTag("canceling").onDestroy();
+                final ScanCanceledAlert scanCanceledAlert =new ScanCanceledAlert();
+                scanCanceledAlert.setCancelable(false);
+                scanCanceledAlert.show(getFragmentManager(), "photo2");
+            }
+        };
+        handler.postDelayed(run, 4000);
     }
 
 

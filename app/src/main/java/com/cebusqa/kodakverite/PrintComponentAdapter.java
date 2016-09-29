@@ -22,10 +22,7 @@ public class PrintComponentAdapter extends ArrayAdapter {
     String item_selected;
 
 
-
-
-    public PrintComponentAdapter(Context context, int resource, int textViewResourceId, String[] objects)
-    {
+    public PrintComponentAdapter(Context context, int resource, int textViewResourceId, String[] objects) {
         super(context, resource, textViewResourceId, objects);
         this.context = context;
         this.resource = resource;
@@ -53,61 +50,53 @@ public class PrintComponentAdapter extends ArrayAdapter {
         }
     }*/
 
-    public class List_holder{
+    public class List_holder {
         TextView content;
         ImageView check_mark;
-   //     public Boolean isItemSelected;
+        //     public Boolean isItemSelected;
 
-        List_holder(View v){
+        List_holder(View v) {
             content = (TextView) v.findViewById(R.id.content);
             check_mark = (ImageView) v.findViewById(R.id.check_mark);
-    //        this.isItemSelected = false;
+            //        this.isItemSelected = false;
         }
 
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
+    public View getView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
 
-        ((ListView)parent).setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-
+        ((ListView) parent).setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 
         final List_holder holder;
-    //    List_holder currItem = getItem(position);
+        //    List_holder currItem = getItem(position);
 
-        if(v == null) {
+        if (v == null) {
             LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = vi.inflate(R.layout.component, null);
+             v= vi.inflate(R.layout.component, null);
 
             holder = new List_holder(v);
             v.setTag(holder);
 
+        } else {
+            holder = (List_holder) v.getTag();
         }
-        else{
-             holder= (List_holder) v.getTag();
+
+        holder.content.setText(objects[position]);
+
+
+        if (objects[position].equals(kodakVeriteApp.getPaperSize())) {
+            holder.check_mark.setSelected(true);
+        } else if (objects[position].equals(kodakVeriteApp.getPaperType())) {
+            holder.check_mark.setSelected(true);
+        } else if (objects[position].equals(kodakVeriteApp.getPrintColor())) {
+            holder.check_mark.setSelected(true);
+        } else if (objects[position].equals(kodakVeriteApp.getPrintQuality())) {
+            holder.check_mark.setSelected(true);
+        } else {
+            holder.check_mark.setSelected(false);
         }
-
-            holder.content.setText(objects[position]);
-
-
-            if (objects[position].equals(kodakVeriteApp.getPaperSize())){
-
-                holder.check_mark.setSelected(true);
-            }
-            else if (objects[position].equals(kodakVeriteApp.getPaperType())){
-                holder.check_mark.setSelected(true);
-            }
-            else if (objects[position].equals(kodakVeriteApp.getPrintColor())) {
-                holder.check_mark.setSelected(true);
-            }
-            else if (objects[position].equals(kodakVeriteApp.getPrintQuality())) {
-                holder.check_mark.setSelected(true);
-            }
-            else{
-                holder.check_mark.setSelected(false);
-            }
 
         return v;
 

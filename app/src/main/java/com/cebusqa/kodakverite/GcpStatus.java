@@ -1,6 +1,7 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -30,15 +31,15 @@ public class GcpStatus extends Activity {
         });
 
         final ProgressDialog pd = new ProgressDialog(GcpStatus.this, ProgressDialog.THEME_HOLO_LIGHT);
-        pd.setMessage("GCP Status Loading...");
+        pd.setMessage("GCP Status Loading..");
         pd.setCancelable(false);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(GcpStatus.this, GoogleCloudPrint.class));
+                //startActivity(new Intent(GcpStatus.this, GoogleCloudPrint.class));
                 pd.dismiss();
                 //isCanceled = false;
-                finish();
+                //finish();
             }
         });
         pd.show();
@@ -67,7 +68,11 @@ public class GcpStatus extends Activity {
 
             }
         }).start(); */
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(GcpStatus.this, GoogleCloudPrint.class));
+        finish();
     }
 }

@@ -3,6 +3,7 @@ package com.cebusqa.kodakverite;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -32,9 +33,22 @@ public class Fragment_ES30_050_A extends Fragment {
         btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final ProgressDialog pd = new ProgressDialog(getActivity(), ProgressDialog.THEME_HOLO_LIGHT);
+                pd.setMessage("Setting...");
+                pd.setCancelable(false);
+                pd.show();
 
-                RingDialog ringDialog = new RingDialog(getActivity(), "", "Setting", true);
-                ringDialog.run();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(4000);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        pd.dismiss();
+                    }
+                }).start();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -63,7 +77,6 @@ public class Fragment_ES30_050_A extends Fragment {
                 return false;
             }
         });
-
         return view;
     }
 }

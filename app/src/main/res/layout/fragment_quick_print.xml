@@ -68,12 +68,9 @@
 
     <ListView
         android:id="@+id/quick_print_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:divider="@color/gray"
-        android:dividerHeight="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:entries="@array/quick_print"
-
         />
 
 

@@ -40,8 +40,8 @@ public class FragmentOne extends Fragment implements View.OnClickListener {
                             public void onClick(DialogInterface dialog, int id) {
 
 
-                                RingDialog ringDialog = new RingDialog(getActivity(), "", "Canceling...", true);
-                                ringDialog.run();
+//                                RingDialog ringDialog = new RingDialog(getActivity(), "", "Canceling...", true);
+//                                ringDialog.run();
 
                                             new Handler().postDelayed(new Runnable() {
                                     @Override

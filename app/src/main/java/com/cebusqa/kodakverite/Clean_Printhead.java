@@ -3,6 +3,7 @@ package com.cebusqa.kodakverite;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,7 +16,7 @@ import android.widget.Button;
 /**
  * Created by SQA Cebu on 6/21/2016.
  */
-public class Clean_Printhead extends Activity{
+public class Clean_Printhead extends Activity {
 
     Button btn_clean, btnBack;
 
@@ -31,20 +32,22 @@ public class Clean_Printhead extends Activity{
             @Override
             public void onClick(View view) {
 
-                    RingDialog ringDialog = new RingDialog(Clean_Printhead.this, "", "Printhead Cleaning...", true);
-                    ringDialog.run();
+                final ProgressDialog pd = new ProgressDialog(Clean_Printhead.this, ProgressDialog.THEME_HOLO_LIGHT);
+                pd.setMessage("Printhead Cleaning...");
+                pd.setCancelable(false);
+                pd.show();
 
-
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent intent = new Intent(Clean_Printhead.this, PU00_0000.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                    }, 4000);
-               }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(Clean_Printhead.this, PU00_0000.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }, 4000);
+            }
         });
+
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

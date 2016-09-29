@@ -32,12 +32,20 @@
         <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
     </style>
 
-    <style name="MyTheme" parent="@android:style/Theme.Dialog">
-        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
+    <style name="MyTheme" parent="spinnerItemStyle">
+
+        <item name="android:alertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert</item>
         <item name="android:textColorPrimary">#FF000000</item>
     </style>
 
+    <style name="ProThemeOrange" parent="@android:style/Theme.Dialog">
+        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
+        <item name="android:background">@color/yellow</item>
+        <item name="android:textColorPrimary">#e6e6e6</item>
+    </style>
+
     <style name="CustomAlertDialogStyle">
+
         <item name="android:bottomBright">@color/white</item>
         <item name="android:bottomDark">@color/white</item>
         <item name="android:bottomMedium">@color/white</item>

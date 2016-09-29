@@ -1,11 +1,15 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -29,6 +33,7 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.airprint);
+        this.setFinishOnTouchOutside(false);
         prevState = KodakVeriteApp.airprintPrvState;
         apStatusChanger = (ToggleButton) findViewById(R.id.toggleButton);
         apStatusChanger.setOnCheckedChangeListener(this);
@@ -49,52 +54,61 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
         saveSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Toast.makeText(getApplicationContext(), String.valueOf(prevState)+ String.valueOf(apStatusChanger.isChecked()), Toast.LENGTH_SHORT).show();
                 if (prevState != apStatusChanger.isChecked()) {
                     KodakVeriteApp.airprintPrvState = apStatusChanger.isChecked();
                     //Toast.makeText(getApplicationContext(), "yes", Toast.LENGTH_SHORT).show();
-                    /**Recylce Unregistration complete view**/
 
-                    new Thread(new Runnable() {
+                    final ProgressDialog pd1 = new ProgressDialog(AirPrint.this, ProgressDialog.THEME_HOLO_LIGHT);
+                    pd1.setMessage("Setting...");
+                    pd1.setCancelable(false);
+                    pd1.show();
+
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            AirprintSavingSettings.newInstance("Setting...").show(getFragmentManager(), "tag2");
-                            try {
-                                Thread.sleep(4000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            getFragmentManager().findFragmentByTag("tag2").onDestroy();
-                            //Thread.currentThread().interrupt();
-
-                            try {
-                                UnregistrationComplete.newInstance("Settings is saved").show(getFragmentManager(), "tag3");
-                                Thread.sleep(2000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            } finally {
-                                getFragmentManager().findFragmentByTag("tag3").onDestroy();
-                                finish();
-                            }
-
+                            if(pd1.isShowing())pd1.dismiss();
+                            //getFragmentManager().findFragmentByTag("settingAP").onDestroy();
+                            close();
                         }
-                    }).start();
+                    }, 4000);
                 }
             }
         });
+
+        final ProgressDialog pd = new ProgressDialog(this, ProgressDialog.THEME_HOLO_LIGHT);
+        pd.setMessage("Getting network information...");
+        pd.setCancelable(false);
+        pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //startActivity(new Intent(GcpStatus.this, GoogleCloudPrint.class));
+                pd.dismiss();
+                //isCanceled = false;
+                //finish();
+            }
+        });
+        pd.show();
 
         t = new Thread(new Runnable() {
 
             @Override
             public void run() {
                 cancel = false;
-                AirprintDialog.newInstance("Getting Network information").show(getFragmentManager(), "tag4");
+//                AirprintDialog alertDialog  = AirprintDialog.newInstance("Getting Network information");
+//                alertDialog.setCancelable(false);
+//                alertDialog.show(getFragmentManager(), "tag4");
+
                 try {
                     Thread.sleep(4000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 if (!cancel) {
-                    getFragmentManager().findFragmentByTag("tag4").onDestroy();
+                    pd.dismiss();
+//                    getFragmentManager().findFragmentByTag("tag4").onDestroy();
                 }
             }
         });
@@ -135,5 +149,27 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
     protected void onDestroy() {
         t.interrupt();
         super.onDestroy();
+    }
+
+    public void close(){
+        final UnregistrationComplete unregistrationComplete = new UnregistrationComplete();
+        unregistrationComplete.show(getFragmentManager(), "tag");
+        unregistrationComplete.setCancelable(false);
+        final Handler handler = new Handler();
+        final Runnable run =new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(AirPrint.this, DS_device.class));
+                getFragmentManager().findFragmentByTag("tag").onDestroy();
+                finish();
+            }
+        };
+        handler.postDelayed(run, 4000);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(AirPrint.this, DS_device.class));
+        finish();
     }
 }

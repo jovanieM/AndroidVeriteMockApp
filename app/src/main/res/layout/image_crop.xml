@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container">
+
     <include
         layout="@layout/app_bar_back_only"
         android:id="@+id/toolbar" />
@@ -38,7 +38,8 @@
         android:id="@+id/linearLayout"
         android:weightSum="2"
         android:gravity="center_vertical|center"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="@color/black">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -49,12 +50,13 @@
             android:padding="10dp"
             android:id="@+id/scan_crop_ok"
             android:background="@mipmap/main_button"
-            android:layout_marginRight="10dp">
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/checkmark_gray"
+                android:src="@drawable/checkmark_gray"
                 android:id="@+id/imageView23"
                 android:layout_weight="1" />
 
@@ -76,12 +78,13 @@
             android:padding="10dp"
             android:id="@+id/scan_crop_cancel"
             android:background="@mipmap/main_button"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/cancel"
+                android:src="@drawable/cancel"
                 android:id="@+id/imageView24"
                 android:layout_weight="1" />
 

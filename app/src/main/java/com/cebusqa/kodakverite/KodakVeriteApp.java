@@ -2,12 +2,15 @@ package com.cebusqa.kodakverite;
 
 import android.Manifest;
 import android.app.Application;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -25,11 +28,9 @@ public class KodakVeriteApp extends Application {
     static int currentStatusValue = 0;
     static boolean airprintPrvState = false;
     static boolean gcpPrevState = false;
-    static ArrayList<String> bucketName;
-    static ArrayList<String> bucketData;
-    static ArrayList<String> dirs;
+
     static ArrayList<String> thumbData;
-    static ArrayList<String> noOfFiles;
+
     static String fName;
 
     static ArrayList<String> imagePerFolder;
@@ -37,7 +38,6 @@ public class KodakVeriteApp extends Application {
     static final int MY_PERMISSION_REQUEST_READ_STORAGE = 123;
 
 //    ArrayList<Integer> imagePerFolder;
-
 
     private static String scanSettingQuality;
     private static String scanSettingColor;
@@ -64,31 +64,17 @@ public class KodakVeriteApp extends Application {
     private static String copyQuality;
     private static String directTime;
 
-
     private String TAG = "PermisssionDemo";
     final private int RECORD_REQUEST_CODE = 123;
-
-    public Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-    public String[] projection = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
-
-    private File[] dirPath;
     static byte[] bitmapData;
 
     private static String quickPrint;
 
-
-
     @Override
     public void onCreate() {
         super.onCreate();
-
-        int number;
-        bucketName = new ArrayList<>();
-        bucketData = new ArrayList<>();
-        dirs = new ArrayList<>();
-        noOfFiles = new ArrayList<>();
-
         fName = null;
+
 
 //        int readPermissionCheck = ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE);
 //
@@ -99,70 +85,12 @@ public class KodakVeriteApp extends Application {
 //        }
 
 
-        int accessStoragePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
-        if (accessStoragePermission != PackageManager.PERMISSION_GRANTED) {
-
-            Log.i(TAG, "Permission to read denied");
-            return;
-        }
-
-        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                if (!bucketName.contains(cursor.getString(1))) {
-                    if (cursor.getString(0).toLowerCase().endsWith(".jpg") ||
-                            cursor.getString(0).toLowerCase().endsWith(".jpeg") ||
-                            cursor.getString(0).toLowerCase().endsWith(".png")) {
-                        if (!bucketName.contains(cursor.getString(1))) {
-                            bucketName.add(cursor.getString(1));
-                            bucketData.add(cursor.getString(0));
-
-                            number = 0;
-                            File pathName = new File(cursor.getString(0));
-                            String sdPath = pathName.getParent();
-                            dirPath = new File(sdPath).listFiles();
-
-                            for (int y = 0; y < dirPath.length; y++) {
-
-                                if (dirPath[y].isFile() && dirPath[y].getName().endsWith(".png") ||
-                                        dirPath[y].getName().endsWith(".jpg") ||
-                                        dirPath[y].getName().endsWith(".jpeg")) {
-                                    number++;
-                                }
-                            }
-                            noOfFiles.add(String.valueOf(number));
-                        }
-
-                    }
-                }
-            }
-            cursor.close();
-        }
+//
 
 
-        for (int i = 0; i < bucketData.size(); i++) {
-            File file = new File(bucketData.get(i));
-            String st = file.getParent();
-            dirs.add(st);
-            //Toast.makeText(this, bucketName.get(i), Toast.LENGTH_SHORT).show();
-        }
-
-
-        ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .threadPriority(Thread.NORM_PRIORITY - 2)
-                .threadPoolSize(3)
-                .diskCache(new UnlimitedDiskCache(getCacheDir()))
-                .diskCacheExtraOptions(480, 320, null)
-                //.tasksProcessingOrder(QueueProcessingType.LIFO)
-                //.memoryCache(new WeakMemoryCache())
-                .imageDecoder(new BaseImageDecoder(true))
-                .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
-                .build();
-        ImageLoader.getInstance().
-
-        init(configuration);
         //Toast.makeText(getApplicationContext(), String.valueOf(noOfFiles.get(0)), Toast.LENGTH_SHORT).show();
     }
+
 
     public ArrayList<String> getThumbData() {
         return thumbData;
@@ -173,12 +101,13 @@ public class KodakVeriteApp extends Application {
     }
 
     public void clearData() {
-        thumbData.clear();
+        if (thumbData != null)
+            thumbData.clear();
 
     }
-    public void clearByteData(){
-        if (bitmapData != null)
-        bitmapData = null;
+
+    public void clearByteData() {
+        if (bitmapData != null) bitmapData = null;
     }
 
     public String getPaperType() {
@@ -282,7 +211,6 @@ public class KodakVeriteApp extends Application {
         this.scanSettingColor = scanSettingColor;
     }
 
-
     public String getScanDocSettingDocument() {
         if (scanDocSettingDocument == null) {
             setScanDocSettingDocument("Text/Graphics");
@@ -328,7 +256,6 @@ public class KodakVeriteApp extends Application {
         this.scanPhotoSettingQuality = scanPhotoSettingQuality;
     }
 
-
     public void setPagesPerSide(String pagesPerSide) {
         this.pagesPerSide = pagesPerSide;
     }
@@ -366,26 +293,19 @@ public class KodakVeriteApp extends Application {
         KodakVeriteApp.copyPaperSize = copyPaperSize;
     }
 
-
-
-    public String getCopyPaperSize(){
-        if (copyPaperSize == null){
-
-
+    public String getCopyPaperSize() {
+        if (copyPaperSize == null) {
             setCopyPaperSize("Letter");
         }
         return copyPaperSize;
     }
 
-    public void setCopyPaperType (String copyPaperType) {
+    public void setCopyPaperType(String copyPaperType) {
         KodakVeriteApp.copyPaperType = copyPaperType;
     }
 
-
-
-    public String getCopyPaperType () {
-        if (copyPaperType == null){
-
+    public String getCopyPaperType() {
+        if (copyPaperType == null) {
             setCopyPaperType("Plain");
         }
         return copyPaperType;
@@ -395,12 +315,8 @@ public class KodakVeriteApp extends Application {
         KodakVeriteApp.copyQuality = copyQuality;
     }
 
-
-
-    public String getCopyQuality () {
-        if (copyQuality == null){
-
-
+    public String getCopyQuality() {
+        if (copyQuality == null) {
             setCopyQuality("Text");
         }
         return copyQuality;
@@ -421,16 +337,17 @@ public class KodakVeriteApp extends Application {
         return bitmapData;
     }
 
-
     public void setBitmapData(byte[] bitmap) {
         bitmapData = bitmap;
     }
 
-    public void setQuickPrintItem(String quickPrintItem){ KodakVeriteApp.quickPrint = quickPrintItem; }
+    public void setQuickPrintItem(String quickPrintItem) {
+        KodakVeriteApp.quickPrint = quickPrintItem;
+    }
 
-    public String getQuickPrintItem(){
-        if(quickPrint == null){
-            setQuickPrint("Photo 4x6 in. Borderless");
+    public String getQuickPrintItem() {
+        if (quickPrint == null) {
+            setQuickPrintItem("Photo 4x6 in. Borderless");
         }
         return quickPrint;
     }

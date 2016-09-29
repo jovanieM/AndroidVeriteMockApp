@@ -13,8 +13,6 @@ public class DS_scan extends AppCompatActivity {
     RelativeLayout scan_document_settings, scan_photo_settings;
     public Button back;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

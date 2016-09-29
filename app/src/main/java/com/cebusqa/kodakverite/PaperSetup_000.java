@@ -85,17 +85,11 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
             }
         }).start();
 
-
         spin_paper_type.setText(kodakVeriteApp.getPaperType());
-
         spin_paper_type.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick(View v) {
-
                 final AlertDialog builder = new AlertDialog.Builder(PaperSetup_000.this, AlertDialog.THEME_HOLO_LIGHT).create();
-           //     LayoutInflater inflater = getApplicationContext().getLayoutInflater();
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 v = (View) inflater.inflate(R.layout.listview_layout, null);
 
@@ -103,7 +97,7 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
                 builder.setTitle("Paper Type");
                 final ListView list = (ListView) v.findViewById(R.id.selection_list);
 
-                ComponentAdapter array_adapter = new ComponentAdapter(getApplicationContext(), R.layout.component, R.id.content, paper_setup_type);
+                PrintComponentAdapter array_adapter = new PrintComponentAdapter(getApplicationContext(), R.layout.component, R.id.content, paper_setup_type);
 
                 list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
                 list.setAdapter(array_adapter);
@@ -112,21 +106,16 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
 
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
-
-                        item_selected_type = paper_setup_type[pos].toString();
+                        item_selected_type = paper_setup_type[pos];
                         spin_paper_type.setText(item_selected_type);
-                    //    kodakVeriteApp.setPaperType(item_selected_type);
+                        kodakVeriteApp.setPaperType(item_selected_type);
                         builder.dismiss();
-
                     }
 
                 });
-
                 builder.show();
-
             }
         });
-
 
         spin_paper_size.setText(kodakVeriteApp.getPaperSize());
         spin_paper_size.setOnClickListener(new View.OnClickListener() {
@@ -141,9 +130,8 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
 
                 builder.setView(v);
                 builder.setTitle("Paper Size");
-                final ListView list = (ListView)v.findViewById(R.id.selection_list);
-
-                ComponentAdapter array_adapter = new ComponentAdapter(getApplicationContext().getApplicationContext(), R.layout.component, R.id.content, paper_setup_size);
+                final ListView list = (ListView) v.findViewById(R.id.selection_list);
+                PrintComponentAdapter array_adapter = new PrintComponentAdapter(getApplicationContext().getApplicationContext(), R.layout.component, R.id.content, paper_setup_size);
 
                 list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
                 list.setAdapter(array_adapter);
@@ -153,37 +141,30 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
 
-                        item_selected_size = paper_setup_size[pos].toString();
+                        item_selected_size = paper_setup_size[pos];
                         spin_paper_size.setText(item_selected_size);
-                    //    kodakVeriteApp.setPaperSize(item_selected_size);
+                        kodakVeriteApp.setPaperSize(item_selected_size);
                         builder.dismiss();
-
                     }
 
                 });
-
                 builder.show();
-
             }
         });
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //        RingDialog ringDialog = new RingDialog(PaperSetup_000.this, "", "Setting...", true);
-                //        ringDialog.run();
-
-                RingDialog ringDialog = new RingDialog(PaperSetup_000.this, "", "Setting is saved...", true);
-                ringDialog.run();
+                final ProgressDialog pd = new ProgressDialog(PaperSetup_000.this, ProgressDialog.THEME_HOLO_LIGHT);
+                pd.setMessage("Setting...");
+                pd.setCancelable(false);
+                pd.show();
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        kodakVeriteApp.setPaperType(item_selected_type);
-                        kodakVeriteApp.setPaperSize(item_selected_size);
-                        Intent intent = new Intent(PaperSetup_000.this, PU00_0000.class);
-                        startActivity(intent);
-                        finish();
+                        pd.dismiss();
+                        close();
                     }
                 }, 4000);
 
@@ -198,7 +179,7 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
                 finish();
             }
         });
-        return;
+        // return;
      /*   // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();*/
@@ -213,6 +194,26 @@ public class PaperSetup_000 extends AppCompatActivity implements View.OnClickLis
     public void onBackPressed() {
         startActivity(new Intent(PaperSetup_000.this, PU00_0000.class));
         finish();
+    }
+
+    public void close() {
+        final UnregistrationComplete unregistrationComplete = new UnregistrationComplete();
+        unregistrationComplete.show(getFragmentManager(), "tag");
+        unregistrationComplete.setCancelable(false);
+        final Handler handler = new Handler();
+        final Runnable run = new Runnable() {
+            @Override
+            public void run() {
+                //kodakVeriteApp.setPaperType(item_selected_type);
+                //kodakVeriteApp.setPaperSize(item_selected_size);
+                Intent intent = new Intent(PaperSetup_000.this, PU00_0000.class);
+                getFragmentManager().findFragmentByTag("tag").onDestroy();
+                startActivity(intent);
+                finish();
+            }
+        };
+
+        handler.postDelayed(run, 4000);
     }
 
 }

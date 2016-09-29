@@ -10,7 +10,7 @@
                 android:useLevel="false">
                 <gradient android:color="@android:color/transparent"
                     android:angle="0"
-                    android:endColor="#ffffff"
+                    android:endColor="#aaaaaa"
                     android:type="sweep"
                     android:useLevel="false" />
             </shape>

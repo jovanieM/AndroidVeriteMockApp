@@ -25,27 +25,27 @@ public class DS10_000 extends AppCompatActivity {
         print_settings.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(DS10_000.this, DS_print.class));
-                //finish();
+                finish();
             }
         });
 
         scan_settings.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(DS10_000.this, DS_scan.class));
-                //finish();
+                finish();
             }
         });
 
         device_settings.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(DS10_000.this, DS_device.class));
-                //finish();
+                finish();
             }
         });
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //startActivity(new Intent(DS10_000.this, HM10_000.class));
+                startActivity(new Intent(DS10_000.this, HM10_000.class));
                 finish();
             }
         });

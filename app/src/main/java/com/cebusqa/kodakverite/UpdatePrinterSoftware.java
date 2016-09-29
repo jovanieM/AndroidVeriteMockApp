@@ -29,7 +29,7 @@ public class UpdatePrinterSoftware extends Activity {
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder abDialog = new AlertDialog.Builder(UpdatePrinterSoftware.this);
+                AlertDialog.Builder abDialog = new AlertDialog.Builder(UpdatePrinterSoftware.this, AlertDialog.THEME_HOLO_LIGHT);
                 abDialog.setTitle("Printer Updating...");
                 abDialog.setMessage("Press [OK] to close this app. Please restart this app after updating the printer.");
                 abDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -52,6 +52,7 @@ public class UpdatePrinterSoftware extends Activity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(UpdatePrinterSoftware.this, SoftwareUpdate.class));
                 finish();
             }
         });
