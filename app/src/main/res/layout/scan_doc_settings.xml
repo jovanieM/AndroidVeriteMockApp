@@ -71,13 +71,13 @@
             android:layout_height="12dp"
             android:layout_gravity="center_horizontal" />
 
-        <LinearLayout
+        <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_margin="3dp"
             android:weightSum="1"
-            android:background="#424141">
+            android:background="@drawable/selectmenu">
 
             <TextView
                 android:layout_width="80dp"
@@ -86,29 +86,42 @@
                 android:id="@+id/textView12"
                 android:textSize="13dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true" />
 
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="12dp"
-                android:layout_gravity="center"
-                android:layout_weight="0.45" />
-
-            <Spinner
+            <TextView
                 android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_quality"
                 android:layout_gravity="center"
-                android:spinnerMode="dropdown" />
-        </LinearLayout>
+                android:spinnerMode="dropdown"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/imageView26"
+                android:textColor="@color/text_yelloworange"
+                android:text="Normal"
+                android:textAlignment="textEnd"
+                android:paddingRight="5dp" />
 
-        <LinearLayout
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView26"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/down_allow"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
+            android:layout_height="50dp"
             android:weightSum="1"
-            android:background="#424141" >
+            android:background="@drawable/selectmenu"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp">
 
             <TextView
                 android:layout_width="80dp"
@@ -117,30 +130,43 @@
                 android:id="@+id/Color"
                 android:textSize="13dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true" />
 
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="12dp"
-                android:layout_gravity="center"
-                android:layout_weight="0.45" />
-
-            <Spinner
+            <TextView
                 android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_color"
                 android:layout_gravity="center"
-                android:spinnerMode="dropdown" />
+                android:spinnerMode="dropdown"
+                android:layout_toLeftOf="@+id/imageView27"
+                android:textAlignment="textEnd"
+                android:layout_centerVertical="true"
+                android:textColor="@color/text_yelloworange"
+                android:text="Color"
+                android:paddingRight="5dp" />
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView27"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/down_allow"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp" />
 
-        <LinearLayout
+        </RelativeLayout>
+
+        <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
+            android:layout_height="50dp"
             android:weightSum="1"
-            android:background="#424141" >
+            android:background="@drawable/selectmenu"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp">
 
             <TextView
                 android:layout_width="80dp"
@@ -149,31 +175,44 @@
                 android:id="@+id/textView13"
                 android:textSize="13dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true" />
 
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="12dp"
-                android:layout_gravity="center"
-                android:layout_weight="0.45" />
-
-            <Spinner
+            <TextView
                 android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_document"
                 android:layout_gravity="center"
                 android:focusableInTouchMode="false"
-                android:spinnerMode="dropdown" />
+                android:spinnerMode="dropdown"
+                android:text="Text"
+                android:textColor="@color/text_yelloworange"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/imageView28"
+                android:textAlignment="textEnd"
+                android:paddingRight="5dp" />
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView28"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/down_allow"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp" />
 
-        <LinearLayout
+        </RelativeLayout>
+
+        <RelativeLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
+            android:layout_height="50dp"
             android:weightSum="1"
-            android:background="#424141" >
+            android:background="@drawable/selectmenu"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -182,22 +221,33 @@
                 android:id="@+id/textView14"
                 android:textSize="13dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true" />
 
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="12dp"
-                android:layout_gravity="center"
-                android:layout_weight="0.45" />
-
-            <Spinner
+            <TextView
                 android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinner_type"
                 android:layout_gravity="center"
-                android:spinnerMode="dropdown" />
+                android:spinnerMode="dropdown"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/imageView29"
+                android:text="PDF"
+                android:textAlignment="textEnd"
+                android:textColor="@color/text_yelloworange"
+                android:paddingRight="5dp" />
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView29"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/down_allow"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp" />
+
+        </RelativeLayout>
 
 
     </LinearLayout>

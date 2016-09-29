@@ -1,20 +1,15 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Fragment;
-import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 
 public class FragmentQuickPrint extends Fragment {
@@ -24,7 +19,7 @@ public class FragmentQuickPrint extends Fragment {
     KodakVeriteApp kodakVeriteApp;
     ListView quick_print_list;
     String[] quick_list = {"4x6","Letter","Document"};
-    QuickPrintAdapter adapter;
+ //   QuickPrintAdapter adapter;
     ArrayAdapter<String> arrayAdapter;
     ImageView check;
     String item_selected;
