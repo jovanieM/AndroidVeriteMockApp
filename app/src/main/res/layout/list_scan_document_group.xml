@@ -8,43 +8,49 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:background="@drawable/gradient_bg"
-        android:layout_marginBottom="5dp"
-        android:paddingLeft="10dp">
-
-        <TextView
-            android:id="@+id/list_scan_document_title"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:text="Title"
-            android:textColor="@color/gray" />
-
-        <TextView
-            android:id="@+id/sub_menu_selected"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignBaseline="@+id/list_scan_document_title"
-            android:layout_alignBottom="@+id/list_scan_document_title"
-            android:layout_marginEnd="21dp"
-            android:layout_marginRight="21dp"
-            android:layout_toLeftOf="@+id/allow_down"
-            android:layout_toStartOf="@+id/allow_down"
-            android:text="sub menu selected" />
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:id="@+id/allow_down"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignBottom="@+id/sub_menu_selected"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
             android:src="@drawable/down_allow"
-            />
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/sub_menu_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/allow_down"
+            android:layout_toStartOf="@+id/allow_down"
+            android:layout_marginEnd="21dp"
+            android:layout_marginRight="21dp"
+            android:textColor="@color/gold"/>
+
+        <TextView
+            android:id="@+id/list_scan_document_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="Title"
+            android:textColor="@color/gray"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp" />
     </RelativeLayout>
 
 

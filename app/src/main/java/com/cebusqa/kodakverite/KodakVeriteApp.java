@@ -176,7 +176,7 @@ public class KodakVeriteApp extends Application {
     public void setQuickPrint(String printCopies) {
         this.printCopies = printCopies;
     }
-
+//-----------------------------------------------------------------------------------------------------
     public String getScanDocSettingSaveAsType() {
         if (scanDocSettingSaveAsType == null) {
             setScanDocSettingSaveAsType("PDF");
@@ -255,7 +255,7 @@ public class KodakVeriteApp extends Application {
     public void setScanPhotoSettingQuality(String scanPhotoSettingQuality) {
         this.scanPhotoSettingQuality = scanPhotoSettingQuality;
     }
-
+//----------------------------------------------------------------------------------------------------------------------------
     public void setPagesPerSide(String pagesPerSide) {
         this.pagesPerSide = pagesPerSide;
     }

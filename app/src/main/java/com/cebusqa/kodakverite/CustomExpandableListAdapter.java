@@ -1,17 +1,11 @@
 package com.cebusqa.kodakverite;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by anarte on 28/09/2016.
@@ -20,12 +14,11 @@ import java.util.List;
 public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-    private List<String> expandableTitle;
-    private HashMap<String, List<String>> expandableList;
+    private String[] expandableTitle;
+    private String[][] expandableList;
     KodakVeriteApp kodakVeriteApp;
-    int count = 0;
 
-    public CustomExpandableListAdapter(Context context, List<String> expandableTitle, HashMap<String, List<String>> expandableList){
+    public CustomExpandableListAdapter(Context context, String[] expandableTitle, String[][] expandableList){
         this.context = context;
         this.expandableTitle = expandableTitle;
         this.expandableList = expandableList;
@@ -34,22 +27,24 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getGroupCount() {
-        return this.expandableTitle.size();
+        return expandableTitle.length;
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return this.expandableList.get(this.expandableTitle.get(groupPosition)).size();
+        return expandableList[groupPosition].length;
+       // return expandableList.get(expandableTitle.get(groupPosition)).size();
     }
 
     @Override
     public Object getGroup(int groupPosition) {
-        return this.expandableTitle.get(groupPosition);
+        return expandableTitle[groupPosition];
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return this.expandableList.get(this.expandableTitle.get(groupPosition)).get(childPosition);
+        return expandableList[groupPosition][childPosition];
+       // return expandableList.get(expandableTitle.get(groupPosition)).get(childPosition);
     }
 
     @Override
@@ -64,27 +59,31 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean hasStableIds() {
-        return false;
+        return true;
     }
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         String listTitle = (String) getGroup(groupPosition);
-
-
-        LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        convertView = inflater.inflate(R.layout.list_scan_document_group, null);
+        if(convertView == null){
+            LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.list_scan_document_group, null);
+        }
+        //Toast.makeText(context, expandableTitle.get(groupPosition), Toast.LENGTH_SHORT).show();
         TextView listTitleTextView = (TextView) convertView.findViewById(R.id.list_scan_document_title);
         TextView selectedChild = (TextView) convertView.findViewById(R.id.sub_menu_selected);
+
+
+        listTitleTextView.setText(listTitle);
 
         //TextView selectedQuality = (TextView) convertView.findViewById(R.id.selected_quality);
 
         if(groupPosition == 0) selectedChild.setText(kodakVeriteApp.getScanSettingQuality());
-        if(groupPosition == 1) selectedChild.setText(kodakVeriteApp.getScanDocSettingDocument());
-        if(groupPosition == 2) selectedChild.setText(kodakVeriteApp.getScanDocSettingSaveAsType());
-        if(groupPosition == 3) selectedChild.setText(kodakVeriteApp.getScanSettingColor());
+        if(groupPosition == 2) selectedChild.setText(kodakVeriteApp.getScanDocSettingDocument());
+        if(groupPosition == 3) selectedChild.setText(kodakVeriteApp.getScanDocSettingSaveAsType());
+        if(groupPosition == 1) selectedChild.setText(kodakVeriteApp.getScanSettingColor());
 
-        listTitleTextView.setText(listTitle);
+
         return convertView;
     }
 
@@ -95,16 +94,16 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         LayoutInflater inflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView = inflater.inflate(R.layout.list_scan_document_item, null);
 
-        if(groupPosition == 0 && String.valueOf(getChild(groupPosition, childPosition)).equals(kodakVeriteApp.getScanSettingQuality())){
-            convertView.findViewById(R.id.iv_checkmark).setSelected(true);
-        }
-        if(groupPosition == 1 && String.valueOf(getChild(groupPosition, childPosition)).equals(kodakVeriteApp.getScanDocSettingDocument()))
+        if(groupPosition == 0 && String.valueOf(getChild(groupPosition, childPosition)).equals(kodakVeriteApp.getScanSettingQuality()))
             convertView.findViewById(R.id.iv_checkmark).setSelected(true);
 
-        if(groupPosition == 2 && String.valueOf(getChild(groupPosition, childPosition)).equals(kodakVeriteApp.getScanDocSettingSaveAsType()))
+        if(groupPosition == 2 && String.valueOf(getChild(groupPosition, childPosition)).equals(kodakVeriteApp.getScanDocSettingDocument()))
             convertView.findViewById(R.id.iv_checkmark).setSelected(true);
 
-        if(groupPosition == 3 && String.valueOf(getChild(groupPosition, childPosition)).equals(kodakVeriteApp.getScanSettingColor()))
+        if(groupPosition == 3 && String.valueOf(getChild(groupPosition, childPosition)).equals(kodakVeriteApp.getScanDocSettingSaveAsType()))
+            convertView.findViewById(R.id.iv_checkmark).setSelected(true);
+
+        if(groupPosition == 1 && String.valueOf(getChild(groupPosition, childPosition)).equals(kodakVeriteApp.getScanSettingColor()))
             convertView.findViewById(R.id.iv_checkmark).setSelected(true);
 
         TextView expandedListTextView = (TextView) convertView.findViewById(R.id.expanded_list_document_item);
