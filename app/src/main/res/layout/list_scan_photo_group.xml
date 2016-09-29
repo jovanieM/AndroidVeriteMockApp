@@ -10,19 +10,18 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:background="@drawable/gradient_bg"
-        android:layout_marginBottom="5dp">
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp">
 
         <TextView
             android:id="@+id/list_scan_photo_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
             android:text="Title"
             android:textColor="@color/gray" />
 
         <TextView
-            android:id="@+id/sub_menu_selected"
+            android:id="@+id/sub_menu_photo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/list_scan_photo_title"
@@ -31,7 +30,7 @@
             android:layout_marginRight="21dp"
             android:layout_toLeftOf="@+id/allow_down"
             android:layout_toStartOf="@+id/allow_down"
-            android:text="sub menu selected" />
+            android:textColor="@color/gold"/>
 
         <ImageView
             android:id="@+id/allow_down"

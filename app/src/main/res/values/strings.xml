@@ -114,8 +114,8 @@
     </string-array>
 
     <string-array name="Quality_scan">
-        <item>Normal</item>
         <item>Low (Fast)</item>
+        <item>Normal</item>
         <item>High</item>
     </string-array>
 
@@ -132,8 +132,8 @@
     </string-array>
 
     <string-array name="Type_scan">
-        <item>PDF</item>
         <item>JPG</item>
+        <item>PDF</item>
     </string-array>
 
     <string-array name="Photo_scan">
