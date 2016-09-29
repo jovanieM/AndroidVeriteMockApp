@@ -78,8 +78,11 @@
             <ExpandableListView
                 android:id="@+id/elv_photo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:groupIndicator="@null" />
+                android:layout_height="match_parent"
+                android:groupIndicator="@null"
+                android:dividerHeight=".5dp"
+                android:childDivider="@color/darkGray"
+                android:background="@color/black" />
         </RelativeLayout>
     </LinearLayout>
 

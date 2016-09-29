@@ -21,21 +21,30 @@ public class Scan_Photo_Settings extends AppCompatActivity {
 
 
     public Button back;
-    public Spinner spinner_quality, spinner_color, spinner_photo;
-    Resources res ;
-    String[] document, quality1, color;
+
+    String[] color;
     KodakVeriteApp kodakVeriteApp;
 
-    ExpandableListView expandableListView;
+    String[] title;
+    String[][] children;
+
+    ExpandableListView expandableListViewPhoto;
     ExpandableListAdapter expandablePhotoAdapter;
-    List<String> expandablePhotoTitle;
-    HashMap<String, List<String>> expandablePhotoDetail;
+//    List<String> expandablePhotoTitle;
+//    HashMap<String, List<String>> expandablePhotoDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_photo_settings);
         kodakVeriteApp = new KodakVeriteApp();
+
+        title= new String[]{"Quality", "Color", "Document"};
+        children = new String[][]{
+                getResources().getStringArray(R.array.Quality_scan),
+                getResources().getStringArray(R.array.Color_scan),
+                getResources().getStringArray(R.array.Photo_scan)};
+
 
         back = (Button)findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener(){
@@ -44,20 +53,36 @@ public class Scan_Photo_Settings extends AppCompatActivity {
             }
         });
 
-        expandableListView = (ExpandableListView) findViewById(R.id.elv_photo);
-        expandablePhotoDetail = ExpandablePhotoData.getData();
-        expandablePhotoTitle = new ArrayList<>(expandablePhotoDetail.keySet());
-        expandablePhotoAdapter = new CustomExpandableListAdapter(this, expandablePhotoTitle, expandablePhotoDetail);
-        expandableListView.setAdapter(expandablePhotoAdapter);
-        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+        expandableListViewPhoto = (ExpandableListView) findViewById(R.id.elv_photo);
+//        expandablePhotoDetail = ExpandablePhotoData.getData();
+//        expandablePhotoTitle = new ArrayList<>(expandablePhotoDetail.keySet());
+        expandablePhotoAdapter = new CustomExpandablePhotoAdapter(this, title, children);
+        expandableListViewPhoto.setAdapter(expandablePhotoAdapter);
+        expandableListViewPhoto.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             int prev_item = -1;
 
             @Override
             public void onGroupExpand(int groupPosition) {
                 if(groupPosition != prev_item){
-                    expandableListView.collapseGroup(prev_item);
+                    expandableListViewPhoto.collapseGroup(prev_item);
                     prev_item = groupPosition;
                 }
+            }
+        });
+
+        expandableListViewPhoto.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                parent.collapseGroup(groupPosition);
+                if(groupPosition == 0) kodakVeriteApp.setScanPhotoSettingQuality(children[groupPosition][childPosition]);
+
+                if(groupPosition == 1) kodakVeriteApp.setScanPhotoSettingColor(children[groupPosition][childPosition]);
+                if(groupPosition == 2) kodakVeriteApp.setScanPhotoSettingDocument(children[groupPosition][childPosition]);
+               // if(groupPosition == 3) kodakVeriteApp.setScanSettingColor(expandablePhotoDetail.get(expandablePhotoTitle.get(groupPosition)).get(childPosition));
+                // tv.setText(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+                parent.collapseGroup(groupPosition);
+
+                return false;
             }
         });
 

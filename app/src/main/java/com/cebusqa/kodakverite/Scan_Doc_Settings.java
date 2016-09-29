@@ -24,25 +24,29 @@ public class Scan_Doc_Settings extends AppCompatActivity {
 
 
     public Button back;
-    public Spinner spinner_quality, spinner_document, spinner_type, spinner_color;
 
-    Resources res;
-    String[] document, quality, color, saveAsType;
     KodakVeriteApp kodakVeriteApp;
-
     ExpandableListView expandableListView;
     ExpandableListAdapter expandableListAdapter;
-    List<String> expandableListTitle;
-    HashMap<String, List<String>> expandableListDetail;
-    TextView textView;
-    TextView tv;
-
+//    List<String> expandableListTitle;
+//    HashMap<String, List<String>> expandableListDetail;
+    String[] expandableListTitle;
+    String[][] expandableListDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan_doc_settings);
         kodakVeriteApp = new KodakVeriteApp();
+
+        expandableListTitle = new String[]{"Quality", "Color","Document","Save as Type"};
+        expandableListDetail = new String[][]{
+                getResources().getStringArray(R.array.Quality_scan),
+                getResources().getStringArray(R.array.Color_scan),
+                getResources().getStringArray(R.array.Document_scan),
+                getResources().getStringArray(R.array.Type_scan)
+                };
+
 
         back = (Button) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -52,9 +56,9 @@ public class Scan_Doc_Settings extends AppCompatActivity {
         });
 
         expandableListView = (ExpandableListView) findViewById(R.id.elv_quality);
-        expandableListDetail = ExpandableListDatPump.getData();
+        //expandableListDetail = expandableListDatPump.getData();
 
-        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+        //expandableListTitle = new ArrayList<>(expandableListDetail.keySet());
 
         expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
@@ -75,10 +79,16 @@ public class Scan_Doc_Settings extends AppCompatActivity {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
                 parent.collapseGroup(groupPosition);
-                if(groupPosition == 0) kodakVeriteApp.setScanSettingQuality(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
-                if(groupPosition == 1) kodakVeriteApp.setScanDocSettingDocument(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
-                if(groupPosition == 2) kodakVeriteApp.setScanDocSettingSaveAsType(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
-                if(groupPosition == 3) kodakVeriteApp.setScanSettingColor(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+//                if(groupPosition == 0) kodakVeriteApp.setScanSettingQuality(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+//                if(groupPosition == 1) kodakVeriteApp.setScanDocSettingDocument(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+//                if(groupPosition == 2) kodakVeriteApp.setScanDocSettingSaveAsType(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+//                if(groupPosition == 3) kodakVeriteApp.setScanSettingColor(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
+
+
+                if(groupPosition == 0) kodakVeriteApp.setScanSettingQuality(expandableListDetail[groupPosition][childPosition]);
+                if(groupPosition == 2) kodakVeriteApp.setScanDocSettingDocument(expandableListDetail[groupPosition][childPosition]);
+                if(groupPosition == 3) kodakVeriteApp.setScanDocSettingSaveAsType(expandableListDetail[groupPosition][childPosition]);
+                if(groupPosition == 1) kodakVeriteApp.setScanSettingColor(expandableListDetail[groupPosition][childPosition]);
                // tv.setText(expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition));
                 parent.collapseGroup(groupPosition);
                 //Toast.makeText(getApplicationContext(), expandableListTitle.get(groupPosition) + "->" + expandableListDetail.get(expandableListTitle.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
