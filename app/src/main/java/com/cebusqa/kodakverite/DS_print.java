@@ -1,12 +1,9 @@
 package com.cebusqa.kodakverite;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -32,9 +29,10 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
         back = (Button)findViewById(R.id.back);
         quickDetail = (LinearLayout) findViewById(R.id.quick_detail_layout);
 
+
+
         back.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
-                startActivity(new Intent(DS_print.this, DS10_000.class));
                 finish();
             }
         });
@@ -98,7 +96,6 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(DS_print.this, DS10_000.class));
         finish();
         //super.onBackPressed();
     }

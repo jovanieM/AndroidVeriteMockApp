@@ -19,7 +19,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/checkmark_list_none"
-        android:background="@drawable/item_selector"/>
+        android:background="@drawable/item_selector"
+        android:layout_marginRight="5dp" />
 
     <View
         android:layout_width="match_parent"

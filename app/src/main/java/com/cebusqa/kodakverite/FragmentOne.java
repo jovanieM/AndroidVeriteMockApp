@@ -39,15 +39,11 @@ public class FragmentOne extends Fragment implements View.OnClickListener {
 
                             public void onClick(DialogInterface dialog, int id) {
 
-
-//                                RingDialog ringDialog = new RingDialog(getActivity(), "", "Canceling...", true);
-//                                ringDialog.run();
-
                                             new Handler().postDelayed(new Runnable() {
                                     @Override
                                                 public void run() {
 
-                                                        AlertDialog.Builder builders = new AlertDialog.Builder(getActivity());
+                                                        AlertDialog.Builder builders = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
                                                         builders.setMessage("Copy Canceled...")
                                                             .setCancelable(false)
                                                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {

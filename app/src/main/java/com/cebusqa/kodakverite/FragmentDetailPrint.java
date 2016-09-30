@@ -154,7 +154,7 @@ public class FragmentDetailPrint extends Fragment implements View.OnClickListene
                 //PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, paperSize);
                 //    ArrayAdapter<String> array_adapter = new ArrayAdapter<String>(FragmentTwo.this.getActivity(), R.layout.component, R.id.content, paperSizeItems);
 
-                ComponentAdapter array_adapter = new ComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, paperSize);
+                PrintComponentAdapter array_adapter = new PrintComponentAdapter(getActivity().getApplicationContext(), R.layout.component, R.id.content, paperSize);
                 list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
                 list.setAdapter(array_adapter);
 

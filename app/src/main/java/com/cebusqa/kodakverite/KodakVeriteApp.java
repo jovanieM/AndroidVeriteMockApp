@@ -1,24 +1,7 @@
 package com.cebusqa.kodakverite;
 
-import android.Manifest;
 import android.app.Application;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
-
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -146,7 +129,7 @@ public class KodakVeriteApp extends Application {
 
     public String getPrintQuality() {
         if (printQuality == null) {
-            setPrintQuality("Best");
+            setPrintQuality("Normal");
         }
         return printQuality;
     }
