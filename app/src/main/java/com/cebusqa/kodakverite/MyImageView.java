@@ -1,7 +1,6 @@
 package com.cebusqa.kodakverite;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -16,6 +15,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * Created by jmolas on 13/09/2016.
@@ -26,18 +26,15 @@ public class MyImageView extends ImageView {
     static int l, t, r, b;
     int x, y, right, bottom;
 
-    int upLX, upLY;
-
 
     int prevX, prevY, prevR, prevB;
-    //int deltaX, deltaY, deltaR, deltaB;
-    int newX, newY, newR, newB;
+
 
     Paint paint;
     Path path;
     PathEffect pe;
     boolean pressed, touched;
-    Resources resources;
+
     Bitmap bitmap;
     Rect rect, rbl, rtl, rtr, rbr;
     Bitmap bl, tl, tr, br;
@@ -247,22 +244,24 @@ public class MyImageView extends ImageView {
             case MotionEvent.ACTION_DOWN:
                 //pressed = true;
                 dimenStore(x, y, right, bottom, X, Y);
+                //Toast.makeText(getContext(), String.valueOf(X)+" / "+String.valueOf(Y), Toast.LENGTH_SHORT).show();
 
                 touched = true;
-                if (X < x && X >(x - tl.getWidth()/2) && Y < y && Y > (y  - tl.getWidth()/2))
-                //if (X > (x - tl.getWidth()) && X < (x + tl.getWidth()) && Y > (y - tl.getWidth()) && Y < (y + tl.getWidth()))
+
+                if (X < x && X > (x - tl.getWidth() / 2) && Y < y && Y > (y - tl.getWidth() / 2))
+                    //if (X > (x - tl.getWidth()) && X < (x + tl.getWidth()) && Y > (y - tl.getWidth()) && Y < (y + tl.getWidth()))
                     pressed = true;
-                if (X > right && X < ( right + tl.getWidth()/2) && Y < y && Y > (y - tl.getWidth()/2))
-                //if (X > (right - tl.getWidth()) && X < (right + tl.getWidth()) && Y > (y - tl.getWidth()) && Y < (y + tl.getWidth()))
+                if (X > right && X < (right + tl.getWidth() / 2) && Y < y && Y > (y - tl.getWidth() / 2))
+                    //if (X > (right - tl.getWidth()) && X < (right + tl.getWidth()) && Y > (y - tl.getWidth()) && Y < (y + tl.getWidth()))
                     pressed = true;
-                if (X < x && X >(x - tl.getWidth()/2) && Y > y && Y <(y + tl.getWidth() /2 ))
-                //if (X > (x - tl.getWidth()) && X < (x + tl.getWidth()) && Y > (bottom - tl.getWidth()) && Y < (bottom + tl.getWidth()))
+                if (X < x && X > (x - tl.getWidth() / 2) && Y > y && Y < (y + tl.getWidth() / 2))
+                    //if (X > (x - tl.getWidth()) && X < (x + tl.getWidth()) && Y > (bottom - tl.getWidth()) && Y < (bottom + tl.getWidth()))
                     pressed = true;
-                if (X > right && X < (x + tl.getWidth() /2) && Y > y && Y < (y + bl.getWidth() /2))
-                //if (X > (right - tl.getWidth()) && X < (right + tl.getWidth()) && Y > (bottom - tl.getWidth()) && Y < (bottom + tl.getWidth()))
+                if (X > right && X < (x + tl.getWidth() / 2) && Y > y && Y < (y + bl.getWidth() / 2))
+                    //if (X > (right - tl.getWidth()) && X < (right + tl.getWidth()) && Y > (bottom - tl.getWidth()) && Y < (bottom + tl.getWidth()))
                     pressed = true;
                 if (X > x && X < right && Y > y && Y < bottom) {
-               // if (X > (x + tl.getWidth()) && X < (right - tl.getWidth()) && Y > (y + bl.getHeight()) && Y < (bottom - bl.getHeight())) {
+                    // if (X > (x + tl.getWidth()) && X < (right - tl.getWidth()) && Y > (y + bl.getHeight()) && Y < (bottom - bl.getHeight())) {
                     pressed = true;
                     dimenStore(x, y, right, bottom, X, Y);
 

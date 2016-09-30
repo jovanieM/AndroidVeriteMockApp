@@ -11,12 +11,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 public class DS_print extends FragmentActivity implements View.OnClickListener {
 
-    public ImageButton quick, detail;
+    public TextView quick, detail;
     public Button back;
+    LinearLayout quickDetail;
 
 
     @Override
@@ -24,9 +27,10 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ds_print);
 
-        quick = (ImageButton) findViewById(R.id.quick);
-        detail = (ImageButton) findViewById(R.id.detail);
+        quick = (TextView) findViewById(R.id.quick);
+        detail = (TextView) findViewById(R.id.detail);
         back = (Button)findViewById(R.id.back);
+        quickDetail = (LinearLayout) findViewById(R.id.quick_detail_layout);
 
         back.setOnClickListener(new OnClickListener(){
             public void onClick(View v){
@@ -45,9 +49,11 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
         quick.setOnClickListener(new OnClickListener(){
 
             public void onClick (View v){
+                quickDetail.setActivated(false);
 
-                detail.setImageResource(R.mipmap.detail_white);
-                quick.setImageResource(R.mipmap.quick_yellow);
+
+//                detail.setImageResource(R.mipmap.detail_white);
+//                quick.setImageResource(R.mipmap.quick_yellow);
 
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();
@@ -64,9 +70,10 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
         detail.setOnClickListener(new OnClickListener(){
 
             public void onClick (View v){
+                quickDetail.setActivated(true);
 
-                quick.setImageResource(R.mipmap.quick_white);
-                detail.setImageResource(R.mipmap.detail_yellow);
+//
+// il.setImageResource(R.mipmap.detail_yellow);
 
 
 
