@@ -49,7 +49,7 @@ public class DeviceSleepTime_000 extends Activity implements View.OnClickListene
         decre.setOnClickListener(this);
 
         final ProgressDialog pd = new ProgressDialog(DeviceSleepTime_000.this, ProgressDialog.THEME_HOLO_LIGHT);
-        pd.setMessage("Getting network information...");
+        pd.setMessage("Getting Printer setting...");
         pd.setCancelable(false);
         pd.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
             @Override
