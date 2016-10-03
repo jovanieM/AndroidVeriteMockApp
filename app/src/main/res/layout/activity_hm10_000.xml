@@ -266,7 +266,7 @@
                         android:layout_height="48dp"
                         android:layout_gravity="center"
                         android:gravity="center_vertical|center_horizontal"
-                        android:text="Photo Print"
+                        android:text="Print Photo"
                         android:textSize="15dp" />
 
                     <ImageButton
