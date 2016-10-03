@@ -121,6 +121,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/oval_background"
-        android:text="@string/skip" />
+        android:text="@string/skip"
+        android:textAllCaps="false"/>
 
 </RelativeLayout>

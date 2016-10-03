@@ -27,7 +27,8 @@ version: 0
             android:text="&lt; back"
             android:id="@+id/back"
             android:background="#000000"
-            android:textColor="#fdb700" />
+            android:textColor="#fdb700"
+            android:textAllCaps="false" />
 
         <Space
             android:layout_width="wrap_content"

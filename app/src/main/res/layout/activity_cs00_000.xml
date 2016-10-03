@@ -30,5 +30,6 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@drawable/oval_background"
-        android:text="Start cartridge setup" />
+        android:text="Start cartridge setup"
+        android:textAllCaps="false" />
 </LinearLayout>

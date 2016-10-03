@@ -25,7 +25,7 @@ public class DS10_000 extends AppCompatActivity {
         print_settings.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(DS10_000.this, DS_print.class));
-                finish();
+                //finish();
             }
         });
 

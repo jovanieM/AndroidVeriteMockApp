@@ -114,7 +114,8 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
         android:text="@string/manual"
-        android:textSize="@dimen/text_size" />
+        android:textSize="@dimen/text_size"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_direct"
@@ -126,6 +127,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
         android:text="@string/direct"
-        android:textSize="@dimen/text_size" />
+        android:textSize="@dimen/text_size"
+        android:textAllCaps="false"/>
 
 </RelativeLayout>

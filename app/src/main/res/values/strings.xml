@@ -19,7 +19,7 @@
     <string name="show_password">Show Password</string>
     <string name="ssid_name">Input SSID name</string>
     <string name="find_router">Find Router</string>
-    <string name="other">other...</string>
+    <string name="other">Other</string>
     <string name="usage_tracking">Usage Tracking</string>
     <string name="done">Done</string>
     <string name="searching_for_routers">Searching for Routers...</string>

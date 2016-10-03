@@ -38,5 +38,6 @@
         android:layout_height="30dp"
         android:text="Restore to factory default"
         android:background="@drawable/oval_background"
-        android:id="@+id/btn_restore" />
+        android:id="@+id/btn_restore"
+        android:textAllCaps="false"/>
 </LinearLayout>

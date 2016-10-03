@@ -45,10 +45,10 @@
             <pl.droidsonroids.gif.GifImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
-                android:src="@drawable/scan"
                 android:scaleType="fitXY"
-                android:layout_centerHorizontal="true" />
+                android:src="@drawable/scan" />
 
         </RelativeLayout>
 
@@ -59,7 +59,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:background="@drawable/oval_background"
-            android:text="Start (Scan)" />
+            android:text="Start (Scan)"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_help1"
@@ -68,7 +69,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:background="@drawable/oval_background"
-            android:text="Help" />
+            android:text="Help"
+            android:textAllCaps="false" />
     </LinearLayout>
 
     <!--Content -->

@@ -126,7 +126,8 @@
             android:layout_alignStart="@+id/btn_default"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/oval_background"
-            android:text="Next" />
+            android:text="Next"
+            android:textAllCaps="false"/>
 
         <TextView
             android:id="@+id/textView33"
@@ -148,7 +149,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:background="@drawable/oval_background"
-            android:text="Use default" />
+            android:text="Use default"
+            android:textAllCaps="false"/>
     </LinearLayout>
     <!--    </LinearLayout>  -->
 </RelativeLayout>
