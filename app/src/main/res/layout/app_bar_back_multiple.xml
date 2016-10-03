@@ -1,18 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
 description: App bar with Back button and icon Multiple for photo_print_pics.xml
 author: arvin
 version: 0
 -->
 
-<android.support.v7.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
-    android:minHeight="?attr/actionBarSize"
-    android:id="@+id/toolbar"
-    >
+    android:minHeight="?attr/actionBarSize">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,63 +17,63 @@ version: 0
         android:orientation="horizontal"
         android:weightSum="1">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dp">
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="&lt; back"
-            android:id="@+id/back"
-            android:background="#000000"
-            android:textColor="#fdb700" />
+            <Button
+                android:id="@+id/back"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:text="&lt; back"
+                android:textAllCaps="false"
+                android:textColor="#fdb700" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:layout_weight="0.32"
-            android:id="@+id/space" />
+            <Space
+                android:id="@+id/space"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_weight="0.32" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:src="@mipmap/kodak_logo"
-            android:layout_gravity="center"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/imageView8" />
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:src="@mipmap/apptop" />
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.50" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.50" />
 
-        <ImageView
-            android:id="@+id/ic_multiple"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:src="@mipmap/ic_multiple"
-            android:layout_gravity="right"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/tv_cancel"
-            android:layout_alignStart="@+id/tv_cancel" />
+            <ImageView
+                android:id="@+id/ic_multiple"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignLeft="@+id/tv_cancel"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/tv_cancel"
+                android:layout_gravity="right"
+                android:src="@mipmap/ic_multiple" />
 
-        <TextView
-            android:id="@+id/tv_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="Cancel"
-            android:gravity="right"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_alignParentBottom="true"
-            android:textColor="#fdb700" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="right"
+                android:text="Cancel"
+                android:textColor="#fdb700" />
+        </RelativeLayout>
 
     </LinearLayout>
 

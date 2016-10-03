@@ -37,5 +37,6 @@
         android:layout_height="30dp"
         android:background="@drawable/oval_background"
         android:text="Start Printing"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:textAllCaps="false" />
 </LinearLayout>

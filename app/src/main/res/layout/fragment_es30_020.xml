@@ -108,6 +108,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
         android:clickable="false"
-        android:text="@string/find_router" />
+        android:text="@string/find_router"
+        android:textAllCaps="false"/>
 
 </RelativeLayout>

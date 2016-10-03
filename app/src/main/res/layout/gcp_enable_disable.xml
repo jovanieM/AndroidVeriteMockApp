@@ -79,5 +79,6 @@
         android:background="@drawable/oval_background"
         android:gravity="center_vertical|center_horizontal"
         android:text="Save Settings"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:textAllCaps="false"/>
 </RelativeLayout>

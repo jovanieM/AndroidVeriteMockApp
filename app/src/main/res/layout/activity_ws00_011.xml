@@ -54,7 +54,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginRight="10dp"
             android:background="@drawable/oval_background"
-            android:text="@string/manual" />
+            android:text="@string/manual"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_wps1"
@@ -63,7 +64,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="10dp"
             android:background="@drawable/oval_background"
-            android:text="@string/wps" />
+            android:text="@string/wps"
+            android:textAllCaps="false"/>
 
     </LinearLayout>
 </LinearLayout>
