@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -48,6 +47,8 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
             public void onClick (View v){
                 quickDetail.setActivated(false);
+                quick.setTextColor(getResources().getColor(R.color.gold));
+                detail.setTextColor(getResources().getColor(R.color.gray));
 
 
 //                detail.setImageResource(R.mipmap.detail_white);
@@ -69,6 +70,8 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
             public void onClick (View v){
                 quickDetail.setActivated(true);
+                detail.setTextColor(getResources().getColor(R.color.gold));
+                quick.setTextColor(getResources().getColor(R.color.gray));
 
 //
 // il.setImageResource(R.mipmap.detail_yellow);
