@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/black"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
     android:weightSum="1">
 
     <ImageButton
+        android:id="@+id/copy_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/copy_btn"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         android:background="#000000"
-        android:src="@mipmap/copy_small"
         android:focusable="false"
-        android:layout_marginTop="10dp" />
+        android:src="@mipmap/copy_small" />
 
     <TextView
+        android:id="@+id/Textview6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/Textview6"
+        android:layout_marginTop="10dp"
         android:text="Advanced Settings"
         android:textColor="#f4f0f0"
-        android:layout_marginTop="10dp"
         android:textSize="15sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:background="@android:color/darker_gray" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -37,283 +37,288 @@
         android:layout_marginTop="5dp">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <!-- Color -->
             <RelativeLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Color"
-                    android:onClick=""
                     android:id="@+id/lblColor"
-                    android:layout_gravity="center"
-                    android:textColor="#ffffff"
-                    android:layout_alignParentStart="false"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="5dp" />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:spinnerMode="dialog"
-                    android:id="@+id/sp_color"
-                    android:gravity="right"
-                    android:layout_gravity="right"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="false"
                     android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:onClick=""
+                    android:text="Color"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/sp_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
                     android:layout_marginRight="15dp"
+                    android:gravity="right"
+                    android:spinnerMode="dialog"
                     android:text="Color"
                     android:textColor="#ffffc000" />
 
             </RelativeLayout>
 
-        <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
 
             <!-- paper size -->
             <RelativeLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Paper Size"
-                    android:onClick=""
                     android:id="@+id/lblPaperSize"
-                    android:layout_gravity="center"
-                    android:textColor="#ffffff"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="5dp" />
-
-                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:spinnerMode="dialog"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:onClick=""
+                    android:text="Paper size"
+                    android:textColor="#ffffff" />
+
+                <TextView
                     android:id="@+id/sp_paper_size"
-                    android:gravity="right"
-                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:layout_gravity="right"
                     android:layout_marginRight="15dp"
-                    android:textColor="#ffffc000"
-                    android:text="Letter" />
+                    android:gravity="right"
+                    android:spinnerMode="dialog"
+                    android:text="Letter"
+                    android:textColor="#ffffc000" />
 
             </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
 
-        <!-- paper type -->
-        <RelativeLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
+            <!-- paper type -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Paper Type"
-                android:onClick=""
-                android:id="@+id/lblPaperType"
-                android:layout_gravity="center"
-                android:textColor="#ffffff"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="5dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/sp_paper_type"
-                android:gravity="right"
-                android:layout_gravity="right"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:textColor="#ffffc000"
-                android:text="Plain" />
-
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
-
-        <!-- quality -->
-        <RelativeLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Quality"
-                android:onClick=""
-                android:id="@+id/lblQuality"
-                android:layout_gravity="center"
-                android:textColor="#ffffff"
-                android:layout_marginLeft="5dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true" />
-
-            <TextView
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:spinnerMode="dialog"
-                android:id="@+id/sp_quality"
-                android:gravity="right"
-                android:layout_gravity="right"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:text="Text"
-                android:textColor="#ffffc000" />
-
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
-
-        <!-- copy resize -->
-        <RelativeLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="100dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Copy Resize"
-                android:onClick=""
-                android:id="@+id/lblResize"
-                android:layout_gravity="center"
-                android:textColor="#ffffff"
-                android:layout_marginLeft="5dp"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true" />
-
-            <Space
-                android:layout_width="80dp"
-                android:layout_height="match_parent" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true">
                 <TextView
-                    android:layout_width="170dp"
+                    android:id="@+id/lblPaperType"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/sp_resize"
-                    android:gravity="right"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:onClick=""
+                    android:text="Paper type"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/sp_paper_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:layout_gravity="right"
                     android:layout_marginRight="15dp"
-                    android:textColor="#ffffc000"
-                    android:text="100% Default" />
+                    android:gravity="right"
+                    android:text="Plain"
+                    android:textColor="#ffffc000" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <!-- quality -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblQuality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:onClick=""
+                    android:text="Quality"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/sp_quality"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="15dp"
+                    android:gravity="right"
+                    android:spinnerMode="dialog"
+                    android:text="Text"
+                    android:textColor="#ffffc000" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
+
+            <!-- copy resize -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblResize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:onClick=""
+                    android:text="Copy resize"
+                    android:textColor="#ffffff" />
+
+                <Space
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="37dp"
-                    android:orientation="horizontal"
-                    android:id="@+id/ll_custom_resize"
-                    android:layout_marginRight="15dp"
-                    android:layout_gravity="right">
-                    <EditText
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="100"
-                        android:id="@+id/editText3"
-                        android:textSize="12sp"
-                        android:layout_weight="0.25"
-                        android:layout_marginRight="5dp"
-                        android:editable="false"
-                        android:inputType="none"
-                        android:textColor="#ffffc000" />
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/sp_resize"
+                        android:layout_width="170dp"
                         android:layout_height="wrap_content"
-                        android:text="%"
-                        android:id="@+id/textView2"
-                        android:layout_marginRight="5dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="15dp"
+                        android:gravity="right"
+                        android:text="100% Default"
                         android:textColor="#ffffc000" />
 
-                    <Button
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_below="@+id/textView2"
-                        android:id="@+id/btn_custom_resize_decrement"
-                        android:background="@mipmap/decre"
-                        android:textColor="#ffffc000" />
+                    <LinearLayout
+                        android:id="@+id/ll_custom_resize"
+                        android:layout_width="wrap_content"
+                        android:layout_height="37dp"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="15dp"
+                        android:orientation="horizontal">
 
-                    <Button
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:background="@mipmap/incre"
-                        android:id="@+id/btn_custom_resize_increment"
-                        android:layout_marginLeft="5dp" />
+                        <EditText
+                            android:id="@+id/editText3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="0.25"
+                            android:editable="false"
+                            android:inputType="none"
+                            android:text="100"
+                            android:textColor="#ffffc000"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:text="%"
+                            android:textColor="#ffffc000" />
+
+                        <Button
+                            android:id="@+id/btn_custom_resize_decrement"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_below="@+id/textView2"
+                            android:background="@mipmap/decre"
+                            android:textColor="#ffffc000" />
+
+                        <Button
+                            android:id="@+id/btn_custom_resize_increment"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@mipmap/incre" />
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-        </RelativeLayout>
+            </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
 
-        <!-- pages per side -->
+            <!-- pages per side -->
 
             <!-- brightness -->
             <RelativeLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/lblBrightness"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+                android:layout_alignParentStart="true"
+                android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textView69"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pages per Side"
-                    android:onClick=""
-                    android:id="@+id/textView69"
-                    android:layout_gravity="center"
-                    android:textColor="#ffffff"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="5dp" />
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:onClick=""
+                    android:text="Pages per Side"
+                    android:textColor="#ffffff" />
 
                 <TextView
+                    android:id="@+id/pagesPerSide_btn"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="One"
-                    android:id="@+id/pagesPerSide_btn"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
                     android:background="#00ffffff"
-                    android:textColor="#ffffc000"
-                    android:layout_marginRight="10dp" />
+                    android:text="One"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffc000" />
 
             </RelativeLayout>
 
@@ -323,51 +328,51 @@
                 android:background="@android:color/darker_gray" />
 
             <RelativeLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="Brightness"
-                android:onClick=""
-                android:id="@+id/lblBrightness"
-                android:layout_gravity="center"
-                android:textColor="#ffffff"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="5dp"
-                android:layout_centerVertical="true" />
+                <TextView
+                    android:id="@+id/lblBrightness"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:onClick=""
+                    android:text="Brightness"
+                    android:textColor="#ffffff" />
 
                 <ImageView
+                    android:id="@+id/imageView4"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/imageView4"
-                    android:src="@mipmap/brightness_icon_light"
+                    android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/seekBar"
-                    android:layout_centerVertical="true" />
+                    android:src="@mipmap/brightness_icon_light" />
 
                 <SeekBar
+                    android:id="@+id/seekBar"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/seekBar"
-                    android:layout_weight="1"
+                    android:layout_centerVertical="true"
                     android:layout_gravity="center_vertical"
-                    android:max="5"
                     android:layout_marginLeft="3dp"
                     android:layout_marginRight="3dp"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/imageView5" />
+                    android:layout_toLeftOf="@+id/imageView5"
+                    android:layout_weight="1"
+                    android:max="5" />
 
                 <ImageView
+                    android:id="@+id/imageView5"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/imageView5"
-                    android:src="@mipmap/brightness_icon_dark"
-                    android:layout_gravity="bottom"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="5dp" />
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="bottom"
+                    android:layout_marginRight="5dp"
+                    android:src="@mipmap/brightness_icon_dark" />
 
             </RelativeLayout>
 

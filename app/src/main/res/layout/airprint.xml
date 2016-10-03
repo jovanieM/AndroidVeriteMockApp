@@ -39,7 +39,7 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:text="Airprint"
+            android:text="AirPrint"
             android:textSize="15sp" />
 
         <ToggleButton
@@ -84,7 +84,7 @@
         android:layout_marginTop="25dp"
         android:background="@drawable/oval_background"
         android:gravity="center_vertical|center_horizontal"
-        android:text="Save settings"
+        android:text="Save setting"
         android:textSize="15sp" />
 
 </RelativeLayout>

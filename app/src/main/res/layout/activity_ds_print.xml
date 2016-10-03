@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Print Settings"
+            android:text="Print Photo Settings"
             android:id="@+id/copysetting_title"
             android:textColor="#ffffff"
             android:textSize="20dp"
