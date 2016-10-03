@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:clickable="false"
             android:focusable="false"
             android:text="Device Sleep Time"
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:clickable="false"
             android:focusable="false"
             android:text="Clean Printhead" />
@@ -114,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:clickable="false"
             android:focusable="false"
             android:text="Cartridge Setup" />
@@ -152,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:clickable="false"
             android:focusable="false"
             android:text="Print Reports" />
@@ -189,7 +189,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:clickable="false"
             android:focusable="false"
             android:text="Paper Setup" />
@@ -226,7 +226,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:clickable="false"
             android:focusable="false"
             android:text="Restore Factory Default" />

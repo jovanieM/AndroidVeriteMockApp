@@ -26,7 +26,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         android:singleLine="false"
-        android:text="The print switches to sleep mode when idle for a given time."
+        android:text="The printer switches to sleep mode when idle for a given time."
         android:textColor="#ffffff" />
 
     <Space
