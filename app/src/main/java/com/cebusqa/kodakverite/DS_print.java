@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -28,6 +27,7 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
         detail = (TextView) findViewById(R.id.detail);
         back = (Button)findViewById(R.id.back);
         quickDetail = (LinearLayout) findViewById(R.id.quick_detail_layout);
+        quick.setSelected(true);
 
 
 
@@ -48,6 +48,10 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
             public void onClick (View v){
                 quickDetail.setActivated(false);
+                quick.setSelected(true);
+                detail.setSelected(false);
+
+
 
 
 //                detail.setImageResource(R.mipmap.detail_white);
@@ -69,6 +73,8 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
             public void onClick (View v){
                 quickDetail.setActivated(true);
+                detail.setSelected(true);
+                quick.setSelected(false);
 
 //
 // il.setImageResource(R.mipmap.detail_yellow);

@@ -53,7 +53,8 @@
                 android:id="@+id/quick"
                 android:layout_weight="1"
                 android:gravity="fill_vertical|center_horizontal"
-                android:textColor="@color/gold" />
+                android:textColor="@drawable/text_color_changer"
+                android:clickable="true"/>
 
             <TextView
                 android:id="@+id/detail"
@@ -62,7 +63,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical|center_horizontal"
-                android:textColor="@color/gold" />
+                android:textColor="@drawable/text_color_changer"
+                android:clickable="true"/>
         </LinearLayout>
 
         <LinearLayout

@@ -235,7 +235,12 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
             checkmark.setVisibility(View.VISIBLE);
             checkmark.setImageResource(R.mipmap.checkmark_large);
             printer_name.setText(printer);
-            printer_name.setOnClickListener(null);
+            printer_name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
             printer_selected.setText("Selected Printer");
             progressbar.setVisibility(View.INVISIBLE);
             ink_level.findViewById(R.id.ink_level_tv).setVisibility(View.VISIBLE);
