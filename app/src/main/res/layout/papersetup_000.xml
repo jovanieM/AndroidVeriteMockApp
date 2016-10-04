@@ -10,7 +10,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
         android:layout_weight="0.11"
@@ -25,7 +25,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
-        android:singleLine="false"
         android:text="The size and type are used in Google Cloud Print, AirPrint and Copy Setting"
         android:textColor="#ffffff"
         android:textSize="15sp" />
@@ -46,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:padding="5dp"
@@ -59,14 +59,21 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
             android:layout_alignParentRight="false"
             android:layout_alignRight="@+id/imageView22"
+            android:layout_alignEnd="@id/imageView22"
             android:layout_centerVertical="true"
             android:layout_marginRight="25dp"
+            android:layout_marginEnd="25dp"
             android:paddingRight="5dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
             android:spinnerMode="dialog"
             android:text="Letter"
             android:textAlignment="textEnd"
+            android:gravity="end"
             android:textColor="#ffffc000"
             android:textSize="15sp" />
 
@@ -107,7 +114,7 @@
 
         <TextView
             android:id="@+id/spin_paper_type"
-            android:layout_width="170dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="false"
