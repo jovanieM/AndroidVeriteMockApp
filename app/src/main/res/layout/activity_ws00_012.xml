@@ -98,7 +98,8 @@
             android:layout_height="30dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/oval_background"
-            android:text="@string/help" />
+            android:text="@string/help"
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/btn_other1"
@@ -106,7 +107,8 @@
             android:layout_height="30dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/oval_background"
-            android:text="@string/other" />
+            android:text="@string/other"
+            android:textAllCaps="false"/>
     </LinearLayout>
 
 </RelativeLayout>

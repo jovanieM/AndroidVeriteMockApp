@@ -132,7 +132,8 @@
         android:layout_height="30dp"
         android:layout_below="@+id/relativeLayout_address_port"
         android:background="@drawable/oval_background"
-        android:text="@string/save_setting" />
+        android:text="@string/save_setting"
+        android:textAllCaps="false"/>
 
 
 </RelativeLayout>

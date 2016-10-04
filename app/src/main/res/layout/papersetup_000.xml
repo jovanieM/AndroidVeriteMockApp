@@ -28,7 +28,7 @@
         android:singleLine="false"
         android:text="The size and type are used in Google Cloud Print, AirPrint and Copy Setting"
         android:textColor="#ffffff"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <Space
         android:layout_width="match_parent"
@@ -42,43 +42,43 @@
         android:weightSum="1">
 
         <TextView
+            android:id="@+id/textView82"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:padding="5dp"
-            android:text="Paper Size"
+            android:text="Paper size:"
             android:textColor="#ffffff"
-            android:textSize="15dp"
-            android:id="@+id/textView82" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/spin_paper_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="false"
-            android:layout_centerVertical="true"
-            android:spinnerMode="dialog"
-            android:textColor="#ffffc000"
-            android:text="Letter"
             android:layout_alignParentLeft="false"
-            android:textAlignment="textEnd"
-            android:paddingRight="5dp"
+            android:layout_alignParentRight="false"
             android:layout_alignRight="@+id/imageView22"
+            android:layout_centerVertical="true"
             android:layout_marginRight="25dp"
-            android:textSize="15dp" />
+            android:paddingRight="5dp"
+            android:spinnerMode="dialog"
+            android:text="Letter"
+            android:textAlignment="textEnd"
+            android:textColor="#ffffc000"
+            android:textSize="15sp" />
 
         <ImageView
+            android:id="@+id/imageView22"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView22"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/down_allow"
-            android:layout_marginRight="5dp" />
+            android:layout_marginRight="5dp"
+            android:src="@drawable/down_allow" />
 
     </RelativeLayout>
 
@@ -101,35 +101,35 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:padding="5dp"
-            android:text="Paper Type"
+            android:text="Paper type:"
             android:textColor="#ffffff"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/spin_paper_type"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:spinnerMode="dialog"
-            android:textColor="#ffffc000"
-            android:text="Plain"
-            android:layout_alignParentLeft="false"
-            android:textAlignment="textEnd"
             android:layout_marginRight="25dp"
             android:paddingRight="5dp"
-            android:textSize="15dp" />
+            android:spinnerMode="dialog"
+            android:text="Plain"
+            android:textAlignment="textEnd"
+            android:textColor="#ffffc000"
+            android:textSize="15sp" />
 
         <ImageView
+            android:id="@+id/imageView25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView25"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/down_allow"
-            android:layout_marginRight="5dp" />
+            android:layout_marginRight="5dp"
+            android:src="@drawable/down_allow" />
 
     </RelativeLayout>
 
@@ -143,5 +143,6 @@
         android:layout_height="30dp"
         android:background="@drawable/oval_background"
         android:text="Save setting"
+        android:textAllCaps="false"
         android:textColor="#ffffff" />
 </LinearLayout>

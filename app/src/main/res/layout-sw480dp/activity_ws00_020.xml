@@ -425,6 +425,7 @@
         android:layout_below="@+id/ll_ip_address"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/oval_background"
-        android:text="@string/save_setting" />
+        android:text="@string/save_setting"
+        android:textAllCaps="false"/>
 
 </RelativeLayout>

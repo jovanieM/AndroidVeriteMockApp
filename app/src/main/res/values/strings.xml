@@ -19,7 +19,7 @@
     <string name="show_password">Show Password</string>
     <string name="ssid_name">Input SSID name</string>
     <string name="find_router">Find Router</string>
-    <string name="other">other...</string>
+    <string name="other">Other</string>
     <string name="usage_tracking">Usage Tracking</string>
     <string name="done">Done</string>
     <string name="searching_for_routers">Searching for Routers...</string>
@@ -141,16 +141,6 @@
     </string-array>
 
     <string-array name="Paper_size_print">
-        <item>Letter</item>
-        <item>Legal</item>
-        <item>Executive</item>
-        <item>Statement</item>
-        <item>A4</item>
-        <item>A4 Borderless</item>
-        <item>JIS B5</item>
-        <item>A5</item>
-        <item>A6</item>
-        <item>A6 Borderless</item>
         <item>4x6 in.</item>
         <item>4x6 in. Borderless</item>
         <item>3x5 in.</item>
@@ -158,6 +148,18 @@
         <item>5x7 in.(2L) Borderless</item>
         <item>3.5x5 in.(L)</item>
         <item>3.5x5 in.(L) Borderless</item>
+        <item>Letter</item>
+        <item>Letter Borderless</item>
+        <item>Legal</item>
+        <item>Executive</item>
+        <item>Statement</item>
+        <item>A4</item>
+        <item>A4 Borderless</item>
+        <item>JIS B5</item>
+        <item>A5</item>
+        <item>A5 Borderless</item>
+        <item>A6</item>
+        <item>A6 Borderless</item>
         <item>Hagaki</item>
         <item>Hagaki Borderless</item>
         <item>10 Envelope</item>

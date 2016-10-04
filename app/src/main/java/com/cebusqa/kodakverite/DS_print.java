@@ -48,10 +48,15 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
             public void onClick (View v){
                 quickDetail.setActivated(false);
+<<<<<<< HEAD
                 quick.setSelected(true);
                 detail.setSelected(false);
 
 
+=======
+                quick.setTextColor(getResources().getColor(R.color.gold));
+                detail.setTextColor(getResources().getColor(R.color.gray));
+>>>>>>> a368c1ba450f8d86e2df4f904ad1abc11c118928
 
 
 //                detail.setImageResource(R.mipmap.detail_white);
@@ -73,8 +78,13 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
             public void onClick (View v){
                 quickDetail.setActivated(true);
+<<<<<<< HEAD
                 detail.setSelected(true);
                 quick.setSelected(false);
+=======
+                detail.setTextColor(getResources().getColor(R.color.gold));
+                quick.setTextColor(getResources().getColor(R.color.gray));
+>>>>>>> a368c1ba450f8d86e2df4f904ad1abc11c118928
 
 //
 // il.setImageResource(R.mipmap.detail_yellow);

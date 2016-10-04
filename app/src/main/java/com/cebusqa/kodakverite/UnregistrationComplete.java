@@ -3,11 +3,7 @@ package com.cebusqa.kodakverite;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
 
 /**
  * Created by Cebu SQA on 28/06/2016.
@@ -28,6 +24,6 @@ public class UnregistrationComplete extends DialogFragment{
     @Override
     public void onDestroy() {
         super.onDestroy();
-        dismiss();
+//        dismiss();
     }
 }

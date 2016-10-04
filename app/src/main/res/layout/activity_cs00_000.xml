@@ -23,12 +23,14 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
-        android:text=" To perform printhead alignment, press [Start Cartridge setup]. Please load Letter or A4 paper in tray. Calibration sheet will then be printed. Please place the printed calibration sheet on the scanner." />
+        android:text=" To perform printhead alignment, press [Start Cartridge setup].\n Please load Letter or A4 paper in tray. Calibration sheet will then be printed. \nPlease place the printed calibration sheet on the scanner."
+        android:textSize="12sp"/>
 
     <Button
         android:id="@+id/btn_start"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@drawable/oval_background"
-        android:text="Start cartridge setup" />
+        android:text="Start cartridge setup"
+        android:textAllCaps="false" />
 </LinearLayout>

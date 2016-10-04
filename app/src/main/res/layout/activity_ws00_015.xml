@@ -48,6 +48,7 @@ WPS takes up to 3 minutes to finish. "
         android:layout_gravity="center_horizontal"
         android:background="@drawable/oval_background"
         android:clickable="false"
-        android:text="@string/find_router" />
+        android:text="@string/find_router"
+        android:textAllCaps="false"/>
 
 </LinearLayout>

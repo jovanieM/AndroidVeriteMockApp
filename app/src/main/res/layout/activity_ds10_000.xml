@@ -78,10 +78,10 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:clickable="false"
                 android:focusable="false"
-                android:text="Print Settings" />
+                android:text="Print Photo Settings" />
 
             <ImageButton
                 android:id="@+id/imageButton7"
@@ -116,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:clickable="false"
                 android:focusable="false"
                 android:text="Scan Settings" />
@@ -154,7 +154,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:clickable="false"
                 android:focusable="false"
                 android:text="Device Settings" />

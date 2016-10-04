@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Print Settings"
+            android:text="Print Photo Settings"
             android:id="@+id/copysetting_title"
             android:textColor="#ffffff"
             android:textSize="20dp"
@@ -63,8 +63,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical|center_horizontal"
+<<<<<<< HEAD
                 android:textColor="@drawable/text_color_changer"
                 android:clickable="true"/>
+=======
+                android:textColor="@android:color/secondary_text_light_nodisable" />
+>>>>>>> a368c1ba450f8d86e2df4f904ad1abc11c118928
         </LinearLayout>
 
         <LinearLayout

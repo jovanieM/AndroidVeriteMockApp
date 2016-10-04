@@ -29,7 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="10dp"
+        android:background="@drawable/oval_background"
         android:text="Start Update"
-        android:background="@drawable/oval_background"/>
+        android:textAllCaps="false" />
 
 </LinearLayout>

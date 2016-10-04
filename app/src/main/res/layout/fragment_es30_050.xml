@@ -119,6 +119,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/oval_background"
         android:onClick="launchRingDialog"
-        android:text="@string/done" />
+        android:text="@string/done"
+        android:textAllCaps="false"/>
 
 </RelativeLayout>

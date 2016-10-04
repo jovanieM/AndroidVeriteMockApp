@@ -15,7 +15,7 @@
         android:layout_margin="10dp"
         android:layout_weight="0.10"
         android:gravity="center_horizontal"
-        android:text="Print Report"
+        android:text="Print Reports"
         android:textSize="20sp" />
 
     <TextView
@@ -37,5 +37,6 @@
         android:layout_height="30dp"
         android:background="@drawable/oval_background"
         android:text="Start Printing"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:textAllCaps="false" />
 </LinearLayout>
