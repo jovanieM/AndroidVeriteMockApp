@@ -134,6 +134,7 @@ public class DeviceSleepTime_000 extends Activity implements View.OnClickListene
                     num = min + 1;
                     val = Integer.toString(num);
                     num_min.setText(val);
+                    num_min.setSelection(num_min.getText().length());
                 }
                 break;
 
@@ -144,6 +145,7 @@ public class DeviceSleepTime_000 extends Activity implements View.OnClickListene
                     num = min - 1;
                     val = Integer.toString(num);
                     num_min.setText(val);
+                    num_min.setSelection(num_min.getText().length());
                 }
                 break;
         }

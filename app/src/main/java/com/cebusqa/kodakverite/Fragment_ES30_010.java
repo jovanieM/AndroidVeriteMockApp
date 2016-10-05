@@ -29,7 +29,7 @@ import android.widget.TextView;
 /**
  * Created by SQA Cebu on 6/13/2016.
  */
-public class Fragment_ES30_010 extends Fragment {
+public class   Fragment_ES30_010 extends Fragment {
 
     EditText etSSID, etPassword;
     Spinner spinner;

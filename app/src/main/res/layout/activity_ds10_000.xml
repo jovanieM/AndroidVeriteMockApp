@@ -6,48 +6,48 @@
     android:background="@color/black"
     tools:context="com.cebusqa.kodakverite.HM10_000">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/app_bar_back_only" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout_printer"
-        android:layout_width="fill_parent"
-        android:layout_height="150dp"
+    <TextView
+        android:id="@+id/printer_selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:text="Selected Printer"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#bfbfbf"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/printer"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@+id/printer_selected"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:background="#000000"
+        android:longClickable="true"
+        android:src="@mipmap/printer_icon_large" />
+
+    <TextView
+        android:id="@+id/printer_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/printer"
+        android:layout_gravity="bottom"
         android:background="#000000"
-        android:orientation="vertical">
-
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/app_bar_back_only" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#000000"
-            android:src="@mipmap/printer1" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout_printername"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/linearLayout_printer"
-        android:background="#00000000"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/printer_name"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="top"
-            android:background="#000000"
-            android:src="@mipmap/kodak_name" />
-    </LinearLayout>
+        android:clickable="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:src="@mipmap/kodak_name"
+        android:text="KODAK VERITE 55 PLUS"
+        android:textColor="#f0b82f"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:id="@+id/linearLayout_ecomode"
@@ -55,7 +55,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearLayout_printername"
+        android:layout_below="@+id/printer_name"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -63,8 +63,6 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/gradient_bg"
             android:clickable="true"
@@ -81,7 +79,8 @@
                 android:layout_marginLeft="10dp"
                 android:clickable="false"
                 android:focusable="false"
-                android:text="Print Photo Settings" />
+                android:text="Print Photo Settings"
+                android:textColor="#bfbfbf"/>
 
             <ImageButton
                 android:id="@+id/imageButton7"
@@ -102,8 +101,6 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:background="@drawable/gradient_bg"
             android:clickable="true"
             android:descendantFocusability="beforeDescendants"
@@ -119,7 +116,8 @@
                 android:layout_marginLeft="10dp"
                 android:clickable="false"
                 android:focusable="false"
-                android:text="Scan Settings" />
+                android:text="Scan Settings"
+                android:textColor="#bfbfbf"/>
 
             <ImageButton
                 android:id="@+id/imageButton8"
@@ -140,8 +138,6 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
             android:background="@drawable/gradient_bg"
             android:clickable="true"
             android:descendantFocusability="beforeDescendants"
@@ -157,7 +153,8 @@
                 android:layout_marginLeft="10dp"
                 android:clickable="false"
                 android:focusable="false"
-                android:text="Device Settings" />
+                android:text="Device Settings"
+                android:textColor="#bfbfbf"/>
 
             <ImageButton
                 android:id="@+id/imageButton9"
@@ -173,7 +170,37 @@
                 android:src="@mipmap/allow_next" />
         </RelativeLayout>
 
-        <ImageButton
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/listview_bg"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONNECT"
+                android:textSize="10sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="direct connection"
+                android:textAllCaps="false"
+                android:layout_marginTop="15dp"
+                android:textColor="#f0b82f"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/direct_icon"
+                android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
+        <!-- <ImageButton
             android:id="@+id/connection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -182,7 +209,8 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/gradient_bg"
             android:src="@mipmap/connection"
-            android:clickable="false"/>
+            android:clickable="false"/> -->
     </LinearLayout>
+
 
 </RelativeLayout>
