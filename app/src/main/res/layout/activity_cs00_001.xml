@@ -44,7 +44,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
             android:adjustViewBounds="true"
-            android:src="@drawable/image5"
+            android:src="@drawable/alignmentpaper"
             android:layout_alignParentRight="false" />
 
         <ProgressBar

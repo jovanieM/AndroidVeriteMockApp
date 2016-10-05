@@ -101,7 +101,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/printing"
+        android:src="@drawable/alignmentpaper"
         android:layout_centerHorizontal="true" />
 
     <ProgressBar
