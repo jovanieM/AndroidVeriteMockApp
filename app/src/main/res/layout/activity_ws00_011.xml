@@ -14,10 +14,10 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@color/colorPrimary"
         android:gravity="center_horizontal"
         android:text="@string/network_and_password"
-        android:textSize="@dimen/text_size_20" />
+        android:textSize="@dimen/text_size_20"
+        android:textColor="#bfbfbf"/>
 
     <TextView
         android:id="@+id/textView12"
@@ -49,23 +49,27 @@
 
         <Button
             android:id="@+id/btn_manual1"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
             android:background="@drawable/oval_background"
             android:text="@string/manual"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textColor="#bfbfbf"/>
 
         <Button
             android:id="@+id/btn_wps1"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="10dp"
             android:background="@drawable/oval_background"
             android:text="@string/wps"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textColor="#bfbfbf"/>
 
     </LinearLayout>
 </LinearLayout>

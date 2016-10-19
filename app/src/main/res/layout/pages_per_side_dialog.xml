@@ -5,186 +5,190 @@
     android:orientation="vertical">
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout_ecomode"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="false"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_centerInParent="true"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentTop="false"
-        android:id="@+id/scrollView">
+        android:layout_marginRight="5dp">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="#ffffff">
+            android:background="#ffffff"
+            android:orientation="vertical">
 
-        <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="#ffffff"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/onePage">
+            <LinearLayout
+                android:id="@+id/onePage"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#ffffff"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView10"
-            android:src="@mipmap/onepage"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="50dp" />
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
+                    android:src="@mipmap/onepage" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="One"
-            android:id="@+id/textView70"
-            android:layout_gravity="center_vertical"
-            android:textColor="#010101"
-            android:textSize="15dp"
-            android:layout_marginLeft="50dp" />
+                <TextView
+                    android:id="@+id/textView70"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
+                    android:text="One"
+                    android:textColor="#010101"
+                    android:textSize="15sp" />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="#ffffff"
-        android:clickable="true"
-        android:focusable="true"
-        android:id="@+id/twoL">
+            <LinearLayout
+                android:id="@+id/twoL"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#ffffff"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView18"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="50dp"
-            android:src="@mipmap/two_l" />
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
+                    android:src="@mipmap/two_l" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2 in 1 Landscape"
-            android:id="@+id/textView71"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="50dp"
-            android:textColor="#010101"
-            android:textSize="15dp" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textView71"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
+                    android:text="2 in 1 Landscape"
+                    android:textColor="#010101"
+                    android:textSize="15sp" />
+            </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="#ffffff"
-        android:layout_gravity="center_horizontal"
-        android:clickable="true"
-        android:focusable="true"
-        android:id="@+id/twoP">
+            <LinearLayout
+                android:id="@+id/twoP"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#ffffff"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView19"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="50dp"
-            android:src="@mipmap/two_p" />
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
+                    android:src="@mipmap/two_p" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2 in 1 Portrait"
-            android:id="@+id/textView72"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:textColor="#010101"
-            android:textSize="15dp" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textView72"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:text="2 in 1 Portrait"
+                    android:textColor="#010101"
+                    android:textSize="15sp" />
+            </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="#ffffff"
-        android:clickable="true"
-        android:focusable="true"
-        android:id="@+id/fourL">
+            <LinearLayout
+                android:id="@+id/fourL"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#ffffff"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView73"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="50dp"
-            android:src="@mipmap/four_l" />
+                <ImageView
+                    android:id="@+id/imageView73"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
+                    android:src="@mipmap/four_l" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4 in 1 Landscape"
-            android:id="@+id/textView74"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            android:textColor="#010101"
-            android:textSize="15dp" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textView74"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:text="4 in 1 Landscape"
+                    android:textColor="#010101"
+                    android:textSize="15sp" />
+            </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="#ffffff"
-        android:layout_gravity="center_horizontal"
-        android:clickable="true"
-        android:focusable="true"
-        android:id="@+id/fourP">
+            <LinearLayout
+                android:id="@+id/fourP"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#ffffff"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView75"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="50dp"
-            android:src="@mipmap/four_p" />
+                <ImageView
+                    android:id="@+id/imageView75"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
+                    android:src="@mipmap/four_p" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4 in 1 Portrait"
-            android:id="@+id/textView76"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="50dp"
-            android:textColor="#010101"
-            android:textSize="15dp" />
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/textView76"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
+                    android:text="4 in 1 Portrait"
+                    android:textColor="#010101"
+                    android:textSize="15sp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
