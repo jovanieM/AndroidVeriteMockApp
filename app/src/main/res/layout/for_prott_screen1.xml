@@ -3,20 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/app_bar"
-        layout="@layout/app_bar" />
+    <include layout="@layout/app_bar_back_only"
+        android:id="@+id/include7"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="77dp" />
 
     <TextView
         android:id="@+id/easy_setup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/app_bar"
-        android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
         android:text="A3 / B4 Scan"
         android:textSize="@dimen/easy_setup_size"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:layout_below="@+id/include7"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/textView34"
@@ -25,62 +28,44 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="1. Place the right side of the paper facing on the flatbed scanner.\n
-        2. Close scanner cover and press [Scan]."
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="1.   Fold A3 or B4 paper in half. \n2.   Place the left side of the paper facing on the flatbed        \n      scanner. \n3.   Close scanner cover and press [Scan]."
+        android:layout_below="@+id/easy_setup"
+        android:singleLine="false" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/imageView27"
         android:layout_below="@+id/easy_setup" />
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="208dp"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="true"
+        android:layout_height="240dp"
+        android:id="@+id/imageView6"
+        android:src="@drawable/set_left_side"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_below="@+id/textView34"
-        android:id="@+id/linearLayout5"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp">
+        android:layout_marginRight="10dp" />
 
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/view4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentStart="false"
-            android:layout_below="@+id/textView34"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.14"
-            android:scaleType="fitXY"
-            android:src="@drawable/alignment">
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/oval_background"
+        android:text="Scan"
+        android:textAllCaps="false"
+        android:layout_below="@+id/imageView6"
+        android:layout_centerHorizontal="true" />
 
-        </pl.droidsonroids.gif.GifImageView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout5"
-        android:layout_alignLeft="@+id/textView34"
-        android:layout_alignStart="@+id/textView34"
-        android:layout_marginTop="5dp">
-
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_alignLeft="@+id/btn_default"
-            android:layout_alignStart="@+id/btn_default"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/oval_background"
-            android:text="Scan"
-            android:textAllCaps="false"
-            android:layout_marginTop="10dp" />
-
-    </LinearLayout>
-    <!--    </LinearLayout>  -->
 </RelativeLayout>
 
 

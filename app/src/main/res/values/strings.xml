@@ -240,5 +240,6 @@
         <item>Photo Letter Borderless</item>
         <item>Document Letter</item>
     </string-array>
+    <string name="title_activity_prott_screen_one">Prott_screen_one</string>
 
 </resources>

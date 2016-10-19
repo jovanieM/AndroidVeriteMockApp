@@ -185,6 +185,8 @@
         <activity
             android:name=".MultiplePrintQueue"
             android:screenOrientation="portrait" />
+<<<<<<< HEAD
+=======
 
         <activity
             android:name=".A3B4Scan"
@@ -192,15 +194,19 @@
 
 
 
+>>>>>>> f54fc95a00c8d947c9dc07d08bd9a016d1809d61
         <activity
             android:name=".ImageCropper2"
             android:screenOrientation="portrait" />
 
-      <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
-     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <!--
+     ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
     </application>
 
 </manifest>
