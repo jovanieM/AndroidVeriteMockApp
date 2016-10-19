@@ -4,7 +4,11 @@
     android:layout_height="match_parent">
 
     <include layout="@layout/app_bar_back_only"
-        android:id="@+id/include7" />
+        android:id="@+id/include7"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="77dp" />
 
     <TextView
         android:id="@+id/easy_setup"
@@ -36,33 +40,31 @@
         android:id="@+id/imageView27"
         android:layout_below="@+id/easy_setup" />
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="240dp"
+        android:id="@+id/imageView6"
+        android:src="@drawable/set_left_side"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_below="@+id/textView34"
-        android:layout_margin="5dp">
+        android:layout_marginRight="10dp" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:id="@+id/imageView6"
-            android:src="@drawable/set_left_side"
-            android:layout_gravity="center" />
-
-        <Button
-            android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_alignLeft="@+id/btn_default"
-            android:layout_alignStart="@+id/btn_default"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/oval_background"
-            android:text="Scan"
-            android:textAllCaps="false"
-            android:layout_marginTop="10dp" />
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/oval_background"
+        android:text="Scan"
+        android:textAllCaps="false"
+        android:layout_below="@+id/imageView6"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
 

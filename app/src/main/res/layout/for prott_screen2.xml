@@ -23,22 +23,19 @@
         android:id="@+id/imageView26"
         android:layout_below="@+id/easy_setup" />
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_height="240dp"
+        android:id="@+id/imageView6"
+        android:src="@drawable/scan_left_side"
+        android:layout_gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView26"
-        android:id="@+id/linearLayout7">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:id="@+id/imageView6"
-            android:src="@drawable/scan_left_side"
-            android:layout_gravity="center" />
-
-    </LinearLayout>
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,8 +43,6 @@
         android:text="Scanning . . ."
         android:id="@+id/textView36"
         android:layout_alignBottom="@+id/imageView26"
-        android:layout_alignLeft="@+id/linearLayout7"
-        android:layout_alignStart="@+id/linearLayout7"
         android:layout_marginLeft="15dp" />
 
 </RelativeLayout>
