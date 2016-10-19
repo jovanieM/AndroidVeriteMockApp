@@ -6,7 +6,8 @@
     android:background="@color/black"
     tools:context="com.cebusqa.kodakverite.DS_print"
     android:gravity="center"
-    android:paddingLeft="10dp">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <include
         layout="@layout/app_bar_back_only"
@@ -63,12 +64,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical|center_horizontal"
-<<<<<<< HEAD
                 android:textColor="@drawable/text_color_changer"
                 android:clickable="true"/>
-=======
-                android:textColor="@android:color/secondary_text_light_nodisable" />
->>>>>>> a368c1ba450f8d86e2df4f904ad1abc11c118928
+
         </LinearLayout>
 
         <LinearLayout

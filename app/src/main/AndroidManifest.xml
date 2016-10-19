@@ -186,6 +186,10 @@
             android:name=".MultiplePrintQueue"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".A3B4Scan"
+            android:screenOrientation="portrait" />
+
 
 
         <activity

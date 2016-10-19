@@ -29,7 +29,7 @@ import android.widget.Toast;
 public class HM10_000 extends AppCompatActivity implements Communicator {
 
     ImageButton scanphoto, scandocument, photoprint, ecomode, setting_icon, search_icon, printer;
-    LinearLayout photo_print, ink_level, copy_icon, scan_document, scan_photo;
+    LinearLayout photo_print, ink_level, copy_icon, scan_document, scan_photo, a3b4scan;
     private int currentImage = 0;
     int[] images = {R.mipmap.ecomode_off, R.mipmap.ecomode1, R.mipmap.ecomode2};
     TextView printer_name, printer_selected;
@@ -65,6 +65,7 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
         printer_selected = (TextView) findViewById(R.id.printer_selected);
         progressbar = (ProgressBar) findViewById(R.id.progressbar);
         checkmark = (ImageView) findViewById(R.id.checkmark);
+        a3b4scan = (LinearLayout) findViewById(R.id.a3b4_scan);
 
         scan_document.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -96,6 +97,13 @@ public class HM10_000 extends AppCompatActivity implements Communicator {
         scan_photo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(HM10_000.this, PhotoScanMain.class));
+            }
+        });
+
+        a3b4scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HM10_000.this, A3B4Scan.class));
             }
         });
 

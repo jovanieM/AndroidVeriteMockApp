@@ -53,6 +53,7 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
     public static LruCache<String, Bitmap> mMemoryCache;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -509,6 +510,8 @@ public class DocumentScan2 extends Activity implements View.OnClickListener {
         };
         handler.postDelayed(run, 4000);
     }
+
+
 
 
 
