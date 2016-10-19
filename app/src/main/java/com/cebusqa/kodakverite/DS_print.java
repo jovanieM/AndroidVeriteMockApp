@@ -27,6 +27,7 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
         detail = (TextView) findViewById(R.id.detail);
         back = (Button)findViewById(R.id.back);
         quickDetail = (LinearLayout) findViewById(R.id.quick_detail_layout);
+        quick.setSelected(true);
 
 
 
@@ -47,8 +48,10 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
             public void onClick (View v){
                 quickDetail.setActivated(false);
-                quick.setTextColor(getResources().getColor(R.color.gold));
-                detail.setTextColor(getResources().getColor(R.color.gray));
+
+                quick.setSelected(true);
+                detail.setSelected(false);
+
 
 
 //                detail.setImageResource(R.mipmap.detail_white);
@@ -70,13 +73,10 @@ public class DS_print extends FragmentActivity implements View.OnClickListener {
 
             public void onClick (View v){
                 quickDetail.setActivated(true);
-                detail.setTextColor(getResources().getColor(R.color.gold));
-                quick.setTextColor(getResources().getColor(R.color.gray));
+                detail.setSelected(true);
+                quick.setSelected(false);
 
-//
 // il.setImageResource(R.mipmap.detail_yellow);
-
-
 
                 FragmentManager fm = getFragmentManager();
                 FragmentTransaction ft = fm.beginTransaction();

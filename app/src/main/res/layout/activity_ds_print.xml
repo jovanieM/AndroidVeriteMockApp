@@ -6,7 +6,8 @@
     android:background="@color/black"
     tools:context="com.cebusqa.kodakverite.DS_print"
     android:gravity="center"
-    android:paddingLeft="10dp">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
     <include
         layout="@layout/app_bar_back_only"
@@ -53,7 +54,8 @@
                 android:id="@+id/quick"
                 android:layout_weight="1"
                 android:gravity="fill_vertical|center_horizontal"
-                android:textColor="@color/gold" />
+                android:textColor="@drawable/text_color_changer"
+                android:clickable="true"/>
 
             <TextView
                 android:id="@+id/detail"
@@ -62,7 +64,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center_vertical|center_horizontal"
-                android:textColor="@android:color/secondary_text_light_nodisable" />
+                android:textColor="@drawable/text_color_changer"
+                android:clickable="true"/>
+
         </LinearLayout>
 
         <LinearLayout

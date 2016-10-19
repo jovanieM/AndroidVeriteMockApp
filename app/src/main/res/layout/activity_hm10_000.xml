@@ -7,98 +7,6 @@
     tools:context="com.cebusqa.kodakverite.HM10_000">
 
     <LinearLayout
-        android:id="@+id/linearLayout_printer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="#000000"
-        android:orientation="vertical">
-
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/app_bar_home"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:id="@+id/spacer"
-            android:layout_width="match_parent"
-            android:layout_height="26dp"
-            android:orientation="vertical"></LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="110dp">
-
-            <ImageButton
-                android:id="@+id/printer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="15dp"
-                android:background="#000000"
-                android:longClickable="true"
-                android:src="@mipmap/printer_icon_large" />
-
-            <ImageButton
-                android:id="@+id/search_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="false"
-                android:layout_alignParentLeft="false"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentStart="false"
-                android:layout_alignParentTop="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:background="#000000"
-                android:paddingRight="5dp"
-                android:src="@mipmap/search_icon" />
-
-            <ImageView
-                android:id="@+id/checkmark"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_above="@+id/printer"
-                android:layout_alignEnd="@+id/printer"
-                android:layout_alignLeft="@+id/printer"
-                android:layout_alignParentTop="false"
-                android:layout_alignRight="@+id/printer"
-                android:layout_alignStart="@+id/printer"
-                android:layout_centerInParent="true"
-                android:src="@mipmap/checkmark_large" />
-
-            <TextView
-                android:id="@+id/printer_selected"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:text="Selected Printer"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="12dp" />
-
-            <ProgressBar
-                android:id="@+id/progressbar"
-                style="?android:attr/progressBarStyleLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/imageView11"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="73dp"
-                android:indeterminateDrawable="@drawable/progress_circle"
-                android:progressDrawable="@drawable/progress_circle"
-                android:visibility="invisible" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/linearLayout_printername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -407,30 +315,25 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/linearLayout4"
+                    android:id="@+id/a3b4_scan"
                     android:layout_width="150dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:layout_weight="0.11"
-                    android:background="@drawable/main_button_pressed"
                     android:clickable="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:background="@drawable/gradient_bg">
 
                     <TextView
                         android:id="@+id/textView42"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:layout_gravity="center|bottom"
-                        android:background="#000000"
-                        android:gravity="center_vertical|center_horizontal" />
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="A3B4 Scan"/>
 
-                    <ImageButton
-                        android:id="@+id/imageButton3"
-                        android:layout_width="162dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:background="@drawable/main_button_pressed" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -439,5 +342,98 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_printer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/app_bar_home"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/spacer"
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:orientation="vertical"></LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="110dp"
+            android:paddingRight="10dp">
+
+            <ImageButton
+                android:id="@+id/printer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:background="#000000"
+                android:longClickable="true"
+                android:src="@mipmap/printer_icon_large" />
+
+            <ImageButton
+                android:id="@+id/search_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:background="#000000"
+                android:paddingRight="5dp"
+                android:src="@mipmap/search_icon" />
+
+            <ImageView
+                android:id="@+id/checkmark"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_above="@+id/printer"
+                android:layout_alignEnd="@+id/printer"
+                android:layout_alignLeft="@+id/printer"
+                android:layout_alignParentTop="false"
+                android:layout_alignRight="@+id/printer"
+                android:layout_alignStart="@+id/printer"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/checkmark_large" />
+
+            <TextView
+                android:id="@+id/printer_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="Selected Printer"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="12dp" />
+
+            <ProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/imageView11"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="73dp"
+                android:indeterminateDrawable="@drawable/progress_circle"
+                android:progressDrawable="@drawable/progress_circle"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

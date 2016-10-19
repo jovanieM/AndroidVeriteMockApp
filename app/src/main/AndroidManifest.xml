@@ -185,6 +185,16 @@
         <activity
             android:name=".MultiplePrintQueue"
             android:screenOrientation="portrait" />
+<<<<<<< HEAD
+=======
+
+        <activity
+            android:name=".A3B4Scan"
+            android:screenOrientation="portrait" />
+
+
+
+>>>>>>> f54fc95a00c8d947c9dc07d08bd9a016d1809d61
         <activity
             android:name=".ImageCropper2"
             android:screenOrientation="portrait" />

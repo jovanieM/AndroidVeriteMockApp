@@ -1,13 +1,8 @@
 package com.cebusqa.kodakverite;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
