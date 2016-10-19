@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar" />
+
+    <TextView
+        android:id="@+id/easy_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="A3 / B4 Scan"
+        android:textSize="@dimen/easy_setup_size"
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="To perform printhead alignment,  \n1. Load Letter or A4 paper in tray.   \n2. Install ink cartridges.     \n3. Press [Next] and calibration sheet will be printed."
+        android:layout_below="@+id/easy_setup" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="208dp"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView34"
+        android:id="@+id/linearLayout5"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:layout_below="@+id/textView34"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.14"
+            android:scaleType="fitXY"
+            android:src="@drawable/alignment">
+
+        </pl.droidsonroids.gif.GifImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_alignLeft="@+id/textView34"
+        android:layout_alignStart="@+id/textView34"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_alignLeft="@+id/btn_default"
+            android:layout_alignStart="@+id/btn_default"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/oval_background"
+            android:text="Scan"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+    <!--    </LinearLayout>  -->
+</RelativeLayout>
+
+
+
+
