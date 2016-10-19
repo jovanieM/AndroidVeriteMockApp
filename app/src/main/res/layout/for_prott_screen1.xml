@@ -27,7 +27,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="To perform printhead alignment,  \n1. Load Letter or A4 paper in tray.   \n2. Install ink cartridges.     \n3. Press [Next] and calibration sheet will be printed."
+        android:text="1. Place the right side of the paper facing on the flatbed scanner.\n
+        2. Close scanner cover and press [Scan]."
         android:layout_below="@+id/easy_setup" />
 
     <LinearLayout

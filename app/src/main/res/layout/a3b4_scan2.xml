@@ -16,29 +16,29 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="1. Place the right side of the paper facing on the flatbed scanner.
-        \n2. Close scanner cover and press [Scan]."
-        android:layout_below="@+id/easy_setup" />
+        android:text="Scanning..."
+        android:layout_below="@+id/easy_setup"
+        android:gravity="bottom" />
 
 
 
-        <ImageView
-            android:id="@+id/view4"
-            android:layout_width="match_parent"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentStart="false"
-            android:layout_below="@+id/textView34"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.14"
-            android:scaleType="fitXY"
-            android:src="@drawable/leftside_scan"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_height="240dp">
+    <ImageView
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_below="@+id/textView34"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.14"
+        android:scaleType="fitXY"
+        android:src="@drawable/leftside_scan_start"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="240dp">
 
-        </ImageView>
+    </ImageView>
 
 
 
@@ -63,6 +63,7 @@
         android:text="Scan"
         android:textAllCaps="false"
         android:layout_below="@+id/view4"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        />
 
 </RelativeLayout>
