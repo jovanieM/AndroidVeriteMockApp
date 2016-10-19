@@ -8,7 +8,7 @@
         <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
     </style>
 
-        <!-- Customize your theme here. -->
+    <!-- Customize your theme here. -->
 
     <style name="DialogTheme" parent="android:Theme.Dialog">
         <item name="android:layout_width">fill_parent</item>
@@ -19,10 +19,12 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsFloating">false</item>
     </style>
+
     <style name="CustomStyle">
         <item name="android:bottomBright">#ffffff</item>
         <item name="android:bottomDark">#ffffff</item>
     </style>
+
     <style name="spinnerItemStyle">
         <item name="android:textSize">@dimen/text_size</item>
     </style>
@@ -57,5 +59,9 @@
         <item name="android:topBright">@color/white</item>
         <item name="android:topDark">@color/white</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
