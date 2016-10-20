@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black">
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/app_bar" />
+        layout="@layout/app_bar_back_only" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/easy_setup" />
+
 
 
     <ImageView
@@ -14,16 +27,15 @@
         android:layout_width="match_parent"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
-        android:layout_below="@+id/textView34"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.14"
         android:scaleType="fitXY"
-        android:src="@drawable/leftside_scan_start"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
-        android:layout_height="220dp">
+        android:layout_height="240dp"
+        android:src="@drawable/world_map"
+        android:layout_below="@+id/textView34">
 
     </ImageView>
 
@@ -37,22 +49,9 @@
         android:gravity="center_horizontal"
         android:text="A3 / B4 Scan"
         android:textSize="@dimen/easy_setup_size"
+        android:padding="10dp"
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp" />
-
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Scanning the right side of the paper..."
-        android:layout_below="@+id/easy_setup"
-        android:layout_alignLeft="@+id/view4"
-        android:layout_alignStart="@+id/view4"
-        android:layout_alignRight="@+id/view4"
-        android:layout_alignEnd="@+id/view4"
-        android:paddingLeft="10dp"
-        android:gravity="center_vertical" />
+        tools:ignore="HardcodedText" />
 
 </RelativeLayout>

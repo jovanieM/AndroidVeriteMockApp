@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <include layout="@layout/app_bar"
+        android:id="@+id/include7" />
+
+    <TextView
+        android:id="@+id/easy_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="A3 / B4 Scan"
+        android:textSize="@dimen/easy_setup_size"
+        android:layout_below="@+id/include7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        tools:ignore="HardcodedText" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Scanning the left side of the paper..."
+        android:id="@+id/textView36"
+        android:layout_below="@+id/easy_setup"
+        android:layout_alignLeft="@+id/imageView6"
+        android:layout_alignStart="@+id/imageView6"
+        android:layout_alignRight="@+id/imageView6"
+        android:layout_alignEnd="@+id/imageView6"
+        android:paddingLeft="10dp"
+        android:layout_height="85dp"
+        android:gravity="center_vertical"
+        tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:id="@+id/imageView6"
+        android:src="@drawable/scan_left_side"
+
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/textView36"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp" />
+
+</RelativeLayout>
+
+
+
+

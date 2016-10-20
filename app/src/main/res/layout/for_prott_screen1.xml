@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
-    <include layout="@layout/app_bar_back_only"
+    <include layout="@layout/app_bar"
         android:id="@+id/include7"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="77dp" />
+        />
 
     <TextView
         android:id="@+id/easy_setup"
@@ -16,44 +14,28 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="A3 / B4 Scan"
-        android:textSize="@dimen/easy_setup_size"
-        android:padding="10dp"
+        android:textSize="20dp"
         android:layout_below="@+id/include7"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" />
 
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:text="1.   Fold A3 or B4 paper in half. \n2.   Place the left side of the paper facing on the flatbed        \n      scanner. \n3.   Close scanner cover and press [Scan]."
-        android:layout_below="@+id/easy_setup"
-        android:singleLine="false" />
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:id="@+id/imageView27"
-        android:layout_below="@+id/easy_setup" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
         android:id="@+id/imageView6"
-        android:src="@drawable/set_left_side"
-        android:layout_gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.14"
+        android:scaleType="fitXY"
         android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="220dp"
         android:layout_below="@+id/textView34"
-        android:layout_marginRight="10dp" />
+        android:src="@drawable/set_left_side"
+        />
 
     <Button
         android:id="@+id/btn_next"
@@ -65,6 +47,20 @@
         android:textAllCaps="false"
         android:layout_below="@+id/imageView6"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Left Side Scan:\n\t1. Fold A3 or B4 paper in half. \n\t2. Place the left side of the paper facing on the\n \t\t\t\tflatbed scanner.\n\t3. Close scanner cover and press [Scan]."
+        android:inputType="textMultiLine"
+        android:textSize="14dp"
+        android:layout_below="@+id/easy_setup"
+        android:layout_alignLeft="@+id/imageView6"
+        android:layout_alignStart="@+id/imageView6"
+        android:layout_alignRight="@+id/imageView6"
+        android:layout_alignEnd="@+id/imageView6" />
 
 </RelativeLayout>
 
