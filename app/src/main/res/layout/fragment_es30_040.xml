@@ -39,8 +39,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
+            android:layout_gravity="start|center_vertical"
             android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
             android:shadowDy="1"
@@ -52,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginEnd="7dp"
             android:layout_marginRight="7dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
@@ -63,7 +65,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|right"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
             android:shadowColor="@color/text_shadow"
             android:shadowDx="1"
@@ -83,6 +86,7 @@
         android:layout_below="@+id/frameLayout14"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:text="@string/ssid"
         android:textSize="@dimen/text_size" />
 
@@ -92,8 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/frameLayout14"
         android:layout_alignRight="@+id/frameLayout14"
-        android:layout_below="@+id/frameLayout14"
-        android:layout_weight="0.56" />
+        android:layout_below="@+id/frameLayout14" />
 
     <TextView
         android:id="@+id/tv_password"
@@ -128,9 +131,11 @@
         android:id="@+id/checkBox3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/et_pass1"
         android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:button="@drawable/custom_checkbox"
         android:text="@string/show_password" />
@@ -146,7 +151,7 @@
         android:layout_marginStart="42dp"
         android:background="@drawable/oval_background"
         android:text="@string/help"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_other"
@@ -159,6 +164,6 @@
         android:layout_toRightOf="@+id/btn_help1"
         android:background="@drawable/oval_background"
         android:text="@string/other"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
 </RelativeLayout>

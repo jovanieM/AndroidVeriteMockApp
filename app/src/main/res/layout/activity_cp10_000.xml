@@ -4,277 +4,226 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context="com.cebusqa.kodakverite.CP10_000"
     android:gravity="center"
-    android:paddingLeft="10dp">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/linearLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"></LinearLayout>
+    android:paddingEnd="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingStart="10dp"
+    tools:context="com.cebusqa.kodakverite.CP10_000">
 
     <include
-        layout="@layout/app_bar_back_only"
-        android:id="@+id/toolbar" />
+        android:id="@+id/toolbar"
+        layout="@layout/app_bar_back_only" />
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/toolbar"
-        android:id="@+id/linearLayout">
+        android:orientation="vertical">
 
         <TextView
+            android:id="@+id/copysetting_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Copy Settings"
-            android:id="@+id/copysetting_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="62dp"
+            android:orientation="horizontal"
             android:weightSum="1">
 
             <TextView
+                android:id="@+id/copies"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Copies"
-                android:id="@+id/copies"
-                android:textColor="#ffffff"
-                android:layout_weight="0.01"
-                android:textSize="15dp"
-                android:textAlignment="center"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5dp" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="0.01"
+                android:text="Copies"
+                android:textColor="#ffffff"
+                android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/num_copies"
                 android:layout_width="20dp"
                 android:layout_height="30dp"
-                android:id="@+id/num_copies"
-                android:layout_weight="0.26"
                 android:layout_gravity="center"
-                android:background="#ffffff"
                 android:layout_marginLeft="20dp"
-                android:textColor="#000000"
-                android:textAlignment="center"
-                android:gravity="center|center_vertical|center_horizontal" />
+                android:layout_marginStart="20dp"
+                android:layout_weight="0.26"
+                android:background="#ffffff"
+                android:gravity="center|center_vertical|center_horizontal"
+                android:textColor="#000000" />
 
             <ImageButton
+                android:id="@+id/decre"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:text="-"
-                android:id="@+id/decre"
                 android:layout_gravity="center"
                 android:layout_marginLeft="40dp"
+                android:layout_marginStart="40dp"
                 android:background="#000000"
+                android:src="@mipmap/decre"
+                android:text="-"
                 android:textColor="#000000"
-                android:textSize="45dp"
-                android:src="@mipmap/decre" />
+                android:textSize="45sp" />
 
             <ImageButton
+                android:id="@+id/incre"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-                android:text="+"
-                android:id="@+id/incre"
-                android:layout_marginLeft="0dp"
-                android:background="#000000"
-                android:textColor="#000000"
-                android:textSize="40dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/incre" />
+                android:background="#000000"
+                android:src="@mipmap/incre"
+                android:text="+"
+                android:textColor="#000000"
+                android:textSize="40sp" />
         </LinearLayout>
 
-<!--
-
         <RelativeLayout
-            android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="116dp"
-            android:layout_gravity="right"
-            android:weightSum="1">
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/standardcolor"
-                android:src="@mipmap/standardcolor_yellow"
-                android:layout_marginLeft="10dp"
-                android:background="#000000"
-                android:onClick="setListFooter"
-                android:layout_alignParentEnd="false"
-                android:layout_alignParentStart="false"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentRight="false"
-                android:layout_centerVertical="true" />
-
-
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/standardbw"
-                android:layout_weight="0"
-                android:src="@mipmap/standardbw_white"
-                android:background="#000000"
-                android:layout_centerInParent="true" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/custom"
-                android:src="@mipmap/custom_white"
-                android:background="#000000"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="false"
-
-                android:layout_marginRight="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_centerVertical="true" />
-
-        </RelativeLayout>
--->
-
-
-        <RelativeLayout
             android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="116dp"
             android:weightSum="1">
 
             <RelativeLayout
-                android:orientation="vertical"
+                android:id="@+id/standardcolor"
                 android:layout_width="80dp"
                 android:layout_height="260dp"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:background="@drawable/copysetting_select"
                 android:descendantFocusability="beforeDescendants"
                 android:focusable="true"
-                android:background="@drawable/copysetting_select"
-                android:id="@+id/standardcolor">
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textView11"
                     android:layout_width="74dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView11"
-                    android:text=" Standard \n A4"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="35dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="10sp"
-                    android:textAlignment="center"
-                    android:clickable="false"
-                    android:focusable="false"/>
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton18"
-                    android:src="@drawable/color_ink_full"
-                    android:background="#000000"
-                    android:layout_alignParentEnd="false"
-                    android:layout_alignParentStart="false"
-                    android:layout_alignParentLeft="false"
-                    android:layout_alignParentRight="false"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_below="@+id/textView11"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="10dp"
-                    android:layout_alignParentTop="false"
-                    android:layout_centerHorizontal="true"
                     android:clickable="false"
                     android:focusable="false"
+                    android:text=" Standard \n A4"
+                    android:textAlignment="center"
+                    android:textSize="10sp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignParentLeft="false"
+                    android:layout_alignParentRight="false"
+                    android:layout_alignParentStart="false"
+                    android:layout_alignParentTop="false"
+                    android:layout_below="@+id/textView11"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:background="#000000"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:src="@drawable/color_ink_full"
                     android:textAlignment="center" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:orientation="vertical"
+                android:id="@+id/standardbw"
                 android:layout_width="80dp"
                 android:layout_height="260dp"
                 android:layout_alignParentLeft="false"
-                android:background="@drawable/copysetting_unselect"
+                android:layout_alignParentStart="false"
                 android:layout_centerHorizontal="true"
+                android:background="@drawable/copysetting_unselect"
                 android:descendantFocusability="beforeDescendants"
                 android:focusable="true"
-                android:id="@+id/standardbw">
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textView78"
                     android:layout_width="74dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView78"
-                    android:text=" Standard \n A4"
-                    android:layout_marginTop="35dp"
-                    android:layout_gravity="center_horizontal"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="35dp"
                     android:clickable="false"
                     android:focusable="false"
-                    android:textSize="10sp"
-                    android:textAlignment="center" />
+                    android:text=" Standard \n A4"
+                    android:textAlignment="center"
+                    android:textSize="10sp" />
 
                 <ImageButton
+                    android:id="@+id/imageButton19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageButton19"
-                    android:src="@drawable/black_ink_full"
-                    android:background="#000000"
+                    android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="false"
-                    android:layout_alignParentStart="false"
                     android:layout_alignParentLeft="false"
                     android:layout_alignParentRight="false"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_alignParentStart="false"
+                    android:layout_alignParentTop="false"
                     android:layout_below="@+id/textView78"
-                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="15dp"
-                    android:layout_alignParentTop="false"
-                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="15dp"
+                    android:background="#000000"
                     android:clickable="false"
                     android:focusable="false"
+                    android:src="@drawable/black_ink_full"
                     android:textAlignment="center" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:orientation="vertical"
+                android:id="@+id/custom"
                 android:layout_width="80dp"
                 android:layout_height="260dp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentLeft="false"
-                android:background="@drawable/copysetting_unselect"
-                android:layout_centerHorizontal="true"
                 android:layout_alignParentRight="true"
+                android:layout_alignParentStart="false"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/copysetting_unselect"
                 android:descendantFocusability="beforeDescendants"
                 android:focusable="true"
-                android:id="@+id/custom">
+                android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/textView81"
                     android:layout_width="74dp"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView81"
-                    android:text="Custom"
-                    android:layout_marginTop="50dp"
-                    android:layout_gravity="center_horizontal"
                     android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="50dp"
                     android:clickable="false"
                     android:focusable="false"
-                    android:textSize="10sp"
-                    android:textAlignment="center" />
+                    android:text="Custom"
+                    android:textAlignment="center"
+                    android:textSize="10sp" />
 
             </RelativeLayout>
 
         </RelativeLayout>
 
         <fragment
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:id="@+id/fragment_place"
-            android:name="com.cebusqa.kodakverite.FragmentOne" />
+            android:name="com.cebusqa.kodakverite.FragmentOne"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 
