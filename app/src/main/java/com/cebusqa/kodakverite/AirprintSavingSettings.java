@@ -33,7 +33,6 @@ public class AirprintSavingSettings extends DialogFragment {
 //                //.setMessage(message)
 //                .setView(view)
 //                .create();
-
     }
 
     @Override

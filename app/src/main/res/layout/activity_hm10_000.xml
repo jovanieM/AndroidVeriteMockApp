@@ -316,22 +316,35 @@
 
                 <LinearLayout
                     android:id="@+id/a3b4_scan"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    android:layout_weight="0.11"
+                    android:background="@drawable/gradient_bg"
                     android:clickable="true"
+                    android:focusable="true"
                     android:orientation="vertical"
-                    android:background="@drawable/gradient_bg">
+                    android:weightSum="1">
 
                     <TextView
                         android:id="@+id/textView42"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
-                        android:layout_gravity="center|bottom"
+                        android:layout_gravity="center"
                         android:gravity="center_vertical|center_horizontal"
-                        android:text="A3B4 Scan"/>
+                        android:text="A3/B4 Scan"
+                        android:textSize="15dp"
+                        android:layout_weight="0.06" />
+
+                    <ImageButton
+                        android:id="@+id/a3b4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="#00ffffff"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:src="@mipmap/icon_a3b4can" />
 
 
                 </LinearLayout>

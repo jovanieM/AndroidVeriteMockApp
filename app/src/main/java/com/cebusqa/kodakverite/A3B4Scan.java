@@ -13,7 +13,7 @@ public class A3B4Scan extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.a3b4_scan2);
+        setContentView(R.layout.a3b4);
 
     }
 

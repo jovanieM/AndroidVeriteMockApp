@@ -73,6 +73,7 @@ public class AirPrint extends Activity implements CompoundButton.OnCheckedChange
             }
         });
 
+
         final ProgressDialog pd = new ProgressDialog(this, ProgressDialog.THEME_HOLO_LIGHT);
         pd.setMessage("Getting network information...");
         pd.setCancelable(false);

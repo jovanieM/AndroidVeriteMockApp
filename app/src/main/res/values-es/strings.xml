@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kodak Verite</string>
+    <string name="easy_setup">EASY SETUP</string>
+    <string name="status_check">Verificar Estado</string>
+    <string name="alignment">Alineación</string>
+    <string name="wifi_setup">Wi-Fi Setup</string>
+    <string name="ok">OK</string>
+    <string name="skip">Omitir</string>
+    <string name="start_scan">Iniciar (Escaneo)</string>
+    <string name="help">Ayuda</string>
+    <string name="scanning">Exploración…</string>
+    <string name="wps">WPS</string>
+    <string name="manual">Manual</string>
+    <string name="direct">Directo Inalámbrica</string>
+    <string name="ssid">SSID</string>
+    <string name="security">Security</string>
+    <string name="password">Password</string>
+    <string name="input_password">Input Password</string>
+    <string name="show_password">Show Password</string>
+    <string name="ssid_name">Input SSID name</string>
+    <string name="find_router">Encuentra Router</string>
+    <string name="other">Other</string>
+    <string name="usage_tracking">Usage Tracking</string>
+    <string name="done">Done</string>
+    <string name="searching_for_routers">Searching for Routers...</string>
+    <string name="network_and_password">Red y contraseña</string>
+    <string name="select_the_network">Select the network...</string>
+    <string name="connecting_via_router">Connecting via Router...</string>
+    <string name="ip_address">Dirección IP</string>
+    <string name="save_setting">Guardar configuración</string>
+    <string name="proxy">Proxy</string>
+    <string name="host_name">Nombre de host</string>
+    <string name="direct_connect_time">Direct Connect Time</string>
+    <string name="friendly_name">Nombre Amigable</string>
+    <string name="subnet_mask">Subnet mask</string>
+    <string name="default_gateway">Default Gateway</string>
+    <string name="dns_address">DNS Address</string>
+
+    <string-array name="Color_copy">
+        <item>Color</item>
+        <item>Black and White</item>
+    </string-array>
+
+    <string-array name="Paper_size_copy">
+        <item>Letter</item>
+        <item>Legal</item>
+        <item>Executive</item>
+        <item>Statement</item>
+        <item>A4</item>
+        <item>JIS B5</item>
+        <item>A5</item>
+        <item>4x6 in.</item>
+        <item>3x5 in.</item>
+        <item>5x7 in.(2L)</item>
+        <item>3.5x5 in.(L)</item>
+        <item>Hagaki</item>
+        <item>10 Envelope</item>
+        <item>DL Envelope</item>
+        <item>C5 Envelope</item>
+    </string-array>
+
+    <string-array name="Paper_type">
+        <item>Plain</item>
+        <item>Labels</item>
+        <item>Envelope</item>
+        <item>Glossy Photo</item>
+        <item>Matte Photo</item>
+    </string-array>
+
+    <string-array name="Quality_copy">
+        <item>Text</item>
+        <item>Text/Graphics</item>
+        <item>Photo</item>
+        <item>Draft</item>
+    </string-array>
+
+    <string-array name="Copy_Resize">
+        <item>100% Default</item>
+        <item>130% Letter->Legal</item>
+        <item>104% Executive->Letter</item>
+        <item>97% Letter->A4</item>
+        <item>85% Letter->Executive</item>
+        <item>Custom</item>
+    </string-array>
+
+    <string-array name="Pages_per_side">
+        <item>One</item>
+        <item>2 in 1 Portrait</item>
+        <item>2 in 1 Landscape</item>
+        <item>4 in 1 Portrait</item>
+        <item>4 in 1 Landscape</item>
+    </string-array>
+
+    <string-array name="routers_printer">
+        <item>Router 1</item>
+        <item>Router 2</item>
+        <item>Router 3</item>
+        <item>Router 4</item>
+        <item>Router 5</item>
+        <item>Router 6</item>
+        <item>Printer 1</item>
+        <item>Printer 2</item>
+        <item>Printer 3</item>
+        <item>Printer 4</item>
+        <item>Printer 5</item>
+        <item>Printer 6</item>
+    </string-array>
+
+    <string-array name="security">
+        <item>Open</item>
+        <item>WEP</item>
+        <item>WPA/WPA2-PSK MIX</item>
+        <item>WPA2-PSK AES</item>
+    </string-array>
+
+    <string-array name="Quality_scan">
+        <item>Low (Fast)</item>
+        <item>Normal</item>
+        <item>High</item>
+    </string-array>
+
+    <string-array name="Color_scan">
+        <item>Color</item>
+        <item>Gray Scale</item>
+        <item>Black &amp; White</item>
+    </string-array>
+
+
+    <string-array name="Document_scan">
+        <item>Text</item>
+        <item>Text/Graphics</item>
+    </string-array>
+
+    <string-array name="Type_scan">
+        <item>JPG</item>
+        <item>PDF</item>
+    </string-array>
+
+    <string-array name="Photo_scan">
+        <item>Photo</item>
+    </string-array>
+
+    <string-array name="Paper_size_print">
+        <item>4x6 in.</item>
+        <item>4x6 in. Borderless</item>
+        <item>3x5 in.</item>
+        <item>5x7 in.(2L)</item>
+        <item>5x7 in.(2L) Borderless</item>
+        <item>3.5x5 in.(L)</item>
+        <item>3.5x5 in.(L) Borderless</item>
+        <item>Letter</item>
+        <item>Letter Borderless</item>
+        <item>Legal</item>
+        <item>Executive</item>
+        <item>Statement</item>
+        <item>A4</item>
+        <item>A4 Borderless</item>
+        <item>JIS B5</item>
+        <item>A5</item>
+        <item>A5 Borderless</item>
+        <item>A6</item>
+        <item>A6 Borderless</item>
+        <item>Hagaki</item>
+        <item>Hagaki Borderless</item>
+        <item>10 Envelope</item>
+        <item>DL Envelope</item>
+        <item>C5 Envelope</item>
+    </string-array>
+
+
+    <string-array name="Color_print">
+        <item>Color</item>
+    </string-array>
+
+
+    <string-array name="Print_quality">
+        <item>Automatic</item>
+        <item>Normal</item>
+        <item>Best</item>
+        <item>Draft</item>
+    </string-array>
+
+    <string-array name="printer_utility">
+        <item>Device Sleep Time</item>
+        <item>Clean Printhead</item>
+        <item>Cartridge Setup</item>
+        <item>Print Reports</item>
+        <item>Paper Setup</item>
+        <item>Restore Factory Default</item>
+    </string-array>
+
+    <string-array name="wifi_setup">
+        <item>Network and Password</item>
+        <item>IP Address</item>
+        <item>Proxy</item>
+        <item>Host Name</item>
+        <item>Direct Connect Time</item>
+        <item>Friendly Name</item>
+    </string-array>
+
+    <string-array name="direct_time">
+        <item> 5 min </item>
+        <item> 10 min </item>
+        <item> 60 min </item>
+        <item> Unlimited </item>
+    </string-array>
+
+    <string-array name="printer_select">
+        <item> Kodak1 </item>
+        <item> Kodak2 </item>
+        <item> Kodak3 </item>
+        <item> Kodak4 </item>
+    </string-array>
+
+    <string-array name="gcp_reg_status">
+        <item>Registration</item>
+        <item>Unregistration</item>
+    </string-array>
+
+    <string-array name="copy_desc">
+        <item> Color </item>
+        <item> Paper Size </item>
+        <item> Paper Type </item>
+        <item> Quality </item>
+        <item> Copy Resize </item>
+        <item> Paper Per Side </item>
+        <item> Brightness </item>
+    </string-array>
+
+    <string-array name="brightness">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="quick_print">
+        <item>Photo 4x6 in. Borderless</item>
+        <item>Photo Letter Borderless</item>
+        <item>Document Letter</item>
+    </string-array>
+    <string name="title_activity_prott_screen_one">Prott_screen_one</string>
+
+</resources>
