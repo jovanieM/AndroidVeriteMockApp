@@ -21,7 +21,7 @@
             layout="@layout/app_bar_back_only"
             android:id="@+id/toolbar" />
 
-        <ImageButton
+         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/imageButton"

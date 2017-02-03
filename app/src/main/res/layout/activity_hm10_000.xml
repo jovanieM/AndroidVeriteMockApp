@@ -22,8 +22,6 @@
             android:id="@+id/printer_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="bottom"
             android:layout_marginBottom="20dp"
             android:background="#000000"
@@ -32,7 +30,7 @@
             android:src="@mipmap/kodak_name"
             android:text="KODAK VERITE 55 PLUS"
             android:textColor="#fdb700"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -59,6 +57,7 @@
         android:id="@+id/scrollView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentRight="false"
         android:layout_alignParentStart="false"
@@ -69,15 +68,11 @@
         android:layout_marginRight="5dp">
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/linearLayout_ecomode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="#000000"
             android:orientation="vertical"
             android:scrollIndicators="top">
-
 
             <LinearLayout
                 android:id="@+id/linearLayout_first"
@@ -91,17 +86,17 @@
 
                 <LinearLayout
                     android:id="@+id/ink_level"
+                    style="@style/Widget.AppCompat.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     android:background="@drawable/gradient_bg"
-                    android:clickable="true"
 
+                    android:clickable="true"
                     android:focusable="true"
                     android:orientation="vertical"
-                    android:weightSum="1"
-                    style="@style/Widget.AppCompat.Button">
+                    android:weightSum="1">
 
                     <TextView
                         android:id="@+id/ink_level_tv"
@@ -110,24 +105,26 @@
                         android:layout_gravity="center"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="Ink Level"
-                        android:textSize="15dp" />
+                        android:textSize="15sp" />
 
                     <RelativeLayout
+                        android:id="@+id/inks"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
-                        android:layout_weight="0.31"
-                        android:id="@+id/inks">
+                        android:layout_weight="0.31">
 
                         <ImageButton
                             android:id="@+id/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="false"
+                            android:layout_alignParentStart="false"
                             android:layout_centerInParent="true"
                             android:background="#00ffffff"
                             android:clickable="false"
                             android:focusable="false"
+                            android:paddingEnd="20dp"
                             android:paddingRight="20dp"
                             android:src="@mipmap/black_ink_normal" />
 
@@ -153,7 +150,7 @@
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="OK"
-                        android:textSize="10dp" />
+                        android:textSize="10sp" />
 
                 </LinearLayout>
 
@@ -175,7 +172,7 @@
                         android:layout_gravity="center"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="Print Photo"
-                        android:textSize="15dp" />
+                        android:textSize="15sp" />
 
                     <ImageButton
                         android:id="@+id/photoprint"
@@ -223,7 +220,7 @@
                         android:layout_gravity="center"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="Copy"
-                        android:textSize="15dp" />
+                        android:textSize="15sp" />
 
                     <ImageView
                         android:id="@+id/copy"
@@ -257,7 +254,7 @@
                         android:layout_gravity="center"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="Scan Document"
-                        android:textSize="15dp" />
+                        android:textSize="15sp" />
 
                     <ImageButton
                         android:id="@+id/scandocument"
@@ -301,7 +298,7 @@
                         android:layout_gravity="center"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="Scan Photo"
-                        android:textSize="15dp" />
+                        android:textSize="15sp" />
 
                     <ImageButton
                         android:id="@+id/scanphoto"
@@ -320,11 +317,18 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
+<<<<<<< HEAD
                     android:background="@drawable/gradient_bg"
                     android:clickable="true"
                     android:focusable="true"
                     android:orientation="vertical"
                     android:weightSum="1">
+=======
+                    android:layout_weight="0.11"
+                    android:background="@drawable/gradient_bg"
+                    android:clickable="true"
+                    android:orientation="vertical">
+>>>>>>> 5232d2ed8456fa075057207677c38281ba57033b
 
                     <TextView
                         android:id="@+id/textView42"
@@ -332,6 +336,7 @@
                         android:layout_height="48dp"
                         android:layout_gravity="center"
                         android:gravity="center_vertical|center_horizontal"
+<<<<<<< HEAD
                         android:text="A3/B4 Scan"
                         android:textSize="15dp"
                         android:layout_weight="0.06" />
@@ -345,6 +350,9 @@
                         android:clickable="false"
                         android:focusable="false"
                         android:src="@mipmap/icon_a3b4can" />
+=======
+                        android:text="A3B4 Scan" />
+>>>>>>> 5232d2ed8456fa075057207677c38281ba57033b
 
 
                 </LinearLayout>
@@ -360,23 +368,16 @@
         android:id="@+id/linearLayout_printer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#000000"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#000000"
+        android:orientation="vertical">
 
         <include
             android:id="@+id/toolbar"
             layout="@layout/app_bar_home"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
-        <LinearLayout
-            android:id="@+id/spacer"
-            android:layout_width="match_parent"
-            android:layout_height="26dp"
-            android:orientation="vertical"></LinearLayout>
+            />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -431,7 +432,7 @@
                 android:layout_centerHorizontal="true"
                 android:text="Selected Printer"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="12dp" />
+                android:textSize="12sp" />
 
             <ProgressBar
                 android:id="@+id/progressbar"

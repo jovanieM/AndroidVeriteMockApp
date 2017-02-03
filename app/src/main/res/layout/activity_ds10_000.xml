@@ -77,18 +77,21 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:clickable="false"
                 android:focusable="false"
                 android:text="Print Photo Settings"
-                android:textColor="#bfbfbf"/>
+                android:textColor="#bfbfbf" />
 
             <ImageButton
                 android:id="@+id/imageButton7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical|right"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:background="#00ffffff"
                 android:clickable="false"
@@ -114,18 +117,21 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:clickable="false"
                 android:focusable="false"
                 android:text="Scan Settings"
-                android:textColor="#bfbfbf"/>
+                android:textColor="#bfbfbf" />
 
             <ImageButton
                 android:id="@+id/imageButton8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical|right"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
                 android:background="#00ffffff"
                 android:clickable="false"
@@ -151,19 +157,22 @@
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:clickable="false"
                 android:focusable="false"
                 android:text="Device Settings"
-                android:textColor="#bfbfbf"/>
+                android:textColor="#bfbfbf" />
 
             <ImageButton
                 android:id="@+id/imageButton9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical|right"
+                android:layout_gravity="center_vertical|end"
                 android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="#00ffffff"
                 android:clickable="false"
                 android:focusable="false"
@@ -173,44 +182,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginTop="20dp"
             android:background="@drawable/listview_bg"
             android:gravity="center"
-            android:layout_marginTop="20dp">
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CONNECT"
-                android:textSize="10sp"/>
+                android:text="CONNECTION"
+                android:textSize="10sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:text="direct connection"
                 android:textAllCaps="false"
-                android:layout_marginTop="15dp"
-                android:textColor="#f0b82f"/>
+                android:textColor="#f0b82f" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/direct_icon" />
 
         </LinearLayout>
-
-        <!-- <ImageButton
-            android:id="@+id/connection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/gradient_bg"
-            android:src="@mipmap/connection"
-            android:clickable="false"/> -->
     </LinearLayout>
-
-
 </RelativeLayout>

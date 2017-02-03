@@ -84,11 +84,6 @@
         android:text="Printing..."
         android:textSize="15sp" />
 
-    <!-- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="219dp"
-        android:layout_margin="10dp"> -->
-
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="wrap_content"
