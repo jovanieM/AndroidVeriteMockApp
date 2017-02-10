@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/app_bar_back_only" />
+
+
+    <TextView
+        android:id="@+id/easy_setup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="A3 / B4 Scan"
+        android:textSize="@dimen/easy_setup_size"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:text="This feature enables you to scan A3 or B4 paper sizes."
+        android:layout_below="@+id/easy_setup"
+        android:layout_alignRight="@+id/view4"
+        android:layout_alignEnd="@+id/view4"
+        android:layout_alignLeft="@+id/view4"
+        android:layout_alignStart="@+id/view4"
+        android:gravity="center_vertical"
+        android:layout_height="50dp"
+        android:paddingLeft="5dp" />
+
+    <TextView
+        android:text="Please select your paper size to scan."
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/textView34"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView37"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="center_vertical"
+        android:layout_height="50dp"
+        android:paddingLeft="5dp" />
+
+    <RadioButton
+        android:text="A3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioButton"
+        android:layout_below="@+id/textView37"
+        android:layout_toLeftOf="@+id/btn_next"
+        android:layout_toStartOf="@+id/btn_next"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/oval_background"
+        android:text="Next"
+        android:textAllCaps="false"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/radioButton2"
+        android:layout_centerHorizontal="true" />
+
+    <RadioButton
+        android:text="B4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioButton2"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/radioButton"
+        android:layout_alignRight="@+id/radioButton"
+        android:layout_alignEnd="@+id/radioButton" />
+
+</RelativeLayout>
